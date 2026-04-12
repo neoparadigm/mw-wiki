@@ -57,18 +57,18 @@ No crawling. No database. No Docker. The knowledge base is pre-built and ships w
 
 ## What It Is
 
-MW·Wiki is an open-source knowledge graph for the Modern Workplace community — Intune, Entra ID, Conditional Access, Sentinel, Defender, Exchange, and Teams.
+MW·Wiki is an open-source knowledge graph for the Modern Workplace community - Intune, Entra ID, Conditional Access, Sentinel, Defender, Exchange, and Teams.
 
-It crawls a curated set of community blogs, distils each article into structured topic nodes using a local LLM, and connects them into a graph of community knowledge. Ask a question and get a cited answer — every claim traced back to the specific blog post and author that covers it.
+It crawls a curated set of community blogs, distils each article into structured topic nodes using a local LLM, and connects them into a graph of community knowledge. Ask a question and get a cited answer - every claim traced back to the specific blog post and author that covers it.
 
-> *"Most AI tools retrieve context on demand by searching documents. MW·Wiki maintains long-lived knowledge instead — relationships are explicit, topics accumulate over time, and the graph compounds rather than starting cold every session."*
+> *"Most AI tools retrieve context on demand by searching documents. MW·Wiki maintains long-lived knowledge instead - relationships are explicit, topics accumulate over time, and the graph compounds rather than starting cold every session."*
 
 **This is not RAG.** Articles are not chunked into fragments and retrieved by similarity. They are distilled into owned, structured topic nodes — plain Markdown files you can read, edit, and contribute to directly. The knowledge graph is the product.
 
 
 ## What It Does
 
-You ask a question about Modern Workplace. MW·Wiki finds the most relevant topic files from the corpus, makes a single API call to Claude, and returns a cited answer — every claim attributed to the specific blog post and author that covers it.
+You ask a question about Modern Workplace. MW·Wiki finds the most relevant topic files from the corpus, makes a single API call to Claude, and returns a cited answer - every claim attributed to the specific blog post and author that covers it.
 
 ```
 You ask: "How do I block device code flow in Conditional Access?"
