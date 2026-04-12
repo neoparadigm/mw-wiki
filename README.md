@@ -4,7 +4,7 @@
 
 # MW·Wiki
 
-**The answer Claude can't give you — current, cited, and community-verified.**
+**The answer LLMs can't give you - current, cited, and community-verified.**
 
 A synthesised knowledge base for Modern Workplace practitioners, built from the best Microsoft MVP blogs and Microsoft documentation. Every answer traces back to a named author, a real URL, and a date.
 
@@ -70,31 +70,9 @@ MW·Wiki returns:
 
 Inspired by [Andrej Karpathy's LLM Wiki](https://github.com/karpathy) concept — structured knowledge maintained by an LLM librarian, not chunks retrieved from a vector database.
 
-```mermaid
-flowchart TD
-    A[seed_list.yaml\n18 curated sources] --> B[Crawler\nrobots.txt aware\nhttpx + markdownify]
-    B --> C[/raw/\nmarkdown articles]
-    C --> D[Librarian\nOllama local · zero API cost]
-    D --> E{Topic file exists?}
-    E -->|No| F[Create topic file\nsynthesised + cited]
-    E -->|Yes| G[Merge · flag conflicts\nupdate sources]
-    F --> H[/wiki/ topic files]
-    G --> H
-    H --> I[_index.yaml]
-    H --> J[_gaps.md]
-    H --> K[_conflicts.md]
-    H --> L[_stale.md]
-    M[Your question] --> N[Query Engine]
-    I --> N
-    N --> O[Route · keyword match]
-    O --> P[Retrieve · load topic files]
-    P --> Q[Synthesise · Claude API\none call · ~$0.006]
-    Q --> R[Validate · citations present?]
-    R --> S[Cited answer\n+ staleness warnings]
-```
+<img width="1440" height="1740" alt="image" src="https://github.com/user-attachments/assets/ebebfc79-f4ff-48b4-9d47-e68c2c9d9c2e" />
 
-**Build cost:** ~$0 — Ollama runs locally, no API calls during corpus build  
-**Query cost:** ~$0.006 per question — one Claude Sonnet call  
+
 **No vector database. No embeddings. No FAISS.** The index is a human-readable YAML file.
 
 ---
