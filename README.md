@@ -76,6 +76,11 @@ Inspired by [Andrej Karpathy's LLM Wiki](https://github.com/karpathy) concept â€
 
 **No vector database. No embeddings. No FAISS.** The index is a human-readable YAML file.
 
+The end result
+
+<img width="1903" height="682" alt="image" src="https://github.com/user-attachments/assets/b5091351-4e53-4214-b2a8-3748cecdba8a" />
+
+
 ---
 
 ## What's Covered
