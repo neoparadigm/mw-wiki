@@ -1,45 +1,175 @@
+<div align="center">
+
+<img src="https://img.shields.io/badge/Modern%20Workplace-Knowledge%20Base-c0392b?style=for-the-badge&labelColor=1a1612" alt="MW·Wiki"/>
+
 # MW·Wiki
 
-A synthesised knowledge base for Modern Workplace practitioners, built from the best Microsoft MVP blogs and Microsoft documentation.
+**The answer Claude can't give you — current, cited, and community-verified.**
 
-## Get Started
+A synthesised knowledge base for Modern Workplace practitioners, built from the best Microsoft MVP blogs and Microsoft documentation. Every answer traces back to a named author, a real URL, and a date.
+
+[![License: MIT](https://img.shields.io/badge/Code-MIT-1a5c3a?style=flat-square)](LICENSE)
+[![Wiki: CC-BY](https://img.shields.io/badge/Wiki-CC--BY-1a3a5c?style=flat-square)](#license)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11+-c0392b?style=flat-square)](https://python.org)
+[![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-7a6f65?style=flat-square)](https://ollama.com)
+[![Inspired by](https://img.shields.io/badge/Inspired%20by-Karpathy%20LLM%20Wiki-474747?style=flat-square)](https://github.com/karpathy)
+
+</div>
+
+---
+
+## Get Started in 5 Minutes
+
 ```bash
+# 1. Clone — the knowledge base comes pre-built
 git clone https://github.com/neoparadigm/mw-wiki.git
 cd mw-wiki
+
+# 2. Install
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-export ANTHROPIC_API_KEY=your_key_here
+
+# 3. Set your Anthropic API key
+export ANTHROPIC_API_KEY=sk-ant-...
+
+# 4. Serve
 python3 wiki.py serve
 ```
 
-Open `http://localhost:8000` in your browser. The wiki is ready.
+Open **http://localhost:8000** — ask your first question.
 
-No crawling. No setup. The knowledge base comes pre-built.
+No crawling. No database. No Docker. The knowledge base is pre-built and ships with the repo.
 
-## What It Is
+---
 
-MW·Wiki is a community knowledge base for the Modern Workplace — Intune, Entra ID, Conditional Access, Sentinel, Defender, Exchange, and Teams.
+## What It Does
 
-Ask a question in the browser. Get a cited answer traced back to the original MVP blog post or Microsoft documentation that covers it.
+You ask a question about Modern Workplace. MW·Wiki finds the most relevant topic files from the corpus, makes a single API call to Claude, and returns a cited answer — every claim attributed to the specific blog post and author that covers it.
 
-It does not replace the original authors. It makes their work findable in one place.
+```
+You ask: "How do I block device code flow in Conditional Access?"
 
-## What It Is Not
+MW·Wiki returns:
 
-- A replacement for reading the original blogs — every answer links back to them
-- Always current — Microsoft ships changes frequently, check `wiki/_stale.md`
-- Complete — see `wiki/_gaps.md` for topics not yet covered
-- A substitute for professional judgement — always verify before implementing in production
+  To block device code flow, create a CA policy targeting the
+  Authentication flows condition [Daniel Chronlund — CA Policy
+  Design Baseline, 2024]. Set the condition to Block for all
+  users, excluding break-glass accounts [Jan Bakker — Device
+  Code Flow Restriction, 2025].
 
-## Contributing
+  SOURCES
+  ★★★ Daniel Chronlund — CA Policy Design Baseline (2024)
+  ★★  Jan Bakker — How to restrict Device Code Flow (2025)
+  ★★  Jeffrey Appel — Storm-2372 Attack Defence (2025)
+```
 
-Found a blog post that should be in the wiki? Open a PR adding the URL to `config/seed_list.yaml`. The maintainer processes it and commits the updated topic files. You never need to run the crawler.
+---
 
-## Sources
+## How It Works
 
-Built on the work of the Modern Workplace community. See `wiki/_sources.md` for full attribution. Every answer cites the original author and URL.
+Inspired by [Andrej Karpathy's LLM Wiki](https://github.com/karpathy) concept — structured knowledge maintained by an LLM librarian, not chunks retrieved from a vector database.
+
+```mermaid
+flowchart TD
+    A[seed_list.yaml\n18 curated sources] --> B[Crawler\nrobots.txt aware\nhttpx + markdownify]
+    B --> C[/raw/\nmarkdown articles]
+    C --> D[Librarian\nOllama local · zero API cost]
+    D --> E{Topic file exists?}
+    E -->|No| F[Create topic file\nsynthesised + cited]
+    E -->|Yes| G[Merge · flag conflicts\nupdate sources]
+    F --> H[/wiki/ topic files]
+    G --> H
+    H --> I[_index.yaml]
+    H --> J[_gaps.md]
+    H --> K[_conflicts.md]
+    H --> L[_stale.md]
+    M[Your question] --> N[Query Engine]
+    I --> N
+    N --> O[Route · keyword match]
+    O --> P[Retrieve · load topic files]
+    P --> Q[Synthesise · Claude API\none call · ~$0.006]
+    Q --> R[Validate · citations present?]
+    R --> S[Cited answer\n+ staleness warnings]
+```
+
+**Build cost:** ~$0 — Ollama runs locally, no API calls during corpus build  
+**Query cost:** ~$0.006 per question — one Claude Sonnet call  
+**No vector database. No embeddings. No FAISS.** The index is a human-readable YAML file.
+
+---
+
+## What's Covered
+
+| Domain | Topics |
+|---|---|
+| **Identity & Access** | Conditional Access, AiTM defence, Device Code Flow, Legacy Auth, Token Protection |
+| **Privileged Access** | PIM for Groups, Break Glass, Tiered Administration, JIT Access |
+| **Intune & Endpoints** | Autopilot, WDAC, LAPS v2, ASR Rules, Credential Guard, BitLocker |
+| **Sentinel & KQL** | Identity detection, Privilege escalation, Lateral movement queries |
+| **Defender** | MDE Tamper Protection, EDR Block Mode, Safe Links |
+| **Exchange & Teams** | SMTP AUTH, Inbox rule exfiltration, External access |
+| **Azure** | Key Vault RBAC, App Proxy, AVD security |
+
+See [`wiki/_gaps.md`](wiki/_gaps.md) for topics not yet covered.  
+See [`wiki/_conflicts.md`](wiki/_conflicts.md) for where sources disagree.
+
+---
+
+## Built On Community Knowledge
+
+MW·Wiki exists because of the practitioners who chose to share what they learned. Every topic file credits its sources. Every answer links back to the original.
+
+| Author | Focus | Authority |
+|---|---|---|
+| [Michael Niehaus](https://oofhours.com) | Autopilot, Windows Deployment | ★★★ |
+| [Anoop C Nair / HTMD](https://anoopcnair.com) | Intune, Windows, Cloud PC | ★★★ |
+| [MSEndpointMgr](https://msendpointmgr.com) | Intune, Autopilot, Identity | ★★★ |
+| [Daniel Chronlund](https://danielchronlund.com) | Entra ID, Conditional Access, PIM | ★★★ |
+| [Ugur Koc](https://ugurkoc.de) | Intune Automation, Graph API, KQL | ★★★ |
+| [Jannik Reinhard](https://jannikreinhard.com) | Intune, Modern Management | ★★★ |
+| [Rudy Ooms / Call4Cloud](https://call4cloud.nl) | Intune Edge Cases | ★★ |
+| [Jan Bakker](https://janbakker.tech) | Conditional Access, Entra ID | ★★ |
+| [Jeffrey Appel](https://jeffreyappel.nl) | Security, Identity | ★★ |
+| [Bert-Jan Pals](https://kqlcafe.com) | KQL, Sentinel | ★★ |
+| [Alex Verboon](https://alexverboon.com) | Sentinel, Defender | ★★ |
+
+Full attribution in [`wiki/_sources.md`](wiki/_sources.md).
+
+---
+
+## Contributing a Source
+
+Found a great post that belongs in the wiki?
+
+1. Fork the repo
+2. Add the URL to `config/seed_list.yaml`
+3. Open a PR
+
+The maintainer processes it and commits the updated topic files. You never need to run the crawler.
+
+---
+
+## Honest Limitations
+
+- **Not always current** — Microsoft ships changes every 3 weeks. Check `wiki/_stale.md` before implementing anything in production.
+- **Not complete** — see `wiki/_gaps.md`. The wiki knows what it doesn't know.
+- **Not a substitute for professional judgement** — always follow citations back to the original source before acting on any guidance.
+- **Synthesis quality** — topic files are synthesised by Ollama/Mistral locally. Quality improves as more sources are added per topic.
+
+---
 
 ## License
 
-Code: MIT — Wiki content: CC-BY with attribution to original sources
+**Code:** MIT  
+**Wiki content:** [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) — reuse with attribution to the original source authors listed in `wiki/_sources.md`
+
+---
+
+<div align="center">
+
+Built by [neoparadigm](https://github.com/neoparadigm) · Inspired by [Andrej Karpathy](https://github.com/karpathy) · Powered by the Modern Workplace community
+
+*This wiki empowers practitioners. It does not replace the community that built it.*
+
+</div>
