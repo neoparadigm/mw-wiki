@@ -1,0 +1,84 @@
+sources:
+  - name: "Michael Niehaus — Current"
+    author: "Michael Niehaus"
+    base_url: "https://oofhours.com"
+    robots_url: "https://oofhours.com/robots.txt"
+    focus: [autopilot, windows_deployment, intune]
+    crawl_depth: 2
+
+  - name: "Anoop C Nair / HTMD"
+    author: "Anoop C Nair"
+    base_url: "https://www.anoopcnair.com"
+    robots_url: "https://www.anoopcnair.com/robots.txt"
+    focus: [intune, windows, configmgr, cloud_pc, compliance, autopilot]
+    crawl_depth: 2
+
+  - name: "MSEndpointMgr"
+    author: "MSEndpointMgr Team"
+    base_url: "https://msendpointmgr.com"
+    robots_url: "https://msendpointmgr.com/robots.txt"
+    focus: [intune, autopilot, identity, laps, configmgr]
+    crawl_depth: 2
+
+  - name: "Daniel Chronlund"
+    author: "Daniel Chronlund"
+    base_url: "https://danielchronlund.com"
+    robots_url: "https://danielchronlund.com/robots.txt"
+    focus: [entra_id, conditional_access, pim, security, identity]
+    crawl_depth: 2
+
+  - name: "Ugur Koc"
+    author: "Ugur Koc"
+    base_url: "https://ugurkoc.de"
+    robots_url: "https://ugurkoc.de/robots.txt"
+    focus: [intune, graph_api, kql, powershell, automation]
+    crawl_depth: 2
+
+  - name: "Jannik Reinhard"
+    author: "Jannik Reinhard"
+    base_url: "https://jannikreinhard.com"
+    robots_url: "https://jannikreinhard.com/robots.txt"
+    focus: [intune, modern_management, security]
+    crawl_depth: 2
+
+  - name: "Call4Cloud"
+    author: "Rudy Ooms"
+    base_url: "https://call4cloud.nl"
+    robots_url: "https://call4cloud.nl/robots.txt"
+    focus: [intune, esp, co_management, edge_cases, troubleshooting]
+    crawl_depth: 2
+
+  - name: "Oliver Kieselbach"
+    author: "Oliver Kieselbach"
+    base_url: "https://oliverkieselbach.com"
+    robots_url: "https://oliverkieselbach.com/robots.txt"
+    focus: [wdac, app_control, intune, windows_security]
+    crawl_depth: 2
+
+  - name: "Peter van der Woude"
+    author: "Peter van der Woude"
+    base_url: "https://www.petervanderwoude.nl"
+    robots_url: "https://www.petervanderwoude.nl/robots.txt"
+    focus: [intune, configmgr, compliance, powershell]
+    crawl_depth: 2
+
+  - name: "Andrew Taylor"
+    author: "Andrew Taylor"
+    base_url: "https://andrewstaylor.com"
+    robots_url: "https://andrewstaylor.com/robots.txt"
+    focus: [intune, automation, packaging, scripts]
+    crawl_depth: 2
+
+  - name: "Bert-Jan Pals"
+    author: "Bert-Jan Pals"
+    base_url: "https://kqlcafe.com"
+    robots_url: "https://kqlcafe.com/robots.txt"
+    focus: [kql, sentinel, threat_hunting, detection]
+    crawl_depth: 2
+
+  - name: "Alex Verboon"
+    author: "Alex Verboon"
+    base_url: "https://alexverboon.com"
+    robots_url: "https://alexverboon.com/robots.txt"
+    focus: [sentinel, defender, kql, security]
+    crawl_depth: 2

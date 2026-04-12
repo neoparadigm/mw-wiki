@@ -1,0 +1,10 @@
+# Never commit these
+venv/
+raw/
+*.pyc
+__pycache__/
+.env
+.processed.txt
+
+# Wiki content is committed — it's the product
+# Raw crawled articles are not — they're source material

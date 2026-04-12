@@ -1,0 +1,309 @@
+generated: 2026-04-12 15:21
+topics:
+- domain: defender
+  has_conflicts: true
+  id: defender/mdo/safe-links-safe-attachments
+  keywords:
+  - safe links
+  - safe attachments
+  - MDO
+  - detonation
+  - zero-hour purge
+  - ZAP
+  - ATP policy
+  last_updated: '2026-04-12'
+  related: []
+  sources: 2
+  stale_after: '2026-06-11'
+  subdomain: mdo
+  title: Safe Links and Safe Attachments
+- domain: identity
+  has_conflicts: true
+  id: identity/conditional-access/authentication-flows
+  keywords:
+  - authentication flow
+  - device code
+  - legacy auth
+  - oauth
+  - CA policy
+  - block flow
+  last_updated: '2026-04-12'
+  related: []
+  sources: 10
+  stale_after: '2026-06-11'
+  subdomain: conditional-access
+  title: Conditional Access — Authentication Flows
+- domain: identity
+  has_conflicts: false
+  id: identity/conditional-access/device-code-flow-blocking
+  keywords:
+  - device code
+  - device code flow
+  - microsoft.com/devicelogin
+  - CA block
+  - token theft
+  last_updated: '2026-04-12'
+  related: []
+  sources: 1
+  stale_after: '2026-06-11'
+  subdomain: conditional-access
+  title: Blocking Device Code Flow
+- domain: identity
+  has_conflicts: true
+  id: identity/conditional-access/legacy-auth-blocking
+  keywords:
+  - legacy auth
+  - basic auth
+  - SMTP AUTH
+  - POP3
+  - IMAP
+  - ActiveSync
+  - other clients
+  last_updated: '2026-04-12'
+  related: []
+  sources: 3
+  stale_after: '2026-06-11'
+  subdomain: conditional-access
+  title: Blocking Legacy Authentication Protocols
+- domain: identity
+  has_conflicts: true
+  id: identity/conditional-access/named-locations
+  keywords:
+  - named location
+  - trusted IP
+  - country filter
+  - impossible travel
+  - sign-in location
+  last_updated: '2026-04-12'
+  related: []
+  sources: 3
+  stale_after: '2026-07-11'
+  subdomain: conditional-access
+  title: Named Locations and IP-Based Conditions
+- domain: identity
+  has_conflicts: false
+  id: identity/conditional-access/token-protection
+  keywords:
+  - token protection
+  - CAE
+  - continuous access evaluation
+  - token binding
+  - session token
+  - AiTM
+  last_updated: '2026-04-12'
+  related: []
+  sources: 1
+  stale_after: '2026-06-11'
+  subdomain: conditional-access
+  title: Token Protection and CAE
+- domain: identity
+  has_conflicts: true
+  id: identity/entra-id/mfa-registration-policy
+  keywords:
+  - MFA registration
+  - TAP
+  - temporary access pass
+  - security info
+  - self-service MFA
+  - SSPR
+  last_updated: '2026-04-12'
+  related: []
+  sources: 4
+  stale_after: '2026-06-11'
+  subdomain: entra-id
+  title: MFA Registration Policy and TAP
+- domain: identity
+  has_conflicts: false
+  id: identity/entra-id/service-principal-governance
+  keywords:
+  - service principal
+  - app registration
+  - client secret
+  - certificate auth
+  - SP governance
+  - managed identity
+  last_updated: '2026-04-12'
+  related: []
+  sources: 4
+  stale_after: '2026-06-11'
+  subdomain: entra-id
+  title: Service Principal and App Registration Governance
+- domain: identity
+  has_conflicts: true
+  id: identity/pim/break-glass-accounts
+  keywords:
+  - break glass
+  - emergency access
+  - excluded from CA
+  - offline credentials
+  - recovery account
+  last_updated: '2026-04-12'
+  related: []
+  sources: 5
+  stale_after: '2026-07-11'
+  subdomain: pim
+  title: Break Glass Emergency Access Accounts
+- domain: identity
+  has_conflicts: false
+  id: identity/pim/tiered-administration
+  keywords:
+  - tiered admin
+  - T0
+  - T1
+  - T2
+  - PAW
+  - privileged access workstation
+  - admin tiers
+  - ESAE
+  last_updated: '2026-04-12'
+  related: []
+  sources: 1
+  stale_after: '2026-07-11'
+  subdomain: pim
+  title: Tiered Administration Model T0 T1 T2
+- domain: intune
+  has_conflicts: false
+  id: intune/apps/powershell-scripts
+  keywords:
+  - PowerShell script
+  - IME
+  - Intune management extension
+  - script execution
+  - 32-bit
+  - script log
+  last_updated: '2026-04-12'
+  related: []
+  sources: 5
+  stale_after: '2026-06-11'
+  subdomain: apps
+  title: PowerShell Scripts in Intune
+- domain: intune
+  has_conflicts: true
+  id: intune/apps/win32-app-deployment
+  keywords:
+  - Win32
+  - intunewin
+  - app packaging
+  - detection rule
+  - requirement rule
+  - supersedence
+  - Win32 app
+  last_updated: '2026-04-12'
+  related: []
+  sources: 23
+  stale_after: '2026-06-11'
+  subdomain: apps
+  title: Win32 App Deployment and Packaging
+- domain: intune
+  has_conflicts: true
+  id: intune/deployment/autopilot-user-driven
+  keywords:
+  - autopilot
+  - user-driven
+  - OOBE
+  - Entra join
+  - hybrid join
+  - ESP
+  - enrollment status page
+  last_updated: '2026-04-12'
+  related: []
+  sources: 5
+  stale_after: '2026-06-11'
+  subdomain: deployment
+  title: Autopilot User-Driven Mode
+- domain: intune
+  has_conflicts: true
+  id: intune/deployment/enrollment-status-page
+  keywords:
+  - ESP
+  - enrollment status page
+  - blocking apps
+  - timeout
+  - ESP error
+  - device setup
+  last_updated: '2026-04-12'
+  related: []
+  sources: 2
+  stale_after: '2026-06-11'
+  subdomain: deployment
+  title: Enrollment Status Page Configuration
+- domain: intune
+  has_conflicts: false
+  id: intune/security/asr-rules
+  keywords:
+  - ASR
+  - attack surface reduction
+  - block mode
+  - audit mode
+  - ASR rules
+  - Office macro
+  - LSASS
+  last_updated: '2026-04-12'
+  related: []
+  sources: 1
+  stale_after: '2026-06-11'
+  subdomain: security
+  title: Attack Surface Reduction Rules
+- domain: intune
+  has_conflicts: false
+  id: intune/security/bitlocker-management
+  keywords:
+  - BitLocker
+  - encryption
+  - recovery key
+  - silent encryption
+  - BitLocker policy
+  - escrow
+  last_updated: '2026-04-12'
+  related: []
+  sources: 1
+  stale_after: '2026-07-11'
+  subdomain: security
+  title: BitLocker Management via Intune
+- domain: intune
+  has_conflicts: false
+  id: intune/security/credential-guard
+  keywords:
+  - Credential Guard
+  - VBS
+  - virtualisation-based security
+  - LSASS protection
+  - Pass-the-Hash
+  last_updated: '2026-04-12'
+  related: []
+  sources: 1
+  stale_after: '2026-07-11'
+  subdomain: security
+  title: Credential Guard and VBS
+- domain: intune
+  has_conflicts: true
+  id: intune/security/laps-v2
+  keywords:
+  - LAPS
+  - local admin password
+  - LAPS v2
+  - password rotation
+  - LAPS policy
+  - legacy LAPS
+  last_updated: '2026-04-12'
+  related: []
+  sources: 14
+  stale_after: '2026-06-11'
+  subdomain: security
+  title: Windows LAPS v2 Configuration
+- domain: sentinel
+  has_conflicts: true
+  id: sentinel/architecture/workspace-design
+  keywords:
+  - workspace
+  - Log Analytics
+  - sentinel design
+  - multi-workspace
+  - RBAC sentinel
+  - table tiers
+  last_updated: '2026-04-12'
+  related: []
+  sources: 4
+  stale_after: '2026-07-11'
+  subdomain: architecture
+  title: Sentinel Workspace Architecture

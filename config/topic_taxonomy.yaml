@@ -1,0 +1,230 @@
+topics:
+  - path: identity/conditional-access/authentication-flows
+    title: "Conditional Access — Authentication Flows"
+    keywords: [authentication flow, device code, legacy auth, oauth, CA policy, block flow]
+    stale_days: 60
+
+  - path: identity/conditional-access/device-code-flow-blocking
+    title: "Blocking Device Code Flow"
+    keywords: [device code, device code flow, microsoft.com/devicelogin, CA block, token theft]
+    stale_days: 60
+
+  - path: identity/conditional-access/named-locations
+    title: "Named Locations and IP-Based Conditions"
+    keywords: [named location, trusted IP, country filter, impossible travel, sign-in location]
+    stale_days: 90
+
+  - path: identity/conditional-access/compliant-device-requirement
+    title: "Requiring Compliant or Hybrid-Joined Devices"
+    keywords: [compliant device, hybrid join, CA device condition, unmanaged device, BYOD CA]
+    stale_days: 60
+
+  - path: identity/conditional-access/token-protection
+    title: "Token Protection and CAE"
+    keywords: [token protection, CAE, continuous access evaluation, token binding, session token, AiTM]
+    stale_days: 60
+
+  - path: identity/conditional-access/legacy-auth-blocking
+    title: "Blocking Legacy Authentication Protocols"
+    keywords: [legacy auth, basic auth, SMTP AUTH, POP3, IMAP, ActiveSync, other clients]
+    stale_days: 60
+
+  - path: identity/conditional-access/aitm-defence
+    title: "AiTM Proxy Attacks and Defence"
+    keywords: [AiTM, evilginx, adversary-in-the-middle, session cookie, token replay, MFA bypass]
+    stale_days: 45
+
+  - path: identity/pim/pim-for-groups
+    title: "PIM for Groups Configuration"
+    keywords: [PIM for groups, role-assignable group, eligible membership, PIM activation, group PIM]
+    stale_days: 60
+
+  - path: identity/pim/no-permanent-global-admin
+    title: "Eliminating Permanent Global Administrator Assignments"
+    keywords: [permanent GA, global administrator, PIM eligible, no standing access, JIT admin]
+    stale_days: 60
+
+  - path: identity/pim/break-glass-accounts
+    title: "Break Glass Emergency Access Accounts"
+    keywords: [break glass, emergency access, excluded from CA, offline credentials, recovery account]
+    stale_days: 90
+
+  - path: identity/pim/tiered-administration
+    title: "Tiered Administration Model T0 T1 T2"
+    keywords: [tiered admin, T0, T1, T2, PAW, privileged access workstation, admin tiers, ESAE]
+    stale_days: 90
+
+  - path: identity/entra-id/mfa-registration-policy
+    title: "MFA Registration Policy and TAP"
+    keywords: [MFA registration, TAP, temporary access pass, security info, self-service MFA, SSPR]
+    stale_days: 60
+
+  - path: identity/entra-id/entra-id-protection
+    title: "Entra ID Protection Risk Policies"
+    keywords: [ID protection, user risk, sign-in risk, risk policy, leaked credentials, risky user]
+    stale_days: 60
+
+  - path: identity/entra-id/service-principal-governance
+    title: "Service Principal and App Registration Governance"
+    keywords: [service principal, app registration, client secret, certificate auth, SP governance, managed identity]
+    stale_days: 60
+
+  - path: identity/entra-id/admin-consent-workflow
+    title: "Admin Consent Workflow and OAuth App Control"
+    keywords: [admin consent, user consent, OAuth app, consent phishing, app permissions, consent workflow]
+    stale_days: 60
+
+  - path: identity/hybrid/entra-connect-hardening
+    title: "Entra Connect Server Hardening"
+    keywords: [Entra Connect, AAD Connect, sync server, MSOL account, hybrid identity, DirSync]
+    stale_days: 60
+
+  - path: identity/hybrid/golden-saml
+    title: "Golden SAML Attack and ADFS Hardening"
+    keywords: [Golden SAML, ADFS, token signing certificate, SAML forgery, federation, PTA]
+    stale_days: 90
+
+  - path: intune/deployment/autopilot-user-driven
+    title: "Autopilot User-Driven Mode"
+    keywords: [autopilot, user-driven, OOBE, Entra join, hybrid join, ESP, enrollment status page]
+    stale_days: 60
+
+  - path: intune/deployment/autopilot-self-deploying
+    title: "Autopilot Self-Deploying Mode"
+    keywords: [self-deploying, kiosk, shared device, no user affinity, TPM attestation]
+    stale_days: 60
+
+  - path: intune/deployment/autopilot-troubleshooting
+    title: "Autopilot Troubleshooting"
+    keywords: [autopilot error, 801c, TPM, hash upload, autopilot reset, diagnostics, ETL logs]
+    stale_days: 45
+
+  - path: intune/deployment/enrollment-status-page
+    title: "Enrollment Status Page Configuration"
+    keywords: [ESP, enrollment status page, blocking apps, timeout, ESP error, device setup]
+    stale_days: 60
+
+  - path: intune/security/wdac-app-control
+    title: "WDAC and App Control for Business"
+    keywords: [WDAC, App Control, application control, code integrity, allow list, policy enforcement]
+    stale_days: 60
+
+  - path: intune/security/laps-v2
+    title: "Windows LAPS v2 Configuration"
+    keywords: [LAPS, local admin password, LAPS v2, password rotation, LAPS policy, legacy LAPS]
+    stale_days: 60
+
+  - path: intune/security/asr-rules
+    title: "Attack Surface Reduction Rules"
+    keywords: [ASR, attack surface reduction, block mode, audit mode, ASR rules, Office macro, LSASS]
+    stale_days: 60
+
+  - path: intune/security/credential-guard
+    title: "Credential Guard and VBS"
+    keywords: [Credential Guard, VBS, virtualisation-based security, LSASS protection, Pass-the-Hash]
+    stale_days: 90
+
+  - path: intune/security/bitlocker-management
+    title: "BitLocker Management via Intune"
+    keywords: [BitLocker, encryption, recovery key, silent encryption, BitLocker policy, escrow]
+    stale_days: 90
+
+  - path: intune/compliance/compliance-policy-design
+    title: "Compliance Policy Design and CA Integration"
+    keywords: [compliance policy, compliant device, grace period, non-compliant, compliance CA, device health]
+    stale_days: 60
+
+  - path: intune/apps/win32-app-deployment
+    title: "Win32 App Deployment and Packaging"
+    keywords: [Win32, intunewin, app packaging, detection rule, requirement rule, supersedence, Win32 app]
+    stale_days: 60
+
+  - path: intune/apps/powershell-scripts
+    title: "PowerShell Scripts in Intune"
+    keywords: [PowerShell script, IME, Intune management extension, script execution, 32-bit, script log]
+    stale_days: 60
+
+  - path: intune/apps/winget-intune
+    title: "WinGet and Microsoft Store Integration"
+    keywords: [WinGet, Microsoft Store, WinTuner, store app, UWP, app updates, package manager]
+    stale_days: 45
+
+  - path: sentinel/kql/identity-detection-queries
+    title: "KQL — Identity and Sign-in Detection"
+    keywords: [KQL, SigninLogs, identity detection, risky sign-in, legacy auth KQL, MFA failure KQL]
+    stale_days: 45
+
+  - path: sentinel/kql/privilege-escalation-queries
+    title: "KQL — Privilege Escalation Detection"
+    keywords: [KQL, PIM activation, role assignment, group membership change, privilege KQL, AuditLogs]
+    stale_days: 45
+
+  - path: sentinel/kql/lateral-movement-queries
+    title: "KQL — Lateral Movement Detection"
+    keywords: [KQL, lateral movement, SMB, Pass-the-Hash, DCSync, remote services KQL]
+    stale_days: 45
+
+  - path: sentinel/architecture/log-coverage-gaps
+    title: "Sentinel Log Coverage and Ingestion Gaps"
+    keywords: [log coverage, data connector, ingestion, diagnostic settings, log gap, missing logs]
+    stale_days: 45
+
+  - path: sentinel/architecture/workspace-design
+    title: "Sentinel Workspace Architecture"
+    keywords: [workspace, Log Analytics, sentinel design, multi-workspace, RBAC sentinel, table tiers]
+    stale_days: 90
+
+  - path: sentinel/alerts/analytics-rule-tuning
+    title: "Analytics Rule Tuning and False Positive Reduction"
+    keywords: [analytics rule, scheduled query, false positive, alert tuning, NRT rule, watchlist]
+    stale_days: 60
+
+  - path: defender/mde/tamper-protection
+    title: "MDE Tamper Protection"
+    keywords: [tamper protection, MDE, disable defender, sensor, MsSense, tamper alert]
+    stale_days: 60
+
+  - path: defender/mde/edr-block-mode
+    title: "EDR in Block Mode"
+    keywords: [EDR block mode, passive mode, third-party AV, MDE coexistence, EDR]
+    stale_days: 90
+
+  - path: defender/mdo/safe-links-safe-attachments
+    title: "Safe Links and Safe Attachments"
+    keywords: [safe links, safe attachments, MDO, detonation, zero-hour purge, ZAP, ATP policy]
+    stale_days: 60
+
+  - path: exchange/security/smtp-auth-disable
+    title: "Disabling SMTP AUTH and Legacy Protocols"
+    keywords: [SMTP AUTH, disable SMTP, legacy protocol, POP3 disable, IMAP disable, basic auth Exchange]
+    stale_days: 90
+
+  - path: exchange/mail-flow/inbox-rules-exfiltration
+    title: "Inbox Rule Exfiltration Detection and Prevention"
+    keywords: [inbox rule, forwarding rule, external forward, BEC, mail exfiltration, auto-forward]
+    stale_days: 60
+
+  - path: teams/security/external-access-federation
+    title: "Teams External Access and Federation Control"
+    keywords: [Teams external, federation, external user, block domain, Teams phishing, external chat]
+    stale_days: 60
+
+  - path: teams/governance/app-permission-policies
+    title: "Teams App Permission Policies"
+    keywords: [Teams app, app permission, third-party app, block app, app policy, Teams store]
+    stale_days: 60
+
+  - path: azure/key-vault/key-vault-rbac
+    title: "Key Vault RBAC and Access Policy Migration"
+    keywords: [Key Vault, RBAC, access policy, secret access, Key Vault firewall, managed identity KV]
+    stale_days: 90
+
+  - path: azure/app-proxy/app-proxy-configuration
+    title: "Azure App Proxy Configuration"
+    keywords: [App Proxy, application proxy, connector, on-prem app, pre-auth, kerberos constrained]
+    stale_days: 90
+
+  - path: azure/avd/avd-security-baseline
+    title: "Azure Virtual Desktop Security Baseline"
+    keywords: [AVD, WVD, Azure Virtual Desktop, session host, host pool, FSLogix, RDP Shortpath]
+    stale_days: 90
