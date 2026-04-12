@@ -6,6 +6,10 @@
 
 **The answer LLMs can't give you - current, cited, and community-verified.**
 
+A living knowledge graph of Modern Workplace community intelligence.
+
+Built from years of bookmarks, saved articles, and late-night troubleshooting sessions -the blogs that actually taught practitioners this craft, synthesised into a single queryable knowledge graph. Every answer cites a real author, a real URL, a real date.
+
 A synthesised knowledge base for Modern Workplace practitioners, built from the best Microsoft MVP blogs and Microsoft documentation. Every answer traces back to a named author, a real URL, and a date.
 
 [![License: MIT](https://img.shields.io/badge/Code-MIT-1a5c3a?style=flat-square)](LICENSE)
@@ -15,6 +19,14 @@ A synthesised knowledge base for Modern Workplace practitioners, built from the 
 [![Inspired by](https://img.shields.io/badge/Inspired%20by-Karpathy%20LLM%20Wiki-474747?style=flat-square)](https://github.com/karpathy)
 
 </div>
+
+## **The Problem**
+
+Every Modern Workplace practitioner has a private list of blogs they trust. The ones bookmarked at 11pm when something is broken. The ones forwarded to colleagues when words fail. That knowledge exists - but it is scattered, unsynthesised, and invisible to anyone who has not been doing this for years.
+
+Claude and ChatGPT will answer your Conditional Access question confidently. They will not tell you it was last accurate in 2023, that Daniel Chronlund and Jeffrey Appel disagree on a specific edge case, or that nobody in the community has written a definitive article on that particular topic yet.
+
+MW·Wiki is the answer to both problems.
 
 ---
 
@@ -42,6 +54,17 @@ Open **http://localhost:8000** — ask your first question.
 No crawling. No database. No Docker. The knowledge base is pre-built and ships with the repo.
 
 ---
+
+## What It Is
+
+MW·Wiki is an open-source knowledge graph for the Modern Workplace community — Intune, Entra ID, Conditional Access, Sentinel, Defender, Exchange, and Teams.
+
+It crawls a curated set of community blogs, distils each article into structured topic nodes using a local LLM, and connects them into a graph of community knowledge. Ask a question and get a cited answer — every claim traced back to the specific blog post and author that covers it.
+
+> *"Most AI tools retrieve context on demand by searching documents. MW·Wiki maintains long-lived knowledge instead — relationships are explicit, topics accumulate over time, and the graph compounds rather than starting cold every session."*
+
+**This is not RAG.** Articles are not chunked into fragments and retrieved by similarity. They are distilled into owned, structured topic nodes — plain Markdown files you can read, edit, and contribute to directly. The knowledge graph is the product.
+
 
 ## What It Does
 
