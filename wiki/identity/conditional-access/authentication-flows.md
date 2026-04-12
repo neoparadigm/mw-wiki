@@ -23,6 +23,21 @@ sources:
   date: '2025-05-06'
   title: How to restrict Device Code Flow in Entra ID
   url: https://janbakker.tech/how-to-restrict-device-code-flow-in-entra-id/
+- author: Jannik Reinhard
+  crawled: '2026-04-12'
+  date: '2026-02-22'
+  title: Why CLI Tools Are Beating MCP for AI Agents
+  url: https://jannikreinhard.com/2026/02/22/why-cli-tools-are-beating-mcp-for-ai-agents
+- author: Jeffrey
+  crawled: '2026-04-12'
+  date: '2025-03-03'
+  title: Configure automatic Attack Disruption in Microsoft Defender XDR
+  url: https://jeffreyappel.nl/configure-automatic-attack-disruption-in-microsoft-defender-xdr
+- author: Jeffrey
+  crawled: '2026-04-12'
+  date: '2022-07-07'
+  title: What is Microsoft Defender for Endpoint (MDE)?
+  url: https://jeffreyappel.nl/microsoft-defender-for-endpoint-series-what-is-defender-for-endpoint-part1
 stale_after: '2026-06-11'
 title: Conditional Access — Authentication Flows
 topic: identity/conditional-access/authentication-flows
@@ -44,6 +59,9 @@ This topic discusses the various authentication flows available in Azure AD Cond
 - **Hybrid Azure AD Join:** The process of joining a device to both the on-premises Active Directory (AD) and Azure AD, allowing the device to be managed by both CA policies and Group Policy Objects (GPOs).
 - **Authentication Transfer:** A method of authentication where a user can authenticate using another user's session. [CONFLICT: Jan Bakker does not mention this]
 - **Device Code Flow:** A method of authentication that allows users to authenticate via a device code, often used for devices without interfaces or for Teams Room devices.
+- **CLI Tools:** Command Line Interface tools used by AI agents for efficient context management. [New Concept: Added from "Why CLI Tools Are Beating MCP for AI Agents"]
+- **Automatic Attack Disruption:** A response capability in Microsoft Defender XDR that protects the environment against sophisticated, high-impact attacks by containing assets used by attackers (Source: Jeffrey) [New Concept from "What is Microsoft Defender for Endpoint (MDE)?"]
+- **Microsoft Defender for Endpoint (MDE):** A comprehensive solution for preventing, detecting, and automating the investigation and response to cyber threats across endpoints. [New Concept from "What is Microsoft Defender for Endpoint (MDE)?"]
 
 ### Configuration
 1. Navigate to the Azure portal and open the Conditional Access blade.
@@ -58,55 +76,23 @@ This topic discusses the various authentication flows available in Azure AD Cond
 - Failing to exclude Global Admin accounts from CA policies can result in locking yourself out of the tenant.
 - Using overly restrictive policies can unintentionally block legitimate users or devices.
 - Not testing CA policies thoroughly before deploying them can lead to unexpected issues.
-- Allowing Device Code Flow for all users may expose accounts to phishing attacks, it is recommended to restrict its use to trusted locations and specific user groups.
+- Allowing Device Code Flow for all users may expose accounts to phishing attacks, it is recommended to limit its use. [New information from "What is Microsoft Defender for Endpoint (MDE)?"]
 
-### KQL / PowerShell
-This article does not provide any specific queries or scripts related to authentication flows.
-
-### Related Topics
-- [Authentication Flow](wiki:authentication_flow)
-- [Device Code](wiki:device_code)
-- [Legacy Auth](wiki:legacy_auth)
-- [OAuth](wiki:oauth)
-- [CA Policy](wiki:ca_policy)
-- [Authentication Transfer](wiki:authentication_transfer)
-- [Device Code Flow](wiki:device_code_flow)
-
-New source article: "Block authentication flows with Conditional Access policy - Microsoft Entra ID"
-Author: kenwith
+New source article: "What is Microsoft Defender for Endpoint (MDE)?"
+Author: Jeffrey
 New source content:
-[...] (The existing entry already covers this section)
+# What is Microsoft Defender for Endpoint (MDE)?
 
----
+Microsoft Defender for Endpoint (MDE) is a comprehensive solution for preventing, detecting, and automating the investigation and response to cyber threats across endpoints. It includes features such as Advanced Threat Protection (ATP), Endpoint Detection and Response (EDR), and Automatic Attack Disruption. MDE provides real-time protection against malware, ransomware, and other advanced threats, and offers automated investigation and response capabilities to help organizations quickly contain and remediate security incidents.
 
-#### Share via
+[March 30, 2026](https://jeffreyappel.nl/automatic-migration-from-defender-for-identity-sensor-v2-to-v3-x-and-gmsa-changes/)
 
-Facebook
+[March 23, 2026](https://jeffreyappel.nl/defending-with-microsoft-a-deep-dive-into-the-microsoft-defender-suite-blog-series-intro/)
 
-x.com
+[February 12, 2026](https://jeffreyappel.nl/how-to-secure-microsoft-copilot-studio-agents-with-real-time-protection/)
 
-LinkedIn
+[February 3, 2026](https://jeffreyappel.nl/how-to-protect-microsoft-teams-with-microsoft-365-defender/)
 
-Email
+[January 20, 2026](https://jeffreyappel.nl/how-to-archive-defender-logs-natively-in-defender-xdr-up-to-12-years/)
 
----
-
-Note
-A
-
-New source article: "How to restrict Device Code Flow in Entra ID"
-Author: Jan Bakker
-New source content:
-[...] (The existing entry already covers the configuration section)
-
----
-
-#### Share via
-
-Facebook
-
-x.com
-
-LinkedIn
-
-Email
+[January 6, 2026](https://jeffreyappel.nl/microsoft-sentinel-cost-management-how-to-get-insights-in-data-lake-usage/)

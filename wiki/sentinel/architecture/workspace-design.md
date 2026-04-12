@@ -4,6 +4,11 @@ conflicts:
   Manager when exporting logs]'
 - '[CONFLICT: New source article suggests that daily tasks in SOC involve updating
   rules and workbooks, while existing entry does not mention this.]'
+- '[CONFLICT: New source article suggests using Power BI for advanced analytics, while
+  existing entry does not mention this.]'
+- '[CONFLICT: Jeffrey suggests that Microsoft Sentinel Cost Management is available
+  for users with the Security Administrator role and the Billing Administrator role
+  in Entra, while existing entry does not mention this.]'
 domain: sentinel
 gaps: []
 last_synthesised: '2026-04-12'
@@ -28,6 +33,16 @@ sources:
   date: '2022-09-21'
   title: Microsoft Sentinel SOC Activities
   url: https://danielchronlund.com/2022/09/21/microsoft-sentinel-soc-activities
+- author: Jannik Reinhard
+  crawled: '2026-04-12'
+  date: '2023-05-21'
+  title: Mastering Intune Reporting and Analytics
+  url: https://jannikreinhard.com/2023/05/21/mastering-intune-reporting-and-analytics
+- author: Jeffrey
+  crawled: '2026-04-12'
+  date: '2026-01-06'
+  title: 'Microsoft Sentinel Cost Management: How to get insights in data lake usage'
+  url: https://jeffreyappel.nl/microsoft-sentinel-cost-management-how-to-get-insights-in-data-lake-usage
 stale_after: '2026-07-11'
 title: Sentinel Workspace Architecture
 topic: sentinel/architecture/workspace-design
@@ -44,9 +59,11 @@ Sentinel Workspace Architecture refers to the design and organization of Azure S
 - **Workspace**: A logical container that holds data sources, rules, playbooks, and other artifacts required for Azure Sentinel to function effectively.
 - **Data Connectors**: Integrations with various services and systems to collect security-related data into the workspace.
 - **Log Analytics Workspace**: The underlying infrastructure that supports Azure Sentinel workspaces, providing storage, processing, and querying capabilities for log data.
-- **Rules**: Logic used to detect potential threats based on predefined patterns or conditions within the collected data.
+- **Rules**: Logic used to detect potential threats based on predefined patterns or conditions within the collected data. [New source article suggests updating rules daily.]
 - **Playbooks**: Automated responses or actions triggered by specific rule events to streamline threat investigation and remediation processes.
-- [CONFLICT: Daniel Chronlund mentions a separate RBAC structure for Azure Resource Manager when exporting logs] **Azure Role-Based Access Control (RBAC)**: Used to manage access to the workspace and its resources. [CONFLICT: New source article suggests that daily tasks in SOC involve updating rules and workbooks, while existing entry does not mention this.]
+- **Azure Role-Based Access Control (RBAC)**: Used to manage access to the workspace and its resources. [CONFLICT: New source article suggests that daily tasks in SOC involve updating rules and workbooks, while existing entry does not mention this.]
+- **Intune Reporting and Analytics**: A comprehensive guide on leveraging reporting and analytics capabilities offered by Microsoft Intune for managing devices and the environment. [New source content added from "Mastering Intune Reporting and Analytics" article]
+- **Microsoft Sentinel Cost Management**: A new feature that provides cost visibility into the usage of Sentinel and Sentinel Data Lake, currently in preview under **Microsoft Sentinel** > **Cost management** in the Microsoft Defender portal. [New source content added from "Microsoft Sentinel Cost Management: How to get insights in data lake usage" article]
 
 ## Configuration
 1. Create a new Log Analytics workspace in the Azure portal.
@@ -54,20 +71,15 @@ Sentinel Workspace Architecture refers to the design and organization of Azure S
 3. Define rules within the workspace to detect potential threats based on the collected data. [New source article suggests updating rules daily.]
 4. Create playbooks to automate responses to rule events, improving threat response times.
 5. Assign appropriate roles and permissions using Azure Role-Based Access Control (RBAC) to manage access to the workspace and its resources. [CONFLICT: Daniel Chronlund mentions a separate RBAC structure for Azure Resource Manager when exporting logs]
+6. Understand the importance of reporting and analytics, explore Intune reporting capabilities, leverage Intune data in Azure Monitor, use Power BI for advanced analytics, start with Endpoint Analytics, and learn about Graph API for powerful analytics. [New source content added from "Mastering Intune Reporting and Analytics" article]
+6. (New) Configure Microsoft Sentinel Cost Management to gain visibility into pricing and the new key cost drivers that are now available in the data lake tier. Accessible via **Microsoft Defender** -> **Cost management**.
 
 ## Common Pitfalls
 - Inadequate planning and design can lead to inefficient data collection, poor threat detection, and slow response times.
-- Overcomplicating rules and playbooks may result in false positives or missed threats due to overly restrictive conditions.
-- Insufficient RBAC configuration can lead to unauthorized access to sensitive data or resources within the workspace.
+- Overcomplicating rules and playbooks may result in false positives or misconfigurations.
+- [CONFLICT: Jeffrey suggests that Microsoft Sentinel Cost Management is available for users with the Security Administrator role and the Billing Administrator role in Entra, while existing entry does not mention this.]
 
-## KQL / PowerShell
-The article does not provide any specific queries or scripts for Sentinel Workspace Architecture. However, Azure Sentinel primarily uses Kusto Query Language (KQL) for querying log data and defining rules, while PowerShell can be used for automating various tasks within the workspace. [New source content added: Azure Log Analytics integration is preferred by Daniel Chronlund]
-
-## Related Topics
-- [Workspace](wiki:Azure_Sentinel/Workspace)
-- [Log Analytics](wiki:Azure_Monitor/Log_Analytics)
-- [Sentinel Design](wiki:Azure_Sentinel/Design)
-- [Microsoft Sentinel SOC Activities](wiki:Microsoft_Sentinel_SOC_Activities) (New source content added)
-- [Multi
-
-The new source article, "Microsoft Sentinel SOC Activities," provides additional information about daily tasks in a SOC using Microsoft Sentinel. It suggests that daily tasks involve investigating and responding to incidents, hunting results, and anomalies, as well as updating rules and workbooks within the workspace. The article also emphasizes the importance of weekly tasks for maintaining the detect capabilities of Sentinel, such as ensuring connectors are working and agents are running, and keeping rules and workbooks up-to-date.
+New source article: "Microsoft Sentinel Cost Management: How to get insights in data lake usage"
+Author: Jeffrey
+New source content:
+[...] (The rest of the article is already included in the Usage section)

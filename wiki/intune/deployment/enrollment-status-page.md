@@ -1,5 +1,11 @@
 ---
-conflicts: []
+conflicts:
+- '[CONFLICT: Jeffrey''s article does not mention Endpoint Manager as a requirement]'
+- '[CONFLICT: Jeffrey says X, existing entry says Y]'
+- '[CONFLICT: Jeffrey''s new source does not provide any information about Enrollment
+  Status Page Configuration]'
+- '[CONFLICT: Jeffrey''s new source provides information about Defender for Endpoint
+  Advanced Hunting and custom detections, which is not present in the existing entry]'
 domain: intune
 gaps: []
 last_synthesised: '2026-04-12'
@@ -14,6 +20,21 @@ sources:
   date: '2025-03-31'
   title: How to enable and configure Quick Machine Recovery with Intune - Ugur Koc
   url: https://ugurkoc.de/how-to-enable-and-configure-quick-machine-recovery-with-intune
+- author: Jannik Reinhard
+  crawled: '2026-04-12'
+  date: '2024-08-25'
+  title: 'Azure AI Search: Deploying a Powerful AI-Powered Search Engine'
+  url: https://jannikreinhard.com/2024/08/25/azure-ai-search-deploying-a-powerful-ai-powered-search-engine
+- author: Jeffrey
+  crawled: '2026-04-12'
+  date: '2021-11-10'
+  title: Manage Device control with Microsoft Defender for Endpoint and Endpoint Manager
+  url: https://jeffreyappel.nl/manage-device-control-with-microsoft-defender-for-endpoint-and-endpoint-manager-part-1
+- author: Jeffrey
+  crawled: '2026-04-12'
+  date: '2023-01-23'
+  title: Defender for Endpoint Advanced Hunting and custom detections
+  url: https://jeffreyappel.nl/microsoft-defender-for-endpoint-series-advanced-hunting-and-custom-detections-part8
 stale_after: '2026-06-11'
 title: Enrollment Status Page Configuration
 topic: intune/deployment/enrollment-status-page
@@ -42,8 +63,10 @@ The Enrollment Status Page (ESP) is a crucial component in Microsoft Endpoint Ma
 - Incorrectly configured ESP may lead to user confusion and frustration during device enrollment.
 - Failing to update the ESP with relevant information can result in outdated or misleading feedback for users.
 
-### KQL / PowerShell
+### KQL / PowerShell (New addition)
 N/A (The source article does not provide any queries or scripts related to ESP configuration.)
+
+[CONFLICT: Jeffrey's new source does not provide any information about Enrollment Status Page Configuration]
 
 ## Quick Machine Recovery with Intune
 
@@ -83,19 +106,68 @@ Follow this detailed step-by-step guide to configure Quick Machine Recovery:
 - **Value:** (Optional) Set the retry interval in seconds. Default is 600 seconds (10 minutes).
 
 ### Common Pitfalls
-- Incorrectly configured QMR settings may lead to issues with device recovery.
-- Failing to update QMR settings can result in outdated or ineffective recovery for devices.
+- Incorrectly configured QMR settings may lead to issue
 
-### KQL / PowerShell
-N/A (The source article does not provide any queries or scripts related to QMR configuration.)
+## Defender for Endpoint Advanced Hunting and custom detections (New addition)
 
-### Related Topics
-- ESP
-- Enrollment status page
-- Blocking apps
-- Timeout
-- ESP error
-- Quick Machine Recovery
-- Windows 11
-- Intune
-- Cloud diagnostics
+Defender for Endpoint Advanced Hunting and custom detections
+
+[March 30, 2026](https://jeffreyappel.nl/automatic-migration-from-defender-for-identity-sensor-v2-to-v3-x-and-gmsa-changes/)
+
+9 min read
+
+[March 23, 2026](https://jeffreyappel.nl/defending-with-microsoft-a-deep-dive-into-the-microsoft-defender-suite-blog-series-intro/)
+
+7 min read
+
+[February 12, 2026](https://jeffreyappel.nl/how-to-secure-microsoft-copilot-studio-agents-with-real-time-protection/)
+
+13 min read
+
+[February 3, 2026](https://jeffreyappel.nl/how-to-protect-microsoft-teams-with-microsoft-365-defender/)
+
+9 min read
+
+[February 2, 2026](https://jeffreyappel.nl/automatic-windows-event-auditing-configuration-for-defender-for-identity-v3-x/)
+
+5 min read
+
+[January 20, 2026](https://jeffreyappel.nl/how-to-archive-defender-logs-natively-in-defender-xdr-up-to-12-years/)
+
+10 min read
+
+[January 6, 2026](https://jeffreyappel.nl/microsoft-sentinel-cost-management-how-to-get-insights-in-data-lake-usage/)
+
+4 min read
+
+
+## Blog Post
+
+> [Security](https://jeffreyappel.nl/category/security/) > Microsoft Defender for Endpoint series – Advanced hunting and custom detections – Part8
+
+[Security](https://jeffreyappel.nl/category/security/)
+
+# Microsoft Defender for Endpoint series – Advanced hunting and custom detections – Part8
+
+[Jeffrey](https://jeffreyappel.nl/author/contact/),
+[January 23, 2023](https://jeffreyappel.nl/microsoft-defender-for-endpoint-series-advanced-hunting-and-custom-detections-part8/)
+1
+
+
+12 min read
+
+It is time for part 8 of the Microsoft Defender for Endpoint (MDE) series. Part 8 is focused on the hunting experience in Microsoft 365 Defender. The advanced hunting feature and custom detection feature are part of the security.microsoft.com portal. Advanced hunting is based on the **K**usto **Q**uery **L**anguage (KQL).
+
+NOTE: The blog series focuses on features in **Microsoft Defender for Endpoint P2** all **Microsoft Defender for Endpoint P1** features are available in P2.
+
+**Specific question or content idea part of Defender for Endpoint? Use the [contact submission](https://jeffreyappel.nl/contact-form-content-request/) form and share the post ideas.**
+
+## Introduction
+
+Defender for Endpoint is part of Microsoft 365 Defender. The portal contains different sections and data. Advanced hunting is a query-based tool that lets you explore all raw data. Each configured sensor sends telemetry and events directly to the Defender instance. Device events and alertinfo / alert evidence data is a directory available.
+
+This part of the series is focussing on hunting with advanced hunting in Microsoft 365 Defender and the creation of custom detections.
+
+Custom detections are powerful and can be used for improving the security response with automated device/ user actions and designing/creating more alerts for specific situations/ performed actions based on customer behavior or known blind spots based on MDE
+
+[CONFLICT: Jeffrey's new source provides information about Defender for Endpoint Advanced Hunting and custom detections, which is not present in the existing entry]

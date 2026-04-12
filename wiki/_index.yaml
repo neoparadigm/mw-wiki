@@ -1,5 +1,70 @@
-generated: 2026-04-12 19:02
+generated: 2026-04-12 22:27
 topics:
+- domain: azure
+  has_conflicts: true
+  id: azure/app-proxy/app-proxy-configuration
+  keywords:
+  - App Proxy
+  - application proxy
+  - connector
+  - on-prem app
+  - pre-auth
+  - kerberos constrained
+  last_updated: '2026-04-12'
+  related: []
+  sources: 2
+  stale_after: '2026-07-11'
+  subdomain: app-proxy
+  title: Azure App Proxy Configuration
+- domain: azure
+  has_conflicts: true
+  id: azure/avd/avd-security-baseline
+  keywords:
+  - AVD
+  - WVD
+  - Azure Virtual Desktop
+  - session host
+  - host pool
+  - FSLogix
+  - RDP Shortpath
+  last_updated: '2026-04-12'
+  related: []
+  sources: 2
+  stale_after: '2026-07-11'
+  subdomain: avd
+  title: Azure Virtual Desktop Security Baseline
+- domain: azure
+  has_conflicts: false
+  id: azure/key-vault/key-vault-rbac
+  keywords:
+  - Key Vault
+  - RBAC
+  - access policy
+  - secret access
+  - Key Vault firewall
+  - managed identity KV
+  last_updated: '2026-04-12'
+  related: []
+  sources: 1
+  stale_after: '2026-07-11'
+  subdomain: key-vault
+  title: Key Vault RBAC and Access Policy Migration
+- domain: defender
+  has_conflicts: false
+  id: defender/mde/tamper-protection
+  keywords:
+  - tamper protection
+  - MDE
+  - disable defender
+  - sensor
+  - MsSense
+  - tamper alert
+  last_updated: '2026-04-12'
+  related: []
+  sources: 6
+  stale_after: '2026-06-11'
+  subdomain: mde
+  title: MDE Tamper Protection
 - domain: defender
   has_conflicts: true
   id: defender/mdo/safe-links-safe-attachments
@@ -13,10 +78,26 @@ topics:
   - ATP policy
   last_updated: '2026-04-12'
   related: []
-  sources: 2
+  sources: 3
   stale_after: '2026-06-11'
   subdomain: mdo
   title: Safe Links and Safe Attachments
+- domain: identity
+  has_conflicts: true
+  id: identity/conditional-access/aitm-defence
+  keywords:
+  - AiTM
+  - evilginx
+  - adversary-in-the-middle
+  - session cookie
+  - token replay
+  - MFA bypass
+  last_updated: '2026-04-12'
+  related: []
+  sources: 6
+  stale_after: '2026-05-27'
+  subdomain: conditional-access
+  title: AiTM Proxy Attacks and Defence
 - domain: identity
   has_conflicts: true
   id: identity/conditional-access/authentication-flows
@@ -29,12 +110,27 @@ topics:
   - block flow
   last_updated: '2026-04-12'
   related: []
-  sources: 3
+  sources: 6
   stale_after: '2026-06-11'
   subdomain: conditional-access
   title: Conditional Access — Authentication Flows
 - domain: identity
   has_conflicts: false
+  id: identity/conditional-access/compliant-device-requirement
+  keywords:
+  - compliant device
+  - hybrid join
+  - CA device condition
+  - unmanaged device
+  - BYOD CA
+  last_updated: '2026-04-12'
+  related: []
+  sources: 1
+  stale_after: '2026-06-11'
+  subdomain: conditional-access
+  title: Requiring Compliant or Hybrid-Joined Devices
+- domain: identity
+  has_conflicts: true
   id: identity/conditional-access/device-code-flow-blocking
   keywords:
   - device code
@@ -44,7 +140,7 @@ topics:
   - token theft
   last_updated: '2026-04-12'
   related: []
-  sources: 1
+  sources: 3
   stale_after: '2026-06-11'
   subdomain: conditional-access
   title: Blocking Device Code Flow
@@ -61,12 +157,60 @@ topics:
   - other clients
   last_updated: '2026-04-12'
   related: []
-  sources: 3
+  sources: 4
   stale_after: '2026-06-11'
   subdomain: conditional-access
   title: Blocking Legacy Authentication Protocols
 - domain: identity
-  has_conflicts: false
+  has_conflicts: true
+  id: identity/conditional-access/token-protection
+  keywords:
+  - token protection
+  - CAE
+  - continuous access evaluation
+  - token binding
+  - session token
+  - AiTM
+  last_updated: '2026-04-12'
+  related: []
+  sources: 6
+  stale_after: '2026-06-11'
+  subdomain: conditional-access
+  title: Token Protection and CAE
+- domain: identity
+  has_conflicts: true
+  id: identity/entra-id/admin-consent-workflow
+  keywords:
+  - admin consent
+  - user consent
+  - OAuth app
+  - consent phishing
+  - app permissions
+  - consent workflow
+  last_updated: '2026-04-12'
+  related: []
+  sources: 3
+  stale_after: '2026-06-11'
+  subdomain: entra-id
+  title: Admin Consent Workflow and OAuth App Control
+- domain: identity
+  has_conflicts: true
+  id: identity/entra-id/entra-id-protection
+  keywords:
+  - ID protection
+  - user risk
+  - sign-in risk
+  - risk policy
+  - leaked credentials
+  - risky user
+  last_updated: '2026-04-12'
+  related: []
+  sources: 6
+  stale_after: '2026-06-11'
+  subdomain: entra-id
+  title: Entra ID Protection Risk Policies
+- domain: identity
+  has_conflicts: true
   id: identity/entra-id/mfa-registration-policy
   keywords:
   - MFA registration
@@ -77,12 +221,12 @@ topics:
   - SSPR
   last_updated: '2026-04-12'
   related: []
-  sources: 1
+  sources: 5
   stale_after: '2026-06-11'
   subdomain: entra-id
   title: MFA Registration Policy and TAP
 - domain: identity
-  has_conflicts: false
+  has_conflicts: true
   id: identity/entra-id/service-principal-governance
   keywords:
   - service principal
@@ -93,7 +237,7 @@ topics:
   - managed identity
   last_updated: '2026-04-12'
   related: []
-  sources: 1
+  sources: 6
   stale_after: '2026-06-11'
   subdomain: entra-id
   title: Service Principal and App Registration Governance
@@ -108,12 +252,12 @@ topics:
   - recovery account
   last_updated: '2026-04-12'
   related: []
-  sources: 3
+  sources: 4
   stale_after: '2026-07-11'
   subdomain: pim
   title: Break Glass Emergency Access Accounts
 - domain: identity
-  has_conflicts: false
+  has_conflicts: true
   id: identity/pim/tiered-administration
   keywords:
   - tiered admin
@@ -126,7 +270,7 @@ topics:
   - ESAE
   last_updated: '2026-04-12'
   related: []
-  sources: 1
+  sources: 6
   stale_after: '2026-07-11'
   subdomain: pim
   title: Tiered Administration Model T0 T1 T2
@@ -142,7 +286,7 @@ topics:
   - script log
   last_updated: '2026-04-12'
   related: []
-  sources: 5
+  sources: 6
   stale_after: '2026-06-11'
   subdomain: apps
   title: PowerShell Scripts in Intune
@@ -164,7 +308,40 @@ topics:
   subdomain: apps
   title: Win32 App Deployment and Packaging
 - domain: intune
-  has_conflicts: false
+  has_conflicts: true
+  id: intune/apps/winget-intune
+  keywords:
+  - WinGet
+  - Microsoft Store
+  - WinTuner
+  - store app
+  - UWP
+  - app updates
+  - package manager
+  last_updated: '2026-04-12'
+  related: []
+  sources: 6
+  stale_after: '2026-05-27'
+  subdomain: apps
+  title: WinGet and Microsoft Store Integration
+- domain: intune
+  has_conflicts: true
+  id: intune/compliance/compliance-policy-design
+  keywords:
+  - compliance policy
+  - compliant device
+  - grace period
+  - non-compliant
+  - compliance CA
+  - device health
+  last_updated: '2026-04-12'
+  related: []
+  sources: 5
+  stale_after: '2026-06-11'
+  subdomain: compliance
+  title: Compliance Policy Design and CA Integration
+- domain: intune
+  has_conflicts: true
   id: intune/deployment/autopilot-user-driven
   keywords:
   - autopilot
@@ -176,12 +353,12 @@ topics:
   - enrollment status page
   last_updated: '2026-04-12'
   related: []
-  sources: 1
+  sources: 6
   stale_after: '2026-06-11'
   subdomain: deployment
   title: Autopilot User-Driven Mode
 - domain: intune
-  has_conflicts: false
+  has_conflicts: true
   id: intune/deployment/enrollment-status-page
   keywords:
   - ESP
@@ -192,12 +369,12 @@ topics:
   - device setup
   last_updated: '2026-04-12'
   related: []
-  sources: 2
+  sources: 5
   stale_after: '2026-06-11'
   subdomain: deployment
   title: Enrollment Status Page Configuration
 - domain: intune
-  has_conflicts: false
+  has_conflicts: true
   id: intune/security/asr-rules
   keywords:
   - ASR
@@ -209,12 +386,12 @@ topics:
   - LSASS
   last_updated: '2026-04-12'
   related: []
-  sources: 1
+  sources: 6
   stale_after: '2026-06-11'
   subdomain: security
   title: Attack Surface Reduction Rules
 - domain: intune
-  has_conflicts: false
+  has_conflicts: true
   id: intune/security/bitlocker-management
   keywords:
   - BitLocker
@@ -225,10 +402,73 @@ topics:
   - escrow
   last_updated: '2026-04-12'
   related: []
-  sources: 1
+  sources: 5
   stale_after: '2026-07-11'
   subdomain: security
   title: BitLocker Management via Intune
+- domain: intune
+  has_conflicts: true
+  id: intune/security/credential-guard
+  keywords:
+  - Credential Guard
+  - VBS
+  - virtualisation-based security
+  - LSASS protection
+  - Pass-the-Hash
+  last_updated: '2026-04-12'
+  related: []
+  sources: 4
+  stale_after: '2026-07-11'
+  subdomain: security
+  title: Credential Guard and VBS
+- domain: intune
+  has_conflicts: false
+  id: intune/security/laps-v2
+  keywords:
+  - LAPS
+  - local admin password
+  - LAPS v2
+  - password rotation
+  - LAPS policy
+  - legacy LAPS
+  last_updated: '2026-04-12'
+  related: []
+  sources: 1
+  stale_after: '2026-06-11'
+  subdomain: security
+  title: Windows LAPS v2 Configuration
+- domain: intune
+  has_conflicts: true
+  id: intune/security/wdac-app-control
+  keywords:
+  - WDAC
+  - App Control
+  - application control
+  - code integrity
+  - allow list
+  - policy enforcement
+  last_updated: '2026-04-12'
+  related: []
+  sources: 3
+  stale_after: '2026-06-11'
+  subdomain: security
+  title: WDAC and App Control for Business
+- domain: sentinel
+  has_conflicts: true
+  id: sentinel/architecture/log-coverage-gaps
+  keywords:
+  - log coverage
+  - data connector
+  - ingestion
+  - diagnostic settings
+  - log gap
+  - missing logs
+  last_updated: '2026-04-12'
+  related: []
+  sources: 3
+  stale_after: '2026-05-27'
+  subdomain: architecture
+  title: Sentinel Log Coverage and Ingestion Gaps
 - domain: sentinel
   has_conflicts: true
   id: sentinel/architecture/workspace-design
@@ -241,7 +481,55 @@ topics:
   - table tiers
   last_updated: '2026-04-12'
   related: []
-  sources: 4
+  sources: 6
   stale_after: '2026-07-11'
   subdomain: architecture
   title: Sentinel Workspace Architecture
+- domain: sentinel
+  has_conflicts: true
+  id: sentinel/kql/identity-detection-queries
+  keywords:
+  - KQL
+  - SigninLogs
+  - identity detection
+  - risky sign-in
+  - legacy auth KQL
+  - MFA failure KQL
+  last_updated: '2026-04-12'
+  related: []
+  sources: 6
+  stale_after: '2026-05-27'
+  subdomain: kql
+  title: KQL — Identity and Sign-in Detection
+- domain: sentinel
+  has_conflicts: true
+  id: sentinel/kql/lateral-movement-queries
+  keywords:
+  - KQL
+  - lateral movement
+  - SMB
+  - Pass-the-Hash
+  - DCSync
+  - remote services KQL
+  last_updated: '2026-04-12'
+  related: []
+  sources: 3
+  stale_after: '2026-05-27'
+  subdomain: kql
+  title: KQL — Lateral Movement Detection
+- domain: sentinel
+  has_conflicts: true
+  id: sentinel/kql/privilege-escalation-queries
+  keywords:
+  - KQL
+  - PIM activation
+  - role assignment
+  - group membership change
+  - privilege KQL
+  - AuditLogs
+  last_updated: '2026-04-12'
+  related: []
+  sources: 2
+  stale_after: '2026-05-27'
+  subdomain: kql
+  title: KQL — Privilege Escalation Detection

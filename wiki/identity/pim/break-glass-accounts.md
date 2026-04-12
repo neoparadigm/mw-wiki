@@ -4,6 +4,7 @@ conflicts:
   non-break glass accounts]'
 - '[CONFLICT: Daniel Chronlund suggests that Multi-Factor Authentication (MFA) should
   be implemented but only for non-break glass accounts.]'
+- '[CONFLICT: Jeffrey suggests monitoring break-glass accounts with MFA]'
 domain: identity
 gaps: []
 last_synthesised: '2026-04-12'
@@ -23,6 +24,11 @@ sources:
   date: '2023-10-06'
   title: Easy Bulk Management of Entra ID Conditional Access Policies
   url: https://danielchronlund.com/2023/10/06/easy-bulk-management-of-entra-id-conditional-access-policies
+- author: Jeffrey
+  crawled: '2026-04-12'
+  date: '2021-06-14'
+  title: Monitor Azure AD break-glass accounts with Microsoft Sentinel
+  url: https://jeffreyappel.nl/monitor-azure-ad-break-glass-accounts-with-azure-sentinel
 stale_after: '2026-07-11'
 title: Break Glass Emergency Access Accounts
 topic: identity/pim/break-glass-accounts
@@ -35,12 +41,14 @@ Break Glass Emergency Access Accounts are highly privileged accounts used in Azu
 
 [New] The article "An Azure AD Break Glass Routine Template for your Organization" by Daniel Chronlund provides a template for a break glass routine, emphasizing the importance of having such a plan in place before implementing security features like Conditional Access and MFA. [CONFLICT: Daniel Chronlund suggests that Multi-Factor Authentication (MFA) should be implemented but only for non-break glass accounts.]
 
+[New] The blog post "Monitor Azure AD break-glass accounts with Microsoft Sentinel" by Jeffrey discusses the process to monitor break-glass accounts using Microsoft Sentinel.
+
 ## Key Concepts
 - Complex, hard-to-guess username and password
 - Allowed admins list
 - Global Administrator role assignment
 - Password never expires
-- MFA not configured ([CONFLICT: Daniel Chronlund suggests that MFA should be implemented but only for non-break glass accounts])
+- MFA not configured ([CONFLICT: Daniel Chronlund suggests that MFA should be implemented but only for non-break glass accounts]) [CONFLICT: Jeffrey suggests monitoring break-glass accounts with MFA]
 - Exclusion from Conditional Access policies
 - Cloud-only account
 - Use of tenants `*.onmicrosoft.com` domain
@@ -53,7 +61,7 @@ Break Glass Emergency Access Accounts are highly privileged accounts used in Azu
 1. Create a complex username and password, split into two parts, stored in secure locations.
 2. Assign the Global Administrator role permanently to the account.
 3. Set the password to never expire.
-4. Configure the account to not have MFA ([CONFLICT: Daniel Chronlund suggests that MFA should be implemented but only for non-break glass accounts])
+4. Configure the account to not have MFA ([CONFLICT: Daniel Chronlund suggests that MFA should be implemented but only for non-break glass accounts]) [CONFLICT: Jeffrey suggests monitoring break-glass accounts with MFA]
 5. Exclude the account from all Conditional Access policies.
 6. Ensure the account is a cloud-only account and uses the tenants `*.onmicrosoft.com` domain.
 7. Do not federate or synchronize the account with on-prem AD.
@@ -62,7 +70,7 @@ Break Glass Emergency Access Accounts are highly privileged accounts used in Azu
 
 ## Common Pitfalls
 - Weak username or password security
-- Incorrect configuration of MFA or Conditional Access policies ([CONFLICT: Daniel Chronlund suggests that MFA should be implemented but only for non-break glass accounts])
+- Incorrect configuration of MFA or Conditional Access policies ([CONFLICT: Daniel Chronlund suggests that MFA should be implemented but only for non-break glass accounts]) [CONFLICT: Jeffrey suggests monitoring break-glass accounts with MFA]
 - Lack of documentation and validation
 - Exposure to unauthorized individuals
 
@@ -75,17 +83,4 @@ Break Glass Emergency Access Accounts are highly privileged accounts used in Azu
 - [Excluded from CA](excluded-from-ca)
 - [Offline credentials](offline-credentials)
 - [Recovery account](recovery-account)
-
-New source article: "Easy Bulk Management of Entra ID Conditional Access Policies"
-Author: Daniel Chronlund
-New source content:
-# Easy Bulk Management of Entra ID Conditional Access Policies
-
-Easy Bulk Management of Entra ID Conditional Access Policies – Daniel Chronlund Cloud Security Blog
-
-[Daniel Chronlund](https://danielchronlund.com/author/danielchronlund/)
-
-[Cloud](https://danielchronlund.com/category/cloud/), [Conditional Access](https://danielchronlund.com/category/conditional-access/), [Entra ID](https://danielchronlund.com/category/entra-id/), [Microsoft](https://danielchronlund.com/category/microsoft/), [PowerShell](https://danielchronlund.com/category/powershell/), [Security](https://danielchronlund.com/category/security/)
-
-October 6, 2023October 6, 2023
-3 Minutes
+- [Monitor Azure AD break-glass accounts with Microsoft Sentinel](monitor-azure-ad-break-glass-accounts-with-microsoft-sentinel)
