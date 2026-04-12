@@ -2,7 +2,7 @@
 
 A synthesised knowledge base for Modern Workplace practitioners, built from the best Microsoft MVP blogs and Microsoft documentation.
 
-## Quick Start — Just Want Answers?
+## Get Started
 ```bash
 git clone https://github.com/neoparadigm/mw-wiki.git
 cd mw-wiki
@@ -13,58 +13,33 @@ export ANTHROPIC_API_KEY=your_key_here
 python3 wiki.py serve
 ```
 
-Open `http://localhost:8000` — the wiki is ready. No crawling. No setup. The knowledge base comes pre-built.
+Open `http://localhost:8000` in your browser. The wiki is ready.
 
-To ask from the command line:
-```bash
-python3 wiki.py ask "How do I block device code flow in Conditional Access?"
-```
+No crawling. No setup. The knowledge base comes pre-built.
 
 ## What It Is
 
-MW·Wiki crawls a curated set of Microsoft MVP blogs, distils each article into structured topic files using a local LLM, and answers questions with cited responses — every claim traced back to the original author and URL.
+MW·Wiki is a community knowledge base for the Modern Workplace — Intune, Entra ID, Conditional Access, Sentinel, Defender, Exchange, and Teams.
 
-It does not replace the original blogs. It makes them findable.
+Ask a question in the browser. Get a cited answer traced back to the original MVP blog post or Microsoft documentation that covers it.
+
+It does not replace the original authors. It makes their work findable in one place.
 
 ## What It Is Not
 
-- A replacement for reading the original authors
-- Always current — check `wiki/_stale.md` for topics needing refresh
-- Complete — check `wiki/_gaps.md` for missing topics
-- A substitute for professional judgement
+- A replacement for reading the original blogs — every answer links back to them
+- Always current — Microsoft ships changes frequently, check `wiki/_stale.md`
+- Complete — see `wiki/_gaps.md` for topics not yet covered
+- A substitute for professional judgement — always verify before implementing in production
 
-## Contributing a Source
+## Contributing
 
-Found a great blog post that should be in the wiki? Submit a PR adding the URL to `config/seed_list.yaml`. The maintainer will process it and commit the updated topic files.
-
-You never need to run the crawler yourself.
-
-## Commands
-
-| Command | Who uses it | What it does |
-|---|---|---|
-| `python3 wiki.py serve` | Everyone | Start web UI at localhost:8000 |
-| `python3 wiki.py ask "..."` | Everyone | Query from CLI |
-| `python3 wiki.py status` | Everyone | Show corpus statistics |
-| `python3 wiki.py test` | Everyone | Run test suite |
-| `python3 wiki.py build` | Maintainer only | Crawl sources + process |
-| `python3 wiki.py crawl` | Maintainer only | Crawl only |
-| `python3 wiki.py process` | Maintainer only | Process raw files |
-| `python3 wiki.py reindex` | Maintainer only | Rebuild index |
+Found a blog post that should be in the wiki? Open a PR adding the URL to `config/seed_list.yaml`. The maintainer processes it and commits the updated topic files. You never need to run the crawler.
 
 ## Sources
 
-Built from the work of the Modern Workplace community. Every topic file credits its sources. See `wiki/_sources.md` for the complete attribution list.
-
-This project synthesises ideas into new structured entries and always links back to the original authors. It does not reproduce article content verbatim.
-
-## Limitations
-
-- Topic files may be stale — Microsoft ships changes frequently. Verify configuration guidance against current documentation before implementing in production.
-- Corpus is incomplete — see `wiki/_gaps.md`
-- Synthesis quality depends on source quality — always follow citations back to the original
+Built on the work of the Modern Workplace community. See `wiki/_sources.md` for full attribution. Every answer cites the original author and URL.
 
 ## License
 
-Code: MIT  
-Wiki content: CC-BY — reuse with attribution to original sources
+Code: MIT — Wiki content: CC-BY with attribution to original sources
