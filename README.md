@@ -70,7 +70,8 @@ MW·Wiki returns:
 
 Inspired by [Andrej Karpathy's LLM Wiki](https://github.com/karpathy) concept — structured knowledge maintained by an LLM librarian, not chunks retrieved from a vector database.
 
-<img width="1440" height="1740" alt="image" src="https://github.com/user-attachments/assets/ebebfc79-f4ff-48b4-9d47-e68c2c9d9c2e" />
+<img width="1440" height="1736" alt="image" src="https://github.com/user-attachments/assets/7c1af603-0d9d-4710-bfa4-91c61299a168" />
+
 
 
 **No vector database. No embeddings. No FAISS.** The index is a human-readable YAML file.
@@ -148,6 +149,6 @@ The maintainer processes it and commits the updated topic files. You never need 
 
 Built by [neoparadigm](https://github.com/neoparadigm) · Inspired by [Andrej Karpathy](https://github.com/karpathy) · Powered by the Modern Workplace community
 
-*This wiki empowers practitioners. It does not replace the community that built it.*
+*This wiki empowers practitioners, subject matter experts, engineers. It does not replace the community that built it.*
 
 </div>
