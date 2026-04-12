@@ -101,7 +101,8 @@ Inspired by [Andrej Karpathy's LLM Wiki](https://github.com/karpathy) concept â€
 
 The end result
 
-<img width="1903" height="682" alt="image" src="https://github.com/user-attachments/assets/b5091351-4e53-4214-b2a8-3748cecdba8a" />
+<img width="1866" height="642" alt="image" src="https://github.com/user-attachments/assets/e95b0408-cdd1-43a5-a746-3fd03c53b5d3" />
+
 
 
 ---
