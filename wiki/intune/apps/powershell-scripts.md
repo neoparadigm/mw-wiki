@@ -1,5 +1,12 @@
 ---
-conflicts: []
+conflicts:
+- '[CONFLICT: Daniel Chronlund says Exchange Online DNS Management, existing entry
+  does not mention it]'
+- '[CONFLICT: Daniel Chronlund says Teams External Access Management, existing entry
+  does not mention it]'
+- '[CONFLICT: Daniel Chronlund says inspecting roles is important, existing entry
+  does not mention this]'
+- '[CONFLICT: Daniel Chronlund says inspecting roles is important]'
 domain: intune
 gaps: []
 last_synthesised: '2026-04-12'
@@ -36,67 +43,45 @@ title: PowerShell Scripts in Intune
 topic: intune/apps/powershell-scripts
 ---
 
-# PowerShell Scripts in Intune and Exchange Online DNS Management
+# PowerShell Scripts in Intune and Modern Workplace DNS Management
 
 ## Overview
-This topic discusses four separate PowerShell scripts: one for automatic Azure AD user account enumeration, a common first step in identity-based attacks on Azure AD and Office 365 environments (previously discussed), another for quickly checking and managing Exchange Online DNS records for SPF, DKIM, and DMARC, a new script from Daniel Chronlund's blog post titled "My Azure AD has been breached! What now?" which focuses on inspecting Azure AD role assignments to help identify potential attacker accounts, and a script for managing Teams External Access for Allowed Domains using PowerShell and Teams Approvals (new). Additionally, the entry has been updated to include a new PowerShell script for cleaning up Azure MFA SMS and Voice Call Methods from Daniel Chronlund's blog post.
+This topic discusses various PowerShell scripts related to modern workplace management: one for automatic Azure AD user account enumeration, which can be used by malicious actors to find real user accounts to target in an identity-based attack on Azure AD and Office 365 environments ([PowerShell Script for Automatic User Enumeration](#key-concepts)), another for quickly checking and managing Exchange Online DNS records for SPF, DKIM, and DMARC (Quickly Check and Manage your Exchange Online DNS Records for SPF, DKIM and DMARC with PowerShell), a third one for managing Teams External Access for allowed domains using PowerShell and Teams Approvals by Daniel Chronlund, a script for inspecting Azure AD Role Assignments [CONFLICT: Daniel Chronlund says inspecting roles is important], and a new addition "My Azure AD has been breached! What now?" by Daniel Chronlund. Additionally, there's a new PowerShell script for cleaning up Azure MFA SMS and Voice Call Methods ([Azure MFA SMS and Voice Call Methods Cleanup Tool](#azure-mfa-sms-and-voice-call-methods-cleanup-tool)).
 
 ## Key Concepts
-- Azure Active Directory (Azure AD)
-- User enumeration (previously discussed)
-- PowerShell script
-- Cloud-only accounts
-- Federated accounts
-- API endpoint queries (previously discussed)
+- Azure AD User Account Enumeration
+- PowerShell Script for Automatic User Enumeration
+- Cloud-only accounts vs Federated accounts
+- Public endpoints in Azure AD
 - Exchange Online
-- Office 365
-- Sender Policy Framework (SPF) (new)
-- DomainKeys Identified Mail (DKIM) (new)
-- Domain Message Authentication Reporting & Conformance (DMARC) (new)
-- DNS records
-- Microsoft Teams
+- Sender Policy Framework (SPF)
+- DomainKeys Identified Mail (DKIM)
+- Domain Message Authentication Reporting & Conformance (DMARC)
+- Teams External Access
 - Teams Approvals
-- Azure AD roles
-- Azure MFA SMS and Voice Call Methods Cleanup Tool (new)
+- Azure AD Role Assignments [New: Daniel Chronlund says inspecting roles is important]
+- MFA SMS and Voice Call Methods
 
 ## Configuration
-The article provides PowerShell scripts for automating the management of Exchange Online DNS records for SPF, DKIM, and DMARC, Azure AD user enumeration, inspecting Azure AD role assignments, managing Teams External Access for Allowed Domains using PowerShell and Teams Approvals, a script for detecting possible attacker accounts in Azure AD, and a script for cleaning up Azure MFA SMS and Voice Call Methods. The scripts can be run from any internet-connected computer.
-
-### Azure AD User Enumeration Script (previously discussed)
-The script allows malicious actors to find real user accounts to target by querying Microsoft's API endpoints without authentication.
-
-### Exchange Online DNS Management Script (new)
-[Script details and usage not provided in the source article]
-
-### Daniel Chronlund's Azure AD Role Inspection Script (new)
-[Script details and usage not provided in the source article, but now includes a script for inspecting Azure AD role assignments]
-
-### Teams External Access Management Script (new)
-[Script details and usage not provided in the original article, but now includes a script from Daniel Chronlund's blog post for inspecting Azure AD role assignments]
-
-### Azure MFA SMS and Voice Call Methods Cleanup Tool (new)
-This script fetches all Azure AD users with registered phone methods like mobile and office phones, and then deletes those methods from the user. The script can’t delete a phone method if it is set as the default method by the user. [Script details and usage provided in Daniel Chronlund's blog post](https://danielchronlund.com/azure-mfa-sms-and-voice-call-methods-cleanup-tool/)
+The article provides PowerShell scripts for the following:
+1. Automatic Azure AD user account enumeration ([PowerShell Script for Automatic User Enumeration](#configuration))
+2. Managing Exchange Online DNS records for SPF, DKIM, and DMARC (Quickly Check and Manage your Exchange Online DNS Records for SPF, DKIM and DMARC with PowerShell)
+3. Enabling Teams federation for allowed domains only using PowerShell ([Manage Teams External Access for Allowed Domains Using PowerShell and Teams Approvals](#manage-teams-external-access-for-allowed-domains-using-powershell-and-teams-approvals))
+4. Inspecting Azure AD Role Assignments [New: Daniel Chronlund says inspecting roles is important]
+5. Cleaning up Azure MFA SMS and Voice Call Methods ([Azure MFA SMS and Voice Call Methods Cleanup Tool](#azure-mfa-sms-and-voice-call-methods-cleanup-tool))
 
 ## Common Pitfalls
-- Misuse of the scripts: The author emphasizes that both scripts are intended for testing purposes only and should not be used unethically or unlawfully.
+The author warns that the user enumeration script is intended for testing purposes only and should not be used in an unethical or unlawful manner. The script may not work for federated domains, as they are managed by the organization's federation infrastructure (AD FS). For Exchange Online DNS management, it's important to ensure that SPF, DKIM, and DMARC records are correctly configured to improve email reputation [Quickly Check and Manage your Exchange Online DNS Records for SPF, DKIM and DMARC with PowerShell].
 
-## KQL / PowerShell
-The article includes a PowerShell script for automating user enumeration in Azure AD (previously discussed) and another script for managing Exchange Online DNS records for SPF, DKIM, and DMARC (new):
+Regarding the Teams federation script, it's important to ensure that only trusted domains are added to the list of allowed domains for federation. The script includes a switch called **-RemoveExistingDomains** which resets the list before adding new domains.
 
-### Azure AD User Enumeration Script (previously discussed)
-```powershell
-function Test-AzureADUserExistence {
-    # ... (script omitted for brevity)
-}
-```
+In case of Azure AD breach, Daniel Chronlund suggests inspecting important roles and using PowerShell scripts to understand Azure AD role assignments, detections, and cleanup ([My Azure AD has been breached! What now?](#my-azure-ad-has-been-breached-what-now)).
 
-### Exchange Online DNS Management Script (new)
-[Script not provided in the original article, but now includes a script from Daniel Chronlund's blog post]
+Regarding MFA, it's recommended to disable SMS and voice calls as a MFA factor due to security concerns and move towards more modern methods like Microsoft Authenticator, Windows Hello for Business, and FIDO2. The new script ([Azure MFA SMS and Voice Call Methods Cleanup Tool](#azure-mfa-sms-and-voice-call-methods-cleanup-tool)) helps in cleaning up all registered phone methods and numbers on the user accounts in Azure AD.
 
-## New Source Article: "Azure MFA SMS and Voice Call Methods Cleanup Tool"
-Author: Daniel Chronlund
-New source content:
-# Azure MFA SMS and Voice Call Methods Cleanup Tool
+## Azure MFA SMS and Voice Call Methods Cleanup Tool
+
+Azure MFA SMS and Voice Call Methods Cleanup Tool – Daniel Chronlund Cloud Security Blog
 
 [Daniel Chronlund](https://danielchronlund.com/author/danielchronlund/)
 
@@ -104,17 +89,3 @@ New source content:
 
 October 7, 2021October 14, 2021
 4 Minutes
-
-In Azure AD, we all know that telecom, SMS and voice calls, as a MFA factor is less secure than more modern methods like [Microsoft Authenticator](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-authenticator-app), [Windows Hello for Business](https://docs.microsoft.com/en-us/mem/intune/protect/windows-hello), and [FIDO2](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key). There have been multiple reports over the years where attackers have [tricked users](https://www.cnet.com/tech/services-and-software/do-you-use-sms-for-two-factor-authentication-heres-why-you-shouldnt/), or the telecom providers, to change SIM, forward calls and SMS, etc, to steal MFA one-time-passcodes from the user. The industry is moving forward and passwordless solutions is the new thing. When you have left the insecure past, let’s clean up the old telecom mess in your Azure AD!
-
-I’ve recently been playing around with the Graph API to do such a cleanup, to remove all registered phone methods from the users authentication methods. Of course, you can (and should) first disable the possibility to authenticate with SMS and voice calls in the MFA portal.
-
-MFA settings: <https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx>
-
-Remember to also move to the Authenticator app in SSPR if you use that feature.
-
-Ones these methods are disabled, I also like to clean up all registered phone methods and numbers on the user accounts in Azure AD. And some might say, “shouldn’t we keep them as a fallback?”, and some of you might do just that. But I’m afraid to leave such a tempting fallback solution in front of non-security focused admins. If you should have a major issue with MFA, the new [Resilience defaults](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/resilience-defaults) in Conditional Access will most likely keep your business going during the outage.
-
-## The PowerShell Script
-
-This script fetches all Azure AD users with registered phone methods like mobile and office phones, and then deletes those methods from the user. The script can’t delete a phone method if it is set as the default method by the user. [Script details and usage provided in Daniel Chronlund's blog post](https://danielchronlund.com/azure-mfa-sms-and-voice-call-methods-cleanup-tool/)

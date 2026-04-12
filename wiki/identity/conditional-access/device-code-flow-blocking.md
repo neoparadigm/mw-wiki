@@ -4,11 +4,12 @@ domain: identity
 gaps: []
 last_synthesised: '2026-04-12'
 sources:
-- author: Daniel Chronlund
+- author: Jeffrey
   crawled: '2026-04-12'
-  date: '2023-08-01'
-  title: Microsoft Entra ID Honeypot Accounts with Microsoft Sentinel
-  url: https://danielchronlund.com/2023/08/01/microsoft-entra-id-honeypot-accounts-with-microsoft-sentinel
+  date: '2025-02-16'
+  title: How to protect against Device Code Flow abuse (Storm-2372 attacks) and block
+    the authentication flow
+  url: https://jeffreyappel.nl/how-to-protect-against-device-code-flow-abuse-storm-2372-attacks-and-block-the-authentication-flow/
 stale_after: '2026-06-11'
 title: Blocking Device Code Flow
 topic: identity/conditional-access/device-code-flow-blocking
@@ -17,76 +18,43 @@ topic: identity/conditional-access/device-code-flow-blocking
 # Blocking Device Code Flow
 
 ## Blocking Device Code Flow
-Microsoft Entra ID (Azure AD) allows for device code flow authentication, which can be used to sign in to an account without providing a password. However, this method can potentially be exploited by attackers to steal tokens and gain unauthorized access.
 
-## Key Concepts
-- Device code flow: A method of authenticating to Azure AD without providing a password, using a device code and verification code.
-- Token theft: The unauthorized acquisition of security tokens, which can grant an attacker access to sensitive resources.
-- Microsoft Graph: An API that provides programmatic access to data within Microsoft 365, including Azure AD user accounts.
+### Overview
+The Device Authorization Flow is a method used for authentication in Microsoft services where a code generated on another device or service is entered to authenticate without Multi-Factor Authentication (MFA) or additional authentication. This flow has been abused in sophisticated phishing campaigns, known as Storm-2372 attacks, which target various sectors including government/IT services and critical industries. Blocking this flow is crucial for securing modern workplaces against these attacks.
 
-## Configuration
-To block device code flow in Azure AD, you can create a custom conditional access policy that denies access via this method. Here's how to do it using PowerShell:
+### Key Concepts
+- Device Authorization Flow
+- Storm-2372 attacks
+- Phishing campaigns
+- Russian state interests
+- AiTM/ Token tactics
+- Modern identity attacks
+- MFA phishing attacks
+- QR Code phishing
+- PRT (Passwordless Authentication)
+- OAuth
 
-1. Install the DCToolbox module for Microsoft 365 security, conditional access, and automation.
-2. Connect to Azure AD with device code flow using the following script:
+### Configuration
+1. Implement controls against AiTM/Token tactics and other modern identity attacks.
+2. Monitor for suspicious activities related to the Device Authorization Flow.
+3. Configure Microsoft Defender products to protect against QR Code phishing.
+4. Use Microsoft's recommended practices for securing Microsoft Copilot Studio agents with real-time protection.
+5. Protect Microsoft Teams with Microsoft 365 Defender.
+6. Automatic Windows Event Auditing configuration for Defender for Identity v3.x.
+7. Archive Defender logs natively in Defender XDR up to 12 years.
+8. Implement cost management for Microsoft Sentinel data lake usage.
 
-```
-# Connect to Azure AD with device code flow.
-$ClientID = 'Your_Client_Id'
-$ClientSecret = 'Your_Client_Secret'
-$TenantID = 'Your_Tenant_Id'
+### Common Pitfalls
+- Lack of awareness and understanding of the Device Authorization Flow and its potential for abuse.
+- Insufficient monitoring and control over the use of this flow in various services.
+- Inadequate protection against QR Code phishing and other related attacks.
 
-$AccessToken = Invoke-DCAzureADDeviceAuthFlow -ReturnAccessTokenInsteadOfRefreshToken -ClientID $ClientID -TenantID $TenantID
-```
-Replace `Your_Client_Id`, `Your_Client_Secret`, and `Your_Tenant_Id` with the appropriate values for your Entra ID application and tenant.
+### KQL / PowerShell
+[The article does not provide any specific queries or scripts related to blocking Device Code Flow.]
 
-3. Create a custom conditional access policy that blocks device code flow:
-
-```
-# Set the policy scope (e.g., users, groups, or cloud apps)
-$Scope = "Users"
-
-# Define the policy rules
-$Rules = @(
-    # Block device code flow
-    New-Object -TypeName Microsoft.Open.AzureAD.Model.ConditionalAccessRule -Property @{
-        RuleType    = "None"
-        Operator    = "and"
-        Control     = "Block"
-        ClientAppType = "All client apps"
-        Conditions  = @(
-            New-Object -TypeName Microsoft.Open.AzureAD.Model.ClientAppCondition -Property @{
-                ClientAppTypeOrOperator = "or"
-                Value                   = "multiFactorAuthentication"
-            }
-        )
-    }
-)
-
-# Create the policy object
-$PolicyObject = New-Object -TypeName Microsoft.Open.AzureAD.Model.ConditionalAccessPolicy -Property @{
-    DisplayName          = "Block Device Code Flow"
-    Conditions           = $Rules
-    Session              = New-Object -TypeName Microsoft.Open.AzureAD.Model.Session
-    State                = "Enabled"
-    EnforcedDeviceCompliance     = "Block"
-}
-
-# Apply the policy to the specified scope
-New-MCASconditionalAccessPolicy -Policy $PolicyObject -Scope $Scope
-```
-Replace `$Scope` with the appropriate value for your policy (e.g., users, groups, or cloud apps).
-
-## Common Pitfalls
-- Failing to properly configure the conditional access policy can result in legitimate users being blocked from signing in.
-- Not using a custom policy can lead to device code flow remaining enabled by default, potentially exposing your organization to token theft attacks.
-
-## KQL / PowerShell
-N/A
-
-## Related Topics
-- [Device code](device_code)
-- [Device code flow](device_code_flow)
-- [microsoft.com/devicelogin](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-device-code-flow)
-- [CA block](conditional_access_block)
-- [Token theft](token_theft)
+### Related Topics
+- device code
+- device code flow
+- microsoft.com/devicelogin
+- CA block
+- token theft

@@ -1,6 +1,7 @@
 sources:
   - name: "Michael Niehaus — Current"
     author: "Michael Niehaus"
+    authority: 3
     base_url: "https://oofhours.com"
     robots_url: "https://oofhours.com/robots.txt"
     focus: [autopilot, windows_deployment, intune]
@@ -8,6 +9,7 @@ sources:
 
   - name: "Anoop C Nair / HTMD"
     author: "Anoop C Nair"
+    authority: 3
     base_url: "https://www.anoopcnair.com"
     robots_url: "https://www.anoopcnair.com/robots.txt"
     focus: [intune, windows, configmgr, cloud_pc, compliance, autopilot]
@@ -15,6 +17,7 @@ sources:
 
   - name: "MSEndpointMgr"
     author: "MSEndpointMgr Team"
+    authority: 3
     base_url: "https://msendpointmgr.com"
     robots_url: "https://msendpointmgr.com/robots.txt"
     focus: [intune, autopilot, identity, laps, configmgr]
@@ -22,6 +25,7 @@ sources:
 
   - name: "Daniel Chronlund"
     author: "Daniel Chronlund"
+    authority: 3
     base_url: "https://danielchronlund.com"
     robots_url: "https://danielchronlund.com/robots.txt"
     focus: [entra_id, conditional_access, pim, security, identity]
@@ -29,6 +33,7 @@ sources:
 
   - name: "Ugur Koc"
     author: "Ugur Koc"
+    authority: 3
     base_url: "https://ugurkoc.de"
     robots_url: "https://ugurkoc.de/robots.txt"
     focus: [intune, graph_api, kql, powershell, automation]
@@ -36,6 +41,7 @@ sources:
 
   - name: "Jannik Reinhard"
     author: "Jannik Reinhard"
+    authority: 3
     base_url: "https://jannikreinhard.com"
     robots_url: "https://jannikreinhard.com/robots.txt"
     focus: [intune, modern_management, security]
@@ -43,6 +49,7 @@ sources:
 
   - name: "Call4Cloud"
     author: "Rudy Ooms"
+    authority: 2
     base_url: "https://call4cloud.nl"
     robots_url: "https://call4cloud.nl/robots.txt"
     focus: [intune, esp, co_management, edge_cases, troubleshooting]
@@ -50,6 +57,7 @@ sources:
 
   - name: "Oliver Kieselbach"
     author: "Oliver Kieselbach"
+    authority: 2
     base_url: "https://oliverkieselbach.com"
     robots_url: "https://oliverkieselbach.com/robots.txt"
     focus: [wdac, app_control, intune, windows_security]
@@ -57,6 +65,7 @@ sources:
 
   - name: "Peter van der Woude"
     author: "Peter van der Woude"
+    authority: 2
     base_url: "https://www.petervanderwoude.nl"
     robots_url: "https://www.petervanderwoude.nl/robots.txt"
     focus: [intune, configmgr, compliance, powershell]
@@ -64,6 +73,7 @@ sources:
 
   - name: "Andrew Taylor"
     author: "Andrew Taylor"
+    authority: 2
     base_url: "https://andrewstaylor.com"
     robots_url: "https://andrewstaylor.com/robots.txt"
     focus: [intune, automation, packaging, scripts]
@@ -71,6 +81,7 @@ sources:
 
   - name: "Bert-Jan Pals"
     author: "Bert-Jan Pals"
+    authority: 2
     base_url: "https://kqlcafe.com"
     robots_url: "https://kqlcafe.com/robots.txt"
     focus: [kql, sentinel, threat_hunting, detection]
@@ -78,7 +89,24 @@ sources:
 
   - name: "Alex Verboon"
     author: "Alex Verboon"
+    authority: 2
     base_url: "https://alexverboon.com"
     robots_url: "https://alexverboon.com/robots.txt"
     focus: [sentinel, defender, kql, security]
     crawl_depth: 2
+
+  - name: "Jeffrey Appel"
+    author: "Jeffrey Appel"
+    base_url: "https://jeffreyappel.nl"
+    robots_url: "https://jeffreyappel.nl/robots.txt"
+    focus: [conditional_access, entra_id, security, identity]
+    crawl_depth: 2
+    authority: 2
+
+  - name: "Jan Bakker"
+    author: "Jan Bakker"
+    base_url: "https://janbakker.tech"
+    robots_url: "https://janbakker.tech/robots.txt"
+    focus: [conditional_access, entra_id, intune, security]
+    crawl_depth: 2
+    authority: 2

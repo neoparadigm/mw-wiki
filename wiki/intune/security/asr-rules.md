@@ -19,31 +19,31 @@ topic: intune/security/asr-rules
 ## Attack Surface Reduction Rules
 
 ### Overview
-Attack Surface Reduction (ASR) rules are a set of security configurations in Windows Defender that help reduce the attack surface by blocking potential threats and vulnerabilities. This topic is crucial for securing an organization's digital environment against cyber attacks.
+Attack Surface Reduction (ASR) rules are a set of security configurations in Windows Defender that help protect against potential threats by blocking or auditing specific actions. Understanding and monitoring these rules is crucial for maintaining a secure environment.
 
 ### Key Concepts
-- ASR rules: Specific security configurations designed to block potential threats and vulnerabilities.
-- Audit mode: A mode in which ASR rules are logged but do not block the actions they are designed to prevent.
-- Block mode: A mode in which ASR rules actively block the actions they are designed to prevent.
-- Windows Defender: The built-in antivirus and threat protection system in Windows operating systems.
+- **Windows Defender**: The built-in antivirus and threat protection system in Windows operating systems.
+- **ASR Rules**: Specific configurations within Windows Defender that can be set to audit or block certain actions based on predefined conditions.
+- **Audit Mode**: A setting for ASR rules where events are logged but not blocked, allowing for monitoring and analysis.
+- **Block Mode**: A setting for ASR rules where the specified action is prevented from occurring.
+- **ASR Events**: Occurrences when an action subject to an ASR rule takes place, either audited or blocked.
 
 ### Configuration
-1. Navigate to the Windows Security settings.
-2. Go to "Virus & Threat Protection" > "Manage settings".
-3. Scroll down to "Attack Surface Reduction" and click on it.
-4. Enable or disable rules as needed, choosing between audit mode and block mode.
+1. Download the latest version of the Attack Surface Reduction Dashboard JSON file from [Daniel Chronlund's GitHub](https://github.com/DanielChronlund/DCSecurityOperations/blob/main/Sentinel%20Workbooks/Attack-Surface-Reduction-Dashboard.json).
+2. In your Microsoft Sentinel workspace, click on **Workbooks** and add a new workbook.
+3. Replace the JSON content in the new workbook with the downloaded file.
+4. Save the workbook with the same Azure resource group as your Sentinel workspace and set the Title to "Attack Surface Reduction Dashboard".
 
 ### Common Pitfalls
-- Overly restrictive ASR rules can cause legitimate applications to be blocked.
-- Incorrect configuration of ASR rules can lead to increased attack surface.
-- Failing to monitor ASR rule events can result in missed security incidents.
+- Failing to properly configure ASR rules can lead to either overly restrictive or insufficient security measures.
+- Not monitoring ASR events can result in missed opportunities for threat detection and incident investigation.
 
 ### KQL / PowerShell
-[The article does not provide any specific queries or scripts related to ASR rules.]
+[The article does not provide any specific queries or scripts related to ASR Rules.]
 
 ### Related Topics
-- [ASR](/wiki/ASR)
-- [Attack surface reduction](/wiki/Attack_surface_reduction)
-- [Block mode](/wiki/Block_mode)
-- [Audit mode](/wiki/Audit_mode)
-- [ASR rules reference](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/attack-surface-reduction-rules-reference?view=o365-worldwide)
+- [ASR](asr)
+- [attack surface reduction](attack-surface-reduction)
+- [block mode](block-mode)
+- [audit mode](audit-mode)
+- [ASR rules](asr-rules)

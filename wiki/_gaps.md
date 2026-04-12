@@ -1,6 +1,6 @@
 # MW-Wiki — Known Gaps
-Generated: 2026-04-12 15:21
-Topics with no sources yet: 27
+Generated: 2026-04-12 19:02
+Topics with no sources yet: 31
 
 These are topics the wiki knows should exist but has no articles for yet.
 Submit a PR to `config/seed_list.yaml` with a source URL to fill a gap.
@@ -16,6 +16,8 @@ Submit a PR to `config/seed_list.yaml` with a source URL to fill a gap.
 | `exchange/security/smtp-auth-disable` | Disabling SMTP AUTH and Legacy Protocols |
 | `identity/conditional-access/aitm-defence` | AiTM Proxy Attacks and Defence |
 | `identity/conditional-access/compliant-device-requirement` | Requiring Compliant or Hybrid-Joined Devices |
+| `identity/conditional-access/named-locations` | Named Locations and IP-Based Conditions |
+| `identity/conditional-access/token-protection` | Token Protection and CAE |
 | `identity/entra-id/admin-consent-workflow` | Admin Consent Workflow and OAuth App Control |
 | `identity/entra-id/entra-id-protection` | Entra ID Protection Risk Policies |
 | `identity/hybrid/entra-connect-hardening` | Entra Connect Server Hardening |
@@ -26,6 +28,8 @@ Submit a PR to `config/seed_list.yaml` with a source URL to fill a gap.
 | `intune/compliance/compliance-policy-design` | Compliance Policy Design and CA Integration |
 | `intune/deployment/autopilot-self-deploying` | Autopilot Self-Deploying Mode |
 | `intune/deployment/autopilot-troubleshooting` | Autopilot Troubleshooting |
+| `intune/security/credential-guard` | Credential Guard and VBS |
+| `intune/security/laps-v2` | Windows LAPS v2 Configuration |
 | `intune/security/wdac-app-control` | WDAC and App Control for Business |
 | `sentinel/alerts/analytics-rule-tuning` | Analytics Rule Tuning and False Positive Reduction |
 | `sentinel/architecture/log-coverage-gaps` | Sentinel Log Coverage and Ingestion Gaps |

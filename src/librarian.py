@@ -116,7 +116,10 @@ def classify_article(
             best_score = score
             best_path = path
 
-    if best_score == 0:
+    # Require minimum score of 2 — must match at least 2 keywords
+    # This prevents broad topic files from absorbing loosely related articles
+    if best_score < 2:
+        log.info(f"  Score too low ({best_score}) — skipping")
         return None
 
     log.info(f"  Classified as: {best_path} (score {best_score})")
@@ -253,6 +256,11 @@ def merge_into_topic_file(
     existing_urls = [s.get("url") for s in meta.get("sources", [])]
     if article_url in existing_urls:
         log.info(f"  ALREADY INDEXED: {article_url}")
+        return
+
+    # Cap sources per topic file at 6
+    if len(meta.get("sources", [])) >= 6:
+        log.info(f"  TOPIC FULL (6 sources max): {topic_path}")
         return
 
     prompt = f"""You are updating a structured knowledge base entry for a Modern Workplace wiki.

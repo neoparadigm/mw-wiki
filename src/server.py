@@ -10,7 +10,7 @@ sys.path.insert(0, str(BASE_DIR / "src"))
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 from pydantic import BaseModel
 from query import query as run_query, load_index
 
@@ -35,6 +35,9 @@ async def health():
 
 @app.get("/")
 async def root():
+    ui_file = BASE_DIR / "ui" / "index.html"
+    if ui_file.exists():
+        return FileResponse(ui_file)
     return JSONResponse({"name": "MW-Wiki API", "version": "0.1.0", "docs": "/docs"})
 
 if __name__ == "__main__":

@@ -102,7 +102,7 @@ def route_question(question: str, index: list[dict]) -> list[str]:
             scores.append((score, topic["id"]))
 
     scores.sort(reverse=True)
-    top_paths = [path for _, path in scores[:MAX_TOPICS]]
+    top_paths = [path for score, path in scores[:MAX_TOPICS] if score >= 3]
 
     log.info(f"Routing: '{question[:50]}...' → {top_paths}")
     return top_paths
@@ -177,10 +177,13 @@ RULES — follow these exactly:
 3. If the context does not contain enough information to answer, say exactly: "The wiki does not have sufficient coverage of this topic yet. Check _gaps.md."
 4. Do not pad answers. Be precise and technical.
 5. Include PowerShell or KQL code blocks if present in the context and relevant to the question.
-6. End every answer with a ## Sources section listing all cited sources with URLs.
+6. Prefer [AUTHORITY: HIGH] sources over [AUTHORITY: MEDIUM] when they conflict.
+7. When sources conflict, state both positions explicitly rather than blending them.
+8. End every answer with a ## Sources section listing all cited sources with URLs and dates.
 
-CITATION FORMAT: Every factual sentence must end with [Source: Author Name] before the period.
-Example: "Block device code flow by setting the Authentication flows condition to Block [Source: Daniel Chronlund]."
+CITATION FORMAT: Every factual sentence must end with [Source: Author — Article Title] before the period.
+Example: "Block device code flow by setting the Authentication flows condition to Block [Source: Daniel Chronlund — Blocking Device Code Flow].
+Only cite sources that appear in the context above. Never invent citations."
 """
 
 
@@ -188,16 +191,38 @@ def synthesise(question: str, contexts: list[TopicContext]) -> str:
     """Single Claude API call. Returns raw answer text."""
     client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
-    # Build context block
+    # Load authority map from seed list
+    authority_map = {}
+    try:
+        import yaml as _yaml
+        seed_path = Path(__file__).parent.parent / "config" / "seed_list.yaml"
+        with open(seed_path) as f:
+            seed = _yaml.safe_load(f)
+        for s in seed.get("sources", []):
+            authority_map[s["author"]] = s.get("authority", 1)
+    except Exception:
+        pass
+
+    # Build context block — sources sorted by authority then date
     context_parts = []
     for ctx in contexts:
+        sorted_sources = sorted(
+            ctx.sources,
+            key=lambda s: (
+                -authority_map.get(s.get("author", ""), 1),
+                s.get("date", "0000")
+            )
+        )
+        # Cap at 5 most authoritative and recent sources
+        sorted_sources = sorted_sources[:5]
         sources_str = "\n".join(
-            f"  - {s.get('author', 'Unknown')}: {s.get('url', '')}"
-            for s in ctx.sources
+            f"  - [AUTHORITY: {'HIGH' if authority_map.get(s.get('author',''),1) == 3 else 'MEDIUM' if authority_map.get(s.get('author',''),1) == 2 else 'STANDARD'}] "
+            f"{s.get('author', 'Unknown')} ({s.get('date', 'unknown date')}): {s.get('url', '')}"
+            for s in sorted_sources
         )
         context_parts.append(
             f"=== TOPIC: {ctx.title} ===\n"
-            f"Sources:\n{sources_str}\n\n"
+            f"Sources (sorted by authority):\n{sources_str}\n\n"
             f"{ctx.body}\n"
         )
 
@@ -378,10 +403,21 @@ def print_result(result: QueryResult) -> None:
     print(result.answer)
     print("-" * 70)
 
-    if result.sources:
-        print(f"\nSOURCES ({len(result.sources)}):")
-        for s in result.sources:
-            print(f"  [{s.get('author', 'Unknown')}] {s.get('title', '')} — {s.get('url', '')}")
+    # Only show sources actually cited in the answer
+    import re as _re
+    cited_authors = set(_re.findall(r'\[Source:\s*([^\]]+)\]', result.answer))
+    cited_sources = [s for s in result.sources 
+                     if any(ca.lower() in s.get('author','').lower() 
+                            or s.get('author','').lower() in ca.lower() 
+                            for ca in cited_authors)]
+    
+    if cited_sources:
+        print(f"\nSOURCES CITED ({len(cited_sources)}):")
+        for s in cited_sources:
+            print(f"  [{s.get('author', 'Unknown')}] {s.get('title', '')} ({s.get('date','')})")
+            print(f"  {s.get('url', '')}")
+    elif result.sources:
+        print(f"\nSOURCES ({len(result.sources)} in corpus — refine query for specific citations)")
 
 
 def interactive_mode() -> None:

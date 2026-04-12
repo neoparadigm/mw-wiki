@@ -1,20 +1,15 @@
 ---
 conflicts:
-- '[CONFLICT: Daniel Chronlund mentions the importance of blocking legacy authentication
-  to prevent password spray attacks, while the existing entry does not explicitly
-  mention this.]'
-- '[CONFLICT: Daniel Chronlund suggests adding a condition for specific client apps
-  to block legacy authentication, while the existing entry does not mention this.]'
-- '[CONFLICT: Daniel Chronlund specifically mentions this as a vulnerability]'
+- '[CONFLICT: Daniel Chronlund''s entry provides additional deployment methods and
+  automation tools, while the existing entry does not.]'
+- '[CONFLICT: Daniel Chronlund''s entry provides additional information about the
+  importance of understanding the Conditional Access policy evaluation process and
+  how to find and exploit flaws in a policy design, while the existing entry does
+  not.]'
 domain: identity
 gaps: []
 last_synthesised: '2026-04-12'
 sources:
-- author: Daniel Chronlund
-  crawled: '2026-04-12'
-  date: '2022-01-07'
-  title: The Attackers Guide to Azure AD Conditional Access
-  url: https://danielchronlund.com/2022/01/07/the-attackers-guide-to-azure-ad-conditional-access
 - author: Daniel Chronlund
   crawled: '2026-04-12'
   date: '2020-03-17'
@@ -26,89 +21,58 @@ sources:
   title: Entra ID Conditional Access Policy Design Baseline with Automatic Deployment
     Support
   url: https://danielchronlund.com/2020/11/26/azure-ad-conditional-access-policy-design-baseline-with-automatic-deployment-support
+- author: Daniel Chronlund
+  crawled: '2026-04-12'
+  date: '2022-01-07'
+  title: The Attackers Guide to Azure AD Conditional Access
+  url: https://danielchronlund.com/2022/01/07/the-attackers-guide-to-azure-ad-conditional-access
 stale_after: '2026-06-11'
 title: Blocking Legacy Authentication Protocols
 topic: identity/conditional-access/legacy-auth-blocking
 ---
 
-# Blocking Legacy Authentication Protocols
+Blocking Legacy Authentication Protocols
+=========================================
 
-## Blocking Legacy Authentication Protocols
+This topic discusses the importance of blocking legacy authentication protocols in Azure Active Directory (Azure AD) to prevent password spray attacks using PowerShell. These attacks can bypass Multi-Factor Authentication (MFA) if legacy authentication is allowed, potentially compromising an organization's security.
 
-### Overview
-Blocking legacy authentication protocols is crucial for securing Azure AD Conditional Access by preventing unsecure connections and reducing attack surface. [CONFLICT: Daniel Chronlund mentions the importance of blocking legacy authentication to prevent password spray attacks, while the existing entry does not explicitly mention this.] This practice helps mitigate various threats such as man-in-the-middle and brute force attacks.
+## Key Concepts
+- Legacy authentication vs Modern authentication
+- Office 365 reporting API
+- Basic authentication
+- Password spray attack
+- Smart Lockout in Azure AD
+- [Attacker's Guide to Azure AD Conditional Access](https://danielchronlund.com/2022/01/07/the-attackers-guide-to-azure-ad-conditional-access/) (New)
 
-### Key Concepts
-- Legacy authentication protocols: Outdated methods like Basic Auth, SMTP AUTH, POP3, IMAP that are vulnerable to attacks such as man-in-the-middle and brute force attacks.
-- Conditional Access policies: Azure AD feature used to control access to resources based on conditions like device compliance, location, client app, and sign-in risk level.
-- Secure authentication protocols: Modern methods like OAuth 2.0 and OpenID Connect that provide stronger security through encryption and multi-factor authentication.
-- Password Spray Attacks [New addition based on the new source]
+## Configuration
+1. Enable Conditional Access to protect your organization from password spray attacks by blocking legacy authentication.
+2. Review and adjust the Conditional Access policies to ensure they are appropriate for your organization's needs, understanding that everything is allowed by default in Azure AD and it's important to focus on what should be blocked rather than what use cases to allow. (New information from "The Attackers Guide to Azure AD Conditional Access")
 
-### Configuration
-1. Navigate to Azure AD > Security > Conditional Access > New policy.
-2. Select Users and Cloud apps or actions, then select "Select an app" and choose the target application.
-3. Under Conditions, add a condition for Client Apps > Browser > Client App > All clients. [CONFLICT: Daniel Chronlund suggests adding a condition for specific client apps to block legacy authentication, while the existing entry does not mention this.]
-4. Under Access controls, under Cloud App or Action restrictions, select Block legacy authentication.
-5. Configure other conditions and access controls as needed, then set the policy to On.
+## Common Pitfalls
+- Failing to enable Conditional Access, leaving the organization vulnerable to password spray attacks.
+- Allowing too many password attempts in a short period, potentially triggering Smart Lockout and locking out users unnecessarily.
+- Designing Conditional Access policies backwards, focusing on what use cases to allow rather than what should be blocked, which can leave the tenant vulnerable to attacks. (New information from "The Attackers Guide to Azure AD Conditional Access")
 
-### Common Pitfalls
-- Failing to block all legacy protocols: Ensure that all vulnerable protocols are blocked to minimize attack surface.
-- Not testing policies thoroughly: Test policies in a controlled environment before deploying them to production to avoid unintended disruptions.
-- Allowing legacy authentication in Office 365, which bypasses MFA and can be exploited in password spray attacks [CONFLICT: Daniel Chronlund specifically mentions this as a vulnerability].
-- Not considering the need for exceptions or specific use cases that may require legacy protocols. [New addition based on the new source]
+## KQL / PowerShell
+The article includes a PowerShell script for demonstration purposes only. It is not recommended to use this script in a production environment without proper security measures in place.
 
-### KQL / PowerShell
-[The article does not provide any relevant queries or scripts for this topic.]
-
-### Related Topics
-- Legacy auth
-- Basic Auth
-- SMTP AUTH
-- POP3
-- IMAP
-- Password Spray Attacks [New addition based on the new source]
-
-## Entra ID Conditional Access Policy Design Baseline with Automatic Deployment Support
-
-Entra ID Conditional Access Policy Design Baseline with Automatic Deployment Support – Daniel Chronlund Cloud Security Blog
-
-[Daniel Chronlund](https://danielchronlund.com/author/danielchronlund/)
-
-[Azure AD](https://danielchronlund.com/category/azure-ad/), [Cloud](https://danielchronlund.com/category/cloud/), [Conditional Access](https://danielchronlund.com/category/conditional-access/), [Microsoft](https://danielchronlund.com/category/microsoft/), [Security](https://danielchronlund.com/category/security/)
-
-November 26, 2020November 26, 2024
-14 Minutes
-
-My Entra ID Conditional Access Policy Design Baseline is updated at least twice every year, always containing lessons learned from the field. It is based on my recommendations of how Conditional Access should be deployed to create a strong zero trust security posture.
-
-Note that all organisations are different and you might need to adjust the baseline to fit your specific needs. My goal is to provide inspiration and a great starting point for your own Conditional Access design.
-
-|  |  |
-| --- | --- |
-| **Current baseline version**: | **1**5 |
-| **Release date**: | **2024-11-2**6 |
-
-There are two methods of deployment:
-
-## Option 1: Manual Deployment
-
-Download the Excel version of the baseline and manually create each Conditional Access policy in the Azure portal.
-
-[conditional-access-design-version-15-poc](https://danielchronlund.com/wp-content/uploads/2020/11/conditional-access-design-version-15-poc.xlsx)[Ladda ner](https://danielchronlund.com/wp-content/uploads/2020/11/conditional-access-design-version-15-poc.xlsx)
-
-## Option 2: Automatic Deployment
-
-**Version 7** of this baseline was the first version with [DCToolbox](https://danielchronlund.com/2020/11/09/dctoolbox-powershell-module-for-microsoft-365-security-conditional-access-automation-and-more/) automation support, and **version 15** was the first to change deployment model to use the [Conditional Access Gallery](https://danielchronlund.com/2024/11/21/conditional-access-gallery-point-select-and-deploy-in-minutes/). This means that you can now automatically deploy this baseline with [DCToolbox](https://danielchronlund.com/2020/11/09/dctoolbox-powershell-module-for-microsoft-365-security-conditional-access-automation-and-more/) (or create your own JSON templates).
-
-Please see this article for details of Conditional Access automation with **DCToolbox**: [How to Manage Conditional Access as Code – The Ultimate Guide](https://danielchronlund.com/2020/11/25/how-to-manage-conditional-access-as-code-the-ultimate-guide/)
-
-To automatically install the baseline, run this in **PowerShell 7**:
-
+```powershell
+function Invoke-AzureAdPasswordSprayAttack {
+    # ... (omitted for brevity)
+}
 ```
-# Install DCToolboc from the PowerShell Gallery:
-Install-Module -Name DCToolbox -Force
 
-# Deploy the baseline as a complete Conditional Access PoC in report-only mode, add a PILOT prefix, AND create documentation in Markdown format.
-Deploy-DCConditionalAccessBaselinePoC 
+## Related Topics
+- [Legacy auth](legacy_auth)
+- [Basic auth](basic_auth)
+- [SMTP AUTH](smtp_auth)
+- [POP3](pop3)
+- [IMAP](imap)
+- [Attacker's Guide to Azure AD Conditional Access](https://danielchronlund.com/2022/01/07/the-attackers-guide-to-azure-ad-conditional-access/) (New)
 
-```
+## Additional Information (from "Entra ID Conditional Access Policy Design Baseline with Automatic Deployment Support")
+- The Entra ID Conditional Access Policy Design Baseline is updated at least twice every year, always containing lessons learned from the field. It is based on recommendations of how Conditional Access should be deployed to create a strong zero trust security posture.
+- There are two methods of deployment: Manual Deployment and Automatic Deployment. The automatic deployment method uses the [Conditional Access Gallery](https://danielchronlund.com/2024/11/21/conditional-access-gallery-point-select-and-deploy-in-minutes/) for easy and efficient policy creation.
+- For details on Conditional Access automation with DCToolbox, see [How to Manage Conditional Access as Code – The Ultimate Guide](https://danielchronlund.com/2020/11/25/how-to-manage-conditional-access-as-code-the-ultimate-guide/)
+
+[CONFLICT: Daniel Chronlund's entry provides additional information about the importance of understanding the Conditional Access policy evaluation process and how to find and exploit flaws in a policy design, while the existing entry does not.]

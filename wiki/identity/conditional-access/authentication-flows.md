@@ -1,67 +1,28 @@
 ---
 conflicts:
-- '[CONFLICT: Daniel Chronlund says this is the purpose of CA, existing entry does
-  not mention it]'
-- '[CONFLICT: Daniel Chronlund says this can happen, existing entry does not mention
-  it]'
-- '[CONFLICT: Daniel Chronlund says X, existing entry does not mention it]'
-- '[CONFLICT: Daniel Chronlund says X, existing entry says Y]'
+- '[CONFLICT: kenwith says "authentication transfer", existing entry does not mention
+  this]'
+- '[CONFLICT: Jan Bakker does not mention this]'
 domain: identity
 gaps: []
 last_synthesised: '2026-04-12'
 sources:
 - author: Daniel Chronlund
   crawled: '2026-04-12'
-  date: '2018-11-19'
-  title: Fetch Data from Microsoft Graph with PowerShell (Paging Support)
-  url: https://danielchronlund.com/2018/11/19/fetch-data-from-microsoft-graph-with-powershell-paging-support
-- author: Daniel Chronlund
-  crawled: '2026-04-12'
   date: '2018-11-21'
   title: Azure AD Conditional Access Policy Design Baseline
   url: https://danielchronlund.com/2018/11/21/azure-ad-conditional-access-policy-design-baseline
-- author: Daniel Chronlund
+- author: kenwith
   crawled: '2026-04-12'
-  date: '2018-12-12'
-  title: Conditional Access Logs in Azure AD
-  url: https://danielchronlund.com/2018/12/12/conditional-access-logs-in-azure-ad
-- author: Daniel Chronlund
+  date: '2026-04-07'
+  title: Block authentication flows with Conditional Access policy - Microsoft Entra
+    ID
+  url: https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-authentication-flows
+- author: Jan Bakker
   crawled: '2026-04-12'
-  date: '2019-11-07'
-  title: Automatic Deployment of Conditional Access with PowerShell and Microsoft
-    Graph
-  url: https://danielchronlund.com/2019/11/07/automatic-deployment-of-conditional-access-with-powershell-and-microsoft-graph
-- author: Daniel Chronlund
-  crawled: '2026-04-12'
-  date: '2019-11-07'
-  title: Safe Conditional Access Deployment with Report-Only Mode and the Insights
-    Dashboard
-  url: https://danielchronlund.com/2019/11/07/safe-conditional-access-deployment-with-report-only-mode-and-the-insights-dashboard
-- author: Daniel Chronlund
-  crawled: '2026-04-12'
-  date: '2020-02-26'
-  title: My Collection of Basic Microsoft Graph PowerShell Functions
-  url: https://danielchronlund.com/2020/02/26/my-collection-of-basic-microsoft-graph-powershell-functions
-- author: Daniel Chronlund
-  crawled: '2026-04-12'
-  date: '2020-10-20'
-  title: Export your Conditional Access Policy Assignments to Excel
-  url: https://danielchronlund.com/2020/10/20/export-your-conditional-access-policy-assignments-to-excel
-- author: Daniel Chronlund
-  crawled: '2026-04-12'
-  date: '2020-11-25'
-  title: How to Manage Conditional Access as Code &#8211; The Ultimate Guide
-  url: https://danielchronlund.com/2020/11/25/how-to-manage-conditional-access-as-code-the-ultimate-guide
-- author: Daniel Chronlund
-  crawled: '2026-04-12'
-  date: '2023-01-25'
-  title: A Security MVP&#8217;s Take on Cloud Security in 2023
-  url: https://danielchronlund.com/2023/01/25/a-security-mvps-take-on-cloud-security-in-2023
-- author: Daniel Chronlund
-  crawled: '2026-04-12'
-  date: '2023-11-24'
-  title: Conditional Access &#8216;What If&#8217; Simulation with PowerShell
-  url: https://danielchronlund.com/2023/11/24/conditional-access-what-if-simulation-with-powershell
+  date: '2025-05-06'
+  title: How to restrict Device Code Flow in Entra ID
+  url: https://janbakker.tech/how-to-restrict-device-code-flow-in-entra-id/
 stale_after: '2026-06-11'
 title: Conditional Access — Authentication Flows
 topic: identity/conditional-access/authentication-flows
@@ -69,42 +30,83 @@ topic: identity/conditional-access/authentication-flows
 
 # Conditional Access — Authentication Flows
 
-## Overview
-This topic discusses how to fetch data from Microsoft Graph using PowerShell with paging support, and also provides information about Azure AD Conditional Access Policy Design Baseline and Conditional Access Logs in Azure AD. Additionally, it includes a Proof of Concept, a PowerShell script that deploys a complete Conditional Access policy design based on the baseline.
+## Conditional Access — Authentication Flows
 
-## Key Concepts
-- Registering an application in Azure AD
-- Granting permissions to the registered application
-- Using PowerShell function `Get-GraphApiResult` for fetching data from Microsoft Graph API
-- Paging support for handling large datasets
-- Understanding the purpose and conditions of Azure AD Conditional Access Policies ([CONFLICT: Daniel Chronlund says this is the purpose of CA, existing entry does not mention it])
-- Reviewing Conditional Access logs in Azure AD (New from source)
-- Automatic Deployment of Conditional Access with PowerShell and Microsoft Graph (New from source)
-- Safe Conditional Access Deployment with Report-Only Mode and the Insights Dashboard (New from source)
-- My Collection of Basic Microsoft Graph PowerShell Functions (New from source)
-- Exporting Conditional Access Policy Assignments to Excel (New from source, [Daniel Chronlund](https://danielchronlund.com/author/danielchronlund/))
-- **[NEW] How to Manage Conditional Access as Code — The Ultimate Guide** (Source: Daniel Chronlund)
-  - Reasons for managing Conditional Access policies as code
-  - Preparations and installation of the DCToolbox PowerShell module
-- A Security MVP's Take on Cloud Security in 2023 (New source article)
-  - Discussion on the importance of IT hygiene and cyber security posture in Sweden due to ongoing cyber attacks
-  - Emphasis on making break glass accounts less obvious to avoid attracting attackers
-- **[NEW] Conditional Access 'What If' Simulation with PowerShell** (Source: Daniel Chronlund)
-  - Introduction of a PowerShell script for simulating the effects of Conditional Access policies without enforcing them
-  - Capabilities similar to the built-in What If tool in the Entra ID portal, including policy testing, risk assessment, user experience analysis, compliance validation, and troubleshooting
+### Overview
+This topic discusses the various authentication flows available in Azure AD Conditional Access (CA), and how they can be used to secure access to resources based on specific conditions. Understanding these authentication flows is crucial for implementing effective CA policies.
 
-## Configuration
-1. Register an application in Azure AD as described in the article.
-2. Save the Application ID and Key generated during registration.
-3. Use the provided PowerShell function `Get-GraphApiResult` to fetch data from Microsoft Graph API, providing the required parameters: ClientID, ClientSecret, TenantName, and Graph URI.
+### Key Concepts
+- **Multi-Factor Authentication (MFA):** A security measure that requires users to provide two or more verification factors to authenticate.
+- **Passwordless Authentication:** A method of authentication that does not require a password, such as using a mobile app or hardware token.
+- **Work Accounts:** User accounts that are managed by Azure AD and used for accessing cloud applications.
+- **Personal Accounts:** User accounts that are not managed by Azure AD, such as Microsoft accounts (e.g., Outlook.com).
+- **Azure AD Join:** The process of joining a device to Azure AD, which allows the device to be managed and secured by CA policies.
+- **Hybrid Azure AD Join:** The process of joining a device to both the on-premises Active Directory (AD) and Azure AD, allowing the device to be managed by both CA policies and Group Policy Objects (GPOs).
+- **Authentication Transfer:** A method of authentication where a user can authenticate using another user's session. [CONFLICT: Jan Bakker does not mention this]
+- **Device Code Flow:** A method of authentication that allows users to authenticate via a device code, often used for devices without interfaces or for Teams Room devices.
 
-## Common Pitfalls
-- Not saving the Application ID and Key after registering the application in Azure AD.
-- Granting insufficient permissions to the registered application.
-- Incorrectly specifying the tenant name or Graph URI.
-- Overthinking CA configurations ([CONFLICT: Daniel Chronlund says this can happen, existing entry does not mention it])
-- Failing to understand Conditional Access logs and their implications (New from source)
-- Not following instructions in the script for automatic deployment of Conditional Access policies (New from source)
-- Inadequate testing due to lack of Report-only mode or Insights dashboard (New from source)
-- Not exporting Conditional Access Policy Assignments to Excel when needed (New from source, [Daniel Chronlund](https://danielchronlund.com/author/danielchronlund/))
-- Not using the Conditional Access 'What If' Simulation with PowerShell for testing and troubleshooting (New from source, [Daniel Chronlund](https://danielchronlund.com/author/danielchronlund/))
+### Configuration
+1. Navigate to the Azure portal and open the Conditional Access blade.
+2. Create a new policy or edit an existing one.
+3. In the Cloud Apps section, select the apps that the policy will apply to.
+4. In the Users and Groups section, specify the users or groups that the policy will affect.
+5. In the Conditions section, configure the conditions under which the policy will be enforced (e.g., device platform, location, client app).
+6. In the Access Control section, select the authentication method(s) that users must use to authenticate when the policy is triggered.
+7. Save the policy.
+
+### Common Pitfalls
+- Failing to exclude Global Admin accounts from CA policies can result in locking yourself out of the tenant.
+- Using overly restrictive policies can unintentionally block legitimate users or devices.
+- Not testing CA policies thoroughly before deploying them can lead to unexpected issues.
+- Allowing Device Code Flow for all users may expose accounts to phishing attacks, it is recommended to restrict its use to trusted locations and specific user groups.
+
+### KQL / PowerShell
+This article does not provide any specific queries or scripts related to authentication flows.
+
+### Related Topics
+- [Authentication Flow](wiki:authentication_flow)
+- [Device Code](wiki:device_code)
+- [Legacy Auth](wiki:legacy_auth)
+- [OAuth](wiki:oauth)
+- [CA Policy](wiki:ca_policy)
+- [Authentication Transfer](wiki:authentication_transfer)
+- [Device Code Flow](wiki:device_code_flow)
+
+New source article: "Block authentication flows with Conditional Access policy - Microsoft Entra ID"
+Author: kenwith
+New source content:
+[...] (The existing entry already covers this section)
+
+---
+
+#### Share via
+
+Facebook
+
+x.com
+
+LinkedIn
+
+Email
+
+---
+
+Note
+A
+
+New source article: "How to restrict Device Code Flow in Entra ID"
+Author: Jan Bakker
+New source content:
+[...] (The existing entry already covers the configuration section)
+
+---
+
+#### Share via
+
+Facebook
+
+x.com
+
+LinkedIn
+
+Email

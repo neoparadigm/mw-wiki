@@ -19,27 +19,32 @@ topic: identity/pim/tiered-administration
 ## Tiered Administration Model T0 T1 T2
 
 ### Overview
-The Enterprise Access model is Microsoft's new approach to security, focusing on cloud and hybrid scenarios for modern IT security. This model introduces a tiered administration structure (T0, T1, T2) that helps organizations manage access to sensitive resources based on the level of trust and risk associated with each user or group.
+The Enterprise Access model is Microsoft's new approach to security, focusing on cloud and hybrid scenarios for modern IT security. This model is used to create a privileged access plane where Windows 365 cloud PCs act as jump servers for both cloud management and on-prem management, specifically in the context of Privileged Access Workstations (PAW).
 
 ### Key Concepts
-- Tiered Administration Model: A three-tier system for managing access to sensitive resources in a cloud and hybrid environment.
-- T0, T1, T2: The three tiers in the Enterprise Access model, representing different levels of trust and risk.
-- Privileged Access Workstations (PAW): Dedicated workstations used by administrators for performing administrative tasks in the cloud and on-premises.
+- Windows 365 PAWs acting as jump servers for various management tools and portals.
+- Strict policy hardening using Microsoft security baselines, Defender Attack Surface Reduction rules, Application Control, Defender SmartScreen, and separate cloud-only admin accounts with their own Windows 365 licenses and cloud PCs.
 
 ### Configuration
-The article does not provide specific configuration guidance for the tiered administration model. However, it suggests using Windows 365 for cloud-based PAWs as a part of the privileged access plane.
+- Important: Careful scoping of PAW management and the Windows 365 service in Intune.
+- Strict Windows 11 policy hardening using Microsoft security baselines and a custom policy.
+- Enable all Defender Attack Surface Reduction rules with Intune.
+- Enable Application Control for Windows (WDAC or AppLocker) and block any unwanted applications.
+- Use strict Defender SmartScreen blocking to allow required management portal and API URLs and endpoints.
+- Ensure admins use separate cloud-only admin accounts, each with their own Windows 365 license and cloud PC.
+- Optional: Require these admin accounts to sign in to the Windows 365 portal with FIDO2 security keys.
 
 ### Common Pitfalls
-- Insufficient hardening of Windows 365 PAWs can lead to security vulnerabilities.
-- Misconfigurations in Intune or other management tools can result in unwanted applications being allowed on the PAWs.
-- Lack of strict Defender SmartScreen blocking can expose administrators to phishing attacks and malicious URLs.
+- Inadequate hardening of Windows 11 policies and lack of enforcement of Defender rules can leave the system vulnerable to attacks.
+- Allowing unwanted applications or not blocking them properly using Application Control can create potential security risks.
+- Failing to use strict Defender SmartScreen blocking can allow unauthorized access to management portals and APIs.
+- Using shared admin accounts instead of separate ones for each administrator can compromise the system's security.
 
 ### KQL / PowerShell
-The article does not include any relevant queries or scripts for the tiered administration model.
+[Not applicable as the article does not provide any relevant queries or scripts.]
 
 ### Related Topics
 - [Tiered Administration](tiered-administration)
-- [T0](t0)
-- [T1](t1)
-- [T2](t2)
 - [Privileged Access Workstations (PAW)](paw)
+- [Windows 365](windows-365)
+- [Microsoft Security Baselines](microsoft-security-baselines)

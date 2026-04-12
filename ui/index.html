@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MW·Wiki — Modern Workplace Knowledge Base</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper:      #f5f0e8;
+    --paper-dark: #ede8df;
+    --ink:        #1a1612;
+    --ink-mid:    #3d3530;
+    --ink-light:  #7a6f65;
+    --ink-faint:  #b8b0a5;
+    --rule:       #d4cdc4;
+    --accent:     #c0392b;
+    --green:      #1a5c3a;
+    --blue:       #1a3a5c;
+    --serif:      'Playfair Display', Georgia, serif;
+    --body:       'Source Serif 4', Georgia, serif;
+    --mono:       'JetBrains Mono', monospace;
+  }
+
+  html, body { height: 100%; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── NOISE TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding: 0 32px;
+    height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--paper);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .masthead-left { display: flex; align-items: center; gap: 20px; }
+  .wordmark {
+    font-family: var(--serif); font-weight: 900; font-size: 20px;
+    letter-spacing: -0.5px; cursor: pointer;
+  }
+  .wordmark span { color: var(--accent); }
+  .edition {
+    font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+    color: var(--ink-faint); border-left: 1px solid var(--rule);
+    padding-left: 16px; text-transform: uppercase;
+  }
+  .nav { display: flex; }
+  .nav-btn {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--ink-light);
+    padding: 0 16px; height: 56px; border: none; background: transparent;
+    cursor: pointer; border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+  }
+  .nav-btn:hover { color: var(--ink); }
+  .nav-btn.active { color: var(--ink); border-bottom-color: var(--accent); }
+
+  /* ── LAYOUT ── */
+  .main { max-width: 1100px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── HOME ── */
+  .hero {
+    padding: 52px 0 40px;
+    border-bottom: 1px solid var(--rule);
+    display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: end;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: var(--serif); font-size: 48px; font-weight: 900;
+    line-height: 1.05; letter-spacing: -1px; margin-bottom: 20px;
+  }
+  .hero-title em { font-style: italic; color: var(--ink-mid); }
+  .hero-desc { font-size: 15px; color: var(--ink-mid); line-height: 1.8; font-weight: 300; }
+  .hero-stats { border: 1px solid var(--rule); background: var(--paper-dark); padding: 24px; }
+  .stat-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 16px; border-bottom: 1px solid var(--rule); margin-bottom: 16px;
+  }
+  .stat-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .stat-num { font-family: var(--serif); font-weight: 900; font-size: 30px; }
+  .stat-label { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-light); }
+
+  /* ── SEARCH ── */
+  .search-section { padding: 32px 0; border-bottom: 1px solid var(--rule); }
+  .search-wrap { position: relative; max-width: 680px; }
+  .search-input {
+    width: 100%; padding: 16px 120px 16px 20px;
+    font-family: var(--body); font-size: 15px;
+    background: white; color: var(--ink);
+    border: 1.5px solid var(--ink); outline: none;
+    transition: border-color 0.15s;
+  }
+  .search-input:focus { border-color: var(--accent); }
+  .search-input::placeholder { color: var(--ink-faint); }
+  .search-btn {
+    position: absolute; right: 0; top: 0; bottom: 0; padding: 0 20px;
+    background: var(--ink); color: var(--paper); border: none; cursor: pointer;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; transition: background 0.15s;
+  }
+  .search-btn:hover { background: var(--accent); }
+  .hints { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .hint {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 1px;
+    padding: 5px 12px; border: 1px solid var(--rule); color: var(--ink-light);
+    cursor: pointer; background: transparent; transition: all 0.15s;
+  }
+  .hint:hover { border-color: var(--ink); color: var(--ink); background: var(--paper-dark); }
+
+  /* ── SECTION LABELS ── */
+  .section-rule { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; margin-top: 36px; }
+  .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-light); white-space: nowrap; }
+  .rule-line { flex: 1; height: 1px; background: var(--rule); }
+
+  /* ── TOPIC GRID ── */
+  .topics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .topic-card {
+    background: var(--paper); padding: 18px 20px; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background 0.12s;
+  }
+  .topic-card:hover { background: white; }
+  .topic-card:hover .topic-arrow { opacity: 1; }
+  .topic-title { font-size: 13px; font-weight: 600; color: var(--ink); display: block; margin-bottom: 4px; }
+  .topic-meta { font-family: var(--mono); font-size: 9px; letter-spacing: 1px; color: var(--ink-faint); }
+  .topic-arrow { color: var(--ink-light); opacity: 0; transition: opacity 0.15s; margin-left: 12px; flex-shrink: 0; }
+
+  /* ── CHAT PAGE ── */
+  .chat-layout { display: grid; grid-template-columns: 220px 1fr; min-height: calc(100vh - 56px); }
+  .chat-sidebar { border-right: 1px solid var(--rule); padding: 24px 16px; }
+  .sidebar-label { font-family: var(--mono); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; display: block; }
+  .sidebar-topic {
+    font-size: 12px; color: var(--ink-light); padding: 7px 10px;
+    cursor: pointer; border-left: 2px solid transparent;
+    transition: all 0.12s; line-height: 1.4;
+  }
+  .sidebar-topic:hover { color: var(--ink); border-left-color: var(--accent); background: var(--paper-dark); }
+  .chat-main { display: flex; flex-direction: column; height: calc(100vh - 56px); }
+  .chat-messages { flex: 1; padding: 32px 40px; overflow-y: auto; }
+  .chat-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px; gap: 12px; }
+  .chat-empty-mark { font-family: var(--serif); font-size: 48px; color: var(--rule); }
+  .chat-empty-text { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; color: var(--ink-faint); text-transform: uppercase; }
+  .message { margin-bottom: 32px; }
+  .msg-role { font-family: var(--mono); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .role-you { color: var(--ink-light); }
+  .role-wiki { color: var(--accent); }
+  .role-line { flex: 1; height: 1px; background: var(--rule); }
+  .msg-question { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+  .msg-answer { color: var(--ink-mid); line-height: 1.8; }
+  .msg-answer h2, .msg-answer h3 { font-family: var(--serif); margin: 16px 0 8px; color: var(--ink); }
+  .msg-answer h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-light); margin: 14px 0 6px; }
+  .msg-answer ul, .msg-answer ol { padding-left: 24px; margin: 8px 0; }
+  .msg-answer li { margin-bottom: 4px; }
+  .msg-answer pre { background: var(--ink); color: #a8d8a8; padding: 16px 20px; margin: 12px 0; font-family: var(--mono); font-size: 12px; overflow-x: auto; white-space: pre; }
+  .msg-answer code { font-family: var(--mono); font-size: 12px; background: var(--paper-dark); color: var(--accent); padding: 1px 5px; border: 1px solid var(--rule); }
+  .msg-answer pre code { background: none; color: #a8d8a8; padding: 0; border: none; }
+  .msg-answer p { margin-bottom: 10px; }
+  .msg-warning { background: #fdf6ec; border-left: 3px solid #e67e22; padding: 10px 14px; margin: 8px 0; font-family: var(--mono); font-size: 11px; color: #7a4a0a; }
+  .msg-sources { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--rule); }
+  .msg-sources-label { font-family: var(--mono); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
+  .msg-source-item { font-size: 12px; color: var(--ink-light); margin-bottom: 4px; }
+  .msg-source-item a { color: var(--blue); text-decoration: none; }
+  .msg-source-item a:hover { text-decoration: underline; }
+  .topics-used { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); margin-bottom: 12px; }
+  .loading-dots { display: flex; gap: 6px; padding: 8px 0; }
+  .loading-dots span {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--ink-faint);
+    animation: pulse 1.2s ease-in-out infinite;
+  }
+  .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes pulse { 0%,80%,100%{opacity:0.3;transform:scale(0.8)} 40%{opacity:1;transform:scale(1)} }
+
+  /* ── CHAT INPUT ── */
+  .chat-input-bar {
+    border-top: 1px solid var(--rule); padding: 16px 40px;
+    background: var(--paper); display: flex; gap: 10px; align-items: center; flex-shrink: 0;
+  }
+  .chat-input {
+    flex: 1; padding: 12px 16px; font-family: var(--body); font-size: 14px;
+    background: white; color: var(--ink); border: 1.5px solid var(--rule); outline: none;
+    transition: border-color 0.15s;
+  }
+  .chat-input:focus { border-color: var(--ink); }
+  .send-btn {
+    padding: 12px 20px; background: var(--ink); color: var(--paper);
+    border: none; cursor: pointer; font-family: var(--mono); font-size: 10px;
+    letter-spacing: 2px; transition: background 0.15s;
+  }
+  .send-btn:hover { background: var(--accent); }
+  .send-btn:disabled { background: var(--rule); cursor: not-allowed; }
+  .clear-btn {
+    padding: 12px 14px; background: transparent; color: var(--ink-faint);
+    border: 1.5px solid var(--rule); cursor: pointer; font-family: var(--mono); font-size: 10px;
+    transition: all 0.15s;
+  }
+  .clear-btn:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* ── GAPS PAGE ── */
+  .gaps-page { padding: 36px 0 48px; }
+  .gaps-intro { max-width: 620px; margin-bottom: 32px; font-size: 15px; color: var(--ink-mid); font-weight: 300; line-height: 1.8; }
+  .gaps-table { border: 1px solid var(--rule); width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+  .gaps-table th { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-light); padding: 10px 16px; text-align: left; border-bottom: 1px solid var(--rule); background: var(--paper-dark); }
+  .gaps-table td { padding: 14px 16px; border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--ink-mid); }
+  .gaps-table tr:last-child td { border-bottom: none; }
+  .gaps-table td:first-child { font-family: var(--mono); font-size: 11px; color: var(--ink); }
+  .domain-badge { font-family: var(--mono); font-size: 9px; letter-spacing: 1px; background: var(--ink); color: var(--paper); padding: 2px 7px; }
+  .loading-state { text-align: center; padding: 48px; font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 2px; }
+  .error-msg { background: #fdf2f2; border-left: 3px solid var(--accent); padding: 12px 16px; font-family: var(--mono); font-size: 12px; color: var(--accent); margin: 16px 0; }
+  .footer { border-top: 1px solid var(--rule); padding: 16px 32px; display: flex; justify-content: space-between; font-family: var(--mono); font-size: 9px; color: var(--ink-faint); letter-spacing: 2px; position: relative; z-index: 1; }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-stats { display: none; }
+    .chat-layout { grid-template-columns: 1fr; }
+    .chat-sidebar { display: none; }
+    .hero-title { font-size: 32px; }
+    .main { padding: 0 16px; }
+    .masthead { padding: 0 16px; }
+    .edition { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-left">
+    <div class="wordmark" onclick="showPage('home')">MW<span>·</span>WIKI</div>
+    <div class="edition">Modern Workplace Intelligence · v0.1</div>
+  </div>
+  <nav class="nav">
+    <button class="nav-btn active" id="nav-home" onclick="showPage('home')">Knowledge Base</button>
+    <button class="nav-btn" id="nav-chat" onclick="showPage('chat')">Ask the Wiki</button>
+    <button class="nav-btn" id="nav-gaps" onclick="showPage('gaps')">Gaps & Conflicts</button>
+  </nav>
+</header>
+
+<!-- ── HOME PAGE ── -->
+<div id="page-home" class="page active">
+  <div class="main">
+    <div class="hero">
+      <div>
+        <div class="hero-eyebrow">Community Knowledge Base</div>
+        <h1 class="hero-title">
+          Everything the community<br>
+          knows about <em>Modern Workplace.</em>
+        </h1>
+        <p class="hero-desc">
+          Synthesised from community MVP blogs and Microsoft documentation.
+          Not chunked. Not retrieved from a vector database. Distilled into
+          structured knowledge — every answer cited back to the original author.
+        </p>
+      </div>
+      <div class="hero-stats" id="hero-stats">
+        <div class="loading-state">Loading...</div>
+      </div>
+    </div>
+
+    <div class="search-section">
+      <div class="search-wrap">
+        <input class="search-input" id="home-search" placeholder="Ask anything about Modern Workplace..."
+          onkeydown="if(event.key==='Enter') askFromHome()">
+        <button class="search-btn" onclick="askFromHome()">Ask Wiki</button>
+      </div>
+      <div class="hints">
+        <button class="hint" onclick="askHint('Block device code flow in Conditional Access')">Block device code flow</button>
+        <button class="hint" onclick="askHint('How do I configure PIM for Groups?')">PIM for Groups</button>
+        <button class="hint" onclick="askHint('Configure LAPS v2 in Intune')">LAPS v2 setup</button>
+        <button class="hint" onclick="askHint('What are ASR rules and how do I enforce them?')">ASR rules block mode</button>
+        <button class="hint" onclick="askHint('How do I detect legacy auth sign-ins in Sentinel?')">KQL legacy auth detection</button>
+        <button class="hint" onclick="askHint('Break glass account best practices')">Break glass accounts</button>
+      </div>
+    </div>
+
+    <div id="topics-section">
+      <div class="loading-state">Loading topics...</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CHAT PAGE ── -->
+<div id="page-chat" class="page">
+  <div class="chat-layout">
+    <aside class="chat-sidebar">
+      <span class="sidebar-label">Quick topics</span>
+      <div id="sidebar-topics"></div>
+    </aside>
+    <div class="chat-main">
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-empty">
+          <div class="chat-empty-mark">§</div>
+          <div class="chat-empty-text">Ask the wiki anything about Modern Workplace</div>
+        </div>
+      </div>
+      <div class="chat-input-bar">
+        <input class="chat-input" id="chat-input" placeholder="Ask about Conditional Access, Intune, Sentinel, Defender..."
+          onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage()}">
+        <button class="send-btn" id="send-btn" onclick="sendMessage()">Send →</button>
+        <button class="clear-btn" onclick="clearChat()">Clear</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── GAPS PAGE ── -->
+<div id="page-gaps" class="page">
+  <div class="main gaps-page">
+    <div class="hero-eyebrow" style="margin-bottom:8px">Editorial Tracker</div>
+    <h2 style="font-family:var(--serif);font-size:32px;font-weight:900;margin-bottom:20px">Gaps & Conflicts</h2>
+    <p class="gaps-intro">
+      The wiki tracks what it doesn't know as carefully as what it does.
+      Gaps are topics with no good source yet. Submit a PR to
+      <code style="font-family:var(--mono);font-size:12px;background:var(--paper-dark);padding:1px 5px">config/seed_list.yaml</code>
+      to fill a gap.
+    </p>
+    <div id="gaps-content">
+      <div class="loading-state">Loading gaps...</div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <span>NEOPARADIGM // MW·WIKI v0.1</span>
+  <span id="footer-status">Connecting to API...</span>
+</footer>
+
+<script>
+const API = 'http://localhost:8000';
+let history = [];
+let topicsIndex = [];
+let loading = false;
+
+// ── NAVIGATION ────────────────────────────────────────────────────────────
+
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.getElementById('nav-' + name).classList.add('active');
+  if (name === 'gaps') loadGaps();
+}
+
+// ── API CALLS ─────────────────────────────────────────────────────────────
+
+async function fetchHealth() {
+  try {
+    const r = await fetch(API + '/api/health');
+    const d = await r.json();
+    document.getElementById('footer-status').textContent =
+      `API connected · ${d.topics} topics · ${d.topic_files} files`;
+    return d;
+  } catch(e) {
+    document.getElementById('footer-status').textContent = 'API offline — run: python3 wiki.py serve';
+    return null;
+  }
+}
+
+async function fetchIndex() {
+  try {
+    const r = await fetch(API + '/api/index');
+    const d = await r.json();
+    topicsIndex = d.topics || [];
+    renderStats();
+    renderTopics();
+    renderSidebar();
+  } catch(e) {
+    document.getElementById('topics-section').innerHTML =
+      '<div class="error-msg">Cannot reach API. Run: python3 wiki.py serve</div>';
+  }
+}
+
+async function fetchAnswer(question) {
+  const r = await fetch(API + '/api/query', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ question })
+  });
+  if (!r.ok) throw new Error('API error ' + r.status);
+  return await r.json();
+}
+
+async function loadGaps() {
+  try {
+    const r = await fetch(API + '/api/gaps');
+    const d = await r.json();
+    renderGaps(d.content);
+  } catch(e) {
+    document.getElementById('gaps-content').innerHTML =
+      '<div class="error-msg">Cannot reach API. Run: python3 wiki.py serve</div>';
+  }
+}
+
+// ── RENDER ─────────────────────────────────────────────────────────────────
+
+function renderStats() {
+  const domains = [...new Set(topicsIndex.map(t => t.domain))];
+  const totalSources = topicsIndex.reduce((a, t) => a + (t.sources || 0), 0);
+  const stale = topicsIndex.filter(t => t.stale_after && new Date(t.stale_after) < new Date()).length;
+
+  document.getElementById('hero-stats').innerHTML = `
+    ${[
+      [topicsIndex.length, 'Topic Files'],
+      [totalSources, 'Sources Indexed'],
+      [domains.length, 'Domains'],
+      [stale, 'Stale Topics'],
+    ].map(([n, l]) => `
+      <div class="stat-row">
+        <div class="stat-num">${n}</div>
+        <div class="stat-label">${l}</div>
+      </div>
+    `).join('')}
+  `;
+}
+
+function renderTopics() {
+  const domains = [...new Set(topicsIndex.map(t => t.domain))].sort();
+  let html = '';
+
+  for (const domain of domains) {
+    const topics = topicsIndex.filter(t => t.domain === domain);
+    html += `
+      <div class="section-rule">
+        <span class="section-label">${domain.replace(/-/g,' ')}</span>
+        <div class="rule-line"></div>
+      </div>
+      <div class="topics-grid">
+        ${topics.map(t => `
+          <div class="topic-card" onclick="askTopic('${t.title.replace(/'/g,"\\'")}')">
+            <div>
+              <span class="topic-title">${t.title}</span>
+              <div class="topic-meta">${t.sources || 0} sources · ${t.last_updated || 'recent'}</div>
+            </div>
+            <span class="topic-arrow">→</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  document.getElementById('topics-section').innerHTML = html || '<div class="loading-state">No topics yet — run python3 wiki.py process</div>';
+}
+
+function renderSidebar() {
+  const sidebar = document.getElementById('sidebar-topics');
+  sidebar.innerHTML = topicsIndex.slice(0, 15).map(t =>
+    `<div class="sidebar-topic" onclick="askTopic('${t.title.replace(/'/g,"\\'")}')">
+      ${t.title}
+    </div>`
+  ).join('');
+}
+
+function renderGaps(content) {
+  if (!content) { document.getElementById('gaps-content').innerHTML = '<div class="loading-state">No gaps data</div>'; return; }
+
+  // Parse markdown table from _gaps.md
+  const lines = content.split('\n');
+  const tableLines = lines.filter(l => l.startsWith('|') && !l.includes('---'));
+  const gaps = tableLines.slice(1).map(l => {
+    const cols = l.split('|').filter(c => c.trim());
+    return { path: cols[0]?.trim().replace(/`/g,''), title: cols[1]?.trim() };
+  }).filter(g => g.path && g.title);
+
+  if (gaps.length === 0) {
+    document.getElementById('gaps-content').innerHTML = '<div class="loading-state">No gaps — corpus is complete!</div>';
+    return;
+  }
+
+  document.getElementById('gaps-content').innerHTML = `
+    <table class="gaps-table">
+      <thead><tr><th>Topic</th><th>Domain</th><th>Title</th></tr></thead>
+      <tbody>
+        ${gaps.map(g => {
+          const domain = g.path.split('/')[0] || '';
+          return `<tr>
+            <td>${g.path}</td>
+            <td><span class="domain-badge">${domain}</span></td>
+            <td>${g.title}</td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table>
+    <div style="padding:20px;border:1px solid var(--rule);background:var(--paper-dark)">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ink-light);margin-bottom:10px">Contribute</div>
+      <p style="font-size:13px;color:var(--ink-mid);line-height:1.7">
+        Add a source URL to <code style="font-family:var(--mono);font-size:11px;background:white;padding:1px 4px">config/seed_list.yaml</code>
+        via GitHub PR and the librarian will process it overnight.
+        <a href="https://github.com/neoparadigm/mw-wiki" style="color:var(--blue)">github.com/neoparadigm/mw-wiki</a>
+      </p>
+    </div>
+  `;
+}
+
+// ── SIMPLE MARKDOWN RENDER ────────────────────────────────────────────────
+
+function renderMarkdown(text) {
+  return text
+    .replace(/```(\w+)?\n([\s\S]*?)```/g, (_, lang, code) =>
+      `<pre><code>${code.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</code></pre>`)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/^### (.+)$/gm, '<h4>$1</h4>')
+    .replace(/^## (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/^(?!<[hup])/gm, '')
+    .replace(/<\/p><p>/g, '</p><p>')
+    || text;
+}
+
+// ── MESSAGING ─────────────────────────────────────────────────────────────
+
+function addMessage(role, content, meta) {
+  const container = document.getElementById('chat-messages');
+
+  // Remove empty state
+  const empty = container.querySelector('.chat-empty');
+  if (empty) empty.remove();
+
+  const div = document.createElement('div');
+  div.className = 'message';
+
+  if (role === 'user') {
+    div.innerHTML = `
+      <div class="msg-role"><span class="role-you">You</span><div class="role-line"></div></div>
+      <div class="msg-question">${content}</div>
+    `;
+  } else {
+    const warningsHtml = (meta?.warnings || []).map(w =>
+      `<div class="msg-warning">⚠ ${w}</div>`
+    ).join('');
+
+    const sourcesHtml = (meta?.sources || []).slice(0, 5).map(s =>
+      `<div class="msg-source-item">
+        <strong>${s.author || 'Unknown'}</strong> — 
+        <a href="${s.url}" target="_blank">${s.title || s.url}</a>
+        ${s.date ? `<span style="color:var(--ink-faint)"> (${s.date})</span>` : ''}
+      </div>`
+    ).join('');
+
+    const topicsHtml = meta?.topics_used?.length
+      ? `<div class="topics-used">Topics: ${meta.topics_used.join(' · ')}</div>`
+      : '';
+
+    div.innerHTML = `
+      <div class="msg-role"><span class="role-wiki">MW·Wiki</span><div class="role-line"></div></div>
+      ${topicsHtml}
+      ${warningsHtml}
+      <div class="msg-answer"><p>${renderMarkdown(content)}</p></div>
+      ${sourcesHtml ? `<div class="msg-sources"><div class="msg-sources-label">Sources</div>${sourcesHtml}</div>` : ''}
+    `;
+  }
+
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+  return div;
+}
+
+function addLoading() {
+  const container = document.getElementById('chat-messages');
+  const empty = container.querySelector('.chat-empty');
+  if (empty) empty.remove();
+  const div = document.createElement('div');
+  div.className = 'message loading-msg';
+  div.innerHTML = `
+    <div class="msg-role"><span class="role-wiki">MW·Wiki</span><div class="role-line"></div></div>
+    <div class="loading-dots"><span></span><span></span><span></span></div>
+  `;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+  return div;
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const question = input.value.trim();
+  if (!question || loading) return;
+
+  loading = true;
+  input.value = '';
+  document.getElementById('send-btn').disabled = true;
+
+  addMessage('user', question);
+  history.push({ role: 'user', content: question });
+
+  const loadingDiv = addLoading();
+
+  try {
+    const result = await fetchAnswer(question);
+    loadingDiv.remove();
+    addMessage('wiki', result.answer, result);
+    history.push({ role: 'assistant', content: result.answer });
+  } catch(e) {
+    loadingDiv.remove();
+    addMessage('wiki', `Error reaching API: ${e.message}. Make sure the server is running.`, {});
+  } finally {
+    loading = false;
+    document.getElementById('send-btn').disabled = false;
+    input.focus();
+  }
+}
+
+function clearChat() {
+  history = [];
+  document.getElementById('chat-messages').innerHTML = `
+    <div class="chat-empty">
+      <div class="chat-empty-mark">§</div>
+      <div class="chat-empty-text">Ask the wiki anything about Modern Workplace</div>
+    </div>
+  `;
+}
+
+function askFromHome() {
+  const q = document.getElementById('home-search').value.trim();
+  if (!q) return;
+  document.getElementById('chat-input').value = q;
+  document.getElementById('home-search').value = '';
+  showPage('chat');
+  sendMessage();
+}
+
+function askHint(q) {
+  document.getElementById('chat-input').value = q;
+  showPage('chat');
+  sendMessage();
+}
+
+function askTopic(title) {
+  document.getElementById('chat-input').value = `Explain: ${title}`;
+  showPage('chat');
+  sendMessage();
+}
+
+// ── INIT ───────────────────────────────────────────────────────────────────
+
+fetchHealth();
+fetchIndex();
+</script>
+</body>
+</html>

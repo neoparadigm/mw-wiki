@@ -21,35 +21,29 @@ BitLocker Management via Intune provides administrators with the ability to mana
 
 ## Key Concepts
 - BitLocker: A full disk encryption feature included in Windows Vista and later versions that helps protect data by providing encryption for fixed drives.
-- Microsoft Endpoint Manager (Intune): A cloud-based service used to manage mobile devices, PCs, and applications.
-- Encryption: The process of converting plaintext into ciphertext to ensure confidentiality, integrity, and authenticity of data.
-- Recovery Key: A backup key used to recover access to encrypted data in case the BitLocker recovery password is lost or forgotten.
-- Silent Encryption: Automatic encryption of drives without user interaction.
-- BitLocker Policy: A set of rules that dictate how BitLocker operates on a device, including encryption requirements and recovery options.
+- Microsoft Endpoint Manager (Intune): A cloud-based service that provides unified endpoint management, including configuration, compliance, and security management for mobile devices and computers.
+- BitLocker Recovery Key: A backup key used to unlock encrypted drives when the user forgets their password or loses access to the recovery information stored on the device.
+- Silent Encryption: An option in BitLocker that allows encryption to occur without user interaction, making it suitable for automated deployment scenarios.
+- BitLocker Policy: A set of configuration settings that define how BitLocker operates on a specific device or group of devices.
 
 ## Configuration
 1. In the Microsoft Endpoint Manager admin center, navigate to Tenant administration > Connectors and tokens > Connectors.
-2. Click Add, select Intune connector, and then click Next.
-3. Enter a name for the connector and click Next.
-4. Configure settings as needed, such as enabling BitLocker management, and then click Next.
-5. Review the summary and click Create to create the connector.
-6. Navigate to Devices > Windows > Configuration Manager > Baseline Policies.
-7. Click Create to create a new policy, select BitLocker Drive Encryption, and then click Next.
-8. Configure settings for the policy, such as encryption type, recovery options, and silent encryption, and then click Next.
-9. Review the summary and click Create to create the policy.
-10. Assign the policy to the appropriate groups of devices.
+2. Click Add, select the connector type as "Endpoint Manager connector," and follow the prompts to configure the connector.
+3. Navigate to Devices > Windows > Configuration Manager > BitLocker Recovery.
+4. Create a new policy or edit an existing one, and configure the settings according to your requirements.
+5. Deploy the policy to the appropriate groups of devices.
 
 ## Common Pitfalls
-- Not enabling BitLocker management for the Intune connector can prevent administrators from managing BitLocker on devices.
-- Failing to configure recovery options properly can result in lost access to encrypted data if the recovery password is forgotten or lost.
-- Incorrectly configuring encryption types, such as using XTS-AES instead of AES-256, can weaken the security of encrypted data.
+- Failing to configure recovery keys properly can lead to data loss if users are unable to unlock encrypted drives.
+- Incorrectly configuring BitLocker policies may result in encryption conflicts or unexpected behavior on devices.
+- Not using silent encryption during automated deployment scenarios can require user interaction, which may not be feasible in some cases.
 
 ## KQL / PowerShell
-The article does not provide any specific queries or scripts for BitLocker management via Intune. However, you can use Kusto Query Language (KQL) to query device data in Log Analytics and PowerShell to manage BitLocker on devices directly.
+The article does not provide specific KQL queries or PowerShell scripts related to BitLocker management via Intune.
 
 ## Related Topics
 - BitLocker
 - Encryption
-- Recovery Key
-- Silent Encryption
-- BitLocker Policy
+- Recovery key
+- Silent encryption
+- BitLocker policy
