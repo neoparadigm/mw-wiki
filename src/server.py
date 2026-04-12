@@ -28,6 +28,11 @@ async def query_endpoint(req: QuestionRequest):
     result = run_query(req.question)
     return {"answer": result.answer, "topics_used": result.topics_used, "sources": result.sources, "warnings": result.warnings, "citations_ok": result.citations_ok}
 
+@app.get("/api/index")
+async def get_index():
+    index = load_index()
+    return {"topics": index}
+
 @app.get("/api/health")
 async def health():
     index = load_index()
