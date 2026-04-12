@@ -1,98 +1,70 @@
-# MW-Wiki
+# MW·Wiki
 
-A synthesised knowledge base for Modern Workplace practitioners, built from community blogs and Microsoft documentation.
+A synthesised knowledge base for Modern Workplace practitioners, built from the best Microsoft MVP blogs and Microsoft documentation.
 
-## What it is
-
-MW-Wiki crawls a curated set of Microsoft MVP blogs and documentation, processes each article through a local LLM, and builds structured topic files — one per subject. At query time, your question is matched to relevant topic files and a single Claude API call produces a cited answer.
-
-It is not a chatbot. Every answer must cite a real source or it is flagged.
-
-## What it is not
-
-- A replacement for reading the original blogs
-- A substitute for professional judgement
-- Complete — check `_gaps.md` to see what is missing
-- Always current — every topic file has a `stale_after` date; check `_stale.md`
-
-## Quick start
-
+## Quick Start — Just Want Answers?
 ```bash
-# Prerequisites
-brew install ollama
-ollama pull mistral          # one-time, ~4GB
+git clone https://github.com/neoparadigm/mw-wiki.git
+cd mw-wiki
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
-export ANTHROPIC_API_KEY=your_key
-
-# Build the corpus (crawl + process, takes several hours)
-python wiki.py build
-
-# Ask a question
-python wiki.py ask "How do I block device code flow in Conditional Access?"
-
-# Start the web UI
-python wiki.py serve         # opens at localhost:8000
-
-# Check status
-python wiki.py status
-
-# Run tests
-python wiki.py test
+export ANTHROPIC_API_KEY=your_key_here
+python3 wiki.py serve
 ```
+
+Open `http://localhost:8000` — the wiki is ready. No crawling. No setup. The knowledge base comes pre-built.
+
+To ask from the command line:
+```bash
+python3 wiki.py ask "How do I block device code flow in Conditional Access?"
+```
+
+## What It Is
+
+MW·Wiki crawls a curated set of Microsoft MVP blogs, distils each article into structured topic files using a local LLM, and answers questions with cited responses — every claim traced back to the original author and URL.
+
+It does not replace the original blogs. It makes them findable.
+
+## What It Is Not
+
+- A replacement for reading the original authors
+- Always current — check `wiki/_stale.md` for topics needing refresh
+- Complete — check `wiki/_gaps.md` for missing topics
+- A substitute for professional judgement
+
+## Contributing a Source
+
+Found a great blog post that should be in the wiki? Submit a PR adding the URL to `config/seed_list.yaml`. The maintainer will process it and commit the updated topic files.
+
+You never need to run the crawler yourself.
 
 ## Commands
 
-| Command | What it does |
-|---|---|
-| `python wiki.py build` | Crawl all sources + run librarian |
-| `python wiki.py crawl` | Crawl only, save to /raw/ |
-| `python wiki.py process` | Run librarian on existing /raw/ files |
-| `python wiki.py ask "..."` | Query the wiki from CLI |
-| `python wiki.py serve` | Start web server at localhost:8000 |
-| `python wiki.py test` | Run test suite |
-| `python wiki.py status` | Show corpus statistics |
-| `python wiki.py reindex` | Rebuild _index.yaml and meta files |
-
-## Architecture
-
-```
-seed_list.yaml → crawler.py → /raw/ → librarian.py → /wiki/
-                                                         ↓
-                                                    query.py
-                                                         ↓
-                                                   Claude API (one call)
-                                                         ↓
-                                                   cited answer
-```
-
-- **Crawler**: Respects robots.txt. Converts HTML to markdown. Saves with frontmatter.
-- **Librarian**: Ollama (local, zero cost). Classifies articles into canonical topics. Creates or merges topic files.
-- **Query engine**: Four stages — route, retrieve, synthesise, validate. One Claude API call per query (~$0.006).
-- **Validation**: Every answer checked for citations. Uncited answers are flagged.
-
-## Contributing
-
-Submit a PR adding a source URL to `config/seed_list.yaml`. The librarian will process it in the next build.
-
-All submissions must be:
-- Publicly accessible
-- Not disallowed by robots.txt
-- Relevant to Modern Workplace (M365, Azure, Intune, Entra ID, Sentinel, Defender)
+| Command | Who uses it | What it does |
+|---|---|---|
+| `python3 wiki.py serve` | Everyone | Start web UI at localhost:8000 |
+| `python3 wiki.py ask "..."` | Everyone | Query from CLI |
+| `python3 wiki.py status` | Everyone | Show corpus statistics |
+| `python3 wiki.py test` | Everyone | Run test suite |
+| `python3 wiki.py build` | Maintainer only | Crawl sources + process |
+| `python3 wiki.py crawl` | Maintainer only | Crawl only |
+| `python3 wiki.py process` | Maintainer only | Process raw files |
+| `python3 wiki.py reindex` | Maintainer only | Rebuild index |
 
 ## Sources
 
-All knowledge in this wiki is synthesised from community blogs and documentation. Every topic file credits its sources. See `wiki/_sources.md` for the complete list.
+Built from the work of the Modern Workplace community. Every topic file credits its sources. See `wiki/_sources.md` for the complete attribution list.
 
-This project does not reproduce article content verbatim. It synthesises ideas into new structured entries and always links back to the original authors.
+This project synthesises ideas into new structured entries and always links back to the original authors. It does not reproduce article content verbatim.
 
 ## Limitations
 
-- Corpus is incomplete — see `_gaps.md`
-- Topic files may be stale — see `_stale.md`  
-- Synthesis quality depends on Ollama/Mistral — review topic files before relying on them
-- Always verify configuration guidance against current Microsoft documentation before implementing in production
+- Topic files may be stale — Microsoft ships changes frequently. Verify configuration guidance against current documentation before implementing in production.
+- Corpus is incomplete — see `wiki/_gaps.md`
+- Synthesis quality depends on source quality — always follow citations back to the original
 
 ## License
 
 Code: MIT  
-Wiki content: CC-BY — reuse with attribution
+Wiki content: CC-BY — reuse with attribution to original sources
