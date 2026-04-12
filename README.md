@@ -120,19 +120,19 @@ See [`wiki/_conflicts.md`](wiki/_conflicts.md) for where sources disagree.
 
 MW·Wiki exists because of the practitioners who chose to share what they learned. Every topic file credits its sources. Every answer links back to the original.
 
-| Author | Focus | Authority |
-|---|---|---|
-| [Michael Niehaus](https://oofhours.com) | Autopilot, Windows Deployment | ★★★ |
-| [Anoop C Nair / HTMD](https://anoopcnair.com) | Intune, Windows, Cloud PC | ★★★ |
-| [MSEndpointMgr](https://msendpointmgr.com) | Intune, Autopilot, Identity | ★★★ |
-| [Daniel Chronlund](https://danielchronlund.com) | Entra ID, Conditional Access, PIM | ★★★ |
-| [Ugur Koc](https://ugurkoc.de) | Intune Automation, Graph API, KQL | ★★★ |
-| [Jannik Reinhard](https://jannikreinhard.com) | Intune, Modern Management | ★★★ |
-| [Rudy Ooms / Call4Cloud](https://call4cloud.nl) | Intune Edge Cases | ★★ |
-| [Jan Bakker](https://janbakker.tech) | Conditional Access, Entra ID | ★★ |
-| [Jeffrey Appel](https://jeffreyappel.nl) | Security, Identity | ★★ |
-| [Bert-Jan Pals](https://kqlcafe.com) | KQL, Sentinel | ★★ |
-| [Alex Verboon](https://alexverboon.com) | Sentinel, Defender | ★★ |
+| Author | Focus |
+|---|---|
+| [Michael Niehaus](https://oofhours.com) | Autopilot, Windows Deployment |
+| [Anoop C Nair / HTMD](https://anoopcnair.com) | Intune, Windows, Cloud PC |
+| [MSEndpointMgr](https://msendpointmgr.com) | Intune, Autopilot, Identity |
+| [Daniel Chronlund](https://danielchronlund.com) | Entra ID, Conditional Access, PIM |
+| [Ugur Koc](https://ugurkoc.de) | Intune Automation, Graph API, KQL |
+| [Jannik Reinhard](https://jannikreinhard.com) | Intune, Modern Management |
+| [Rudy Ooms / Call4Cloud](https://call4cloud.nl) | Intune, Troubleshooting |
+| [Jan Bakker](https://janbakker.tech) | Conditional Access, Entra ID |
+| [Jeffrey Appel](https://jeffreyappel.nl) | Security, Identity |
+| [Bert-Jan Pals](https://kqlcafe.com) | KQL, Sentinel |
+| [Alex Verboon](https://alexverboon.com) | Sentinel, Defender |
 
 Full attribution in [`wiki/_sources.md`](wiki/_sources.md).
 
