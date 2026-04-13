@@ -110,3 +110,123 @@ sources:
     focus: [conditional_access, entra_id, intune, security]
     crawl_depth: 2
     authority: 2
+
+  - name: "Oliver Kieselbach"
+    author: "Oliver Kieselbach"
+    base_url: "https://oliverkieselbach.com"
+    robots_url: "https://oliverkieselbach.com/robots.txt"
+    focus: [wdac, app_control, intune, windows_security]
+    crawl_depth: 2
+    authority: 2
+
+  - name: "Peter van der Woude"
+    author: "Peter van der Woude"
+    base_url: "https://www.petervanderwoude.nl"
+    robots_url: "https://www.petervanderwoude.nl/robots.txt"
+    focus: [intune, configmgr, compliance, powershell]
+    crawl_depth: 2
+    authority: 2
+
+  - name: "Andrew Taylor"
+    author: "Andrew Taylor"
+    base_url: "https://andrewstaylor.com"
+    robots_url: "https://andrewstaylor.com/robots.txt"
+    focus: [intune, automation, packaging, scripts]
+    crawl_depth: 2
+    authority: 2
+
+  - name: "Sander Rozemuller"
+    author: "Sander Rozemuller"
+    base_url: "https://rozemuller.com"
+    robots_url: "https://rozemuller.com/robots.txt"
+    focus: [intune_as_code, avd, azure, automation]
+    crawl_depth: 2
+    authority: 2
+
+  - name: "Simon Skotheimsvik"
+    author: "Simon Skotheimsvik"
+    base_url: "https://skotheimsvik.no"
+    robots_url: "https://skotheimsvik.no/robots.txt"
+    focus: [intune, autopatch, m365, windows11]
+    crawl_depth: 2
+    authority: 2
+
+  - name: "Fabian Bader"
+    author: "Fabian Bader"
+    base_url: "https://fabianbader.com"
+    robots_url: "https://fabianbader.com/robots.txt"
+    focus: [intune, identity, security, entra_id]
+    crawl_depth: 2
+    authority: 2
+
+  - name: "Bert-Jan Pals"
+    author: "Bert-Jan Pals"
+    base_url: "https://kqlcafe.com"
+    robots_url: "https://kqlcafe.com/robots.txt"
+    focus: [kql, sentinel, threat_hunting, detection]
+    crawl_depth: 2
+    authority: 2
+
+  - name: "Alex Verboon"
+    author: "Alex Verboon"
+    base_url: "https://alexverboon.com"
+    robots_url: "https://alexverboon.com/robots.txt"
+    focus: [sentinel, defender, kql, security]
+    crawl_depth: 2
+    authority: 2
+
+  - name: "Sonne's Cloud"
+    author: "Michael Morten Sonne"
+    base_url: "https://blog.sonnes.cloud"
+    robots_url: "https://blog.sonnes.cloud/robots.txt"
+    focus: [sentinel, entra_id, security, attack_scenarios]
+    crawl_depth: 2
+    authority: 2
+
+  - name: "Michael Niehaus Archive"
+    author: "Michael Niehaus"
+    base_url: "https://learn.microsoft.com/en-us/archive/blogs/mniehaus"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [autopilot, windows_deployment, intune, modern_deployment]
+    crawl_depth: 1
+    authority: 3
+
+  - name: "Microsoft Learn — Entra ID"
+    author: "Microsoft"
+    base_url: "https://learn.microsoft.com/en-us/entra/identity/conditional-access"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [conditional_access, entra_id, identity]
+    crawl_depth: 1
+    authority: 3
+
+  - name: "Microsoft Learn — Intune"
+    author: "Microsoft"
+    base_url: "https://learn.microsoft.com/en-us/mem/intune"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [intune, compliance, deployment]
+    crawl_depth: 1
+    authority: 3
+
+  - name: "Microsoft Learn — Autopilot"
+    author: "Microsoft"
+    base_url: "https://learn.microsoft.com/en-us/autopilot"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [autopilot, windows_deployment]
+    crawl_depth: 1
+    authority: 3
+
+  - name: "Microsoft Learn — Sentinel"
+    author: "Microsoft"
+    base_url: "https://learn.microsoft.com/en-us/azure/sentinel"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [sentinel, kql, detection]
+    crawl_depth: 1
+    authority: 3
+
+  - name: "Microsoft Learn — Defender"
+    author: "Microsoft"
+    base_url: "https://learn.microsoft.com/en-us/defender-endpoint"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [mde, defender, endpoint_security]
+    crawl_depth: 1
+    authority: 3

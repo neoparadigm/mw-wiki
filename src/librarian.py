@@ -116,9 +116,8 @@ def classify_article(
             best_score = score
             best_path = path
 
-    # Require minimum score of 2 — must match at least 2 keywords
-    # This prevents broad topic files from absorbing loosely related articles
-    if best_score < 2:
+    # Require minimum score of 1
+    if best_score < 1:
         log.info(f"  Score too low ({best_score}) — skipping")
         return None
 

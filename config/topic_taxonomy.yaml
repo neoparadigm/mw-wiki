@@ -1,12 +1,12 @@
 topics:
   - path: identity/conditional-access/authentication-flows
     title: "Conditional Access — Authentication Flows"
-    keywords: [authentication flow, device code, legacy auth, oauth, CA policy, block flow]
+    keywords: [authentication flow, device code, legacy auth, oauth, CA policy, block flow, conditional access policy, access control, sign-in policy]
     stale_days: 60
 
   - path: identity/conditional-access/device-code-flow-blocking
     title: "Blocking Device Code Flow"
-    keywords: [device code, device code flow, microsoft.com/devicelogin, CA block, token theft]
+    keywords: [device code, device code flow, microsoft.com/devicelogin, CA block, token theft, device authentication, OAuth flow, authentication flow]
     stale_days: 60
 
   - path: identity/conditional-access/named-locations
@@ -31,17 +31,17 @@ topics:
 
   - path: identity/conditional-access/aitm-defence
     title: "AiTM Proxy Attacks and Defence"
-    keywords: [AiTM, evilginx, adversary-in-the-middle, session cookie, token replay, MFA bypass]
+    keywords: [AiTM, evilginx, adversary-in-the-middle, session cookie, token replay, MFA bypass, phishing, token theft, session hijack, adversary in the middle]
     stale_days: 45
 
   - path: identity/pim/pim-for-groups
     title: "PIM for Groups Configuration"
-    keywords: [PIM for groups, role-assignable group, eligible membership, PIM activation, group PIM]
+    keywords: [PIM for groups, role-assignable group, eligible membership, PIM activation, group PIM, privileged identity, just in time, JIT, eligible assignment, role activation]
     stale_days: 60
 
   - path: identity/pim/no-permanent-global-admin
     title: "Eliminating Permanent Global Administrator Assignments"
-    keywords: [permanent GA, global administrator, PIM eligible, no standing access, JIT admin]
+    keywords: [permanent GA, global administrator, PIM eligible, no standing access, JIT admin, privileged role, permanent assignment]
     stale_days: 60
 
   - path: identity/pim/break-glass-accounts
@@ -76,17 +76,17 @@ topics:
 
   - path: identity/hybrid/entra-connect-hardening
     title: "Entra Connect Server Hardening"
-    keywords: [Entra Connect, AAD Connect, sync server, MSOL account, hybrid identity, DirSync]
+    keywords: [Entra Connect, AAD Connect, sync server, MSOL account, hybrid identity, DirSync, directory sync, password hash sync, federation]
     stale_days: 60
 
   - path: identity/hybrid/golden-saml
     title: "Golden SAML Attack and ADFS Hardening"
-    keywords: [Golden SAML, ADFS, token signing certificate, SAML forgery, federation, PTA]
+    keywords: [Golden SAML, ADFS, token signing certificate, SAML forgery, federation, PTA, on-premises attack, SolarWinds]
     stale_days: 90
 
   - path: intune/deployment/autopilot-user-driven
     title: "Autopilot User-Driven Mode"
-    keywords: [autopilot, user-driven, OOBE, Entra join, hybrid join, ESP, enrollment status page]
+    keywords: [autopilot, user-driven, OOBE, Entra join, hybrid join, ESP, enrollment status page, Windows deployment, device enrollment, out of box experience, zero touch]
     stale_days: 60
 
   - path: intune/deployment/autopilot-self-deploying
@@ -96,7 +96,7 @@ topics:
 
   - path: intune/deployment/autopilot-troubleshooting
     title: "Autopilot Troubleshooting"
-    keywords: [autopilot error, 801c, TPM, hash upload, autopilot reset, diagnostics, ETL logs]
+    keywords: [autopilot error, 801c, TPM, hash upload, autopilot reset, diagnostics, ETL logs, deployment failure, enrollment failure, ESP timeout]
     stale_days: 45
 
   - path: intune/deployment/enrollment-status-page
@@ -106,7 +106,7 @@ topics:
 
   - path: intune/security/wdac-app-control
     title: "WDAC and App Control for Business"
-    keywords: [WDAC, App Control, application control, code integrity, allow list, policy enforcement]
+    keywords: [WDAC, App Control, application control, code integrity, allow list, policy enforcement, app control, allowlist, AppLocker]
     stale_days: 60
 
   - path: intune/security/laps-v2
@@ -151,7 +151,7 @@ topics:
 
   - path: sentinel/kql/identity-detection-queries
     title: "KQL — Identity and Sign-in Detection"
-    keywords: [KQL, SigninLogs, identity detection, risky sign-in, legacy auth KQL, MFA failure KQL]
+    keywords: [KQL, SigninLogs, identity detection, risky sign-in, legacy auth KQL, MFA failure KQL, Sentinel query, detection rule, hunting query, log analytics, sign-in logs]
     stale_days: 45
 
   - path: sentinel/kql/privilege-escalation-queries
@@ -186,7 +186,7 @@ topics:
 
   - path: defender/mde/edr-block-mode
     title: "EDR in Block Mode"
-    keywords: [EDR block mode, passive mode, third-party AV, MDE coexistence, EDR]
+    keywords: [EDR block mode, passive mode, third-party AV, MDE coexistence, EDR, endpoint detection, third party antivirus, MDE deployment]
     stale_days: 90
 
   - path: defender/mdo/safe-links-safe-attachments
@@ -196,17 +196,17 @@ topics:
 
   - path: exchange/security/smtp-auth-disable
     title: "Disabling SMTP AUTH and Legacy Protocols"
-    keywords: [SMTP AUTH, disable SMTP, legacy protocol, POP3 disable, IMAP disable, basic auth Exchange]
+    keywords: [SMTP AUTH, disable SMTP, legacy protocol, POP3 disable, IMAP disable, basic auth Exchange, email authentication, legacy email, basic authentication, Exchange security]
     stale_days: 90
 
   - path: exchange/mail-flow/inbox-rules-exfiltration
     title: "Inbox Rule Exfiltration Detection and Prevention"
-    keywords: [inbox rule, forwarding rule, external forward, BEC, mail exfiltration, auto-forward]
+    keywords: [inbox rule, forwarding rule, external forward, BEC, mail exfiltration, auto-forward, mail forwarding, email exfiltration, business email compromise]
     stale_days: 60
 
   - path: teams/security/external-access-federation
     title: "Teams External Access and Federation Control"
-    keywords: [Teams external, federation, external user, block domain, Teams phishing, external chat]
+    keywords: [Teams external, federation, external user, block domain, Teams phishing, external chat, Teams federation, external teams, guest access, external collaboration]
     stale_days: 60
 
   - path: teams/governance/app-permission-policies
