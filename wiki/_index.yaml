@@ -1,2 +1,656 @@
-generated: 2026-04-14 09:00
-topics: []
+generated: 2026-04-14 11:00
+topics:
+- domain: azure
+  has_conflicts: true
+  id: azure/app-proxy/app-proxy-configuration
+  keywords:
+  - App Proxy
+  - application proxy
+  - connector
+  - on-prem app
+  - pre-auth
+  - kerberos constrained
+  last_updated: '2026-04-14'
+  related: []
+  sources: 5
+  stale_after: '2026-07-13'
+  subdomain: app-proxy
+  title: Azure App Proxy Configuration
+- domain: azure
+  has_conflicts: false
+  id: azure/avd/avd-security-baseline
+  keywords:
+  - AVD
+  - WVD
+  - Azure Virtual Desktop
+  - session host
+  - host pool
+  - FSLogix
+  - RDP Shortpath
+  last_updated: '2026-04-14'
+  related: []
+  sources: 2
+  stale_after: '2026-07-13'
+  subdomain: avd
+  title: Azure Virtual Desktop Security Baseline
+- domain: defender
+  has_conflicts: true
+  id: defender/mde/edr-block-mode
+  keywords:
+  - EDR block mode
+  - passive mode
+  - third-party AV
+  - MDE coexistence
+  - EDR
+  - endpoint detection
+  - third party antivirus
+  - MDE deployment
+  last_updated: '2026-04-14'
+  related: []
+  sources: 2
+  stale_after: '2026-07-13'
+  subdomain: mde
+  title: EDR in Block Mode
+- domain: defender
+  has_conflicts: true
+  id: defender/mde/tamper-protection
+  keywords:
+  - tamper protection
+  - MDE
+  - disable defender
+  - sensor
+  - MsSense
+  - tamper alert
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-06-13'
+  subdomain: mde
+  title: MDE Tamper Protection
+- domain: exchange
+  has_conflicts: true
+  id: exchange/mail-flow/inbox-rules-exfiltration
+  keywords:
+  - inbox rule
+  - forwarding rule
+  - external forward
+  - BEC
+  - mail exfiltration
+  - auto-forward
+  - mail forwarding
+  - email exfiltration
+  - business email compromise
+  last_updated: '2026-04-14'
+  related: []
+  sources: 2
+  stale_after: '2026-06-13'
+  subdomain: mail-flow
+  title: Inbox Rule Exfiltration Detection and Prevention
+- domain: identity
+  has_conflicts: true
+  id: identity/conditional-access/aitm-defence
+  keywords:
+  - AiTM
+  - evilginx
+  - adversary-in-the-middle
+  - session cookie
+  - token replay
+  - MFA bypass
+  - phishing
+  - token theft
+  - session hijack
+  - adversary in the middle
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-05-29'
+  subdomain: conditional-access
+  title: AiTM Proxy Attacks and Defence
+- domain: identity
+  has_conflicts: true
+  id: identity/conditional-access/authentication-flows
+  keywords:
+  - authentication flow
+  - device code
+  - legacy auth
+  - oauth
+  - CA policy
+  - block flow
+  - conditional access policy
+  - access control
+  - sign-in policy
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-06-13'
+  subdomain: conditional-access
+  title: Conditional Access — Authentication Flows
+- domain: identity
+  has_conflicts: false
+  id: identity/conditional-access/compliant-device-requirement
+  keywords:
+  - compliant device
+  - hybrid join
+  - CA device condition
+  - unmanaged device
+  - BYOD CA
+  last_updated: '2026-04-14'
+  related: []
+  sources: 1
+  stale_after: '2026-06-13'
+  subdomain: conditional-access
+  title: Requiring Compliant or Hybrid-Joined Devices
+- domain: identity
+  has_conflicts: true
+  id: identity/conditional-access/device-code-flow-blocking
+  keywords:
+  - device code
+  - device code flow
+  - microsoft.com/devicelogin
+  - CA block
+  - token theft
+  - device authentication
+  - OAuth flow
+  - authentication flow
+  last_updated: '2026-04-14'
+  related: []
+  sources: 4
+  stale_after: '2026-06-13'
+  subdomain: conditional-access
+  title: Blocking Device Code Flow
+- domain: identity
+  has_conflicts: true
+  id: identity/conditional-access/legacy-auth-blocking
+  keywords:
+  - legacy auth
+  - basic auth
+  - SMTP AUTH
+  - POP3
+  - IMAP
+  - ActiveSync
+  - other clients
+  last_updated: '2026-04-14'
+  related: []
+  sources: 3
+  stale_after: '2026-06-13'
+  subdomain: conditional-access
+  title: Blocking Legacy Authentication Protocols
+- domain: identity
+  has_conflicts: false
+  id: identity/conditional-access/token-protection
+  keywords:
+  - token protection
+  - CAE
+  - continuous access evaluation
+  - token binding
+  - session token
+  - AiTM
+  last_updated: '2026-04-14'
+  related: []
+  sources: 1
+  stale_after: '2026-06-13'
+  subdomain: conditional-access
+  title: Token Protection and CAE
+- domain: identity
+  has_conflicts: true
+  id: identity/entra-id/admin-consent-workflow
+  keywords:
+  - admin consent
+  - user consent
+  - OAuth app
+  - consent phishing
+  - app permissions
+  - consent workflow
+  last_updated: '2026-04-14'
+  related: []
+  sources: 2
+  stale_after: '2026-06-13'
+  subdomain: entra-id
+  title: Admin Consent Workflow and OAuth App Control
+- domain: identity
+  has_conflicts: true
+  id: identity/entra-id/entra-id-protection
+  keywords:
+  - ID protection
+  - user risk
+  - sign-in risk
+  - risk policy
+  - leaked credentials
+  - risky user
+  last_updated: '2026-04-14'
+  related: []
+  sources: 2
+  stale_after: '2026-06-13'
+  subdomain: entra-id
+  title: Entra ID Protection Risk Policies
+- domain: identity
+  has_conflicts: true
+  id: identity/entra-id/mfa-registration-policy
+  keywords:
+  - MFA registration
+  - TAP
+  - temporary access pass
+  - security info
+  - self-service MFA
+  - SSPR
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-06-13'
+  subdomain: entra-id
+  title: MFA Registration Policy and TAP
+- domain: identity
+  has_conflicts: false
+  id: identity/entra-id/service-principal-governance
+  keywords:
+  - service principal
+  - app registration
+  - client secret
+  - certificate auth
+  - SP governance
+  - managed identity
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-06-13'
+  subdomain: entra-id
+  title: Service Principal and App Registration Governance
+- domain: identity
+  has_conflicts: true
+  id: identity/hybrid/entra-connect-hardening
+  keywords:
+  - Entra Connect
+  - AAD Connect
+  - sync server
+  - MSOL account
+  - hybrid identity
+  - DirSync
+  - directory sync
+  - password hash sync
+  - federation
+  last_updated: '2026-04-14'
+  related: []
+  sources: 3
+  stale_after: '2026-06-13'
+  subdomain: hybrid
+  title: Entra Connect Server Hardening
+- domain: identity
+  has_conflicts: true
+  id: identity/pim/break-glass-accounts
+  keywords:
+  - break glass
+  - emergency access
+  - excluded from CA
+  - offline credentials
+  - recovery account
+  last_updated: '2026-04-14'
+  related: []
+  sources: 4
+  stale_after: '2026-07-13'
+  subdomain: pim
+  title: Break Glass Emergency Access Accounts
+- domain: identity
+  has_conflicts: true
+  id: identity/pim/pim-for-groups
+  keywords:
+  - PIM for groups
+  - role-assignable group
+  - eligible membership
+  - PIM activation
+  - group PIM
+  - privileged identity
+  - just in time
+  - JIT
+  - eligible assignment
+  - role activation
+  last_updated: '2026-04-14'
+  related: []
+  sources: 3
+  stale_after: '2026-06-13'
+  subdomain: pim
+  title: PIM for Groups Configuration
+- domain: identity
+  has_conflicts: true
+  id: identity/pim/tiered-administration
+  keywords:
+  - tiered admin
+  - T0
+  - T1
+  - T2
+  - PAW
+  - privileged access workstation
+  - admin tiers
+  - ESAE
+  last_updated: '2026-04-14'
+  related: []
+  sources: 3
+  stale_after: '2026-07-13'
+  subdomain: pim
+  title: Tiered Administration Model T0 T1 T2
+- domain: intune
+  has_conflicts: true
+  id: intune/apps/powershell-scripts
+  keywords:
+  - PowerShell script
+  - IME
+  - Intune management extension
+  - script execution
+  - 32-bit
+  - script log
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-06-13'
+  subdomain: apps
+  title: PowerShell Scripts in Intune
+- domain: intune
+  has_conflicts: true
+  id: intune/apps/win32-app-deployment
+  keywords:
+  - Win32
+  - intunewin
+  - app packaging
+  - detection rule
+  - requirement rule
+  - supersedence
+  - Win32 app
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-06-13'
+  subdomain: apps
+  title: Win32 App Deployment and Packaging
+- domain: intune
+  has_conflicts: true
+  id: intune/apps/winget-intune
+  keywords:
+  - WinGet
+  - Microsoft Store
+  - WinTuner
+  - store app
+  - UWP
+  - app updates
+  - package manager
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-05-29'
+  subdomain: apps
+  title: WinGet and Microsoft Store Integration
+- domain: intune
+  has_conflicts: true
+  id: intune/compliance/compliance-policy-design
+  keywords:
+  - compliance policy
+  - compliant device
+  - grace period
+  - non-compliant
+  - compliance CA
+  - device health
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-06-13'
+  subdomain: compliance
+  title: Compliance Policy Design and CA Integration
+- domain: intune
+  has_conflicts: false
+  id: intune/deployment/autopilot-troubleshooting
+  keywords:
+  - autopilot error
+  - 801c
+  - TPM
+  - hash upload
+  - autopilot reset
+  - diagnostics
+  - ETL logs
+  - deployment failure
+  - enrollment failure
+  - ESP timeout
+  last_updated: '2026-04-14'
+  related: []
+  sources: 1
+  stale_after: '2026-05-29'
+  subdomain: deployment
+  title: Autopilot Troubleshooting
+- domain: intune
+  has_conflicts: true
+  id: intune/deployment/autopilot-user-driven
+  keywords:
+  - autopilot
+  - user-driven
+  - OOBE
+  - Entra join
+  - hybrid join
+  - ESP
+  - enrollment status page
+  - Windows deployment
+  - device enrollment
+  - out of box experience
+  - zero touch
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-06-13'
+  subdomain: deployment
+  title: Autopilot User-Driven Mode
+- domain: intune
+  has_conflicts: false
+  id: intune/deployment/enrollment-status-page
+  keywords:
+  - ESP
+  - enrollment status page
+  - blocking apps
+  - timeout
+  - ESP error
+  - device setup
+  last_updated: '2026-04-14'
+  related: []
+  sources: 1
+  stale_after: '2026-06-13'
+  subdomain: deployment
+  title: Enrollment Status Page Configuration
+- domain: intune
+  has_conflicts: true
+  id: intune/security/asr-rules
+  keywords:
+  - ASR
+  - attack surface reduction
+  - block mode
+  - audit mode
+  - ASR rules
+  - Office macro
+  - LSASS
+  last_updated: '2026-04-14'
+  related: []
+  sources: 4
+  stale_after: '2026-06-13'
+  subdomain: security
+  title: Attack Surface Reduction Rules
+- domain: intune
+  has_conflicts: true
+  id: intune/security/bitlocker-management
+  keywords:
+  - BitLocker
+  - encryption
+  - recovery key
+  - silent encryption
+  - BitLocker policy
+  - escrow
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-07-13'
+  subdomain: security
+  title: BitLocker Management via Intune
+- domain: intune
+  has_conflicts: true
+  id: intune/security/credential-guard
+  keywords:
+  - Credential Guard
+  - VBS
+  - virtualisation-based security
+  - LSASS protection
+  - Pass-the-Hash
+  last_updated: '2026-04-14'
+  related: []
+  sources: 4
+  stale_after: '2026-07-13'
+  subdomain: security
+  title: Credential Guard and VBS
+- domain: intune
+  has_conflicts: true
+  id: intune/security/laps-v2
+  keywords:
+  - LAPS
+  - local admin password
+  - LAPS v2
+  - password rotation
+  - LAPS policy
+  - legacy LAPS
+  last_updated: '2026-04-14'
+  related: []
+  sources: 4
+  stale_after: '2026-06-13'
+  subdomain: security
+  title: Windows LAPS v2 Configuration
+- domain: intune
+  has_conflicts: true
+  id: intune/security/wdac-app-control
+  keywords:
+  - WDAC
+  - App Control
+  - application control
+  - code integrity
+  - allow list
+  - policy enforcement
+  - app control
+  - allowlist
+  - AppLocker
+  last_updated: '2026-04-14'
+  related: []
+  sources: 4
+  stale_after: '2026-06-13'
+  subdomain: security
+  title: WDAC and App Control for Business
+- domain: sentinel
+  has_conflicts: true
+  id: sentinel/architecture/log-coverage-gaps
+  keywords:
+  - log coverage
+  - data connector
+  - ingestion
+  - diagnostic settings
+  - log gap
+  - missing logs
+  last_updated: '2026-04-14'
+  related: []
+  sources: 2
+  stale_after: '2026-05-29'
+  subdomain: architecture
+  title: Sentinel Log Coverage and Ingestion Gaps
+- domain: sentinel
+  has_conflicts: true
+  id: sentinel/architecture/workspace-design
+  keywords:
+  - workspace
+  - Log Analytics
+  - sentinel design
+  - multi-workspace
+  - RBAC sentinel
+  - table tiers
+  last_updated: '2026-04-14'
+  related: []
+  sources: 2
+  stale_after: '2026-07-13'
+  subdomain: architecture
+  title: Sentinel Workspace Architecture
+- domain: sentinel
+  has_conflicts: true
+  id: sentinel/kql/identity-detection-queries
+  keywords:
+  - KQL
+  - SigninLogs
+  - identity detection
+  - risky sign-in
+  - legacy auth KQL
+  - MFA failure KQL
+  - Sentinel query
+  - detection rule
+  - hunting query
+  - log analytics
+  - sign-in logs
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-05-29'
+  subdomain: kql
+  title: KQL — Identity and Sign-in Detection
+- domain: sentinel
+  has_conflicts: true
+  id: sentinel/kql/lateral-movement-queries
+  keywords:
+  - KQL
+  - lateral movement
+  - SMB
+  - Pass-the-Hash
+  - DCSync
+  - remote services KQL
+  last_updated: '2026-04-14'
+  related: []
+  sources: 4
+  stale_after: '2026-05-29'
+  subdomain: kql
+  title: KQL — Lateral Movement Detection
+- domain: sentinel
+  has_conflicts: false
+  id: sentinel/kql/privilege-escalation-queries
+  keywords:
+  - KQL
+  - PIM activation
+  - role assignment
+  - group membership change
+  - privilege KQL
+  - AuditLogs
+  last_updated: '2026-04-14'
+  related: []
+  sources: 1
+  stale_after: '2026-05-29'
+  subdomain: kql
+  title: KQL — Privilege Escalation Detection
+- domain: teams
+  has_conflicts: false
+  id: teams/governance/app-permission-policies
+  keywords:
+  - Teams app
+  - app permission
+  - third-party app
+  - block app
+  - app policy
+  - Teams store
+  last_updated: '2026-04-14'
+  related: []
+  sources: 1
+  stale_after: '2026-06-13'
+  subdomain: governance
+  title: Teams App Permission Policies
+- domain: teams
+  has_conflicts: true
+  id: teams/security/external-access-federation
+  keywords:
+  - Teams external
+  - federation
+  - external user
+  - block domain
+  - Teams phishing
+  - external chat
+  - Teams federation
+  - external teams
+  - guest access
+  - external collaboration
+  last_updated: '2026-04-14'
+  related: []
+  sources: 6
+  stale_after: '2026-06-13'
+  subdomain: security
+  title: Teams External Access and Federation Control
