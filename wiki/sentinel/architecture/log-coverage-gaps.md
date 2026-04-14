@@ -1,90 +1,49 @@
 ---
-conflicts:
-- '[CONFLICT: Jeffrey mentions Azure Data Explorer, but it''s not explicitly listed
-  as a key concept in the existing entry]'
-- '[CONFLICT: Jeffrey mentions streaming data directly to Log Analytics and Storage
-  account/event hub, but these methods are not explicitly listed as configuration
-  options in the existing entry]'
-- '[CONFLICT: Add Azure Data Explorer]'
+conflicts: []
 domain: sentinel
 gaps: []
-last_synthesised: '2026-04-12'
+last_synthesised: '2026-04-14'
 sources:
-- author: Jeffrey
-  crawled: '2026-04-12'
-  date: '2026-01-20'
-  title: How to natively archive Defender XDR logs for up to 12 years
-  url: https://jeffreyappel.nl/how-to-archive-defender-logs-natively-in-defender-xdr-up-to-12-years
-- author: Jeffrey
-  crawled: '2026-04-12'
-  date: '2025-08-04'
-  title: How to store Defender XDR data for years in Sentinel data lake without expensive
-    ingestion cost
-  url: https://jeffreyappel.nl/how-to-store-defender-xdr-data-for-years-in-sentinel-data-lake-without-expensive-ingestion-cost
-- author: Jeffrey
-  crawled: '2026-04-12'
-  date: '2025-07-30'
-  title: 'Microsoft Sentinel data lake: How to use/enable and set-up the unified data
-    lake'
-  url: https://jeffreyappel.nl/microsoft-sentinel-data-lake-how-to-use-enable-and-set-up-the-unified-datalake
-stale_after: '2026-05-27'
+- author: Oliver Kieselbach
+  crawled: '2026-04-14'
+  date: '2017-11-07'
+  title: Deep dive ADMX ingestion to configure SilentAccountConfig with OneDrive
+  url: https://oliverkieselbach.com/2017/11/07/deep-dive-admx-ingestion-to-configure-silentaccountconfig-with-onedrive
+stale_after: '2026-05-29'
 title: Sentinel Log Coverage and Ingestion Gaps
 topic: sentinel/architecture/log-coverage-gaps
 ---
 
 # Sentinel Log Coverage and Ingestion Gaps
 
-## Sentinel Log Coverage and Ingestion Gaps
+## Overview
+This topic discusses the configuration of SilentAccountConfig using ADMX ingestion for OneDrive in a Modern Workplace scenario, allowing Windows 10 clients joined to Azure Active Directory and auto enrolled into Intune to automatically configure necessary system settings and present files in OneDrive without further user sign-in.
 
-### Overview
-This topic discusses the limitations and gaps in log coverage and ingestion within Microsoft Sentinel, particularly with regards to Defender XDR logs. Understanding these gaps is crucial for effective security operations and compliance. The entry has been updated with new information from a blog post by Jeffrey Appel.
+## Key Concepts
+- ADMX ingestion: a feature in Windows 10 1703 that extends policy settings in Intune by parsing an ADMX file and building a MDM policy from it.
+- OMA-URIs: Open Mobile Alliance Unified Resource Identifiers used to configure the ADMX settings via Intune.
+- SilentAccountConfig: a OneDrive setting that configures the user account information from the Windows signed-in user without requiring further sign-in by the user.
+- EnableADAL: a registry key used in conjunction with SilentAccountConfig to enable Azure Active Directory Login for OneDrive.
 
-### Key Concepts
-- Log coverage: The extent to which various security events are captured by Sentinel.
-- Ingestion: The process of collecting and sending data from various sources into Sentinel.
-- Data lake tier ingestion: A feature that allows Microsoft XDR Advanced Hunting tables to be directly ingested into the Microsoft Sentinel data lake.
-- Workspace transformation rules: Rules used to transform data before it is ingested into Sentinel.
-- Custom table: A user-created table in Sentinel for storing specific types of data.
-- Azure Data Explorer: A data management system that allows users to run complex queries against large amounts of data. [New]
+## Configuration
+1. Download the OneDrive ADMX file from `%LocalAppData%\Microsoft\OneDrive\-build-version-\adm\OneDrive.admx`.
+2. Copy the complete policyDefinitions node to a new file and remove every policy node except the policy node with SilentAccountConfig.
+3. Duplicate the policy node SilentAccountConfig as an additional node under the policies node, rename the attribute values "name" and "valueName" to EnableADAL.
+4. Replace `SOFTWARE\Policies\Microsoft\OneDrive` with `SOFTWARE\Microsoft\OneDrive`.
+5. Save the new XML file and import it as an ADMX ingestion policy in Intune.
+6. Configure the necessary OMA-URI settings for EnableADAL (1) and SilentAccountConfig (0) in Intune.
 
-### Configuration
-- To enable data lake tier ingestion for Microsoft XDR Advanced Hunting tables, follow the steps outlined in [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/sentinel/data-lake-ingestion).
-- For the workaround mentioned in Jeffrey Appel's blog post, refer to [Jeffrey's blog post](https://jeffreyappel.nl/how-to-store-defender-xdr-data-for-years-in-sentinel-data-lake-without-expensive-ingestion-cost/).
-- Jeffrey mentions streaming data directly to Log Analytics and Storage account/event hub, but these methods are not explicitly listed as configuration options in the existing entry. [CONFLICT]
+## Common Pitfalls
+- Using an outdated or incorrect version of the OneDrive ADMX file may result in errors or unexpected behavior.
+- Failing to properly rename the attribute values "name" and "valueName" to EnableADAL can cause the policy to fail.
+- Incorrectly specifying the registry path for SilentAccountConfig can also lead to issues with the configuration.
 
-### Common Pitfalls
-- Failing to properly configure data lake tier ingestion can result in high ingestion costs.
-- The workaround mentioned by Jeffrey, while functional, is complex and harder to maintain compared to native solutions.
+## KQL / PowerShell
+This article does not provide any specific queries or scripts.
 
-### KQL / PowerShell
-[This section is not applicable as it does not cover any specific queries or scripts.]
-
-### Related Topics
-- Log coverage
-- Data connector
-- Ingestion
-- Diagnostic settings
-- Log gap
-- Azure Data Explorer [New]
-
-### Blog Post
-> [Security](https://jeffreyappel.nl/category/security/) > How to store Defender XDR data for years in Sentinel data lake without expensive ingestion cost
-
-[Jeffrey](https://jeffreyappel.nl/author/contact/),
-[August 4, 2025](https://jeffreyappel.nl/how-to-store-defender-xdr-data-for-years-in-sentinel-data-lake-without-expensive-ingestion-cost/)
-6
-
-
-12 min read
-
-In recent years, an increasing number of customers have requested options to extend retention in Microsoft Defender XDR beyond the default 30 days at a low cost, all with the requirement of having the KQL experience available.
-
-|  |
-| --- |
-| **Blog information:**Feature is currently in General Available  Blog update: 27 october 2025 |
-
-With security log volumes growing fast, teams are forced into making painful tradeoffs: reduce logging by risking blind spots, shorten retention by compromising forensic depth, or absorb unsustainable costs when aiming to manage all their security data within a SIEM.
-
-With the new Sentinel data lake Microsoft released a new foundation for agentic defense and brings all security data together from Microsoft sources and third-party sources. One of the biggest benefits is to simplify security data management without having to manage complex infrastructures with Azure Data Explorer/ Storage blobs and other data management systems. Of course, there is a balance where Azure Data Explorer is useful and the new Sentinel data lake Microsoft released, both products are different in terms of the use-case, cost, features, and storage – all more on this later in the blog.
-
-## In the p
+## Related Topics
+- log coverage
+- data connector
+- ingestion
+- diagnostic settings
+- log gap

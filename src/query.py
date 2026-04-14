@@ -27,13 +27,15 @@ import yaml
 
 BASE_DIR  = Path(__file__).parent.parent
 WIKI_DIR  = BASE_DIR / "wiki"
+RAW_DIR   = BASE_DIR / "raw"
 INDEX_PATH = WIKI_DIR / "_index.yaml"
 
 # Claude model for synthesis — one call per query
 CLAUDE_MODEL      = "claude-sonnet-4-20250514"
 MAX_TOKENS        = 1000
 MAX_CONTEXT_CHARS = 12000  # ~3000 tokens of context
-MAX_TOPICS        = 4      # max topic files to load per query
+MAX_TOPICS        = 2      # max topic files to load per query
+MAX_RAW_FALLBACK  = 3      # max raw articles to include as fallback
 
 logging.basicConfig(
     level=logging.INFO,
@@ -102,7 +104,7 @@ def route_question(question: str, index: list[dict]) -> list[str]:
             scores.append((score, topic["id"]))
 
     scores.sort(reverse=True)
-    top_paths = [path for score, path in scores[:MAX_TOPICS] if score >= 3]
+    top_paths = [path for _, path in scores[:MAX_TOPICS]]
 
     log.info(f"Routing: '{question[:50]}...' → {top_paths}")
     return top_paths
@@ -165,6 +167,87 @@ def retrieve_context(topic_paths: list[str]) -> list[TopicContext]:
     return contexts
 
 
+# ── STAGE 2b: FALLBACK CORPUS SEARCH ─────────────────────────────────────────
+
+@dataclass
+class RawArticleContext:
+    title:   str
+    author:  str
+    url:     str
+    date:    str
+    body:    str
+    score:   int
+
+
+def search_raw_corpus(question: str, already_loaded_urls: set[str]) -> list[RawArticleContext]:
+    """
+    Search raw articles for question keywords.
+    Returns top matching articles not already covered by topic files.
+    This ensures no article is ever lost — even if it wasn't classified
+    into a topic file, it can still be found at query time.
+    """
+    if not RAW_DIR.exists():
+        return []
+
+    question_words = set(re.findall(r'\b\w{4,}\b', question.lower()))
+    if not question_words:
+        return []
+
+    scored = []
+
+    for raw_file in RAW_DIR.glob("*.md"):
+        try:
+            content = raw_file.read_text(encoding="utf-8", errors="ignore")
+        except Exception:
+            continue
+
+        # Parse frontmatter
+        meta = {}
+        body = content
+        if content.startswith("---"):
+            parts = content.split("---", 2)
+            if len(parts) >= 3:
+                try:
+                    meta = yaml.safe_load(parts[1]) or {}
+                    body = parts[2].strip()
+                except Exception:
+                    pass
+
+        url = meta.get("source_url", "")
+
+        # Skip articles already covered by loaded topic files
+        if url in already_loaded_urls:
+            continue
+
+        title  = meta.get("title", "").lower()
+        author = meta.get("author", "Unknown")
+        lead   = " ".join(body.split()[:200]).lower()
+
+        # Score: title matches worth more than body matches
+        score = 0
+        for word in question_words:
+            if word in title:
+                score += 5
+            elif word in lead:
+                score += 2
+            elif word in body.lower():
+                score += 1
+
+        if score >= 3:
+            scored.append(RawArticleContext(
+                title  = meta.get("title", raw_file.stem),
+                author = author,
+                url    = url,
+                date   = meta.get("published", ""),
+                body   = body[:2000],
+                score  = score,
+            ))
+
+    # Return top matches sorted by score
+    scored.sort(key=lambda x: x.score, reverse=True)
+    return scored[:MAX_RAW_FALLBACK]
+
+
 # ── STAGE 3: SYNTHESIS ────────────────────────────────────────────────────────
 
 SYSTEM_PROMPT = """You are the Modern Workplace Wiki — a synthesised knowledge base built from the best Microsoft MVP blogs, Microsoft documentation, and community resources.
@@ -177,54 +260,44 @@ RULES — follow these exactly:
 3. If the context does not contain enough information to answer, say exactly: "The wiki does not have sufficient coverage of this topic yet. Check _gaps.md."
 4. Do not pad answers. Be precise and technical.
 5. Include PowerShell or KQL code blocks if present in the context and relevant to the question.
-6. Prefer [AUTHORITY: HIGH] sources over [AUTHORITY: MEDIUM] when they conflict.
-7. When sources conflict, state both positions explicitly rather than blending them.
-8. End every answer with a ## Sources section listing all cited sources with URLs and dates.
+6. End every answer with a ## Sources section listing all cited sources with URLs.
 
-CITATION FORMAT: Every factual sentence must end with [Source: Author — Article Title] before the period.
-Example: "Block device code flow by setting the Authentication flows condition to Block [Source: Daniel Chronlund — Blocking Device Code Flow].
-Only cite sources that appear in the context above. Never invent citations."
+CITATION FORMAT: Every factual sentence must end with [Source: Author Name] before the period.
+Example: "Block device code flow by setting the Authentication flows condition to Block [Source: Daniel Chronlund]."
 """
 
 
-def synthesise(question: str, contexts: list[TopicContext]) -> str:
+def synthesise(
+    question:     str,
+    contexts:     list[TopicContext],
+    raw_fallback: list[RawArticleContext] | None = None
+) -> str:
     """Single Claude API call. Returns raw answer text."""
     client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
-    # Load authority map from seed list
-    authority_map = {}
-    try:
-        import yaml as _yaml
-        seed_path = Path(__file__).parent.parent / "config" / "seed_list.yaml"
-        with open(seed_path) as f:
-            seed = _yaml.safe_load(f)
-        for s in seed.get("sources", []):
-            authority_map[s["author"]] = s.get("authority", 1)
-    except Exception:
-        pass
-
-    # Build context block — sources sorted by authority then date
+    # Build context from topic files (synthesised, high quality)
     context_parts = []
     for ctx in contexts:
-        sorted_sources = sorted(
-            ctx.sources,
-            key=lambda s: (
-                -authority_map.get(s.get("author", ""), 1),
-                s.get("date", "0000")
-            )
-        )
-        # Cap at 5 most authoritative and recent sources
-        sorted_sources = sorted_sources[:5]
         sources_str = "\n".join(
-            f"  - [AUTHORITY: {'HIGH' if authority_map.get(s.get('author',''),1) == 3 else 'MEDIUM' if authority_map.get(s.get('author',''),1) == 2 else 'STANDARD'}] "
-            f"{s.get('author', 'Unknown')} ({s.get('date', 'unknown date')}): {s.get('url', '')}"
-            for s in sorted_sources
+            f"  - {s.get('author', 'Unknown')}: {s.get('url', '')}"
+            for s in ctx.sources[:5]
         )
         context_parts.append(
-            f"=== TOPIC: {ctx.title} ===\n"
-            f"Sources (sorted by authority):\n{sources_str}\n\n"
+            f"=== SYNTHESISED TOPIC: {ctx.title} ===\n"
+            f"Sources:\n{sources_str}\n\n"
             f"{ctx.body}\n"
         )
+
+    # Add raw fallback articles (unsynthesised but directly relevant)
+    if raw_fallback:
+        for raw in raw_fallback:
+            context_parts.append(
+                f"=== COMMUNITY ARTICLE: {raw.title} ===\n"
+                f"Author: {raw.author}\n"
+                f"URL: {raw.url}\n"
+                f"Date: {raw.date}\n\n"
+                f"{raw.body}\n"
+            )
 
     context_block = "\n\n".join(context_parts)
 
@@ -274,6 +347,9 @@ def validate_answer(answer: str, contexts: list[TopicContext]) -> tuple[bool, li
 
     for citation in citations:
         cited_author = citation.strip().lower()
+        # Always accept Microsoft Documentation citations
+        if "microsoft" in cited_author:
+            continue
         # Fuzzy check — cited name should partially match a real author
         if not any(cited_author in auth or auth in cited_author for auth in all_authors):
             warnings.append(
@@ -308,24 +384,23 @@ def query(question: str) -> QueryResult:
 
     topic_paths = route_question(question, index)
 
-    if not topic_paths:
-        return QueryResult(
-            question    = question,
-            answer      = (
-                "No relevant topics found for this question. "
-                "This may be a gap in the wiki corpus — check `_gaps.md`. "
-                "You can contribute by submitting a source URL via GitHub PR."
-            ),
-            topics_used = [],
-            sources     = [],
-            warnings    = ["NO_TOPICS_MATCHED"],
-            citations_ok= True
-        )
+    # Stage 2: Retrieve topic files (may be empty if no index match)
+    contexts = retrieve_context(topic_paths) if topic_paths else []
 
-    # Stage 2: Retrieve
-    contexts = retrieve_context(topic_paths)
+    # Stage 2b: Fallback corpus search — find relevant raw articles
+    # not already covered by topic files
+    already_loaded_urls = set()
+    for ctx in contexts:
+        for source in ctx.sources:
+            url = source.get("url", "")
+            if url:
+                already_loaded_urls.add(url)
 
-    if not contexts:
+    raw_fallback = search_raw_corpus(question, already_loaded_urls)
+    if raw_fallback:
+        log.info(f"Fallback: {len(raw_fallback)} raw articles found")
+
+    if not contexts and not raw_fallback:
         return QueryResult(
             question    = question,
             answer      = "Topic files not found. The index may be out of sync — run rebuild-index.",
@@ -350,7 +425,7 @@ def query(question: str) -> QueryResult:
 
     # Stage 3: Synthesise
     try:
-        answer = synthesise(question, contexts)
+        answer = synthesise(question, contexts, raw_fallback)
     except anthropic.APIError as e:
         log.error(f"Claude API error: {e}")
         return QueryResult(
@@ -366,12 +441,30 @@ def query(question: str) -> QueryResult:
     citations_ok, validation_warnings = validate_answer(answer, contexts)
     warnings.extend(validation_warnings)
 
-    # Collect all sources
+    # Collect all sources — topic files + raw fallback, deduplicated by URL
+    seen_urls = set()
     all_sources = []
+
+    def normalise_url(u):
+        return u.rstrip("/").lower()
+
     for ctx in contexts:
         for source in ctx.sources:
-            if source not in all_sources:
+            u = normalise_url(source.get("url", ""))
+            if u and u not in seen_urls:
+                seen_urls.add(u)
                 all_sources.append(source)
+
+    for raw in (raw_fallback or []):
+        u = normalise_url(raw.url)
+        if u and u not in seen_urls:
+            seen_urls.add(u)
+            all_sources.append({
+                "author": raw.author,
+                "title":  raw.title,
+                "url":    raw.url,
+                "date":   raw.date,
+            })
 
     return QueryResult(
         question    = question,
@@ -403,21 +496,10 @@ def print_result(result: QueryResult) -> None:
     print(result.answer)
     print("-" * 70)
 
-    # Only show sources actually cited in the answer
-    import re as _re
-    cited_authors = set(_re.findall(r'\[Source:\s*([^\]]+)\]', result.answer))
-    cited_sources = [s for s in result.sources 
-                     if any(ca.lower() in s.get('author','').lower() 
-                            or s.get('author','').lower() in ca.lower() 
-                            for ca in cited_authors)]
-    
-    if cited_sources:
-        print(f"\nSOURCES CITED ({len(cited_sources)}):")
-        for s in cited_sources:
-            print(f"  [{s.get('author', 'Unknown')}] {s.get('title', '')} ({s.get('date','')})")
-            print(f"  {s.get('url', '')}")
-    elif result.sources:
-        print(f"\nSOURCES ({len(result.sources)} in corpus — refine query for specific citations)")
+    if result.sources:
+        print(f"\nSOURCES ({len(result.sources)}):")
+        for s in result.sources:
+            print(f"  [{s.get('author', 'Unknown')}] {s.get('title', '')} — {s.get('url', '')}")
 
 
 def interactive_mode() -> None:

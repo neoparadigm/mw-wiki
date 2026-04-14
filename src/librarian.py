@@ -106,19 +106,31 @@ def classify_article(
 
     best_path = None
     best_score = 0
+    title_lower = title.lower()
+    # First 300 words for lead paragraph check
+    lead = ' '.join(content.split()[:300]).lower()
 
     for path, info in taxonomy.items():
         score = 0
         for kw in info.get("keywords", []):
-            if kw.lower() in text:
+            kw_lower = kw.lower()
+            # Title match = 5x weight — article is specifically about this topic
+            if kw_lower in title_lower:
+                score += 5
+            # Lead paragraph match = 3x weight — topic is primary subject
+            elif kw_lower in lead:
+                score += 3
+            # Body match = 1x weight — topic mentioned in passing
+            elif kw_lower in text:
                 score += 1
         if score > best_score:
             best_score = score
             best_path = path
 
-    # Require minimum score of 1
-    if best_score < 1:
-        log.info(f"  Score too low ({best_score}) — skipping")
+    # Require score of 5+ meaning at least one title match
+    # This ensures the article is specifically about the topic
+    if best_score < 5:
+        log.info(f"  Score too low ({best_score}) — no title match, skipping")
         return None
 
     log.info(f"  Classified as: {best_path} (score {best_score})")
