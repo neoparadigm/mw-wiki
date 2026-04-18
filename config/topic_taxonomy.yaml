@@ -228,3 +228,296 @@ topics:
     title: "Azure Virtual Desktop Security Baseline"
     keywords: [AVD, WVD, Azure Virtual Desktop, session host, host pool, FSLogix, RDP Shortpath]
     stale_days: 90
+
+  # ── IDENTITY — expanded ──────────────────────────────────────────────────
+
+  - path: identity/conditional-access/ca-gap-analysis
+    title: "Conditional Access Gap Analysis and Coverage"
+    keywords: [CA gap, conditional access coverage, policy gap, unprotected app, CA analysis, policy coverage, what-if tool]
+    stale_days: 60
+
+  - path: identity/conditional-access/ca-as-code
+    title: "Conditional Access as Code"
+    keywords: [CA as code, conditional access code, policy backup, export CA, import CA, git CA, DevOps CA, PowerShell CA]
+    stale_days: 90
+
+  - path: identity/entra-id/external-identities
+    title: "External Identities and B2B Collaboration"
+    keywords: [external identity, B2B, guest access, cross-tenant, external user, collaboration, guest invite, cross tenant access]
+    stale_days: 60
+
+  - path: identity/entra-id/passwordless-authentication
+    title: "Passwordless Authentication Methods"
+    keywords: [passwordless, FIDO2, Windows Hello, authenticator app, passkey, phishing resistant, certificate based auth, CBA]
+    stale_days: 60
+
+  - path: identity/entra-id/authentication-methods-policy
+    title: "Authentication Methods Policy Management"
+    keywords: [authentication methods policy, MFA methods, SSPR methods, authentication strength, method migration]
+    stale_days: 60
+
+  - path: identity/entra-id/identity-governance
+    title: "Identity Governance and Access Reviews"
+    keywords: [identity governance, access review, entitlement management, access package, lifecycle workflow, joiner mover leaver]
+    stale_days: 60
+
+  - path: identity/entra-id/privileged-access-groups
+    title: "Privileged Access Groups and Role Management"
+    keywords: [privileged access group, role assignable, admin group, privileged role, role management, eligible group]
+    stale_days: 60
+
+  - path: identity/entra-id/graph-api-permissions
+    title: "Microsoft Graph API Permissions and Governance"
+    keywords: [Graph API, Graph permissions, Graph permission, Microsoft Graph, delegated permission, application permission, Graph explorer, Graph PowerShell]
+    stale_days: 60
+
+  - path: identity/entra-id/conditional-access-workload-identities
+    title: "Conditional Access for Workload Identities"
+    keywords: [workload identity, service principal CA, managed identity CA, conditional access workload, app CA policy]
+    stale_days: 60
+
+  - path: identity/hybrid/seamless-sso
+    title: "Seamless SSO and Hybrid Authentication"
+    keywords: [seamless SSO, hybrid SSO, Kerberos token, desktop SSO, AZUREADSSOACC, hybrid auth, PTA, pass through authentication]
+    stale_days: 90
+
+  - path: identity/hybrid/password-hash-sync
+    title: "Password Hash Sync and Leaked Credential Detection"
+    keywords: [password hash sync, PHS, leaked credentials, Smart Lockout, Entra Connect sync, cloud sync, hybrid password]
+    stale_days: 90
+
+  # ── INTUNE — expanded ────────────────────────────────────────────────────
+
+  - path: intune/deployment/autopilot-device-prep
+    title: "Autopilot Device Preparation v2"
+    keywords: [device preparation, autopilot v2, APv2, device prep policy, DAP, Autopilot device preparation]
+    stale_days: 45
+
+  - path: intune/deployment/autopilot-hybrid-join
+    title: "Autopilot Hybrid Entra Join"
+    keywords: [hybrid join, hybrid Entra join, HAADJ, hybrid autopilot, domain join connector, ODJ connector]
+    stale_days: 60
+
+  - path: intune/deployment/windows-autopatch
+    title: "Windows Autopatch Configuration"
+    keywords: [autopatch, windows autopatch, update rings, quality update, feature update, autopatch group, deployment ring]
+    stale_days: 45
+
+  - path: intune/deployment/co-management
+    title: "Co-management with ConfigMgr and Intune"
+    keywords: [co-management, ConfigMgr, SCCM, workload switching, cloud attach, co-management workload, tenant attach]
+    stale_days: 90
+
+  - path: intune/apps/macos-app-deployment
+    title: "macOS Application Deployment with Intune"
+    keywords: [macOS app, Mac app deployment, pkg, DMG, macOS LOB, Shell script Mac, Mac management]
+    stale_days: 60
+
+  - path: intune/apps/microsoft-store-apps
+    title: "Microsoft Store App Deployment"
+    keywords: [Microsoft Store, WinGet, store app, new store, msix, store integration, winget app]
+    stale_days: 45
+
+  - path: intune/security/defender-for-endpoint-intune
+    title: "Microsoft Defender for Endpoint via Intune"
+    keywords: [MDE onboarding, Defender onboarding, security baseline, MDE Intune, endpoint security policy, onboarding package]
+    stale_days: 60
+
+  - path: intune/security/attack-surface-reduction
+    title: "Attack Surface Reduction Policies"
+    keywords: [attack surface reduction, ASR, ASR rules, controlled folder access, network protection, exploit protection]
+    stale_days: 60
+
+  - path: intune/security/windows-security-baseline
+    title: "Windows Security Baseline in Intune"
+    keywords: [security baseline, Windows baseline, CIS benchmark, Intune baseline, hardening baseline, STIG]
+    stale_days: 60
+
+  - path: intune/security/macos-security
+    title: "macOS Security and Compliance with Intune"
+    keywords: [macOS security, Mac compliance, macOS LAPS, FileVault, Gatekeeper, macOS baseline, Mac hardening]
+    stale_days: 60
+
+  - path: intune/compliance/custom-compliance
+    title: "Custom Compliance Policies and Scripts"
+    keywords: [custom compliance, compliance script, discovery script, custom setting, compliance JSON, remediation script]
+    stale_days: 60
+
+  - path: intune/compliance/grace-period
+    title: "Compliance Grace Period and Actions for Noncompliance"
+    keywords: [grace period, noncompliance action, retire noncompliant, compliance notification, action noncompliance, compliance deadline]
+    stale_days: 60
+
+  - path: intune/configuration/settings-catalog
+    title: "Settings Catalog Configuration Profiles"
+    keywords: [settings catalog, configuration profile, policy CSP, settings catalog policy, administrative template, ADMX]
+    stale_days: 45
+
+  - path: intune/configuration/kiosk-mode
+    title: "Kiosk and Shared Device Configuration"
+    keywords: [kiosk mode, shared device, multi-app kiosk, single-app kiosk, assigned access, frontline worker, shared PC]
+    stale_days: 60
+
+  - path: intune/configuration/delivery-optimization
+    title: "Delivery Optimization for Windows Updates"
+    keywords: [delivery optimization, DO, peer caching, bandwidth throttle, update delivery, DO policy, content cache]
+    stale_days: 90
+
+  - path: intune/reporting/intune-reporting-log-analytics
+    title: "Intune Reporting with Log Analytics"
+    keywords: [Intune reporting, Log Analytics, diagnostic settings, device compliance report, Intune logs, operational data]
+    stale_days: 60
+
+  - path: intune/automation/graph-api-intune
+    title: "Automating Intune with Graph API"
+    keywords: [Graph API Intune, Intune automation, PowerShell Graph, Graph PowerShell Intune, Graph X-Ray, Intune Graph]
+    stale_days: 60
+
+  # ── SENTINEL — expanded ──────────────────────────────────────────────────
+
+  - path: sentinel/architecture/data-connectors
+    title: "Sentinel Data Connectors Configuration"
+    keywords: [data connector, Sentinel connector, MDE connector, M365 connector, CEF connector, Syslog connector, DCR connector]
+    stale_days: 45
+
+  - path: sentinel/architecture/cost-optimization
+    title: "Microsoft Sentinel Cost Optimization"
+    keywords: [Sentinel cost, ingestion cost, log retention, basic logs, auxiliary logs, commitment tier, cost management]
+    stale_days: 45
+
+  - path: sentinel/hunting/threat-hunting-queries
+    title: "Threat Hunting with KQL in Sentinel"
+    keywords: [threat hunting, hunting query, KQL hunt, proactive hunt, hypothesis hunting, MITRE hunting, hunting pack]
+    stale_days: 45
+
+  - path: sentinel/automation/playbooks-logic-apps
+    title: "Sentinel Playbooks and Logic Apps Automation"
+    keywords: [playbook, Logic App, SOAR, automated response, incident automation, alert automation, Sentinel automation]
+    stale_days: 60
+
+  - path: sentinel/incidents/incident-management
+    title: "Sentinel Incident Management and Triage"
+    keywords: [incident management, triage, incident queue, alert grouping, incident enrichment, SOC workflow, incident response]
+    stale_days: 60
+
+  # ── DEFENDER — expanded ──────────────────────────────────────────────────
+
+  - path: defender/mde/attack-surface-reduction-mde
+    title: "MDE Attack Surface Reduction Rules"
+    keywords: [MDE ASR, attack surface reduction MDE, ASR audit mode, ASR block mode, ASR exclusion, Office macro block]
+    stale_days: 60
+
+  - path: defender/mde/mde-onboarding
+    title: "MDE Onboarding and Deployment"
+    keywords: [MDE onboarding, Defender onboarding, onboarding script, onboarding package, MDE deployment, sensor onboarding]
+    stale_days: 60
+
+  - path: defender/mde/vulnerability-management
+    title: "Defender Vulnerability Management"
+    keywords: [vulnerability management, MDVM, TVM, software inventory, CVE, vulnerability remediation, exposure score]
+    stale_days: 45
+
+  - path: defender/mdo/anti-phishing-policies
+    title: "Anti-Phishing and Impersonation Protection"
+    keywords: [anti-phishing, impersonation protection, spoof intelligence, DMARC, DKIM, SPF, phishing policy, MDO phishing]
+    stale_days: 60
+
+  - path: defender/mdo/threat-explorer
+    title: "Threat Explorer and Email Investigation"
+    keywords: [threat explorer, email investigation, malware view, phish view, email trace, email headers, MDO investigation]
+    stale_days: 60
+
+  # ── EXCHANGE — expanded ──────────────────────────────────────────────────
+
+  - path: exchange/security/external-email-warning
+    title: "External Email Warning Tags and Tips"
+    keywords: [external email warning, external tag, external sender, mail tip, first contact safety tip, external banner]
+    stale_days: 90
+
+  - path: exchange/security/mail-transport-rules
+    title: "Mail Transport Rules for Security"
+    keywords: [transport rule, mail flow rule, DLP rule, block attachment, encrypt email, mail routing rule, ETR]
+    stale_days: 90
+
+  - path: exchange/migration/ews-to-graph-migration
+    title: "EWS to Microsoft Graph Migration"
+    keywords: [EWS migration, Exchange Web Services, Graph migration, EWS deprecation, EWS to Graph, OAuth mail access]
+    stale_days: 45
+
+  - path: exchange/hybrid/hybrid-configuration
+    title: "Exchange Hybrid Configuration"
+    keywords: [Exchange hybrid, hybrid configuration wizard, HCW, hybrid mail flow, centralized mail transport, hybrid agent]
+    stale_days: 90
+
+  # ── AZURE — expanded ─────────────────────────────────────────────────────
+
+  - path: azure/avd/avd-security-baseline
+    title: "Azure Virtual Desktop Security Baseline"
+    keywords: [AVD security, Azure Virtual Desktop, WVD, FSLogix, session host hardening, AVD baseline, RDP shortpath]
+    stale_days: 60
+
+  - path: azure/network/global-secure-access
+    title: "Global Secure Access and ZTNA"
+    keywords: [Global Secure Access, GSA, ZTNA, Entra Internet Access, Entra Private Access, network access, SSE, Security Service Edge]
+    stale_days: 45
+
+  - path: azure/network/private-endpoints
+    title: "Private Endpoints and Service Endpoints"
+    keywords: [private endpoint, service endpoint, private link, private DNS zone, network isolation, PaaS security]
+    stale_days: 90
+
+  - path: azure/identity/managed-identities
+    title: "Managed Identities for Azure Resources"
+    keywords: [managed identity, system assigned, user assigned, MSI, workload identity, Azure identity, service account replacement]
+    stale_days: 90
+
+  - path: azure/monitoring/azure-monitor-log-analytics
+    title: "Azure Monitor and Log Analytics Workspaces"
+    keywords: [Azure Monitor, Log Analytics, workspace, DCR, DCE, diagnostic settings, monitoring agent, AMA]
+    stale_days: 60
+
+  # ── TEAMS — expanded ─────────────────────────────────────────────────────
+
+  - path: teams/security/teams-security-baseline
+    title: "Microsoft Teams Security Baseline"
+    keywords: [Teams security, Teams baseline, Teams hardening, Teams policy, safe links Teams, Teams DLP, Teams compliance]
+    stale_days: 60
+
+  - path: teams/governance/teams-lifecycle
+    title: "Teams Lifecycle Management and Expiry"
+    keywords: [Teams lifecycle, Teams expiry, Teams archival, Teams provisioning, group expiry, Teams governance policy]
+    stale_days: 90
+
+  # ── SHAREPOINT — new domain ───────────────────────────────────────────────
+
+  - path: sharepoint/security/sharing-policies
+    title: "SharePoint Sharing and External Access Policies"
+    keywords: [SharePoint sharing, external sharing, anyone links, sharing policy, SharePoint permissions, OneDrive sharing]
+    stale_days: 60
+
+  - path: sharepoint/security/sensitivity-labels
+    title: "Sensitivity Labels for SharePoint and OneDrive"
+    keywords: [sensitivity label, MIP, information protection, label policy, auto labeling, SharePoint label, OneDrive label]
+    stale_days: 60
+
+  # ── WINDOWS — new domain ─────────────────────────────────────────────────
+
+  - path: windows/security/windows-hello-for-business
+    title: "Windows Hello for Business Deployment"
+    keywords: [Windows Hello, WHfB, WHFB, PIN policy, biometric auth, Hello deployment, Cloud Kerberos trust, WHfB trust]
+    stale_days: 60
+
+  - path: windows/security/local-security-policy
+    title: "Local Security Policy and CIS Hardening"
+    keywords: [local security policy, CIS hardening, security benchmark, AppLocker, Windows hardening, audit policy, UAC]
+    stale_days: 90
+
+  - path: windows/updates/windows-update-for-business
+    title: "Windows Update for Business Policies"
+    keywords: [Windows Update for Business, WUfB, update ring, deferral policy, quality update, feature update, update compliance]
+    stale_days: 45
+
+  - path: windows/updates/windows-11-upgrade
+    title: "Windows 11 Upgrade and Readiness"
+    keywords: [Windows 11 upgrade, Windows 11 readiness, feature update policy, Windows 11 deployment, upgrade ring, hardware readiness]
+    stale_days: 45

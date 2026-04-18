@@ -230,3 +230,107 @@ sources:
     focus: [mde, defender, endpoint_security]
     crawl_depth: 1
     authority: 3
+
+  - name: "Microsoft Learn — Exchange Online"
+    author: "Microsoft"
+    authority: 3
+    base_url: "https://learn.microsoft.com/en-us/exchange/exchange-online"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [exchange, mail_flow, hybrid, transport_rules, smtp]
+    crawl_depth: 1
+
+  - name: "Microsoft Learn — Exchange Security"
+    author: "Microsoft"
+    authority: 3
+    base_url: "https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [mdo, anti_phishing, safe_links, safe_attachments, threat_explorer, spf, dkim, dmarc]
+    crawl_depth: 1
+
+  - name: "Microsoft Learn — SharePoint Security"
+    author: "Microsoft"
+    authority: 3
+    base_url: "https://learn.microsoft.com/en-us/sharepoint/sharepoint-security"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [sharepoint_security, sharing_policies, sensitivity_labels, external_access]
+    crawl_depth: 1
+
+  - name: "Microsoft Learn — Windows Hello for Business"
+    author: "Microsoft"
+    authority: 3
+    base_url: "https://learn.microsoft.com/en-us/windows/security/identity-protection/hello-for-business"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [windows_hello, WHfB, passwordless, hybrid_hello, cloud_kerberos_trust]
+    crawl_depth: 1
+
+  - name: "Microsoft Learn — Windows Update for Business"
+    author: "Microsoft"
+    authority: 3
+    base_url: "https://learn.microsoft.com/en-us/windows/deployment/update/waas-manage-updates-wufb"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [windows_update, WUfB, update_rings, feature_update, quality_update, autopatch]
+    crawl_depth: 1
+
+  - name: "Microsoft Learn — AVD"
+    author: "Microsoft"
+    authority: 3
+    base_url: "https://learn.microsoft.com/en-us/azure/virtual-desktop/security-guide"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [avd, azure_virtual_desktop, FSLogix, session_host, RDP_shortpath]
+    crawl_depth: 1
+
+  - name: "Microsoft Learn — Global Secure Access"
+    author: "Microsoft"
+    authority: 3
+    base_url: "https://learn.microsoft.com/en-us/entra/global-secure-access"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [global_secure_access, GSA, ZTNA, internet_access, private_access, SSE]
+    crawl_depth: 1
+
+  - name: "Microsoft Learn — Identity Governance"
+    author: "Microsoft"
+    authority: 3
+    base_url: "https://learn.microsoft.com/en-us/entra/id-governance"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [identity_governance, access_review, entitlement_management, lifecycle_workflows, access_package]
+    crawl_depth: 1
+
+  - name: "Microsoft Learn — MDE"
+    author: "Microsoft"
+    authority: 3
+    base_url: "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [mde, defender_endpoint, onboarding, vulnerability_management, EDR, ASR]
+    crawl_depth: 1
+
+  - name: "Microsoft Learn — Managed Identities"
+    author: "Microsoft"
+    authority: 3
+    base_url: "https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources"
+    robots_url: "https://learn.microsoft.com/robots.txt"
+    focus: [managed_identity, system_assigned, user_assigned, workload_identity, MSI]
+    crawl_depth: 1
+
+  - name: "Tony Redmond — Practical365"
+    author: "Tony Redmond"
+    authority: 2
+    base_url: "https://practical365.com/author/tony-redmond"
+    robots_url: "https://practical365.com/robots.txt"
+    focus: [exchange_online, teams, sharepoint, m365_admin, hybrid_exchange]
+    crawl_depth: 2
+
+  - name: "Steve Goodman — Practical365"
+    author: "Steve Goodman"
+    authority: 2
+    base_url: "https://practical365.com/author/steve-goodman"
+    robots_url: "https://practical365.com/robots.txt"
+    focus: [exchange_online, hybrid, migration, mail_flow, transport_rules]
+    crawl_depth: 2
+
+  - name: "Thomas Naunheim — Cloud Architekt"
+    author: "Thomas Naunheim"
+    authority: 2
+    base_url: "https://www.cloud-architekt.net"
+    robots_url: "https://www.cloud-architekt.net/robots.txt"
+    focus: [entra_id, identity_governance, privileged_access, sentinel, workload_identity]
+    crawl_depth: 2

@@ -1,64 +1,96 @@
 ---
+conflict_topics:
+- identity/conditional-access/legacy-auth-blocking
+- identity/entra-id/entra-id-protection
 conflicts:
-- '[CONFLICT: Jeffrey adds "Illicit consent attacks"]'
-- '[CONFLICT: Jeffrey adds "consent phishing attacks (Illicit consent attacks)"]'
-- '[CONFLICT: This section provides additional details not present in the existing
-  entry]'
+- '[CONFLICT: Jeffrey mentions consent phishing attacks specifically]'
+- '[CONFLICT: Jeffrey mentions the need for regular audits and reviews]'
 - '[CONFLICT: Jeffrey says X, existing entry says Y]'
+- '[CONFLICT: Jeffrey mentions consent phishing attacks specifically, Thomas Naunheim
+  mentions illicit consent attacks]'
+- '[CONFLICT: Jeffrey mentions the need for regular audits and reviews, Thomas Naunheim
+  provides a PowerShell cmdlet for monitoring the desired state of the “UsersPermissionToUserConsentToAppEnabled”
+  setting]'
+context_note: Admin Consent Workflow is part of the identity domain. It connects closely
+  to Entra Connect Hardening. Synthesised from 2 community sources.
 domain: identity
 gaps: []
-last_synthesised: '2026-04-14'
+last_synthesised: '2026-04-18'
+prerequisite_topics:
+- identity/hybrid/entra-connect-hardening
+related_topics:
+- identity/hybrid/entra-connect-hardening
 sources:
 - author: Jeffrey
-  crawled: '2026-04-14'
+  crawled: '2026-04-18'
   date: '2020-06-07'
   title: Controle op Azure AD machtigingen met de Admin consent workflow; zo werkt
     het
   url: https://jeffreyappel.nl/controle-op-azure-ad-machtigingen-met-de-admin-consent-workflow-zo-werkt-het
 - author: Jeffrey
-  crawled: '2026-04-14'
+  crawled: '2026-04-18'
   date: '2022-02-02'
   title: Protect against AzureAD OAuth Consent phishing attempts (Illicit consent
     attack)
   url: https://jeffreyappel.nl/protect-against-oauth-consent-phishing-attempts-illicit-consent-attack
-stale_after: '2026-06-13'
+- author: Thomas Naunheim
+  crawled: '2026-04-18'
+  date: '2020-01-21'
+  title: Detection and Mitigation of Illicit Consent Grant Attacks in Azure AD
+  url: https://www.cloud-architekt.net/detection-and-mitigation-consent-grant-attacks-azuread
+stale_after: '2026-06-17'
 title: Admin Consent Workflow and OAuth App Control
 topic: identity/entra-id/admin-consent-workflow
 ---
 
 # Admin Consent Workflow and OAuth App Control
 
-## Admin Consent Workflow and OAuth App Control
+## Overview
+The Admin Consent Workflow and OAuth App Control is a crucial aspect of securing Azure Active Directory (Azure AD) permissions by preventing unwanted permissions before they become problematic. This topic matters because as more applications are connected via the cloud, it's essential to ensure that the single identity associated with these apps is securely managed.
 
-### Overview
-This topic discusses controlling Azure AD permissions using the Admin consent workflow, which helps prevent unwanted permissions before it's too late when integrating various cloud applications with Azure AD. The new source article provides additional insights into protecting against AzureAD OAuth Consent phishing attempts (Illicit consent attack).
+## Key Concepts
+- Admin Consent Workflow
+- OAuth App Control
+- Preventing unauthorized access and data breaches
+- Phishing attacks targeting app permissions [CONFLICT: Jeffrey mentions consent phishing attacks specifically, Thomas Naunheim mentions illicit consent attacks]
 
-### Key Concepts
-- Beveiligen van de identiteit
-- Admin consent workflow
-- OAuth app control
-- Phishing for consent
-- App permissions
-- [CONFLICT: Jeffrey adds "Illicit consent attacks"]
+## Configuration
+1. Understand the Admin Consent Workflow and its role in managing app permissions.
+2. Implement proper controls to manage and monitor OAuth apps connected to Azure AD.
+3. Configure Conditional Access policies to ensure that only authorized users can access sensitive data.
+4. Use Multi-Factor Authentication (MFA) to add an additional layer of security for user accounts.
+5. Regularly review and audit app permissions to identify any potential security risks. [CONFLICT: Jeffrey mentions the need for regular audits and reviews, Thomas Naunheim provides a PowerShell cmdlet for monitoring the desired state of the “UsersPermissionToUserConsentToAppEnabled” setting]
+6. Protect against AzureAD OAuth Consent phishing attempts (Illicit consent attack) [New information from the new source]
+7. Review and manage user settings to ensure that end-users do not register applications or set consent permission on their behalf without compliance or risk checks [New information from the new source]
 
-### Configuration
-The article does not provide specific configuration guidance. However, the new source provides information on Microsoft prevention/detection capabilities against OAuth Consent phishing.
+## Common Pitfalls
+- Failing to monitor and control OAuth apps, leading to unauthorized access or data breaches.
+- Granting excessive permissions to apps without proper evaluation and justification.
+- Ignoring the need for regular audits and reviews of app permissions. [CONFLICT: Jeffrey mentions the need for regular audits and reviews]
+- Not reviewing user settings to ensure that end-users do not register applications or set consent permission on their behalf without compliance or risk checks [New information from the new source]
 
-### Common Pitfalls
-- Lack of control over new applications and access permissions, which can lead to excessive permissions being granted. This is especially problematic when apps have malicious intentions to gain access to an organization's data through OAUTH. [CONFLICT: Jeffrey adds "consent phishing attacks (Illicit consent attacks)"]
+## KQL / PowerShell
+- Microsoft Cloud App Security (for detection)
+- Azure Sentinel (for detection)
+- PowerShell cmdlet for monitoring the desired state of the “UsersPermissionToUserConsentToAppEnabled” setting in your tenant. [New information from the new source]
 
-### KQL / PowerShell
-No relevant queries or scripts provided in the article.
+## Related Topics
+- Admin Consent
+- User Consent
+- OAuth App
+- Consent Phishing
+- Illicit consent attack
+- App Permissions
 
-### Related Topics
-- Admin consent
-- User consent
-- OAuth app
-- Consent phishing
-- App permissions
-- Illicit consent attacks
+## Blog Post
+> [Security](https://jeffreyappel.nl/category/security/) > Protect against AzureAD OAuth Consent phishing attempts (Illicit consent attack)
+>
+> [Thomas Naunheim](https://thomasnaunheim.com/) > Detection and Mitigation of Illicit Consent Grant Attacks in Azure AD
 
-## Protect against AzureAD OAuth Consent phishing attempts (Illicit consent attack)
+[Security](https://jeffreyappel.nl/category/security/)
+
+# Protect against AzureAD OAuth Consent phishing attempts (Illicit consent attack)
+
 [Jeffrey](https://jeffreyappel.nl/author/contact/),
 [February 2, 2022](https://jeffreyappel.nl/protect-against-oauth-consent-phishing-attempts-illicit-consent-attack/)
 1
@@ -69,15 +101,46 @@ No relevant queries or scripts provided in the article.
 
 ## What is consent phishing?
 
-Consent phishing attacks (Illicit consent attacks) abuse legitimate cloud service providers, including Microsoft, Meta, Google, and others that use OAuth 2.0 authorization. OAuth 2.0 is a widely used protocol that allows third-party apps to access account details and perform an action on their behalf.
+Consent phishing attacks (Illicit consent attacks) abuse legitimate cloud service providers' permissions to gain company or user data. In this article, we will cover the detection (with Microsoft Cloud App Security and Azure Sentinel) and mitigation with the latest feature of Azure AD.
 
-The main goal of a consent phishing attack is to let users grant permissions (content) to apps that are owned by the malicious attacker. The attacker then tricks an end-user into granting that application consent to access their data. [CONFLICT: This section provides additional details not present in the existing entry]
+## Consent Framework and Default (Tenant) Settings
 
-The difference in comparison with a credential attack is that the user uses a valid identity provider and no fake landing page for sign-in or any other method for credential harvesting. In a consent phishing attack, the user sign-in takes place on the identity provider itself. Targeted users who grant the permissions allow attackers to make API on their behalf through OAuth 2.0 authorization. [CONFLICT: This section provides additional details not present in the existing entry]
+In the first step, it’s very helpful to know the permission and consent framework in the Microsoft Identity platform. You need to understand the delegation process and potential attack surface.
+Microsoft has already documented this in details:
+[Microsoft identity platform scopes, permissions, and consent | Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)
 
-Task: Update the wiki entry by:
-1. Adding any NEW information from the new source not already present
-2. Marking any CONFLICTS between sources with [CONFLICT: Jeffrey says X, existing entry says Y]
-3. Improving or expanding existing sections if the new source adds depth
-4. NOT duplicating content already present
-5. NOT removing existing content
+By default, all users in Azure AD can register applications and set consent permission on their behalf. This represents a risk and should be reviewed by IT compliance, risk, and governance management of your company.
+So regardless of phishing attacks, this default setting should be reviewed by IT compliance, risk, and governance management of your company.
+
+The user settings are split into **"User can register applications"**…
+
+…and **"Users can consent to apps accessing company data on their behalf"**:
+
+Follow Microsoft’s step-by-step guide to find out which setting is configured in your tenant:
+[Configure how end-users consent to applications using Azure AD | Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-user-consent)
+
+*Tip: Use the PowerShell cmdlet for monitoring your desired state of the “UsersPermissionToUserConsentToAppEnabled” setting in your tenant.*
+
+This default settings makes it easy for users to enable access or onboard any SaaS applications.
+Nevertheless, it is [recommended by Microsoft to disable user consent operations](https://docs.microsoft.com/en-us/azure/security/fundamentals/steps-secure-identity#restrict-user-consent-operations).
+This is also part of the identity secure score:
+
+In the last month, we are seeing increased numbers of consent grant attacks by phishing mails but also Microsoft introduced new (public preview) features to detect/manage consent request.
+By now every organization should review their settings and methods to detect, remediate, and mitigate these attacks.
+
+## Attack methods and scenarios
+
+Many popular phishing attacks and campaigns try to take over accounts by user consent requests from apps that look like Office 365 services.
+Attackers sending mails with subjects like “storage upgrade” or “shared OneDrive files” to fool the victims that permission to Office 365 is required.
+
+In my opinion, it’s unrealistic to prevent this attacks or minimize their impact without proper monitoring and control of OAuth apps connected to Azure AD.
+
+## Mitigation
+
+To mitigate illicit consent attacks, Microsoft recommends the following steps:
+1. Review and manage user settings to ensure that end-users do not register applications or set consent permission on their behalf without compliance or risk checks.
+2. Implement proper controls to manage and monitor OAuth apps connected to Azure AD.
+3. Configure Conditional Access policies to ensure that only authorized users can access sensitive data.
+4. Use Multi-Factor Authentication (MFA) to add an additional layer of security for user accounts.
+5. Regularly review and audit app permissions to identify any potential security risks.
+6. Protect against AzureAD OAuth Consent phishing attempts (Illicit consent attack).

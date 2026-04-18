@@ -1,46 +1,80 @@
 ---
 conflicts: []
+context_note: Enrollment Status Page is part of the intune domain. Synthesised from
+  1 community source.
 domain: intune
 gaps: []
-last_synthesised: '2026-04-14'
+last_synthesised: '2026-04-18'
 sources:
-- author: Michael Morten Sonne
-  crawled: '2026-04-14'
-  date: '2026-03-02'
-  title: 'Defender for Endpoint – New feature is out: Live response file library!
-    – Blog - Sonne´s Cloud'
-  url: https://blog.sonnes.cloud/defender-for-endpoint-new-feature-is-out-live-response-file-library
-stale_after: '2026-06-13'
+- author: Jannik Reinhard
+  crawled: '2026-04-18'
+  date: '2022-10-02'
+  title: How to skip the ESP for a single app installation
+  url: https://jannikreinhard.com/2022/10/02/how-to-skip-the-esp-for-a-single-app-installation
+stale_after: '2026-06-17'
 title: Enrollment Status Page Configuration
 topic: intune/deployment/enrollment-status-page
 ---
 
 # Enrollment Status Page Configuration
 
-## Overview
-The Live response file library is a centralized repository within Microsoft Defender for Endpoint where security teams can upload and manage files used during Live Response sessions on endpoints. This feature addresses a long-standing pain point in SOC by enabling pre-staging of response tooling, centralized governance, inline script inspection, and lifecycle hygiene.
+## Enrollment Status Page Configuration
+
+This topic discusses how to skip the ESP (Enrollment Status Page) for a single app installation in Intune, a scenario where it may be necessary to install an app after the ESP due to installation requirements that necessitate user interaction.
 
 ## Key Concepts
-- Centralized file storage: Upload files once and make them available for all Live Response sessions.
-- Support for multiple file types: Common formats such as .exe, .ps1, etc.
-- Security Copilot integration: Analyzes scripts stored in the library to provide behavior summaries, security context, and execution risk considerations.
+- ESP (Enrollment Status Page)
+- App installation during ESP or white glove phase
+- Detecting if in ESP
+- Requirement script for skipping ESP
 
 ## Configuration
-1. Navigate to the Defender for Endpoint portal.
-2. Go to Incident Response > Live Response.
-3. Click on Library Management.
-4. Upload your files to the library.
+1. Write a requirement script to detect if in ESP:
+   - Option 1: Check the user running the explorer process (`Get-EspDetection` script provided)
+   - Option 2: Check registry keys in "Computer\HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Provisioning\AutopilotSettings" (`Get-EspDetection` script provided)
+
+2. Upload the requirement script to the MEM portal, navigate to the app you want to skip the ESP, click **Edit** and **Requirements**, then add a new requirement rule with the uploaded script.
+   - Select **Script**
+   - Upload the **Requirement script**
+   - Select **Boolean** as “*Select output data type*“
+   - Operator: **Equals**
+   - Value: **No**
 
 ## Common Pitfalls
-- Not properly validating scripts before execution.
-- Failing to remove outdated or redundant tools, leading to script sprawl and inconsistency.
+- Failing to properly detect if in ESP can lead to apps being installed during ESP, potentially causing issues or delays.
 
 ## KQL / PowerShell
-N/A (The article does not provide any specific queries or scripts.)
+```powershell
+# Option 1 (Get-EspDetection script)
+<#
+Version: 1.0
+Author: Jannik Reinhard (jannikreinhard.com)
+Script: Get-EspDetection
+Description:
+Skip the ESP for app installation
+Release notes:
+Version 1.0: Init
+#>
+
+... (script provided in the source article)
+
+# Option 2 (Get-EspDetection script)
+<#
+Version: 1.0
+Author: Jannik Reinhard (jannikreinhard.com)
+Script: Get-EspDetection
+Description:
+Skip the ESP for app installation
+Release notes:
+Version 1.0: Init
+#>
+
+... (script provided in the source article)
+```
 
 ## Related Topics
-- Microsoft Defender for Endpoint
-- Microsoft Defender XDR (Microsoft 365 Defender)
-- Script
-- Security
+- ESP
+- Enrollment status page
+- Blocking apps
+- Timeout
 - ESP error

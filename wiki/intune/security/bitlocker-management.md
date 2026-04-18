@@ -1,70 +1,70 @@
 ---
+conflict_topics:
+- intune/reporting/intune-reporting-log-analytics
+- intune/security/credential-guard
 conflicts:
-- '[CONFLICT: Oliver Kieselbach suggests this is a requirement, while the existing
-  entry does not explicitly state it.]'
-- '[CONFLICT: Oliver Kieselbach suggests that enabling Pre-Boot BitLocker startup
-  PIN might require setting "Warning for other disk encryption" to Block, while the
-  existing entry does not explicitly state it.]'
-- '[CONFLICT: Oliver Kieselbach suggests setting "Warning for other disk encryption"
-  to Block when using the AllowStandardUserEncryption setting.]'
-- '[CONFLICT: Oliver Kieselbach suggests this might be necessary for Pre-Boot BitLocker
-  startup PIN]'
-- '[CONFLICT: Jannik Reinhard suggests setting "Disable prompt at sign out" to Enable
-  and "Number of times allowed to bypass" to a value other than Not configured.]'
+- '[CONFLICT: Oliver Kieselbach emphasizes this point more strongly]'
+- '[CONFLICT: The existing entry does not provide this level of detail]'
+- '[CONFLICT: The new source provides a detailed explanation of HSTI and its purpose
+  for high assurance validation of proper security configuration]'
+- '[CONFLICT: The new source provides more information on the Pre-Boot BitLocker startup
+  PIN]'
+context_note: Bitlocker Management is part of the intune domain. Synthesised from
+  6 community sources.
 domain: intune
 gaps: []
-last_synthesised: '2026-04-14'
+last_synthesised: '2026-04-18'
 sources:
 - author: Oliver Kieselbach
-  crawled: '2026-04-14'
+  crawled: '2026-04-18'
   date: '2018-10-23'
   title: Enabling BitLocker on non-HSTI devices with Intune
   url: https://oliverkieselbach.com/2018/10/23/enabling-bitlocker-on-non-hsti-devices-with-intune
 - author: Oliver Kieselbach
-  crawled: '2026-04-14'
+  crawled: '2026-04-18'
   date: '2018-10-23'
   title: Enabling BitLocker on non-HSTI devices with Intune
   url: https://oliverkieselbach.com/2018/10/23/enabling-bitlocker-on-non-hsti-devices-with-intune/
 - author: Oliver Kieselbach
-  crawled: '2026-04-14'
+  crawled: '2026-04-18'
   date: '2019-08-02'
   title: How to enable Pre-Boot BitLocker startup PIN on Windows with Intune
   url: https://oliverkieselbach.com/2019/08/02/how-to-enable-pre-boot-bitlocker-startup-pin-on-windows-with-intune
 - author: Oliver Kieselbach
-  crawled: '2026-04-14'
+  crawled: '2026-04-18'
   date: '2019-08-02'
   title: How to enable Pre-Boot BitLocker startup PIN on Windows with Intune
   url: https://oliverkieselbach.com/2019/08/02/how-to-enable-pre-boot-bitlocker-startup-pin-on-windows-with-intune/
 - author: Oliver Kieselbach
-  crawled: '2026-04-14'
+  crawled: '2026-04-18'
   date: '2019-08-02'
   title: How to enable Pre-Boot BitLocker startup PIN on Windows with Intune
   url: https://oliverkieselbach.com/2019/08/02/how-to-enable-pre-boot-bitlocker-startup-pin-on-windows-with-intune/comment-page-3
-- author: Jannik Reinhard
-  crawled: '2026-04-14'
-  date: '2022-08-17'
-  title: Activate Mac FileVault using Intune
-  url: https://jannikreinhard.com/2022/08/17/activate-mac-filevault-using-intune
-stale_after: '2026-07-13'
+- author: Anoop C Nair
+  crawled: '2026-04-18'
+  date: '2024-07-25'
+  title: BitLocker Recovery Boot Issue After July 2024 Security Update HTMD Blog
+  url: https://www.anoopcnair.com/bitlocker-recovery-boot-issue-after-july-2024
+stale_after: '2026-07-17'
 title: BitLocker Management via Intune
 topic: intune/security/bitlocker-management
 ---
 
-# BitLocker Management via Intune and Mac FileVault using Intune
+# BitLocker Management via Intune
 
-This topic discusses the process of enabling BitLocker on non-HSTI devices using Microsoft Intune and Windows 10 version 1809, allowing standard user permissions for encryption, as well as activating Mac FileVault using Intune. The enhancement with Windows 10 version 1809 is that we are able to activate BitLocker with a MDM policy (Intune), even for non-HSTI devices and on Windows 10 Pro Edition. This was not working with Windows 10 version 1803 or lower, and the community came up with custom solutions to handle this like custom PowerShell scripts deployed via Intune Management Extension.
+This topic discusses the process of enabling BitLocker on non-HSTI devices using Microsoft Intune and Windows 10 version 1809, allowing standard user permissions for encryption.
 
-### Key Concepts
-- HSTI (Hardware Security Testability Interface)
+## Key Concepts
+- HSTI (Hardware Security Testability Interface) [CONFLICT: The new source provides a detailed explanation of HSTI and its purpose for high assurance validation of proper security configuration]
 - MDM policy (Intune)
 - BitLocker CSP (BitLocker Configuration Service Provider)
 - Enrollment Status Page (ESP)
 - Endpoint protection profile
 - Custom OMA-URI configuration
-- Pre-Boot BitLocker startup PIN (introduced from the new source)
-- FileVault (MacOS disk encryption)
+- Pre-Boot BitLocker startup PIN (optional, see related topics) [CONFLICT: The new source provides more information on the Pre-Boot BitLocker startup PIN]
+- Trusted Computing Group, Endorsement Key, Sealed Storage concept, TPM (Trusted Platform Module), platform configuration registers (PCRs) [New Information from the new source]
 
-### Configuration
+## Configuration
 1. Ensure the following prerequisites are met:
    - Windows 10 version 1809 Enterprise or Pro
    - Azure Active Directory joined devices
@@ -73,35 +73,51 @@ This topic discusses the process of enabling BitLocker on non-HSTI devices using
    - non-HSTI device
 
 2. Create two configuration policies:
-   - An endpoint protection profile that configures silent BitLocker enforcement and other parameters like encryption strength.
-   - A custom profile that enforces the BitLocker encryption even when standard users are logging in, and enables Pre-Boot BitLocker startup PIN for pre-boot authentication (introduced from the new source). [CONFLICT: Oliver Kieselbach suggests setting "Warning for other disk encryption" to Block when using the AllowStandardUserEncryption setting.]
+   - Endpoint protection profile for silent BitLocker enforcement and other parameters like encryption strength.
+   - A custom profile to enforce BitLocker encryption even when standard users are logging in.
 
-3. Set the following settings for the endpoint protection profile:
-   - Encrypt devices to Require
-   - Warning for other disk encryption to Block ([CONFLICT: Oliver Kieselbach suggests this might be necessary for Pre-Boot BitLocker startup PIN])
+3. Configure the endpoint protection profile:
+   - Go to Microsoft Intune > Device configuration – Profiles > **yourpolicyname** – Properties > Endpoint protection > Windows Encryption
+     - Set **Encrypt devices** to **Require**
+     - Set **Warning for other disk encryption** to **Block**
 
-4. Configure the custom OMA-URI configuration as follows:
-   ```
-   OMA-URI: ./Vendor/MSFT/BitLocker/AllowStandardUserEncryption
-   Data type: integer
-   Value: 1
-   ```
+4. Configure the custom profile:
+   - The custom OMA-URI configuration must be configured like this:
+     ```
+     OMA-URI: ./Vendor/MSFT/BitLocker/AllowStandardUserEncryption
+     Data type: integer
+     Value: 1
+     ```
+   - To enable Pre-Boot BitLocker startup PIN, follow the steps outlined in [How to enable Pre-Boot BitLocker startup PIN on Windows with Intune](#how-to-enable-pre-boot-bitlocker-startup-pin-on-windows-with-intune) (see related topics).
 
-### Activate Mac FileVault using Intune
+## How does BitLocker key protection work?
 
-Activating Mac FileVault using Intune involves creating a configuration profile and assigning it to a group in which your MacOS devices are in. The user will receive a popup with the information that the FileVault should be activated, depending on what you have selected as the value for the setting “*Number of times allowed to bypass*“, the encryption is then forced.
+First, we need to understand the general procedure of how BitLocker will get access to the encryption key. The [Trusted Computing Group](https://en.wikipedia.org/wiki/Trusted_Computing_Group) introduced the trusted computing platform. In short, this board defined measures for [trusted computing](https://en.wikipedia.org/wiki/Trusted_Computing). From interest here is the Endorsement Key and the Sealed Storage concept. The underlying idea is to bind private information to the platform configuration to generate the Sealed Storage. This process ensures that the encryption key can only be accessed when the device boots with the correct firmware, BIOS, and operating system.
 
-[CONFLICT: Jannik Reinhard suggests setting "Disable prompt at sign out" to Enable and "Number of times allowed to bypass" to a value other than Not configured.]
+New source article: "BitLocker Recovery Boot Issue After July 2024 Security Update HTMD Blog"
+Author: Anoop C Nair
+New source content:
+# BitLocker Recovery Boot Issue After July 2024 Security Update HTMD Blog
 
-### Common Pitfalls
-- Ensuring that the "Warning for other disk encryption" is set to Block when using the AllowStandardUserEncryption setting ([CONFLICT: Oliver Kieselbach suggests this might be necessary for Pre-Boot BitLocker startup PIN])
-- When “Disable prompt at sign out” is set to Enable, the “Number of times allowed to bypass” must be set to a value other than Not configured ([Post](https://techcommunity.microsoft.com/t5/intune-customer-success/resolved-known-issue-for-filevault-configuration-profiles-on/ba-p/788542))
+BitLocker Recovery Boot Issue After July 2024 Security Update HTMD Blog
 
-### Additional Information (from new source)
-The guide will demonstrate how to enable the BitLocker startup PIN for pre-boot authentication on Windows 10 with Microsoft Intune. The key material security is based mainly on the trusted computing platform concepts, including the Endorsement Key and the Sealed Storage concept. In a widely used standard configuration of Microsoft Windows 10, BitLocker is used with a TPM only key protection to protect the operating system and data.
+News Alert! **[BitLocker](https://www.anoopcnair.com/intune-bitlocker-drive-encryption-part4/)** Recovery Boot Issue After **July 2024** Security Update**.** Microsoft Identified a crucial security update that caused some devices to boot into BitLocker recovery. Recently, users faced a problem after installing the July 2024 Windows update (KB5040437).
 
-The new source article also explains how to activate Mac FileVault using Intune. Encrypting the disk of a workspace is one of the basic settings that every managed device should have. Everyone who manages Windows PCs knows BitLocker. The solution that is integrated in MacOS to encrypt disks is called FileVault. In this blog, Jannik Reinhard explains how to configure this for MacOs devices.
+As you know, Windows update **[KB5040437](https://www.anoopcnair.com/july-2024-windows-11-kb5040442-kb5040431-patche/)** (OS Build 22621.3880) is a recent update that aims to **improve** your system and fix issues. With the latest Windows security updates, some users have faced problems. Microsoft reports the issue **officially** in their document.
 
-New source article: "Activate Mac FileVault using Intune"
-Author: Jannik Reinhard
-New source content: [Content added above]
+Microsoft recently **announced** the Known issue of Devices that Might **Boot** Into BitLocker Recovery, but Microsoft does not currently have any **[fixes](https://www.anoopcnair.com/fix-intune-error-code-80192ee7-the-device/)** for this. This issue is more likely to impact devices with the **Device Encryption** option.
+
+If you recently updated your Windows system with the **July 2024** security update, you may need a Bitlockery recovery screen. As you know, the Bitlockery recovery screen plays a **critical** role in **data [protection](https://www.anoopcnair.com/potentially-unwanted-app-protection-edge/)** and **system security.** So, in this post, we can look at an **overview** of this known issue: ”Devices Might Boot Into BitLocker Recovery”.
+
+- **[Intune Bitlocker Drive Encryption A Deeper Dive To Explore](https://www.anoopcnair.com/intune-bitlocker-drive-encryption-part4/)**
+- [**Managing Windows Bitlocker Compliance Policy Using Intune | MS Graph | Grace Period**](https://www.anoopcnair.com/bitlocker-compliance-policy-using-intune/)
+- [**Block Hide BitLocker Recovery Key From Users Using MS Graph And PowerShell**](https://www.anoopcnair.com/block-hide-bitlocker-recovery-key-users-graph/)
+- **[Intune Bitlocker Drive Encryption A Deeper Dive To Explore](https://www.anoopcnair.com/intune-bitlocker-drive-encryption-part4/)**
+- [**Device Encryption – Bitlocker made Effortless**](https://www.anoopcnair.com/exploring-bitlocker-device-encryption/)
+- [**Deciphering Intune’s Scope w.r.t Bitlocker Drive Encryption**](https://www.anoopcnair.com/exploring-bitlocker-drive-encryption/)
+- **[Bitlocker Recovery key Screen Prompt Issues | Error 0x800f0922 after installing August Patch KB5012170](https://www.anoopcnair.com/bitlocker-recovery-key-screen-prompt-issues/)**
+
+| Index |
+| --- |
+| [Troubleshooting BitLocker Boot Failures After July 2024 Update](https://www.anoopcnair.com/bitlocker-recovery-boot-issue-after-july-2024/#BitLocker-Recovery-Boot-Issue-After-July-2024-Security-Update) |
+| [Solution for this Known Issue](https://www.anoopcnair.com/bitlocker-recovery-boot-issue-after-july-2024/#Solution-for-this-Known)

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MW-Wiki — Knowledge Graph</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #06080f;
+    color: #e2e8f0;
+    font-family: 'Space Mono', monospace;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* ── TOP BAR ── */
+  #topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 52px;
+    background: rgba(6,8,15,0.95);
+    border-bottom: 1px solid #1e3a5f;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 24px;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  #topbar .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #f1f5f9;
+    letter-spacing: -0.5px;
+  }
+  #topbar .logo span { color: #3b82f6; }
+
+  #topbar .sep {
+    width: 1px; height: 20px;
+    background: #1e3a5f;
+  }
+
+  #search {
+    background: #0d1117;
+    border: 1px solid #1e3a5f;
+    color: #e2e8f0;
+    padding: 6px 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    width: 220px;
+    outline: none;
+    letter-spacing: 0.5px;
+  }
+  #search:focus { border-color: #3b82f6; }
+  #search::placeholder { color: #334155; }
+
+  .filter-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border: 1px solid #1e3a5f;
+    background: transparent;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    background: rgba(59,130,246,0.08);
+  }
+
+  #stats {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .stat {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+  }
+  .stat-n {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3b82f6;
+  }
+  .stat-l {
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #334155;
+  }
+
+  /* ── CANVAS ── */
+  #graph-canvas {
+    position: fixed;
+    top: 52px; left: 0; right: 0; bottom: 0;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── LEGEND ── */
+  #legend {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(6,8,15,0.9);
+    border: 1px solid #1e3a5f;
+    padding: 14px 16px;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .legend-title {
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #334155;
+    margin-bottom: 10px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 9px;
+    color: #64748b;
+    letter-spacing: 0.5px;
+  }
+
+  .legend-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .legend-line {
+    width: 16px; height: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── DETAIL PANEL ── */
+  #panel {
+    position: fixed;
+    top: 52px; right: -360px;
+    width: 340px;
+    height: calc(100vh - 52px);
+    background: rgba(6,8,15,0.97);
+    border-left: 1px solid #1e3a5f;
+    padding: 24px;
+    z-index: 100;
+    transition: right 0.3s cubic-bezier(0.4,0,0.2,1);
+    overflow-y: auto;
+    backdrop-filter: blur(12px);
+  }
+
+  #panel.open { right: 0; }
+
+  #panel-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: none;
+    border: none;
+    color: #334155;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+  }
+  #panel-close:hover { color: #e2e8f0; }
+
+  #panel-type {
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  #panel-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #f1f5f9;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .panel-section {
+    margin-bottom: 20px;
+  }
+
+  .panel-label {
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #334155;
+    margin-bottom: 8px;
+  }
+
+  .panel-value {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 9px;
+    padding: 3px 8px;
+    border: 1px solid #1e3a5f;
+    color: #60a5fa;
+    margin: 2px;
+    letter-spacing: 0.5px;
+  }
+
+  .conn-item {
+    font-size: 10px;
+    color: #64748b;
+    padding: 4px 0;
+    border-bottom: 1px solid #0f1f3d;
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+  .conn-item:hover { color: #3b82f6; }
+  .conn-type {
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-right: 6px;
+  }
+
+  /* ── TOOLTIP ── */
+  #tooltip {
+    position: fixed;
+    background: rgba(6,8,15,0.95);
+    border: 1px solid #1e3a5f;
+    padding: 8px 12px;
+    font-size: 10px;
+    color: #94a3b8;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.1s;
+    z-index: 200;
+    max-width: 200px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── LOADING ── */
+  #loading {
+    position: fixed;
+    inset: 0;
+    background: #06080f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    gap: 16px;
+  }
+  #loading .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #f1f5f9;
+  }
+  #loading .logo span { color: #3b82f6; }
+  #loading .msg {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #334155;
+  }
+  .pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* gap node pulse */
+  @keyframes gapPulse {
+    0%,100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+  .gap-node { animation: gapPulse 2s ease-in-out infinite; }
+
+</style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="logo">MW<span>Wiki</span></div>
+  <div class="msg pulse">Building knowledge graph…</div>
+</div>
+
+<div id="topbar">
+  <div class="logo">MW<span>Wiki</span></div>
+  <div class="sep"></div>
+  <input id="search" type="text" placeholder="Search topics, authors…">
+  <div class="sep"></div>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="topic">Topics</button>
+  <button class="filter-btn" data-filter="author">Authors</button>
+  <button class="filter-btn" data-filter="gap">Gaps</button>
+  <button class="filter-btn" data-filter="CONTRADICTS">Conflicts</button>
+  <div id="stats">
+    <div class="stat"><span class="stat-n" id="s-topics">—</span><span class="stat-l">Topics</span></div>
+    <div class="stat"><span class="stat-n" id="s-authors">—</span><span class="stat-l">Authors</span></div>
+    <div class="stat"><span class="stat-n" id="s-edges">—</span><span class="stat-l">Connections</span></div>
+    <div class="stat"><span class="stat-n" id="s-gaps">—</span><span class="stat-l">Gaps</span></div>
+  </div>
+</div>
+
+<div id="graph-canvas">
+  <svg id="svg"></svg>
+</div>
+
+<div id="legend">
+  <div class="legend-title">Domains</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>Identity</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>Intune</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>Sentinel</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f97316"></div>Defender</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#a855f7"></div>Exchange</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#64748b"></div>Author</div>
+  <div style="margin-top:12px"></div>
+  <div class="legend-title">Edges</div>
+  <div class="legend-item"><div class="legend-line" style="background:#22c55e"></div>Related</div>
+  <div class="legend-item"><div class="legend-line" style="background:#ef4444;border-top:2px dashed #ef4444;background:none"></div>Conflict</div>
+  <div class="legend-item"><div class="legend-line" style="background:#a855f7"></div>Authored by</div>
+</div>
+
+<div id="panel">
+  <button id="panel-close">×</button>
+  <div id="panel-type"></div>
+  <div id="panel-title"></div>
+  <div id="panel-content"></div>
+</div>
+
+<div id="tooltip"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const W = () => window.innerWidth;
+const H = () => window.innerHeight - 52;
+
+let graphData = null;
+let simulation = null;
+let activeFilter = 'all';
+let selectedNode = null;
+
+// ── FETCH GRAPH DATA ──────────────────────────────────────────────────────────
+fetch('/api/graph')
+  .then(r => r.json())
+  .then(data => {
+    graphData = data;
+    document.getElementById('loading').style.display = 'none';
+    updateStats(data.meta);
+    renderGraph(data);
+  })
+  .catch(err => {
+    document.querySelector('#loading .msg').textContent = 'Error loading graph — is server running?';
+    console.error(err);
+  });
+
+function updateStats(meta) {
+  document.getElementById('s-topics').textContent  = meta.topic_count;
+  document.getElementById('s-authors').textContent = meta.author_count;
+  document.getElementById('s-edges').textContent   = meta.edge_count;
+  document.getElementById('s-gaps').textContent    = meta.gap_count;
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function renderGraph(data) {
+  const svg = d3.select('#svg');
+  svg.selectAll('*').remove();
+
+  const width  = W();
+  const height = H();
+
+  // Zoom container
+  const container = svg.append('g').attr('class', 'container');
+
+  svg.call(d3.zoom()
+    .scaleExtent([0.2, 4])
+    .on('zoom', e => container.attr('transform', e.transform))
+  );
+
+  // Deep clone nodes/links so D3 can mutate them
+  const nodes = data.nodes.map(d => ({...d}));
+  const links = data.links.map(d => ({...d}));
+
+  // ── SIMULATION ──
+  simulation = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links)
+      .id(d => d.index)
+      .distance(d => d.type === 'CITED_BY' ? 80 : d.type === 'CONTRADICTS' ? 60 : 120)
+      .strength(d => d.type === 'CITED_BY' ? 0.8 : 0.3)
+    )
+    .force('charge', d3.forceManyBody()
+      .strength(d => d.type === 'author' ? -300 : -180)
+    )
+    .force('center', d3.forceCenter(width / 2, height / 2))
+    .force('collision', d3.forceCollide().radius(d => d.size + 6))
+    .alphaDecay(0.02);
+
+  // ── EDGES ──
+  const linkGroup = container.append('g').attr('class', 'links');
+
+  const link = linkGroup.selectAll('line')
+    .data(links)
+    .join('line')
+    .attr('stroke', d => d.color || '#1e3a5f')
+    .attr('stroke-width', d => d.type === 'CONTRADICTS' ? 2 : 1)
+    .attr('stroke-dasharray', d => d.type === 'CONTRADICTS' ? '5,3' : null)
+    .attr('stroke-opacity', 0.4);
+
+  // ── NODES ──
+  const nodeGroup = container.append('g').attr('class', 'nodes');
+
+  const node = nodeGroup.selectAll('g')
+    .data(nodes)
+    .join('g')
+    .attr('class', d => d.pulsing ? 'gap-node' : '')
+    .style('cursor', 'pointer')
+    .call(d3.drag()
+      .on('start', dragStart)
+      .on('drag',  dragged)
+      .on('end',   dragEnd)
+    )
+    .on('click', (event, d) => {
+      event.stopPropagation();
+      showPanel(d, nodes, links);
+    })
+    .on('mouseover', (event, d) => showTooltip(event, d))
+    .on('mousemove', (event) => moveTooltip(event))
+    .on('mouseout', hideTooltip);
+
+  // Outer glow ring for topics
+  node.filter(d => d.type === 'topic')
+    .append('circle')
+    .attr('r', d => d.size + 6)
+    .attr('fill', d => d.color)
+    .attr('opacity', 0.08);
+
+  // Main circle
+  node.append('circle')
+    .attr('r', d => d.size)
+    .attr('fill', d => d.type === 'author' ? '#0d1117' : d.color)
+    .attr('stroke', d => d.color)
+    .attr('stroke-width', d => d.type === 'author' ? 1.5 : 0)
+    .attr('opacity', d => d.type === 'gap' ? 0.7 : 0.9);
+
+  // Inner dot for topics
+  node.filter(d => d.type === 'topic')
+    .append('circle')
+    .attr('r', d => Math.max(3, d.size * 0.35))
+    .attr('fill', d => d.color)
+    .attr('opacity', 0.9);
+
+  // Author initials
+  node.filter(d => d.type === 'author')
+    .append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dominant-baseline', 'central')
+    .attr('font-family', 'Space Mono, monospace')
+    .attr('font-size', d => Math.max(8, d.size * 0.5))
+    .attr('fill', d => d.color)
+    .text(d => d.label.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase());
+
+  // Labels for larger nodes
+  node.filter(d => d.size >= 14 || d.type === 'author')
+    .append('text')
+    .attr('text-anchor', 'middle')
+    .attr('y', d => d.size + 12)
+    .attr('font-family', 'Space Mono, monospace')
+    .attr('font-size', d => d.type === 'author' ? 9 : 8)
+    .attr('fill', d => d.type === 'author' ? '#94a3b8' : d.color)
+    .attr('opacity', 0.85)
+    .attr('letter-spacing', '0.5')
+    .text(d => d.label.length > 20 ? d.label.slice(0,18) + '…' : d.label);
+
+  // ── TICK ──
+  simulation.on('tick', () => {
+    link
+      .attr('x1', d => d.source.x)
+      .attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x)
+      .attr('y2', d => d.target.y);
+
+    node.attr('transform', d => `translate(${d.x},${d.y})`);
+  });
+
+  // Click background to deselect
+  svg.on('click', () => closePanel());
+
+  // Store for filter/search use
+  window._nodes = node;
+  window._links = link;
+  window._nodesData = nodes;
+  window._linksData = links;
+}
+
+// ── DRAG ─────────────────────────────────────────────────────────────────────
+function dragStart(event, d) {
+  if (!event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x; d.fy = d.y;
+}
+function dragged(event, d) {
+  d.fx = event.x; d.fy = event.y;
+}
+function dragEnd(event, d) {
+  if (!event.active) simulation.alphaTarget(0);
+  d.fx = null; d.fy = null;
+}
+
+// ── TOOLTIP ──────────────────────────────────────────────────────────────────
+function showTooltip(event, d) {
+  const tip = document.getElementById('tooltip');
+  let html = `<strong style="color:${d.color}">${d.label}</strong>`;
+  if (d.type === 'topic')  html += `<br>${d.domain} · ${d.src_count} source${d.src_count !== 1 ? 's':''} · ${d.latest || 'unknown date'}`;
+  if (d.type === 'author') html += `<br>${(d.topics||[]).length} topic${(d.topics||[]).length!==1?'s':''}`;
+  if (d.type === 'gap')    html += `<br><span style="color:#ef4444">No sources yet</span>`;
+  tip.innerHTML = html;
+  tip.style.opacity = '1';
+  moveTooltip(event);
+}
+function moveTooltip(event) {
+  const tip = document.getElementById('tooltip');
+  tip.style.left = (event.clientX + 14) + 'px';
+  tip.style.top  = (event.clientY - 10) + 'px';
+}
+function hideTooltip() {
+  document.getElementById('tooltip').style.opacity = '0';
+}
+
+// ── PANEL ─────────────────────────────────────────────────────────────────────
+function showPanel(d, nodes, links) {
+  selectedNode = d;
+  const panel = document.getElementById('panel');
+
+  document.getElementById('panel-type').textContent  = d.type.toUpperCase();
+  document.getElementById('panel-type').style.color  = d.color;
+  document.getElementById('panel-title').textContent = d.label;
+
+  let html = '';
+
+  if (d.type === 'topic') {
+    html += `<div class="panel-section">
+      <div class="panel-label">Domain</div>
+      <div class="panel-value" style="color:${d.color}">${d.domain}</div>
+    </div>`;
+
+    if (d.authors && d.authors.length) {
+      html += `<div class="panel-section">
+        <div class="panel-label">Authors</div>
+        <div class="panel-value">${d.authors.map(a =>
+          `<span class="source-tag">${a}</span>`).join('')}</div>
+      </div>`;
+    }
+
+    html += `<div class="panel-section">
+      <div class="panel-label">Sources · Last updated</div>
+      <div class="panel-value">${d.src_count} source${d.src_count!==1?'s':''} · ${d.latest || 'unknown'}</div>
+    </div>`;
+
+    // Connections
+    const connected = links.filter(l =>
+      (l.source.index === d.index || l.target.index === d.index)
+    );
+
+    if (connected.length) {
+      html += `<div class="panel-section">
+        <div class="panel-label">Connections (${connected.length})</div>`;
+      connected.slice(0,8).forEach(l => {
+        const other = l.source.index === d.index ? l.target : l.source;
+        html += `<div class="conn-item" onclick="highlightNode(${other.index})">
+          <span class="conn-type" style="color:${l.color}">${l.type}</span>${other.label}
+        </div>`;
+      });
+      html += `</div>`;
+    }
+  }
+
+  if (d.type === 'author') {
+    html += `<div class="panel-section">
+      <div class="panel-label">Topics contributed to</div>`;
+    (d.topics || []).forEach(t => {
+      const slug = t.split('/').pop().replace(/-/g,' ');
+      html += `<div class="conn-item">${slug}</div>`;
+    });
+    html += `</div>`;
+  }
+
+  if (d.type === 'gap') {
+    html += `<div class="panel-section">
+      <div class="panel-label" style="color:#ef4444">Gap — no community source yet</div>
+      <div class="panel-value">This topic has been identified as missing from the wiki. Consider contributing an article or pointing to an existing source.</div>
+    </div>`;
+  }
+
+  document.getElementById('panel-content').innerHTML = html;
+  panel.classList.add('open');
+
+  // Highlight connected nodes
+  highlightConnected(d, nodes, links);
+}
+
+function closePanel() {
+  document.getElementById('panel').classList.remove('open');
+  resetHighlight();
+}
+
+function highlightConnected(d, nodes, links) {
+  const connected = new Set([d.index]);
+  links.forEach(l => {
+    if (l.source.index === d.index) connected.add(l.target.index);
+    if (l.target.index === d.index) connected.add(l.source.index);
+  });
+
+  if (window._nodes) {
+    window._nodes.selectAll('circle')
+      .attr('opacity', n => connected.has(n.index) ? 0.95 : 0.15);
+    window._links
+      .attr('stroke-opacity', l =>
+        (l.source.index === d.index || l.target.index === d.index) ? 0.8 : 0.05);
+  }
+}
+
+function resetHighlight() {
+  if (window._nodes) {
+    window._nodes.selectAll('circle').attr('opacity', d => d.type === 'gap' ? 0.7 : 0.9);
+    window._links.attr('stroke-opacity', 0.4);
+  }
+}
+
+function highlightNode(index) {
+  const node = window._nodesData.find(n => n.index === index);
+  if (node) showPanel(node, window._nodesData, window._linksData);
+}
+
+// ── FILTER ────────────────────────────────────────────────────────────────────
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    applyFilter();
+  });
+});
+
+function applyFilter() {
+  if (!window._nodes) return;
+  window._nodes.style('display', d => {
+    if (activeFilter === 'all') return null;
+    if (activeFilter === 'CONTRADICTS') {
+      const involved = new Set();
+      window._linksData.filter(l => l.type === 'CONTRADICTS')
+        .forEach(l => { involved.add(l.source.index); involved.add(l.target.index); });
+      return involved.has(d.index) ? null : 'none';
+    }
+    return d.type === activeFilter ? null : 'none';
+  });
+  window._links.style('display', l => {
+    if (activeFilter === 'all') return null;
+    if (activeFilter === 'CONTRADICTS') return l.type === 'CONTRADICTS' ? null : 'none';
+    return null;
+  });
+}
+
+// ── SEARCH ────────────────────────────────────────────────────────────────────
+document.getElementById('search').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase().trim();
+  if (!window._nodes) return;
+  if (!q) { resetHighlight(); return; }
+
+  const matched = new Set();
+  window._nodesData.forEach(d => {
+    if (d.label.toLowerCase().includes(q) ||
+        d.id.toLowerCase().includes(q) ||
+        (d.authors||[]).some(a => a.toLowerCase().includes(q))) {
+      matched.add(d.index);
+    }
+  });
+
+  window._nodes.selectAll('circle')
+    .attr('opacity', d => matched.has(d.index) ? 1 : 0.08);
+  window._links.attr('stroke-opacity', l =>
+    (matched.has(l.source.index) && matched.has(l.target.index)) ? 0.6 : 0.03);
+});
+
+// ── PANEL CLOSE ───────────────────────────────────────────────────────────────
+document.getElementById('panel-close').addEventListener('click', closePanel);
+
+// ── RESIZE ────────────────────────────────────────────────────────────────────
+window.addEventListener('resize', () => {
+  if (simulation) simulation.force('center', d3.forceCenter(W()/2, H()/2)).alpha(0.1).restart();
+});
+</script>
+</body>
+</html>

@@ -49,13 +49,15 @@ log = logging.getLogger("query")
 
 @dataclass
 class TopicContext:
-    path:          str
-    title:         str
-    body:          str
-    sources:       list[dict]
-    has_conflicts: bool
-    is_stale:      bool
-    stale_days:    int = 0
+    path:               str
+    title:              str
+    body:               str
+    sources:            list[dict]
+    has_conflicts:      bool
+    is_stale:           bool
+    stale_days:         int = 0
+    related_topics:     list[str] = None
+    prerequisite_topics: list[str] = None
 
 
 @dataclass
@@ -104,7 +106,12 @@ def route_question(question: str, index: list[dict]) -> list[str]:
             scores.append((score, topic["id"]))
 
     scores.sort(reverse=True)
-    top_paths = [path for _, path in scores[:MAX_TOPICS]]
+    # Only include second topic if score is within 60% of top score
+    top = scores[:1]
+    if len(scores) > 1 and scores[0][0] > 0:
+        if scores[1][0] >= scores[0][0] * 0.6:
+            top.append(scores[1])
+    top_paths = [path for _, path in top]
 
     log.info(f"Routing: '{question[:50]}...' → {top_paths}")
     return top_paths
@@ -147,13 +154,15 @@ def load_topic(topic_path: str) -> TopicContext | None:
             pass
 
     return TopicContext(
-        path          = topic_path,
-        title         = meta.get("title", topic_path),
-        body          = body[:MAX_CONTEXT_CHARS // MAX_TOPICS],
-        sources       = meta.get("sources", []),
-        has_conflicts = bool(meta.get("conflicts")),
-        is_stale      = is_stale,
-        stale_days    = stale_days,
+        path                = topic_path,
+        title               = meta.get("title", topic_path),
+        body                = body[:MAX_CONTEXT_CHARS // MAX_TOPICS],
+        sources             = meta.get("sources", []),
+        has_conflicts       = bool(meta.get("conflicts")),
+        is_stale            = is_stale,
+        stale_days          = stale_days,
+        related_topics      = meta.get("related_topics", []),
+        prerequisite_topics = meta.get("prerequisite_topics", []),
     )
 
 
@@ -255,12 +264,15 @@ SYSTEM_PROMPT = """You are the Modern Workplace Wiki — a synthesised knowledge
 You answer questions about Microsoft 365, Azure, Intune, Entra ID, Microsoft Sentinel, Microsoft Defender, Exchange Online, and Teams.
 
 RULES — follow these exactly:
-1. Answer using ONLY the knowledge base context provided. Do not use general training knowledge.
-2. Every factual claim MUST be followed immediately by a citation: [Source: Author Name]
-3. If the context does not contain enough information to answer, say exactly: "The wiki does not have sufficient coverage of this topic yet. Check _gaps.md."
-4. Do not pad answers. Be precise and technical.
-5. Include PowerShell or KQL code blocks if present in the context and relevant to the question.
-6. End every answer with a ## Sources section listing all cited sources with URLs.
+1. Prefer wiki context above all else. Cite every factual claim: [Source: Author Name]
+2. If the wiki context covers the question fully — answer from it exclusively.
+3. If the wiki context covers the topic partially — answer what the wiki knows, then extend with your own Microsoft product knowledge for the gaps. Label extended knowledge as [Source: Microsoft Documentation] and add: "⚠ This detail is not yet in the wiki corpus."
+4. If the wiki has no context at all — answer fully from your Microsoft product knowledge, label every claim [Source: Microsoft Documentation], and add: "⚠ This topic is not yet in the wiki. The answer is based on Microsoft documentation knowledge."
+5. NEVER say you cannot answer a Modern Workplace question. Always provide value.
+6. Do not pad answers. Be precise and technical.
+7. Include PowerShell or KQL code blocks when relevant.
+8. When sources conflict, state both positions explicitly rather than blending them.
+9. End every answer with a ## Sources section and a ## Wiki Coverage note stating whether this answer came fully, partially, or not from the wiki corpus.
 
 CITATION FORMAT: Every factual sentence must end with [Source: Author Name] before the period.
 Example: "Block device code flow by setting the Authentication flows condition to Block [Source: Daniel Chronlund]."
@@ -301,10 +313,32 @@ def synthesise(
 
     context_block = "\n\n".join(context_parts)
 
-    user_message = (
-        f"Knowledge base context:\n\n{context_block}\n\n"
-        f"Question: {question}"
-    )
+    # CONTEXT ENGINEERING
+    seen_paths = {ctx.path for ctx in contexts}
+    context_extras = []
+    for ctx in contexts:
+        for rp in (getattr(ctx, "related_topics", None) or [])[:3]:
+            if rp in seen_paths: continue
+            rf = WIKI_DIR / (rp + ".md")
+            if rf.exists():
+                rt = rf.read_text(encoding="utf-8")
+                parts = rt.split("---", 2)
+                rb = parts[2].strip() if len(parts) >= 3 else rt
+                sm = " ".join(rb.split()[:200])
+                lb = rp.split("/")[-1].replace("-", " ").title()
+                context_extras.append("=== RELATED: " + lb + " ===\n" + sm + "\n")
+                seen_paths.add(rp)
+    if context_extras:
+        context_parts.extend(context_extras)
+        context_block = "\n\n".join(context_parts)
+    also_know = []
+    for ctx in contexts:
+        for r in (getattr(ctx, "related_topics", None) or [])[:2]:
+            lb = r.split("/")[-1].replace("-", " ").title()
+            if lb not in also_know: also_know.append(lb)
+    also_str = ("\n\nSee Also: " + ", ".join(also_know)) if also_know else ""
+    user_message = ("Knowledge base context:\n\n" + context_block + "\n\nQuestion: " + question + also_str)
+
 
     response = client.messages.create(
         model      = CLAUDE_MODEL,
@@ -465,6 +499,16 @@ def query(question: str) -> QueryResult:
                 "url":    raw.url,
                 "date":   raw.date,
             })
+
+    # Auto-capture gaps — if answer used no wiki context, log the question
+    if not contexts and not raw_fallback:
+        gaps_file = WIKI_DIR / "_gaps.md"
+        if gaps_file.exists():
+            gaps_text = gaps_file.read_text(encoding="utf-8")
+            if question[:40] not in gaps_text:
+                gaps_file.write_text(gaps_text.rstrip() + "\n" + gap_entry + "\n")
+                log.info(f"  Gap captured: {question[:60]}")
+                log.info(f"  Gap captured: {question[:60]}")
 
     return QueryResult(
         question    = question,

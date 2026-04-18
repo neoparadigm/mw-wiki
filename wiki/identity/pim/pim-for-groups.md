@@ -1,110 +1,76 @@
 ---
-conflicts:
-- '[CONFLICT: Daniel Chronlund says the tool Enable-DCAzureADPIMRole is included in
-  DCToolbox PowerShell module, existing entry does not mention this.]'
+conflicts: []
+context_note: Pim For Groups is part of the identity domain. It connects closely to
+  App Permission Policies. Synthesised from 1 community source.
 domain: identity
 gaps: []
-last_synthesised: '2026-04-14'
+last_synthesised: '2026-04-18'
+related_topics:
+- teams/governance/app-permission-policies
 sources:
-- author: unknown
-  crawled: '2026-04-14'
-  date: '2021-09-17'
-  title: Activate your Azure AD PIM roles with PowerShell
-  url: https://danielchronlund.com/2021/09/17/activate-your-azure-ad-pim-roles-with-powershell/
-- author: Daniel Chronlund
-  crawled: '2026-04-14'
-  date: '2021-09-17'
-  title: Activate your Azure AD PIM roles with PowerShell
-  url: https://danielchronlund.com/2021/09/17/activate-your-azure-ad-pim-roles-with-powershell
 - author: kenwith
-  crawled: '2026-04-14'
+  crawled: '2026-04-18'
   date: '2026-03-23'
   title: Privileged Identity Management (PIM) for Groups - Microsoft Entra ID Governance
   url: https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/concept-pim-for-groups
-stale_after: '2026-06-13'
+- author: Thomas Naunheim
+  crawled: '2026-04-18'
+  date: '2020-08-11'
+  title: 'Privileged Access Groups: Manage privileged access outside of Azure AD admin
+    roles with Azure PIM'
+  url: https://www.cloud-architekt.net/azurepim-pag-rbac
+stale_after: '2026-06-17'
 title: PIM for Groups Configuration
 topic: identity/pim/pim-for-groups
 ---
 
-# PIM for Groups Configuration
+# PIM for Groups Configuration and Privileged Access Groups
 
-## PIM for Groups Configuration
-This topic covers the configuration of Azure AD Privileged Identity Management (PIM) for groups, which is a crucial aspect of Microsoft 365's Zero Trust strategy. PIM for groups helps implement Just-In-Time/Just-Enough Access (JIT/JEA) for admin roles within an organization.
+## Overview
+PIM for Groups Configuration allows administrators to manage and configure the Privileged Identity Management (PIM) feature for Microsoft Entra ID Governance, focusing on groups. This configuration is crucial for just-in-time membership and ownership of security and Microsoft 365 groups, which can control access to various scenarios such as Microsoft Entra roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, and third-party applications.
+
+Privileged Access Groups (PAG) is a new feature introduced by Microsoft that allows managing privileged access outside of Azure AD admin roles in services like Azure DevOps, Intune, or MDATP RBAC. PAG enables just-in-time access to the Owner or Member role of groups, providing enhanced security for owners with delegated administrative tasks.
 
 ## Key Concepts
-- Azure AD Privileged Identity Management (PIM)
-- JIT/JEA for admin roles
-- Role-assignable groups in PIM
-- Eligible membership in PIM
-- PIM activation
-- Group PIM
-- [Privileged Access Groups](#privileged-access-groups) - Microsoft Entra ID Governance (New Source)
+- PIM for Groups policies: Approval requirements, multifactor authentication (MFA), justification, maximum activation time, etc.
+- Eligible membership and ownership activation in groups.
+- Role-assignable groups and non-role-assignable groups.
+- Active owners and eligible owners in a group.
+- Privileged Access Groups: Just-in-time access to Owner or Member role of groups with approval workflow, MFA challenge, etc.
 
 ## Configuration
-1. Install the `DCToolbox` PowerShell module from the PowerShell Gallery by running `Install-Module -Name DCToolbox -Force`.
-2. Install two dependencies for `Enable-DCAzureADPIMRole`: `AzureADPreview` and `msal.ps`. You can run the following installation snippets:
-
-```
-# For local admin users:
-Install-Module -Name DCToolbox -Force
-Install-Module -Name AzureADPreview -Force
-Install-Package msal.ps -AcceptLicense -Force
-
-# For non-admin users:
-Install-Module -Name DCToolbox -Scope CurrentUser -Force
-Install-Module -Name AzureADPreview -Scope CurrentUser -Force
-Install-Package msal.ps -AcceptLicense -Force
-```
-
-3. Run the command to activate your Azure AD PIM roles with PowerShell:
-
-```
-# Enable one of your Azure AD PIM roles.
-Enable-DCAzureADPIMRole
-```
-
-4. To activate multiple roles at once, use the `-RolesToActivate` parameter:
-
-```
-# Enable multiple Azure AD PIM roles.
-Enable-DCAzureADPIMRole -RolesToActivate @("role1", "role2")
-```
+1. Create or manage PIM for Groups policies:
+   - Navigate to the Microsoft Entra admin center.
+   - Go to Azure AD > Privileged Identity Management > Policies.
+   - Choose "New policy" and select either "Activation of membership" or "Activation of ownership".
+   - Configure the policy settings according to your organization's requirements.
+2. Assign policies to groups:
+   - Navigate to the Microsoft Entra admin center.
+   - Go to Azure AD > Groups.
+   - Select a group and go to the "Privileged Identity Management" tab.
+   - Choose the desired policy for activation of membership or ownership.
+3. Enable eligible membership for groups:
+   - Navigate to the Microsoft Entra admin center.
+   - Go to Azure AD > Groups.
+   - Select a group and go to the "Members" tab.
+   - Add users as eligible members.
+4. Manage Privileged Access Groups:
+   - Navigate to the service where PAG is applicable (Azure DevOps, Intune, etc.).
+   - Create or manage Privileged Access Groups and assign eligible members.
 
 ## Common Pitfalls
-- In highly locked-down environments, the `msal.ps` package may fail due to dependencies. If you encounter any error messages, connect with `Connect-AzureAD` before running `Enable-DCAzureADPIMRole`.
-- This method is not the same as using Privileged Access groups in PIM. Privileged Access groups are managed by PIM administrators and group multiple Azure AD roles to specific work roles within the organization. (CONFLICT: kenwith mentions "Privileged Access Groups" as a feature, while existing entry only mentions "Privileged Access groups" in the related topics section)
+- Failing to require approval for membership or ownership activation, leaving the organization vulnerable to security risks from less-privileged administrators.
+- Not understanding the difference between role-assignable and non-role-assignable groups, leading to insufficient protections for sensitive resources.
+- Ignoring the 30-day deactivation period for user B's ownership when the last active owner A is removed from the group or tenant.
+- Failing to implement just-in-time access controls for Privileged Access Groups, potentially exposing sensitive resources to unauthorized access.
 
 ## KQL / PowerShell
-[The article includes a PowerShell script for activating Azure AD PIM roles with PowerShell, formatted as follows:]
-
-```powershell
-# Enable one of your Azure AD PIM roles.
-Enable-DCAzureADPIMRole
-
-# Enable multiple Azure AD PIM roles.
-Enable-DCAzureADPIMRole -RolesToActivate @("role1", "role2")
-```
+The article does not provide any specific queries or scripts related to PIM for Groups Configuration or Privileged Access Groups.
 
 ## Related Topics
-- [PIM for groups](wiki:pim_for_groups)
-- [role-assignable group](wiki:role-assignable_group)
-- [eligible membership](wiki:eligible_membership)
-- [PIM activation](wiki:pim_activation)
-- [group PIM](wiki:group_pim)
-- [Privileged Access Groups](#privileged-access-groups) - Microsoft Entra ID Governance (New Source)
-
-## Privileged Access Groups (New Source)
-Microsoft Entra ID allows you to grant users just-in-time membership and ownership of groups through Privileged Identity Management (PIM) for Groups. Groups can be used to control access to a variety of scenarios, including Microsoft Entra roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, and third-party applications.
-
-### What is PIM for Groups?
-PIM for Groups is part of Microsoft Entra Privileged Identity Management – alongside PIM for Microsoft Entra roles and PIM for Azure Resources, PIM for Groups enables users to activate the ownership or membership of a Microsoft Entra security group or Microsoft 365 group. Groups can be used to govern access to various scenarios that include Microsoft Entra roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, and third-party applications.
-
-With PIM for Groups you can use policies similar to ones you use in PIM for Microsoft Entra roles and PIM for Azure Resources: you can require approval for membership or ownership activation, enforce multifactor authentication (MFA), require justification, limit maximum activation time, and more. Each group in PIM for Groups has two policies: one for activation of membership and another for activation of ownership in the group. Up until January 2023, the PIM for Groups feature was called “Privileged Access Groups”.
-
-Note
-For groups used for elevating into Microsoft Entra roles, we recommend that you require an approval process for eligible member assignments. Assignments that can be activated without approval can leave you vulnerable to a security risk from less-privileged administrators. For example, the Helpdesk Administrator has permission to reset an eligible user's passwords.
-
-### PIM for Groups and ownership deactivation
-Microsoft Entra ID doesn't allow you to remove the last (active) owner of a group. For example, consider a group that has active owner A and eligible owner B. If user B activates their ownership with PIM and then later user A is removed from the group or from the tenant, deactivation of user B's ownership won't succeed.
-
-PIM will try to deactivate user B's ownership for up to 30 days. If another active owner C is added to the group, the deactivation will succeed.
+- [PIM for groups](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/concept-pim-for-groups)
+- [Role-assignable group](https://learn.microsoft.com/en-us/azure/active-directory/users-groups-roles/roles-groups-concept?WT.mc_id=M365-MVP-5003945)
+- [Eligible membership](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/concept-pim-for-groups#what-is-pim-for-groups)
+- [PIM activation](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/concept-pim-for-groups#pim-for-groups-and-ownership-deactivation)
+- [Group PIM](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/concept-pim-for-groups)
+- [Privileged Access Groups](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/groups-features?WT.mc_id=M365-MVP-5003945)

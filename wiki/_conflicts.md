@@ -1,286 +1,346 @@
 # MW-Wiki — Source Conflicts
 
-Generated: 2026-04-14 11:00
+Generated: 2026-04-18 17:17
 
 Topics where indexed sources disagree. Review the topic file and the original sources before relying on this guidance.
 
 ## Azure App Proxy Configuration
 Topic: `azure/app-proxy/app-proxy-configuration`
 
-- [CONFLICT: Oliver Kieselbach does not mention inbound and outbound firewall connections, existing entry includes them]
-- [CONFLICT: Oliver Kieselbach suggests a different order of steps, first enabling the Azure AD Application Proxy and then configuring Conditional Access policies]
-- [CONFLICT: No specific pitfalls mentioned by Oliver Kieselbach]
-- [CONFLICT: Oliver Kieselbach suggests enabling the Azure AD Application Proxy before disabling IE Enhanced Security Configuration]
-- [CONFLICT: New source does not provide specific configuration steps related to this topic]
-- [CONFLICT: Oliver Kieselbach does not mention inbound and outbound firewall connections, existing entry includes them]
-- [CONFLICT: Oliver Kieselbach suggests enabling the Azure AD Application Proxy before disabling IE Enhanced Security Configuration]
-- [CONFLICT: New source does not provide specific configuration steps related to this topic]
-- [CONFLICT: No specific pitfalls mentioned by Oliver Kieselbach]
+- [CONFLICT: Oliver Kieselbach does not mention this, but the existing entry includes it]
+- [CONFLICT: The new source does not provide specific steps for configuring Conditional Access policies, but it is mentioned in the existing entry]
+- [CONFLICT: Oliver Kieselbach does not mention this, but the existing entry includes it]
+- [CONFLICT: The new source does not provide specific steps for configuring Conditional Access policies, but it is mentioned in the existing entry]
 
-## EDR in Block Mode
-Topic: `defender/mde/edr-block-mode`
+## Azure Monitor and Log Analytics Workspaces
+Topic: `azure/monitoring/azure-monitor-log-analytics`
 
-- [CONFLICT: The new source does not mention passive mode in the context of EDR, only in relation to Microsoft Defender Antivirus.]
-- [CONFLICT: The new source emphasizes the importance of these capabilities being present in the primary antivirus solution.]
-- [CONFLICT: The new source does not mention passive mode in the context of EDR, only in relation to Microsoft Defender Antivirus.]
-- [CONFLICT: The new source emphasizes the importance of these capabilities being present in the primary antivirus solution.]
+- [CONFLICT: Jannik Reinhard does not mention any common pitfalls related to Azure Monitor Agent setup]
+- [CONFLICT: Jannik Reinhard does not mention any common pitfalls related to Azure Monitor Agent setup, but Bert-Jan Pals mentions no specific pitfalls in his article]
+- [CONFLICT: Jannik Reinhard does not mention any common pitfalls related to Azure Monitor Agent setup, but Bert-Jan Pals mentions no specific pitfalls in his article]
+
+## Global Secure Access and ZTNA
+Topic: `azure/network/global-secure-access`
+
+- [CONFLICT: Michael Morten Sonne mentions the ability to assign specific users and groups to traffic forwarding profiles, which is not explicitly mentioned in the existing entry]
+- [CONFLICT: Michael Morten Sonne mentions the ability to assign specific users and groups to traffic forwarding profiles, which is not explicitly mentioned in the existing entry]
 
 ## MDE Tamper Protection
 Topic: `defender/mde/tamper-protection`
 
-- [CONFLICT: Jeffrey provides specific event IDs, but they are not mentioned in the existing entry]
-- [CONFLICT: The existing entry does not mention Microsoft Threat Protection (MTP) Dynamic Signatures]
-- [CONFLICT: Jeffrey provides specific event IDs, but they are not mentioned in the existing entry]
+- [CONFLICT: Jeffrey states that the troubleshooting mode allows disabling tamper protection and changing Defender Antivirus settings locally for testing, while the existing entry does not mention this specific functionality.]
+- [CONFLICT: Jeffrey states that the troubleshooting mode allows disabling tamper protection and changing Defender Antivirus settings locally for testing, while the existing entry does not mention this specific functionality.]
 
-## Inbox Rule Exfiltration Detection and Prevention
-Topic: `exchange/mail-flow/inbox-rules-exfiltration`
+## Defender Vulnerability Management
+Topic: `defender/mde/vulnerability-management`
 
-- [CONFLICT: Michael Morten Sonne discusses App Management Policies, which is not mentioned in the existing entry]
-- [CONFLICT: Michael Morten Sonne says X, existing entry says Y]
-- [CONFLICT: Michael Morten Sonne discusses App Management Policies, which is not mentioned in the existing entry]
-- [CONFLICT: Michael Morten Sonne discusses App Management Policies, which is not mentioned in the existing entry]
-- [CONFLICT: Michael Morten Sonne says X, existing entry says Y]
+- [CONFLICT: Jeffrey's blog post provides additional information on XSPM not present in the existing entry]
+- [CONFLICT: Jeffrey's blog post provides additional insights into MDVM usage]
+- [CONFLICT: Jeffrey's blog post provides additional insights into MDVM usage; New source highlights the integration with XSPM]
+- [CONFLICT: Jeffrey's blog post provides additional insights into MDVM usage; New source highlights the integration with XSPM]
 
 ## AiTM Proxy Attacks and Defence
 Topic: `identity/conditional-access/aitm-defence`
 
-- [CONFLICT: Jeffrey states that MFA-only is not enough to stay protected against the latest threats in 2026, while the existing entry does not mention this.]
-- [CONFLICT: Jeffrey states that MFA-only is not enough to stay protected against the latest threats in 2026, while the existing entry does not mention this]
-- [CONFLICT: Jeffrey states that MFA-only is not enough to stay protected against the latest threats in 2026, while the existing entry does not mention this]
-- [CONFLICT: Jeffrey states that MFA-only is not enough to stay protected against the latest threats in 2026, while the existing entry does not mention this]
-- [CONFLICT: Jeffrey states that MFA-only is not enough to stay protected against the latest threats in 2026, while the existing entry does not mention this]
+- [CONFLICT: Jeffrey says Automatic Attack Disruption, existing entry does not mention it]
+- [CONFLICT: Jeffrey says this is a recent development, existing entry does not mention it]
+- [CONFLICT: Jeffrey says this is a recent development, existing entry does not mention it]
 
 ## Conditional Access — Authentication Flows
 Topic: `identity/conditional-access/authentication-flows`
 
-- [CONFLICT: Daniel Chronlund says policies aren't applied in any particular order, existing entry does not mention this]
-- [CONFLICT: Daniel Chronlund says policies aren't applied in a specific order, existing entry does not mention this]
-- [CONFLICT: Daniel Chronlund says policies aren't applied in a specific order, existing entry does not mention this]
+- [CONFLICT: Daniel Chronlund says Conditions and Access Controls are distinct, existing entry does not make this distinction]
+- [CONFLICT: Daniel Chronlund says X, existing entry does not make this distinction]
+- [CONFLICT: Daniel Chronlund says Conditions and Access Controls are distinct, existing entry does not make this distinction]
 
 ## Blocking Device Code Flow
 Topic: `identity/conditional-access/device-code-flow-blocking`
 
-- [CONFLICT: Jeffrey's article mentions Storm-2372 attacks, but the existing entry does not.]
-- [CONFLICT: Jeffrey's article mentions a specific phishing campaign known as Storm-2372.]
-- [CONFLICT: Jeffrey's article does not provide specific configuration steps.]
-- [CONFLICT: Jeffrey's article does not mention common pitfalls.]
-- [CONFLICT: Jeffrey's article mentions Storm-2372 attacks, but the existing entry does not.]
-- [CONFLICT: Jeffrey's article mentions a specific phishing campaign known as Storm-2372.]
-- [CONFLICT: Jeffrey's article does not provide specific configuration steps.]
-- [CONFLICT: Jeffrey's article does not mention common pitfalls.]
+- [CONFLICT: Existing entry does not mention the specific timeline of the phishing campaign.]
+- [CONFLICT: Existing entry does not mention the increased exposure or active attacks due to control implementation.]
+- [CONFLICT: Jan Bakker suggests that device code phishing is effective against phishing-resistant MFA like passkeys, while the existing entry does not mention this.]
+- [CONFLICT: Jan Bakker suggests a two-step approach for blocking device code flow: creating policies to block it for all users except an exclusion group and trusted locations.]
+- [CONFLICT: Jan Bakker suggests that device code phishing is effective against phishing-resistant MFA like passkeys, while the existing entry does not mention this.]
+- [CONFLICT: Jan Bakker suggests a two-step approach for blocking device code flow: creating policies to block it for all users except an exclusion group and trusted locations.]
 
 ## Blocking Legacy Authentication Protocols
 Topic: `identity/conditional-access/legacy-auth-blocking`
 
-- [CONFLICT: Jeffrey suggests implementing this change as soon as possible, while the existing entry recommends enabling it to prevent attacks.]
-- [CONFLICT: Jeffrey emphasizes the importance of not waiting for Microsoft's change, while the existing entry does not mention a specific timeframe.]
-- [CONFLICT: AshaIyengar21 does not mention password spray attacks or PowerShell.]
-- [CONFLICT: AshaIyengar21 says X, existing entry says Y]
-- [CONFLICT: AshaIyengar21 does not mention password spray attacks or PowerShell.]
-- [CONFLICT: Jeffrey suggests implementing this change as soon as possible, while the existing entry recommends enabling it to prevent attacks.]
-- [CONFLICT: Jeffrey emphasizes the importance of not waiting for Microsoft's change, while the existing entry does not mention a specific timeframe.]
-- [CONFLICT: AshaIyengar21 says X, existing entry says Y]
+- [CONFLICT: Jeffrey mentions POP3/IMAP, but they are not explicitly mentioned in the existing entry]
+- [CONFLICT: Jeffrey mentions POP3/IMAP, but they are not explicitly mentioned in the existing entry]
 
 ## Admin Consent Workflow and OAuth App Control
 Topic: `identity/entra-id/admin-consent-workflow`
 
-- [CONFLICT: Jeffrey adds "Illicit consent attacks"]
-- [CONFLICT: Jeffrey adds "consent phishing attacks (Illicit consent attacks)"]
-- [CONFLICT: This section provides additional details not present in the existing entry]
+- [CONFLICT: Jeffrey mentions consent phishing attacks specifically]
+- [CONFLICT: Jeffrey mentions the need for regular audits and reviews]
 - [CONFLICT: Jeffrey says X, existing entry says Y]
-- [CONFLICT: Jeffrey adds "Illicit consent attacks"]
-- [CONFLICT: Jeffrey adds "consent phishing attacks (Illicit consent attacks)"]
-- [CONFLICT: This section provides additional details not present in the existing entry]
-- [CONFLICT: This section provides additional details not present in the existing entry]
+- [CONFLICT: Jeffrey mentions consent phishing attacks specifically]
+- [CONFLICT: Jeffrey mentions the need for regular audits and reviews]
+- [CONFLICT: Jeffrey mentions the need for regular audits and reviews]
 - [CONFLICT: Jeffrey says X, existing entry says Y]
 
 ## Entra ID Protection Risk Policies
 Topic: `identity/entra-id/entra-id-protection`
 
-- [CONFLICT: Jeffrey mentions Azure AD Identity Protection, while the existing entry only refers to Entra ID Protection Risk Policies]
-- [CONFLICT: Jeffrey mentions Azure AD Identity Protection, while the existing entry only refers to Entra ID Protection Risk Policies]
+- [CONFLICT: Michael Morten Sonne does not mention Azure AD Identity Protection]
+- [CONFLICT: Michael Morten Sonne's new source does not discuss configuration]
+- [CONFLICT: Jeffrey states that Sign-In Risk Policy requires a separate policy]
+- [CONFLICT: Michael Morten Sonne does not mention Azure AD Identity Protection]
+- [CONFLICT: Jeffrey states that Sign-In Risk Policy requires a separate policy]
 
-## MFA Registration Policy and TAP
-Topic: `identity/entra-id/mfa-registration-policy`
+## External Identities and B2B Collaboration
+Topic: `identity/entra-id/external-identities`
 
-- [CONFLICT: Jeffrey provides more detail on the TAP creation process]
-- [CONFLICT: Jeffrey's article does not discuss common pitfalls]
-- [CONFLICT: Jeffrey provides more detail on the TAP creation process, while Michael Morten Sonne offers additional information about passwordless authentication configuration]
-- [CONFLICT: Jeffrey's article does not discuss common pitfalls, while Michael Morten Sonne's blog post does not focus on this topic]
-- [CONFLICT: Jeffrey provides more detail on the TAP creation process, while Michael Morten Sonne offers additional information about passwordless authentication configuration]
-- [CONFLICT: Jeffrey's article does not discuss common pitfalls, while Michael Morten Sonne's blog post does not focus on this topic]
+- [CONFLICT: Jeffrey suggests automatic Access Reviews as a solution to this issue, while the existing entry does not mention it.]
+- [CONFLICT: Michael Morten Sonne says X, existing entry says Y]
+- [CONFLICT: Jeffrey suggests automatic Access Reviews as a solution to this issue, while the existing entry does not mention it. Michael Morten Sonne's blog post confirms this feature.]
+- [CONFLICT: Jeffrey suggests automatic Access Reviews as a solution to this issue, while the existing entry does not mention it. Michael Morten Sonne's blog post confirms this feature.]
+- [CONFLICT: Jeffrey suggests automatic Access Reviews as a solution to this issue, while the existing entry does not mention it.]
+
+## Microsoft Graph API Permissions and Governance
+Topic: `identity/entra-id/graph-api-permissions`
+
+- [CONFLICT: Michael Morten Sonne mentions coverage gaps and permission challenges]
+- [CONFLICT: Michael Morten Sonne mentions inconsistencies across tools]
+- [CONFLICT: Michael Morten Sonne mentions the need for clear roadmap, consistent API coverage, and support for app-only access]
+- [CONFLICT: Michael Morten Sonne mentions coverage gaps and permission challenges, Jeffrey adds Conditional Access as a tool]
+- [CONFLICT: Jeffrey does not mention this specifically]
+- [CONFLICT: Jeffrey adds the ability to export Conditional Access configurations]
+- [CONFLICT: Michael Morten Sonne mentions coverage gaps and permission challenges, Jeffrey adds Conditional Access as a tool; CONFLICT: Jan Bakker emphasizes the importance of Graph API in Microsoft 365]
+- [CONFLICT: Michael Morten Sonne mentions inconsistencies across tools; CONFLICT: Jan Bakker does not specifically mention data exfiltration or privilege escalation risks]
+- [CONFLICT: Jeffrey adds the ability to export Conditional Access configurations; Jan Bakker demonstrates how to use browser developer tools and Postman to interact with the Graph API]
+- [CONFLICT: Michael Morten Sonne mentions the need for clear roadmap, consistent API coverage, and support for app-only access; Jan Bakker does not specifically mention these points]
+- [CONFLICT: This point is shared by all sources]
+- [CONFLICT: Michael Morten Sonne mentions the need for regular reviews; Jan Bakker emphasizes the importance of regularly reviewing API calls from the Entra admin center or Microsoft Admin portal]
+- [CONFLICT: Michael Morten Sonne mentions inconsistencies across tools; Jan Bakker does not specifically mention this]
+- [CONFLICT: Michael Morten Sonne mentions coverage gaps and permission challenges, Jeffrey adds Conditional Access as a tool; CONFLICT: Jan Bakker emphasizes the importance of Graph API in Microsoft 365]
+- [CONFLICT: Michael Morten Sonne mentions inconsistencies across tools; CONFLICT: Jan Bakker does not specifically mention data exfiltration or privilege escalation risks]
+- [CONFLICT: Jeffrey does not mention this specifically]
+- [CONFLICT: Jeffrey adds the ability to export Conditional Access configurations; Jan Bakker demonstrates how to use browser developer tools and Postman to interact with the Graph API]
+- [CONFLICT: Michael Morten Sonne mentions the need for clear roadmap, consistent API coverage, and support for app-only access; Jan Bakker does not specifically mention these points]
+- [CONFLICT: This point is shared by all sources]
+- [CONFLICT: Michael Morten Sonne mentions the need for regular reviews; Jan Bakker emphasizes the importance of regularly reviewing API calls from the Entra admin center or Microsoft Admin portal]
+- [CONFLICT: This point is shared by all sources]
+- [CONFLICT: Michael Morten Sonne mentions inconsistencies across tools; Jan Bakker does not specifically mention this]
+
+## Passwordless Authentication Methods
+Topic: `identity/entra-id/passwordless-authentication`
+
+- [CONFLICT: Simon Skotheimsvik mentions no pitfalls specific to Offpad, existing entry includes general pitfalls]
+- [CONFLICT: Jeffrey does not mention any pitfalls specific to Temporary Access Pass, existing entry includes general pitfalls]
+- [CONFLICT: Jeffrey says X, existing entry says Y]
+- [CONFLICT: Jan Bakker says that guest users who access your (resource) tenant with MFA enforced are unable to register a passkey, despite having it enabled or registered in their home tenant. This is not mentioned in the existing entry.]
+- [CONFLICT: Jan Bakker says that guest users who access your (resource) tenant with MFA enforced are unable to register a passkey, despite having it enabled or registered in their home tenant. This is not mentioned in the existing entry.]
+
+## Service Principal and App Registration Governance
+Topic: `identity/entra-id/service-principal-governance`
+
+- [CONFLICT: Michael Morten Sonne does not provide a definition for Service Principal]
+- [CONFLICT: Michael Morten Sonne does not mention Client Secret]
+- [CONFLICT: Michael Morten Sonne does not provide specific instructions for registering an app]
+- [CONFLICT: Michael Morten Sonne does not provide specific instructions for configuring permissions]
+- [CONFLICT: Michael Morten Sonne does not mention setting up a client secret]
+- [CONFLICT: Michael Morten Sonne does not mention any specific pitfalls]
+- [CONFLICT: Michael Morten Sonne does not provide a definition for Service Principal]
+- [CONFLICT: Michael Morten Sonne does not mention Client Secret]
+- [CONFLICT: Michael Morten Sonne does not provide specific instructions for registering an app]
+- [CONFLICT: Michael Morten Sonne does not provide specific instructions for configuring permissions]
+- [CONFLICT: Michael Morten Sonne does not mention setting up a client secret]
+- [CONFLICT: Michael Morten Sonne does not mention any specific pitfalls]
 
 ## Entra Connect Server Hardening
 Topic: `identity/hybrid/entra-connect-hardening`
 
-- [CONFLICT: Michael Morten Sonne mentions an unspecified list of logged events from the new audit feature]
-- [CONFLICT: Michael Morten Sonne mentions new detections and additional improvements and capabilities with Microsoft Defender for Identity]
-- [CONFLICT: Michael Morten Sonne mentions advanced hunting with Microsoft Defender for Identity]
-- [CONFLICT: Michael Morten Sonne mentions new detections and additional improvements and capabilities with Microsoft Defender for Identity]
-- [CONFLICT: Michael Morten Sonne mentions advanced hunting with Microsoft Defender for Identity]
+- [CONFLICT: Michael Morten Sonne's new source provides additional details on Microsoft Defender for Identity expanding support to servers with Microsoft Entra Connect and new posture recommendations focusing on Active Directory, but the existing entry does not include this information.]
+- [CONFLICT: Michael Morten Sonne says X, existing entry says Y]
+- [CONFLICT: Michael Morten Sonne says X, existing entry says Y]
 
 ## Break Glass Emergency Access Accounts
 Topic: `identity/pim/break-glass-accounts`
 
-- [CONFLICT: Daniel Chronlund suggests that MFA should be configured for Break Glass Accounts]
-- [CONFLICT: Daniel Chronlund suggests that MFA should be configured for Break Glass Accounts]
-- [CONFLICT: Daniel Chronlund suggests that MFA should be configured for Break Glass Accounts]
-- [CONFLICT: Daniel Chronlund suggests that MFA should be configured for Break Glass Accounts]
+- [CONFLICT: Daniel Chronlund suggests that MFA should be implemented, but it is not configured for Break Glass accounts according to the existing entry]
+- [CONFLICT: The existing entry does not configure MFA for Break Glass accounts]
+- [CONFLICT: Daniel Chronlund suggests that MFA should be implemented, but it is not configured for Break Glass accounts according to the existing entry]
+- [CONFLICT: Daniel Chronlund suggests that MFA should be implemented, but it is not configured for Break Glass accounts according to the existing entry]
+- [CONFLICT: The existing entry does not configure MFA for Break Glass accounts]
+- [CONFLICT: Daniel Chronlund suggests that MFA should be implemented, but it is not configured for Break Glass accounts according to the existing entry]
+- [CONFLICT: The existing entry does not configure MFA for Break Glass accounts]
+- [CONFLICT: Daniel Chronlund suggests that MFA should be implemented, but it is not configured for Break Glass accounts according to the existing entry]
 
-## PIM for Groups Configuration
-Topic: `identity/pim/pim-for-groups`
+## Microsoft Store App Deployment
+Topic: `intune/apps/microsoft-store-apps`
 
-- [CONFLICT: Daniel Chronlund says the tool Enable-DCAzureADPIMRole is included in DCToolbox PowerShell module, existing entry does not mention this.]
-
-## Tiered Administration Model T0 T1 T2
-Topic: `identity/pim/tiered-administration`
-
-- [CONFLICT: Oliver Kieselbach suggests that inadequate monitoring of Intune policy configuration changes can lead to unintended or accidental modifications, while the existing entry does not mention this specifically.]
-- [CONFLICT: Oliver Kieselbach suggests that inadequate monitoring of Intune policy configuration changes can lead to unintended or accidental modifications, while the existing entry does not mention this specifically.]
-- [CONFLICT: Oliver Kieselbach suggests that inadequate monitoring of Intune policy configuration changes can lead to unintended or accidental modifications, while the existing entry does not mention this specifically.]
+- [CONFLICT: Anoop C Nair says this method aligns well with Windows Autopilot and Speech Packs for language management, existing entry does not mention this.]
+- [CONFLICT: Anoop C Nair's blog post provides a detailed guide on deploying Natural Voice Packs to Windows 11 using Intune. The existing entry does not include this information.]
+- [CONFLICT: Anoop C Nair's blog post provides a detailed guide on deploying Natural Voice Packs to Windows 11 using Intune. The existing entry does not include this information.]
 
 ## PowerShell Scripts in Intune
 Topic: `intune/apps/powershell-scripts`
 
-- [CONFLICT: Oliver Kieselbach mentions the ability to deploy basic MSI packages via MDM OMA-DM channel, but this is not explicitly mentioned in the existing entry]
-- [CONFLICT: Oliver Kieselbach mentions that the device must be AAD joined and the automatic MDM enrollment must be enabled, but this is not explicitly mentioned in the existing entry]
-- [CONFLICT: Oliver Kieselbach does not mention specific pitfalls in his article]
-- [CONFLICT: Oliver Kieselbach adds MSI packages via MDM OMA-DM channel as a related topic, but this is not explicitly mentioned in the existing entry]
-- [CONFLICT: Oliver Kieselbach mentions this, but it was not explicitly mentioned in the existing entry]
-- [CONFLICT: Oliver Kieselbach adds this as a related topic, but it was not explicitly mentioned in the existing entry]
-- [CONFLICT: Oliver Kieselbach mentions this, but it was not explicitly mentioned in the existing entry]
-- [CONFLICT: Oliver Kieselbach mentions this, but it was not explicitly mentioned in the existing entry]
-- [CONFLICT: Oliver Kieselbach does not mention specific pitfalls in his article]
-- [CONFLICT: Oliver Kieselbach adds this as a related topic, but it was not explicitly mentioned in the existing entry]
+- [CONFLICT: Oliver Kieselbach mentions a method for deploying the agent using MSI packages via OMA-DM channel and EnterpriseDesktopAppManagement CSP, but this method is not mentioned in the existing entry.]
+- [CONFLICT: Oliver Kieselbach mentions a method for deploying the agent using MSI packages via OMA-DM channel and EnterpriseDesktopAppManagement CSP, but this method is not mentioned in the existing entry.]
+- [CONFLICT: Oliver Kieselbach mentions a method for deploying the agent using MSI packages via OMA-DM channel and EnterpriseDesktopAppManagement CSP, but this method is not mentioned in the existing entry.]
 
 ## Win32 App Deployment and Packaging
 Topic: `intune/apps/win32-app-deployment`
 
-- [CONFLICT: This contradicts the existing entry which states that this is a significant step forward.]
-- [CONFLICT: This article also mentions that the new functionality can be used to transport everything in a package and trigger a certain command line for execution.]
-- [CONFLICT: This article also mentions that the new functionality can be used to transport everything in a package and trigger a certain command line for execution. However, the new source by Oliver Kieselbach clarifies that this is only possible with the IntuneWinAppUtilDecoder tool.]
-- [CONFLICT: This article also mentions that the new functionality can be used to transport everything in a package and trigger a certain command line for execution. However, the new source by Oliver Kieselbach clarifies that this is only possible with the IntuneWinAppUtilDecoder tool.]
-- [CONFLICT: This contradicts the existing entry which states that this is a significant step forward.]
+- [CONFLICT: Oliver Kieselbach mentions .intunewin files but does not provide specific details on common pitfalls related to them]
+- [CONFLICT: Oliver Kieselbach says X, existing entry says Y]
+- [CONFLICT: Oliver Kieselbach mentions .intunewin files but does not provide specific details on common pitfalls related to them]
 
 ## WinGet and Microsoft Store Integration
 Topic: `intune/apps/winget-intune`
 
-- [CONFLICT: Oliver Kieselbach suggests using SyncML Viewer via Winget, while the existing entry does not mention this method.]
-- [CONFLICT: Anoop C Nair says X, existing entry says Y]
-- [CONFLICT: Anoop C Nair provides a new method for installing Speech Packs using Microsoft Intune, while the existing entry does not mention this method.]
-- [CONFLICT: Anoop C Nair introduces Natural Voice Packs as standalone apps in the Microsoft Store, while the existing entry does not mention this concept.]
-- [CONFLICT: Anoop C Nair provides a new method for installing Speech Packs using Microsoft Intune, while the existing entry does not mention this method.]
-- [CONFLICT: Anoop C Nair introduces Natural Voice Packs as standalone apps in the Microsoft Store, while the existing entry does not mention this concept.]
+- [CONFLICT: Oliver Kieselbach provides an example of a specific application being available via winget, while the existing entry does not mention this method.]
+- [CONFLICT: Oliver Kieselbach provides specific instructions for SyncML Viewer installation and usage via winget, while the existing entry does not mention this method.]
+- [CONFLICT: Anoop C Nair provides more detailed information about the integration between Microsoft Intune and the Microsoft Store, while Oliver Kieselbach's example of SyncML Viewer installation and usage via winget is not mentioned in the new source.]
+- [CONFLICT: Oliver Kieselbach provides an example of a specific application being available via winget, while the existing entry does not mention this method.]
 
 ## Compliance Policy Design and CA Integration
 Topic: `intune/compliance/compliance-policy-design`
 
-- [CONFLICT: Anoop C Nair's article does not mention any common pitfalls related to automating Microsoft Intune Device Compliance reports using Graph API.]
-- [CONFLICT: Anoop C Nair's article on automating Microsoft Intune Device Compliance reports using Graph API does not mention any common pitfalls.]
-- [CONFLICT: Jeffrey discusses Microsoft Defender ATP for Android configuration during public preview]
-- [CONFLICT: Unified Windows 365 Monitoring And Reporting Experience In Microsoft Intune HTMD Blog by Anoop C Nair introduces a new monitoring platform for Cloud PCs within the Microsoft Intune admin center, while the existing entry does not mention this feature.]
-- [CONFLICT: Unified Windows 365 Monitoring And Reporting Experience In Microsoft Intune HTMD Blog by Anoop C Nair introduces a new monitoring platform for Cloud PCs within the Microsoft Intune admin center, while the existing entry does not mention this feature.]
+- [CONFLICT: Misstep: IT departments enrolling devices on behalf of users, introducing a hidden compliance risk. This contradicts the existing entry's common pitfall about requiring Bitlocker causing delays.]
+- [CONFLICT: Misstep: IT departments enrolling devices on behalf of users, introducing a hidden compliance risk. This contradicts the existing entry's common pitfall about requiring Bitlocker causing delays.]
+
+## Custom Compliance Policies and Scripts
+Topic: `intune/compliance/custom-compliance`
+
+- [CONFLICT: Oliver Kieselbach's method does not involve creating and filling AAD groups, but it provides a way to download all Proactive Remediation Scripts from Microsoft Intune.]
+- [CONFLICT: Oliver Kieselbach's method does not involve creating and filling AAD groups, but it provides a way to download all Proactive Remediation Scripts from Microsoft Intune. Jannik Reinhard's method involves creating custom compliance policies for Windows devices.]
+- [CONFLICT: Oliver Kieselbach's method does not involve creating and filling AAD groups, but it provides a way to download all Proactive Remediation Scripts from Microsoft Intune. Jannik Reinhard's method involves creating custom compliance policies for Windows devices.]
+
+## Delivery Optimization for Windows Updates
+Topic: `intune/configuration/delivery-optimization`
+
+- [CONFLICT: Oliver Kieselbach's source does not provide information about the MCC acting as a transparent proxy to cache content or the complete list of content supported by DO.]
+- [CONFLICT: Oliver Kieselbach says X, existing entry says Y]
+- [CONFLICT: Jannik Reinhard's article refers to DO as a cloud managed peer-to-peer technology, while the existing entry does not specify this.]
+- [CONFLICT: Michael Niehaus' article mentions a standalone version of MCC, but the existing entry does not mention this.]
+- [CONFLICT: Jannik Reinhard's article refers to DO as a cloud managed peer-to-peer technology, while the existing entry does not specify this.]
+- [CONFLICT: Michael Niehaus' article mentions a standalone version of MCC, but the existing entry does not mention this.]
+
+## Settings Catalog Configuration Profiles
+Topic: `intune/configuration/settings-catalog`
+
+- [CONFLICT: Oliver Kieselbach provides additional detail about the processing and refresh behavior, while the existing entry does not.]
+- [CONFLICT: Oliver Kieselbach provides additional detail about the processing and refresh behavior, while the existing entry does not. However, Jannik Reinhard's article introduces a tool that generates meaningful descriptions using Azure OpenAI.]
+- [CONFLICT: This content is not present in the existing entry.]
+- [CONFLICT: This content is new and not present in the existing entry.]
+- [CONFLICT: Oliver Kieselbach provides additional detail about the processing and refresh behavior, while the existing entry does not. However, Jannik Reinhard's article introduces a tool that generates meaningful descriptions using Azure OpenAI.]
 
 ## Autopilot User-Driven Mode
 Topic: `intune/deployment/autopilot-user-driven`
 
-- [CONFLICT: Oliver Kieselbach suggests that in future the hardware information will be synced into our tenant from the OEM vendor.]
-- [CONFLICT: Oliver Kieselbach says X, existing entry says Y]
-- [CONFLICT: The existing entry does not mention telemetry levels for Device Health]
-- [CONFLICT: Oliver Kieselbach suggests that in future the hardware information will be synced into our tenant from the OEM vendor.]
-- [CONFLICT: The existing entry does not mention telemetry levels for Device Health]
-- [CONFLICT: Oliver Kieselbach says X, existing entry says Y]
+- [CONFLICT: Oliver Kieselbach's article does not mention custom Azure Automation Runbook, which is still part of the existing entry.]
+- [CONFLICT: Oliver Kieselbach's article automates this step manually]
+- [CONFLICT: Oliver Kieselbach's article still mentions this step manually]
+- [CONFLICT: Oliver Kieselbach's article introduces Autopilot Manager, while the existing entry does not.]
+- [CONFLICT: The existing entry does not mention custom Azure Automation Runbook, which is still part of the existing entry.]
+- [CONFLICT: Oliver Kieselbach's article automates this step using Autopilot Manager]
+- [CONFLICT: Oliver Kieselbach's article introduces Autopilot Manager, while the existing entry does not.]
+- [CONFLICT: The existing entry does not mention custom Azure Automation Runbook, which is still part of the existing entry.]
+- [CONFLICT: Oliver Kieselbach's article automates this step using Autopilot Manager]
 
-## Attack Surface Reduction Rules
-Topic: `intune/security/asr-rules`
+## Co-management with ConfigMgr and Intune
+Topic: `intune/deployment/co-management`
 
-- [CONFLICT: Jannik Reinhard does not provide new information on configuration]
-- [CONFLICT: Jannik Reinhard does not provide new information on common pitfalls]
-- [CONFLICT: Jannik Reinhard does not provide new related topics]
-- [CONFLICT: Jeffrey emphasizes the importance of proper configuration to avoid mistakes during deployment]
-- [CONFLICT: Jeffrey does not provide new information on common pitfalls related to ASR]
-- [CONFLICT: Jeffrey emphasizes the importance of proper configuration to avoid mistakes during deployment]
-- [CONFLICT: Jeffrey does not provide new information on common pitfalls related to ASR]
+- [CONFLICT: Anoop C Nair suggests that in the future, all workloads will be managed from the Intune cloud console, while the existing entry states that devices can switch between being managed by ConfigMgr and Intune.]
+- [CONFLICT: Anoop C Nair does not mention this term specifically, but the concept is implied in his discussion of moving to a fully cloud-native Intune setup.]
+- [CONFLICT: Anoop C Nair suggests that in the future, all workloads will be managed from the Intune cloud console, while the existing entry states that this can be done using workload policies.]
+- [CONFLICT: Jeffrey suggests that co-management allows for migration from SCCM to Intune, while the existing entry does not mention this explicitly.]
+- [CONFLICT: Jeffrey suggests that co-management allows for migration from SCCM to Intune, while the existing entry does not mention this explicitly.]
+- [CONFLICT: Anoop C Nair suggests that in the future, all workloads will be managed from the Intune cloud console, while the existing entry states that devices can switch between being managed by ConfigMgr and Intune.]
+- [CONFLICT: Anoop C Nair does not mention this term specifically, but the concept is implied in his discussion of moving to a fully cloud-native Intune setup.]
+- [CONFLICT: Anoop C Nair suggests that in the future, all workloads will be managed from the Intune cloud console, while the existing entry states that this can be done using workload policies.]
+
+## Windows Autopatch Configuration
+Topic: `intune/deployment/windows-autopatch`
+
+- [CONFLICT: Simon Skotheimsvik says this is a common silent setting blocking communication with Windows update services, existing entry does not mention this]
+- [CONFLICT: Simon Skotheimsvik mentions a specific issue called "Silent Windows Autopatch Killer" that may cause this]
+- [CONFLICT: The existing entry mentions "Expedite polices" but does not provide further details. The new source explains that it refers to a feature allowing administrators to prioritize the installation of specific quality updates on devices.]
+- [CONFLICT: Simon Skotheimsvik says this is a common silent setting blocking communication with Windows update services, existing entry does not mention this]
+- [CONFLICT: Simon Skotheimsvik mentions a specific issue called "Silent Windows Autopatch Killer" that may cause this]
+- [CONFLICT: The existing entry mentions "Expedite polices" but does not provide further details. The new source explains that it refers to a feature allowing administrators to prioritize the installation of specific quality updates on devices.]
+
+## Intune Reporting with Log Analytics
+Topic: `intune/reporting/intune-reporting-log-analytics`
+
+- [CONFLICT: Anoop C Nair says this is a new feature, existing entry does not mention it]
+- [CONFLICT: Anoop C Nair says this is a new feature, existing entry does not mention it]
+- [CONFLICT: Anoop C Nair says this is a new feature, existing entry does not mention it]
 
 ## BitLocker Management via Intune
 Topic: `intune/security/bitlocker-management`
 
-- [CONFLICT: Oliver Kieselbach suggests this is a requirement, while the existing entry does not explicitly state it.]
-- [CONFLICT: Oliver Kieselbach suggests that enabling Pre-Boot BitLocker startup PIN might require setting "Warning for other disk encryption" to Block, while the existing entry does not explicitly state it.]
-- [CONFLICT: Oliver Kieselbach suggests setting "Warning for other disk encryption" to Block when using the AllowStandardUserEncryption setting.]
-- [CONFLICT: Oliver Kieselbach suggests this might be necessary for Pre-Boot BitLocker startup PIN]
-- [CONFLICT: Jannik Reinhard suggests setting "Disable prompt at sign out" to Enable and "Number of times allowed to bypass" to a value other than Not configured.]
-- [CONFLICT: Oliver Kieselbach suggests setting "Warning for other disk encryption" to Block when using the AllowStandardUserEncryption setting.]
-- [CONFLICT: Oliver Kieselbach suggests this might be necessary for Pre-Boot BitLocker startup PIN]
-- [CONFLICT: Jannik Reinhard suggests setting "Disable prompt at sign out" to Enable and "Number of times allowed to bypass" to a value other than Not configured.]
-- [CONFLICT: Oliver Kieselbach suggests this might be necessary for Pre-Boot BitLocker startup PIN]
+- [CONFLICT: Oliver Kieselbach emphasizes this point more strongly]
+- [CONFLICT: The existing entry does not provide this level of detail]
+- [CONFLICT: The new source provides a detailed explanation of HSTI and its purpose for high assurance validation of proper security configuration]
+- [CONFLICT: The new source provides more information on the Pre-Boot BitLocker startup PIN]
+- [CONFLICT: The new source provides a detailed explanation of HSTI and its purpose for high assurance validation of proper security configuration]
+- [CONFLICT: The new source provides more information on the Pre-Boot BitLocker startup PIN]
 
 ## Credential Guard and VBS
 Topic: `intune/security/credential-guard`
 
-- [CONFLICT: The existing entry mentions configuring Credential Guard via Policy CSP support, but the new source provides additional details and a different method for doing so.]
-- [CONFLICT: Oliver Kieselbach says X, existing entry says Y]
-- [CONFLICT: The existing entry mentions configuring Credential Guard via Policy CSP support, but the new source provides additional details and a different method for doing so.]
+- [CONFLICT: Anoop C Nair provides additional details on the OMA-URI values, but the existing entry does not conflict with this information.]
+- [CONFLICT: Anoop C Nair provides additional details on the OMA-URI values, but the existing entry does not conflict with this information.]
+
+## Microsoft Defender for Endpoint via Intune
+Topic: `intune/security/defender-for-endpoint-intune`
+
+- [CONFLICT: Anoop C Nair provides troubleshooting tips specific to Cloud PCs, not present in the existing entry.]
+- [CONFLICT: Anoop C Nair provides additional information about updating security baselines]
+- [CONFLICT: Anoop C Nair provides additional information about updating security baselines]
 
 ## Windows LAPS v2 Configuration
 Topic: `intune/security/laps-v2`
 
-- [CONFLICT: Simon Skotheimsvik provides an alternative approach for migration]
-- [CONFLICT: This section is new content not present in the existing entry]
-- [CONFLICT: Simon Skotheimsvik provides an alternative approach for migration]
-- [CONFLICT: This section is new content not present in the existing entry]
+- [CONFLICT: Simon Skotheimsvik provides alternative approaches for migration and configuration]
+- [CONFLICT: Simon Skotheimsvik provides additional options for setting password policies]
+- [CONFLICT: Michael Morten Sonne discusses management through Microsoft Intune]
+- [CONFLICT: Michael Morten Sonne discusses management through Microsoft Intune which might not require this step]
+- [CONFLICT: Michael Morten Sonne discusses management through Microsoft Intune which might have different configuration options]
+- [CONFLICT: Michael Morten Sonne's article does not mention this step in the context of managing through Microsoft Intune]
+- [CONFLICT: Michael Morten Sonne discusses management through Microsoft Intune which might have different methods for setting password policies]
+- [CONFLICT: Michael Morten Sonne discusses management through Microsoft Intune]
+- [CONFLICT: Michael Morten Sonne discusses management through Microsoft Intune which might not require this step]
+- [CONFLICT: Michael Morten Sonne discusses management through Microsoft Intune which might have different configuration options]
+- [CONFLICT: Michael Morten Sonne's article does not mention this step in the context of managing through Microsoft Intune]
+- [CONFLICT: Michael Morten Sonne discusses management through Microsoft Intune which might have different methods for setting password policies]
 
 ## WDAC and App Control for Business
 Topic: `intune/security/wdac-app-control`
 
-- [CONFLICT: The new source provides an additional method (Conditional Access App Control) for blocking downloads, which is not mentioned in the existing entry.]
-- [CONFLICT: The new source discusses Microsoft Azure's Trusted Signing service, which is not directly related to WDAC and App Control for Business in the context of this wiki entry.]
-- [CONFLICT: New source introduces this concept]
-- [CONFLICT: New source introduces this concept]
+- [CONFLICT: Anoop C Nair does not mention WDAC in this article, but it is a key concept in the existing entry]
+- [CONFLICT: Anoop C Nair does not provide specific configuration steps in this article]
+- [CONFLICT: Anoop C Nair does not mention WDAC in this article, but it is a key concept in the existing entry]
+- [CONFLICT: Anoop C Nair does not provide specific configuration steps in this article]
+- [CONFLICT: Anoop C Nair does not mention WDAC in this article, but it is a key concept in the existing entry]
+- [CONFLICT: Anoop C Nair does not provide specific configuration steps in this article]
 
-## Sentinel Log Coverage and Ingestion Gaps
-Topic: `sentinel/architecture/log-coverage-gaps`
+## Windows Security Baseline in Intune
+Topic: `intune/security/windows-security-baseline`
 
-- [CONFLICT: Oliver Kieselbach's article provides more detailed information about ADMX ingestion.]
-- [CONFLICT: Oliver Kieselbach's article suggests that EnableADAL is not explicitly present in the ADMX file, but needs to be added as an additional node.]
-- [CONFLICT: Oliver Kieselbach's article suggests duplicating the SilentAccountConfig policy node as an additional node under the policies node, renaming the attribute values "name" and "valueName" to EnableADAL.]
-- [CONFLICT: Oliver Kieselbach's article does not provide specific instructions for configuring these settings.]
-- [CONFLICT: Oliver Kieselbach's article suggests that this step is necessary.]
-- [CONFLICT: Oliver Kieselbach's article provides more detailed information about ADMX ingestion.]
-- [CONFLICT: Oliver Kieselbach's article suggests that EnableADAL is not explicitly present in the ADMX file, but needs to be added as an additional node.]
-- [CONFLICT: Oliver Kieselbach's article suggests duplicating the SilentAccountConfig policy node as an additional node under the policies node, renaming the attribute values "name" and "valueName" to EnableADAL.]
-- [CONFLICT: Oliver Kieselbach's article does not provide specific instructions for configuring these settings.]
-- [CONFLICT: Oliver Kieselbach's article suggests that this step is necessary.]
-
-## Sentinel Workspace Architecture
-Topic: `sentinel/architecture/workspace-design`
-
-- [CONFLICT: Jeffrey does not mention this point]
-- [CONFLICT: Jeffrey does not mention this point]
-- [CONFLICT: Jeffrey does not mention this point]
+- [CONFLICT: Anoop C Nair does not mention Policy and Profile Manager, but it is a built-in role required for managing baselines in Intune.]
+- [CONFLICT: Anoop C Nair mentions that older profiles become read-only but can be updated to the latest version for editing, while existing entry does not mention this.]
+- [CONFLICT: Anoop C Nair does not mention deploying the created security baseline, but it is an essential step.]
+- [CONFLICT: Anoop C Nair does not mention incorrect configuration of settings, but it is an important point to consider.]
+- [CONFLICT: Anoop C Nair does not mention Policy and Profile Manager, but it is a built-in role required for managing baselines in Intune.]
+- [CONFLICT: Anoop C Nair mentions that older profiles become read-only but can be updated to the latest version for editing, while existing entry does not mention this.]
+- [CONFLICT: Anoop C Nair does not mention deploying the created security baseline, but it is an essential step.]
+- [CONFLICT: Anoop C Nair does not mention incorrect configuration of settings, but it is an important point to consider.]
 
 ## KQL — Identity and Sign-in Detection
 Topic: `sentinel/kql/identity-detection-queries`
 
-- [CONFLICT: Ugur Koc mentions the initial learning curve of KQL being difficult, while the existing entry does not explicitly state this]
-- [CONFLICT: Daniel Chronlund emphasizes the importance of threat hunting in Microsoft Sentinel, while the existing entry does not explicitly discuss it]
-- [CONFLICT: Daniel Chronlund emphasizes the importance of threat hunting in Microsoft Sentinel, while the existing entry does not explicitly discuss it]
-- [CONFLICT: Ugur Koc mentions the initial learning curve of KQL being difficult, while the existing entry does not explicitly state this]
-- [CONFLICT: Daniel Chronlund emphasizes the importance of threat hunting in Microsoft Sentinel, while the existing entry does not explicitly discuss it]
+- [CONFLICT: Bert-Jan Pals says the new content adds Zeek and Azure Resource Graph, existing entry does not mention these topics.]
+- [CONFLICT: Bert-Jan Pals says the new content adds Zeek and Azure Resource Graph, existing entry does not mention these topics.]
 
-## KQL — Lateral Movement Detection
-Topic: `sentinel/kql/lateral-movement-queries`
+## Windows Update for Business Policies
+Topic: `windows/updates/windows-update-for-business`
 
-- [CONFLICT: Jeffrey's source provides additional information about Automatic Attack Disruption in Microsoft Defender XDR and User Containment during Human-operated attacks, which is not present in the existing entry.]
-- [CONFLICT: Michael Morten Sonne suggests switching from SMB to NFS for Veeam Backup issues with Synology SMB Share, existing entry does not mention this]
-- [CONFLICT: Michael Morten Sonne suggests switching from SMB to NFS for Veeam Backup issues with Synology SMB Share, existing entry does not mention this]
-- [CONFLICT: Michael Morten Sonne suggests switching from SMB to NFS for Veeam Backup issues with Synology SMB Share, existing entry does not mention this]
-
-## Teams External Access and Federation Control
-Topic: `teams/security/external-access-federation`
-
-- [CONFLICT: officedocspr5 provides additional information about managing external meetings and chat, while the existing entry focuses solely on Teams External Access and Federation Control.]
-- [CONFLICT: Michael Morten Sonne provides additional details on how to enable this feature]
-- [CONFLICT: Michael Morten Sonne provides additional details on how to enable this feature]
-- [CONFLICT: Michael Morten Sonne provides additional details on how to enable this feature]
+- [CONFLICT: Oliver Kieselbach mentions the importance of Delivery Optimization in the context of WUfB, while the existing entry does not explicitly state this.]
+- [CONFLICT: Oliver Kieselbach mentions the importance of Delivery Optimization in the context of WUfB, while the existing entry does not explicitly state this.]
 

@@ -143,7 +143,7 @@
     display: flex; align-items: center; justify-content: space-between;
     transition: background 0.12s;
   }
-  .topic-card:hover { background: white; }
+  .topic-card:hover { background: var(--paper-dark); }
   .topic-card:hover .topic-arrow { opacity: 1; }
   .topic-title { font-size: 13px; font-weight: 600; color: var(--ink); display: block; margin-bottom: 4px; }
   .topic-meta { font-family: var(--mono); font-size: 9px; letter-spacing: 1px; color: var(--ink-faint); }
@@ -243,7 +243,142 @@
     .masthead { padding: 0 16px; }
     .edition { display: none; }
   }
+
+  /* ── GRAPH PAGE ── */
+  #page-graph { height: calc(100vh - 56px); display: none; position: relative; overflow: hidden; }
+  #page-graph.active { display: block; }
+
+  #graph-svg { width: 100%; height: 100%; }
+
+  .graph-toolbar {
+    position: absolute; top: 16px; left: 32px;
+    display: flex; gap: 8px; align-items: center; z-index: 10;
+  }
+
+  .graph-search {
+    background: var(--paper-dark);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    padding: 6px 12px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    width: 200px;
+    outline: none;
+  }
+  .graph-search:focus { border-color: var(--ink); }
+  .graph-search::placeholder { color: var(--ink-faint); }
+
+  .graph-filter {
+    font-family: var(--mono); font-size: 9px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 6px 10px;
+    border: 1px solid var(--rule); background: transparent;
+    color: var(--ink-light); cursor: pointer; transition: all 0.15s;
+  }
+  .graph-filter:hover, .graph-filter.active {
+    border-color: var(--ink); color: var(--ink);
+    background: var(--paper-dark);
+  }
+
+  .graph-stats {
+    position: absolute; top: 16px; right: 32px;
+    display: flex; gap: 20px; z-index: 10;
+  }
+  .gs { display: flex; flex-direction: column; align-items: flex-end; }
+  .gs-n { font-family: var(--serif); font-size: 20px; font-weight: 900; color: var(--ink); line-height: 1; }
+  .gs-l { font-family: var(--mono); font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-faint); }
+
+  .graph-legend {
+    position: absolute; bottom: 24px; left: 32px;
+    border: 1px solid var(--rule);
+    background: rgba(245,240,232,0.92);
+    padding: 12px 16px; z-index: 10;
+    backdrop-filter: blur(4px);
+  }
+  .gl-title { font-family: var(--mono); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
+  .gl-item { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-family: var(--mono); font-size: 9px; color: var(--ink-light); }
+  .gl-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .gl-line { width: 18px; height: 0; flex-shrink: 0; }
+
+  /* Detail panel */
+  .graph-panel {
+    position: absolute; top: 0; right: -360px;
+    width: 340px; height: 100%;
+    background: rgba(245,240,232,0.97);
+    border-left: 1px solid var(--rule);
+    padding: 28px 24px;
+    transition: right 0.3s cubic-bezier(0.4,0,0.2,1);
+    overflow-y: auto; z-index: 20;
+    backdrop-filter: blur(8px);
+  }
+  .graph-panel.open { right: 0; }
+  .gp-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 20px; cursor: pointer; color: var(--ink-faint); font-family: var(--mono); }
+  .gp-close:hover { color: var(--ink); }
+  .gp-type { font-family: var(--mono); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .gp-title { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 20px; line-height: 1.2; }
+  .gp-section { margin-bottom: 20px; }
+  .gp-label { font-family: var(--mono); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; border-bottom: 1px solid var(--rule); padding-bottom: 4px; }
+  .gp-value { font-family: var(--body); font-size: 13px; color: var(--ink-mid); line-height: 1.6; }
+  .gp-tag { display: inline-block; font-family: var(--mono); font-size: 9px; padding: 3px 8px; border: 1px solid var(--rule); color: var(--ink-mid); margin: 2px; }
+  .gp-conn { font-family: var(--mono); font-size: 10px; color: var(--ink-light); padding: 6px 0; border-bottom: 1px solid var(--rule); cursor: pointer; display: flex; gap: 8px; align-items: center; }
+  .gp-conn:hover { color: var(--ink); }
+  .gp-conn-type { font-size: 8px; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* Tooltip */
+  .graph-tip {
+    position: fixed; background: var(--paper-dark);
+    border: 1px solid var(--rule); padding: 8px 12px;
+    font-family: var(--mono); font-size: 10px; color: var(--ink-mid);
+    pointer-events: none; opacity: 0; transition: opacity 0.1s;
+    z-index: 200; max-width: 220px; letter-spacing: 0.5px;
+    box-shadow: 2px 2px 0 var(--rule);
+  }
+
+
+  /* ── DARK MODE ── */
+  :root[data-theme='dark'] {
+    --paper:      #0f0e0d;
+    --paper-dark: #1a1815;
+    --ink:        #f0ebe3;
+    --ink-mid:    #c8bfb5;
+    --ink-light:  #8a7f75;
+    --ink-faint:  #4a4540;
+    --rule:       #2a2520;
+    --accent:     #e05a4a;
+    --green:      #4a9a6a;
+    --blue:       #4a6a9a;
+  }
+
+  * { transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+
+  :root[data-theme='dark'] body::before { opacity: 0.015; }
+
+  :root[data-theme='dark'] .search-input { background: var(--paper-dark); color: var(--ink); }
+  :root[data-theme='dark'] .chat-input { background: var(--paper-dark); color: var(--ink); }
+  :root[data-theme='dark'] .graph-search { background: var(--paper-dark); color: var(--ink); }
+  :root[data-theme='dark'] .graph-panel { background: rgba(15,14,13,0.97); }
+  :root[data-theme='dark'] .graph-legend { background: rgba(15,14,13,0.92); }
+
+  /* Theme toggle button */
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--ink-light);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .theme-toggle:hover { border-color: var(--ink); color: var(--ink); }
+  .theme-icon { font-size: 12px; }
+
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 </head>
 <body>
 
@@ -256,7 +391,9 @@
     <button class="nav-btn active" id="nav-home" onclick="showPage('home')">Knowledge Base</button>
     <button class="nav-btn" id="nav-chat" onclick="showPage('chat')">Ask the Wiki</button>
     <button class="nav-btn" id="nav-gaps" onclick="showPage('gaps')">Gaps & Conflicts</button>
+    <button class="nav-btn" id="nav-graph" onclick="showPage('graph')">Knowledge Graph</button>
   </nav>
+  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()"><span class="theme-icon" id="theme-icon">☀</span><span id="theme-label">LIGHT</span></button>
 </header>
 
 <!-- ── HOME PAGE ── -->
@@ -325,6 +462,47 @@
     </div>
   </div>
 </div>
+
+
+<!-- ── GRAPH PAGE ── -->
+<div class="page" id="page-graph">
+  <div class="graph-toolbar">
+    <input class="graph-search" id="graph-search" type="text" placeholder="Search topics, authors…">
+    <button class="graph-filter active" data-gf="all">All</button>
+    <button class="graph-filter" data-gf="topic">Topics</button>
+    <button class="graph-filter" data-gf="author">Authors</button>
+    <button class="graph-filter" data-gf="gap">Gaps</button>
+    <button class="graph-filter" data-gf="CONTRADICTS">Conflicts</button>
+  </div>
+  <div class="graph-stats">
+    <div class="gs"><span class="gs-n" id="gs-topics">—</span><span class="gs-l">Topics</span></div>
+    <div class="gs"><span class="gs-n" id="gs-authors">—</span><span class="gs-l">Authors</span></div>
+    <div class="gs"><span class="gs-n" id="gs-edges">—</span><span class="gs-l">Edges</span></div>
+    <div class="gs"><span class="gs-n" id="gs-gaps">—</span><span class="gs-l">Gaps</span></div>
+  </div>
+  <svg id="graph-svg"></svg>
+  <div class="graph-legend">
+    <div class="gl-title">Domains</div>
+    <div class="gl-item"><div class="gl-dot" style="background:#1a3a5c"></div>Identity</div>
+    <div class="gl-item"><div class="gl-dot" style="background:#1a5c3a"></div>Intune</div>
+    <div class="gl-item"><div class="gl-dot" style="background:#c0392b"></div>Sentinel</div>
+    <div class="gl-item"><div class="gl-dot" style="background:#b7500a"></div>Defender</div>
+    <div class="gl-item"><div class="gl-dot" style="background:#6b3a8c"></div>Exchange</div>
+    <div class="gl-item"><div class="gl-dot" style="background:#7a6f65"></div>Author</div>
+    <div style="margin-top:10px"></div>
+    <div class="gl-title">Edges</div>
+    <div class="gl-item"><div class="gl-line" style="border-top:1.5px solid #1a5c3a"></div>Related</div>
+    <div class="gl-item"><div class="gl-line" style="border-top:2px dashed #c0392b"></div>Conflict</div>
+    <div class="gl-item"><div class="gl-line" style="border-top:1.5px solid #7a6f65"></div>Authored by</div>
+  </div>
+  <div class="graph-panel" id="graph-panel">
+    <button class="gp-close" id="gp-close">×</button>
+    <div class="gp-type" id="gp-type"></div>
+    <div class="gp-title" id="gp-title"></div>
+    <div id="gp-content"></div>
+  </div>
+</div>
+<div class="graph-tip" id="graph-tip"></div>
 
 <!-- ── GAPS PAGE ── -->
 <div id="page-gaps" class="page">
@@ -660,5 +838,331 @@ function askTopic(title) {
 fetchHealth();
 fetchIndex();
 </script>
+
+<script>
+// ── KNOWLEDGE GRAPH ───────────────────────────────────────────────────────────
+const DOMAIN_COLORS = {
+  identity: '#1a3a5c', intune: '#1a5c3a', sentinel: '#c0392b',
+  defender: '#b7500a', exchange: '#6b3a8c', teams: '#0e6e8c',
+  azure: '#8c7a0e', unknown: '#7a6f65'
+};
+const EDGE_COLORS = {
+  REQUIRES: '#1a5c3a', CONTRADICTS: '#c0392b',
+  CITED_BY: '#7a6f65', CO_AUTHOR: '#b8b0a5'
+};
+
+let gData = null, gSim = null, gNodes = null, gLinks = null,
+    gNodesData = [], gLinksData = [];
+
+function initGraph() {
+  if (gData) return;
+  fetch('/api/graph').then(r => r.json()).then(data => {
+    gData = data;
+    document.getElementById('gs-topics').textContent  = data.meta.topic_count;
+    document.getElementById('gs-authors').textContent = data.meta.author_count;
+    document.getElementById('gs-edges').textContent   = data.meta.edge_count;
+    document.getElementById('gs-gaps').textContent    = data.meta.gap_count;
+    renderKnowledgeGraph(data);
+  });
+}
+
+function renderKnowledgeGraph(data) {
+  const svg    = d3.select('#graph-svg');
+  const width  = svg.node().clientWidth  || window.innerWidth;
+  const height = svg.node().clientHeight || window.innerHeight - 56;
+
+  svg.selectAll('*').remove();
+
+  // Defs — arrow marker
+  const defs = svg.append('defs');
+  defs.append('filter').attr('id','glow')
+    .append('feGaussianBlur').attr('stdDeviation','3').attr('result','blur');
+
+  const container = svg.append('g');
+
+  svg.call(d3.zoom().scaleExtent([0.15, 5])
+    .on('zoom', e => container.attr('transform', e.transform)));
+
+  const nodes = data.nodes.map(d => ({...d}));
+  const links = data.links.map(d => ({...d}));
+  gNodesData = nodes; gLinksData = links;
+
+  // Domain clustering forces
+  const domainCenters = {
+    identity: { x: width * 0.3,  y: height * 0.35 },
+    intune:   { x: width * 0.65, y: height * 0.3  },
+    sentinel: { x: width * 0.75, y: height * 0.65 },
+    defender: { x: width * 0.55, y: height * 0.7  },
+    exchange: { x: width * 0.25, y: height * 0.65 },
+    azure:    { x: width * 0.5,  y: height * 0.5  },
+  };
+
+  gSim = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links)
+      .id(d => d.index)
+      .distance(d => {
+        if (d.type === 'CITED_BY')    return 70;
+        if (d.type === 'CONTRADICTS') return 50;
+        return 140;
+      })
+      .strength(d => d.type === 'CITED_BY' ? 0.6 : 0.15)
+    )
+    .force('charge', d3.forceManyBody()
+      .strength(d => d.type === 'author' ? -400 : -220)
+    )
+    .force('center', d3.forceCenter(width / 2, height / 2).strength(0.03))
+    .force('collision', d3.forceCollide().radius(d => d.size + 10).strength(0.8))
+    .force('cluster', alpha => {
+      nodes.forEach(d => {
+        if (d.type !== 'topic') return;
+        const center = domainCenters[d.domain];
+        if (!center) return;
+        d.vx = (d.vx || 0) + (center.x - (d.x || width/2)) * alpha * 0.04;
+        d.vy = (d.vy || 0) + (center.y - (d.y || height/2)) * alpha * 0.04;
+      });
+    })
+    .alphaDecay(0.015)
+    .velocityDecay(0.4);
+
+  // ── EDGES ──
+  const linkSel = container.append('g').selectAll('line')
+    .data(links).join('line')
+    .attr('stroke', d => EDGE_COLORS[d.type] || '#d4cdc4')
+    .attr('stroke-width', d => d.type === 'CONTRADICTS' ? 2 : 1)
+    .attr('stroke-dasharray', d => d.type === 'CONTRADICTS' ? '6,3' : null)
+    .attr('stroke-opacity', d => d.type === 'CITED_BY' ? 0.25 : 0.45);
+
+  // ── NODES ──
+  const nodeSel = container.append('g').selectAll('g')
+    .data(nodes).join('g')
+    .style('cursor', 'pointer')
+    .call(d3.drag()
+      .on('start', (e,d) => { if(!e.active) gSim.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+      .on('drag',  (e,d) => { d.fx=e.x; d.fy=e.y; })
+      .on('end',   (e,d) => { if(!e.active) gSim.alphaTarget(0); d.fx=null; d.fy=null; })
+    )
+    .on('click', (e,d) => { e.stopPropagation(); showGP(d); })
+    .on('mouseover', (e,d) => showGTip(e,d))
+    .on('mousemove', moveGTip)
+    .on('mouseout', hideGTip);
+
+  // Glow halo for topics
+  nodeSel.filter(d => d.type === 'topic')
+    .append('circle')
+    .attr('r', d => d.size + 8)
+    .attr('fill', d => DOMAIN_COLORS[d.domain] || DOMAIN_COLORS.unknown)
+    .attr('opacity', 0.06);
+
+  // Main circle
+  nodeSel.append('circle')
+    .attr('r', d => d.size)
+    .attr('fill', d => d.type === 'author'
+      ? 'var(--paper-dark)'
+      : DOMAIN_COLORS[d.domain] || DOMAIN_COLORS.unknown)
+    .attr('stroke', d => d.type === 'gap'
+      ? '#c0392b'
+      : (DOMAIN_COLORS[d.domain] || DOMAIN_COLORS.unknown))
+    .attr('stroke-width', d => d.type === 'author' ? 1.5 : 0)
+    .attr('opacity', d => d.type === 'gap' ? 0.5 : 0.85);
+
+  // Inner pip for topics
+  nodeSel.filter(d => d.type === 'topic')
+    .append('circle')
+    .attr('r', d => Math.max(2, d.size * 0.3))
+    .attr('fill', 'var(--paper)')
+    .attr('opacity', 0.6);
+
+  // Author initials
+  nodeSel.filter(d => d.type === 'author')
+    .append('text')
+    .attr('text-anchor','middle').attr('dominant-baseline','central')
+    .attr('font-family','var(--mono)').attr('font-size', d => Math.max(7, d.size * 0.45))
+    .attr('fill', d => DOMAIN_COLORS[d.domain] || '#3d3530')
+    .text(d => d.label.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase());
+
+  // Labels
+  nodeSel.filter(d => d.size >= 12 || d.type === 'author')
+    .append('text')
+    .attr('text-anchor','middle').attr('y', d => d.size + 13)
+    .attr('font-family','var(--mono)').attr('font-size', 8)
+    .attr('fill', d => d.type === 'author' ? 'var(--ink-mid)' : 'var(--ink-light)')
+    .attr('letter-spacing', '0.3')
+    .text(d => d.label.length > 22 ? d.label.slice(0,20)+'…' : d.label);
+
+  // Tick
+  gSim.on('tick', () => {
+    linkSel.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y)
+           .attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+    nodeSel.attr('transform', d=>`translate(${d.x},${d.y})`);
+  });
+
+  gNodes = nodeSel; gLinks = linkSel;
+
+  // Click background = deselect
+  svg.on('click', closeGP);
+}
+
+// ── TOOLTIP ──
+function showGTip(e,d) {
+  const t = document.getElementById('graph-tip');
+  let h = `<strong>${d.label}</strong>`;
+  if (d.type==='topic')  h += `<br>${d.domain} · ${d.src_count} source${d.src_count!==1?'s':''} · ${d.latest||'?'}`;
+  if (d.type==='author') h += `<br>${(d.topics||[]).length} topics`;
+  if (d.type==='gap')    h += `<br><span style="color:var(--accent)">No sources yet</span>`;
+  t.innerHTML = h; t.style.opacity = '1'; moveGTip(e);
+}
+function moveGTip(e) {
+  const t = document.getElementById('graph-tip');
+  t.style.left=(e.clientX+14)+'px'; t.style.top=(e.clientY-10)+'px';
+}
+function hideGTip() { document.getElementById('graph-tip').style.opacity='0'; }
+
+// ── PANEL ──
+function showGP(d) {
+  document.getElementById('gp-type').textContent  = d.type.toUpperCase();
+  document.getElementById('gp-type').style.color  = DOMAIN_COLORS[d.domain] || 'var(--accent)';
+  document.getElementById('gp-title').textContent = d.label;
+
+  let h = '';
+  if (d.type==='topic') {
+    h += `<div class="gp-section"><div class="gp-label">Domain</div>
+      <div class="gp-value" style="color:${DOMAIN_COLORS[d.domain]}">${d.domain}</div></div>`;
+    if (d.authors?.length) h += `<div class="gp-section"><div class="gp-label">Authors</div>
+      <div class="gp-value">${d.authors.map(a=>`<span class="gp-tag">${a}</span>`).join('')}</div></div>`;
+    h += `<div class="gp-section"><div class="gp-label">Sources · Updated</div>
+      <div class="gp-value">${d.src_count} source${d.src_count!==1?'s':''} · ${d.latest||'unknown'}</div></div>`;
+
+    const conns = gLinksData.filter(l => l.source.index===d.index||l.target.index===d.index);
+    if (conns.length) {
+      h += `<div class="gp-section"><div class="gp-label">Connections (${conns.length})</div>`;
+      conns.slice(0,10).forEach(l => {
+        const o = l.source.index===d.index ? l.target : l.source;
+        const c = EDGE_COLORS[l.type] || 'var(--ink-faint)';
+        h += `<div class="gp-conn" onclick="focusNode(${o.index})">
+          <span class="gp-conn-type" style="color:${c}">${l.type}</span>${o.label}</div>`;
+      });
+      h += `</div>`;
+    }
+  }
+  if (d.type==='author') {
+    h += `<div class="gp-section"><div class="gp-label">Topics (${(d.topics||[]).length})</div>`;
+    (d.topics||[]).forEach(t => {
+      h += `<div class="gp-conn">${t.split('/').pop().replace(/-/g,' ')}</div>`;
+    });
+    h += `</div>`;
+  }
+  if (d.type==='gap') {
+    h += `<div class="gp-section"><div class="gp-label" style="color:var(--accent)">Gap — no source yet</div>
+      <div class="gp-value">This topic needs a community article. Consider contributing.</div></div>`;
+  }
+
+  document.getElementById('gp-content').innerHTML = h;
+  document.getElementById('graph-panel').classList.add('open');
+  highlightGConnected(d);
+}
+
+function closeGP() {
+  document.getElementById('graph-panel').classList.remove('open');
+  resetGHighlight();
+}
+
+function highlightGConnected(d) {
+  const conn = new Set([d.index]);
+  gLinksData.forEach(l => {
+    if (l.source.index===d.index) conn.add(l.target.index);
+    if (l.target.index===d.index) conn.add(l.source.index);
+  });
+  gNodes?.selectAll('circle').attr('opacity', n => conn.has(n.index) ? 0.9 : 0.08);
+  gLinks?.attr('stroke-opacity', l =>
+    (l.source.index===d.index||l.target.index===d.index) ? 0.8 : 0.03);
+}
+
+function resetGHighlight() {
+  gNodes?.selectAll('circle').attr('opacity', d => d.type==='gap' ? 0.5 : 0.85);
+  gLinks?.attr('stroke-opacity', d => d.type==='CITED_BY' ? 0.25 : 0.45);
+}
+
+function focusNode(index) {
+  const n = gNodesData.find(d => d.index===index);
+  if (n) showGP(n);
+}
+
+// ── SEARCH ──
+document.getElementById('graph-search').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase().trim();
+  if (!gNodes) return;
+  if (!q) { resetGHighlight(); return; }
+  const m = new Set();
+  gNodesData.forEach(d => {
+    if (d.label.toLowerCase().includes(q) || d.id.toLowerCase().includes(q) ||
+        (d.authors||[]).some(a=>a.toLowerCase().includes(q))) m.add(d.index);
+  });
+  gNodes.selectAll('circle').attr('opacity', d => m.has(d.index) ? 1 : 0.05);
+  gLinks.attr('stroke-opacity', l =>
+    (m.has(l.source.index)&&m.has(l.target.index)) ? 0.7 : 0.02);
+});
+
+// ── FILTER ──
+document.querySelectorAll('.graph-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.graph-filter').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.gf;
+    gNodes?.style('display', d => {
+      if (f==='all') return null;
+      if (f==='CONTRADICTS') {
+        const inv = new Set();
+        gLinksData.filter(l=>l.type==='CONTRADICTS').forEach(l=>{inv.add(l.source.index);inv.add(l.target.index);});
+        return inv.has(d.index) ? null : 'none';
+      }
+      return d.type===f ? null : 'none';
+    });
+    gLinks?.style('display', l => {
+      if (f==='all') return null;
+      if (f==='CONTRADICTS') return l.type==='CONTRADICTS' ? null : 'none';
+      return null;
+    });
+  });
+});
+
+// ── PANEL CLOSE ──
+document.getElementById('gp-close').addEventListener('click', e => { e.stopPropagation(); closeGP(); });
+
+// ── HOOK INTO showPage ──
+const _origShowPage = window.showPage;
+window.showPage = function(name) {
+  _origShowPage(name);
+  if (name === 'graph') {
+    setTimeout(initGraph, 50);
+  }
+};
+</script>
+
+
+<script>
+function toggleTheme() {
+    const root = document.documentElement;
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('theme-icon').textContent  = isDark ? '☀' : '☾';
+    document.getElementById('theme-label').textContent = isDark ? 'LIGHT' : 'DARK';
+    localStorage.setItem('mw-wiki-theme', isDark ? 'light' : 'dark');
+}
+
+// Apply saved theme on load
+(function() {
+    const saved = localStorage.getItem('mw-wiki-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    if (saved === 'dark') {
+        document.addEventListener('DOMContentLoaded', function() {
+            const icon  = document.getElementById('theme-icon');
+            const label = document.getElementById('theme-label');
+            if (icon)  icon.textContent  = '☾';
+            if (label) label.textContent = 'DARK';
+        });
+    }
+})();
+</script>
+
 </body>
 </html>

@@ -38,6 +38,22 @@ async def health():
     index = load_index()
     return {"status": "ok", "topics": len(index)}
 
+
+@app.get("/api/graph")
+async def get_graph():
+    graph_file = BASE_DIR / "wiki" / "_graph.json"
+    if graph_file.exists():
+        import json
+        return JSONResponse(json.loads(graph_file.read_text()))
+    return JSONResponse({"error": "Graph not built yet. Run: python3 src/graph.py"}, status_code=404)
+
+@app.get("/graph")
+async def graph_ui():
+    ui_file = BASE_DIR / "ui" / "graph.html"
+    if ui_file.exists():
+        return FileResponse(ui_file)
+    return JSONResponse({"error": "graph.html not found"}, status_code=404)
+
 @app.get("/")
 async def root():
     ui_file = BASE_DIR / "ui" / "index.html"

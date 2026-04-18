@@ -100,41 +100,100 @@ def classify_article(
     content: str,
     taxonomy_str: str
 ) -> str | None:
-    """Simple keyword-based classification. Fast and reliable."""
+    """
+    Two-stage classification:
+    Stage 1 — keyword scorer as fast pre-filter (top 3 candidates)
+    Stage 2 — Ollama reads article + candidate topic, makes yes/no decision
+    """
     taxonomy = load_taxonomy()
     text = (title + " " + content).lower()
-
-    best_path = None
-    best_score = 0
     title_lower = title.lower()
-    # First 300 words for lead paragraph check
     lead = ' '.join(content.split()[:300]).lower()
 
+    # ── STAGE 1: keyword scoring ──────────────────────────────────────────
+    scores = {}
     for path, info in taxonomy.items():
         score = 0
         for kw in info.get("keywords", []):
             kw_lower = kw.lower()
-            # Title match = 5x weight — article is specifically about this topic
             if kw_lower in title_lower:
                 score += 5
-            # Lead paragraph match = 3x weight — topic is primary subject
             elif kw_lower in lead:
                 score += 3
-            # Body match = 1x weight — topic mentioned in passing
             elif kw_lower in text:
                 score += 1
-        if score > best_score:
-            best_score = score
-            best_path = path
+        if score >= 3:
+            scores[path] = score
 
-    # Require score of 5+ meaning at least one title match
-    # This ensures the article is specifically about the topic
-    if best_score < 5:
-        log.info(f"  Score too low ({best_score}) — no title match, skipping")
+    if not scores:
+        log.info(f"  Score too low — no candidate topics, skipping")
         return None
 
-    log.info(f"  Classified as: {best_path} (score {best_score})")
-    return best_path
+    # Top 3 candidates by score
+    candidates = sorted(scores.items(), key=lambda x: -x[1])[:3]
+    log.info(f"  Candidates: {[(p, s) for p, s in candidates]}")
+
+    # ── STAGE 2: LLM verification ────────────────────────────────────────
+    # Take the top candidate and ask Ollama if the article is genuinely about it
+    best_path, best_score = candidates[0]
+    best_info = taxonomy.get(best_path, {})
+    topic_label = best_info.get("label", best_path)
+    topic_keywords = ", ".join(best_info.get("keywords", [])[:8])
+
+    # Use first 600 words of article for LLM check
+    article_excerpt = " ".join(content.split()[:600])
+
+    prompt = f"""You are a strict topic classifier for a Modern Workplace knowledge base.
+
+TOPIC: {topic_label}
+TOPIC KEYWORDS: {topic_keywords}
+
+ARTICLE TITLE: {title}
+ARTICLE EXCERPT:
+{article_excerpt}
+
+QUESTION: Is this article PRIMARILY about "{topic_label}"? 
+The article must be specifically focused on this topic — not just mentioning it in passing.
+
+Reply with ONLY one word: YES or NO"""
+
+    try:
+        response = ollama_call(prompt, max_tokens=10).strip().upper()
+        if response.startswith("YES"):
+            log.info(f"  LLM verified: {best_path} (keyword score {best_score})")
+            return best_path
+        else:
+            # LLM rejected top candidate — try second candidate if score is strong
+            if len(candidates) > 1:
+                second_path, second_score = candidates[1]
+                if second_score >= 5:
+                    second_info = taxonomy.get(second_path, {})
+                    second_label = second_info.get("label", second_path)
+                    second_keywords = ", ".join(second_info.get("keywords", [])[:8])
+                    prompt2 = f"""You are a strict topic classifier for a Modern Workplace knowledge base.
+
+TOPIC: {second_label}
+TOPIC KEYWORDS: {second_keywords}
+
+ARTICLE TITLE: {title}
+ARTICLE EXCERPT:
+{article_excerpt}
+
+QUESTION: Is this article PRIMARILY about "{second_label}"?
+Reply with ONLY one word: YES or NO"""
+                    response2 = ollama_call(prompt2, max_tokens=10).strip().upper()
+                    if response2.startswith("YES"):
+                        log.info(f"  LLM verified second candidate: {second_path}")
+                        return second_path
+            log.info(f"  LLM rejected — article not primarily about {best_path}, skipping")
+            return None
+    except Exception as e:
+        # Ollama unavailable — fall back to keyword score with higher threshold
+        log.warning(f"  Ollama unavailable ({e}), falling back to keyword score")
+        if best_score >= 5:
+            log.info(f"  Fallback classified as: {best_path} (score {best_score})")
+            return best_path
+        return None
 
 
 def parse_frontmatter(content: str) -> tuple[dict, str]:
