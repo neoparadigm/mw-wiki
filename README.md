@@ -120,6 +120,7 @@ Inspired by [Andrej Karpathy's LLM Wiki](https://github.com/karpathy) concept-st
 **No vector database. No embeddings. No FAISS.** The index is a human-readable YAML file.
 
 The end result
+
 **Landing Page**
 
 <img width="1450" height="675" alt="image" src="https://github.com/user-attachments/assets/6a4fe918-00b4-40fa-bede-b660242e0c03" />
@@ -127,9 +128,13 @@ The end result
 
 
 
+
+
 **Knowledge Graph**
 
 <img width="1902" height="968" alt="image" src="https://github.com/user-attachments/assets/deb5dc10-e5c7-4883-b7cd-69fec2ab3810" />
+
+
 
 
 
