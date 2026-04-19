@@ -7,7 +7,7 @@ conflicts:
 - '[CONFLICT: Michael Morten Sonne''s new source does not discuss configuration]'
 - '[CONFLICT: Jeffrey states that Sign-In Risk Policy requires a separate policy]'
 context_note: Entra Id Protection is part of the identity domain. Synthesised from
-  4 community sources.
+  5 community sources.
 domain: identity
 gaps: []
 last_synthesised: '2026-04-18'

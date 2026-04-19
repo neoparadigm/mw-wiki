@@ -1,12 +1,14 @@
 ---
 conflicts: []
 context_note: Mfa Registration Policy is part of the identity domain. It connects
-  closely to Compliant Device Requirement. Synthesised from 2 community sources.
+  closely to Compliant Device Requirement and Pim For Groups. Synthesised from 2 community
+  sources.
 domain: identity
 gaps: []
 last_synthesised: '2026-04-18'
 related_topics:
 - identity/conditional-access/compliant-device-requirement
+- identity/pim/pim-for-groups
 sources:
 - author: Jan Bakker
   crawled: '2026-04-18'

@@ -7,11 +7,13 @@ conflicts:
   Monitor Agent setup]'
 - '[CONFLICT: Jannik Reinhard does not mention any common pitfalls related to Azure
   Monitor Agent setup, but Bert-Jan Pals mentions no specific pitfalls in his article]'
-context_note: Azure Monitor Log Analytics is part of the azure domain. Synthesised
-  from 5 community sources.
+context_note: Azure Monitor Log Analytics is part of the azure domain. It connects
+  closely to Attack Surface Reduction. Synthesised from 6 community sources.
 domain: azure
 gaps: []
 last_synthesised: '2026-04-18'
+related_topics:
+- intune/security/attack-surface-reduction
 sources:
 - author: Oliver Kieselbach
   crawled: '2026-04-18'

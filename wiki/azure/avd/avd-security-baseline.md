@@ -1,8 +1,12 @@
 ---
 conflicts: []
+context_note: Avd Security Baseline is part of the azure domain. It connects closely
+  to Pim For Groups. Synthesised from 2 community sources.
 domain: azure
 gaps: []
 last_synthesised: '2026-04-18'
+related_topics:
+- identity/pim/pim-for-groups
 sources:
 - author: cawerner
   crawled: '2026-04-18'

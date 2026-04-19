@@ -1,6 +1,6 @@
 ---
 conflict_topics:
-- identity/entra-id/admin-consent-workflow
+- identity/conditional-access/token-protection
 - identity/conditional-access/device-code-flow-blocking
 conflicts:
 - '[CONFLICT: Jeffrey mentions POP3/IMAP, but they are not explicitly mentioned in

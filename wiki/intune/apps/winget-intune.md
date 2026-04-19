@@ -10,7 +10,7 @@ conflicts:
 - '[CONFLICT: Anoop C Nair provides more detailed information about the integration
   between Microsoft Intune and the Microsoft Store, while Oliver Kieselbach''s example
   of SyncML Viewer installation and usage via winget is not mentioned in the new source.]'
-context_note: Winget Intune is part of the intune domain. Synthesised from 5 community
+context_note: Winget Intune is part of the intune domain. Synthesised from 6 community
   sources.
 domain: intune
 gaps: []
@@ -42,6 +42,11 @@ sources:
   date: '2024-09-16'
   title: 'Simon does WinTuner: The Ultimate Fix For Microsoft Store App Problem!'
   url: https://skotheimsvik.no/wintuner-the-ultimate-fix-for-microsoft-store-app-problem
+- author: James Yip
+  crawled: '2026-04-18'
+  date: '2025-08-12'
+  title: Using WinGet with Intune
+  url: https://practical365.com/using-winget-with-intune
 stale_after: '2026-06-02'
 title: WinGet and Microsoft Store Integration
 topic: intune/apps/winget-intune
@@ -71,6 +76,37 @@ This topic discusses how to deploy Windows Store Apps via Intune using WinGet an
 ## KQL / PowerShell
 The article does not provide any specific queries or scripts related to KQL or PowerShell, but it is important to note that some applications installed via winget may require additional PowerShell scripts for management and configuration. [New]
 
+## Using WinGet with Intune
+
+Using WinGet with Intune | Practical365
+
+Subscribe
+
+You may withdraw your consent at any time. Please visit our [Privacy Statement](https://www.quest.com/legal/privacy.aspx) for additional information
+
+[Skip to content](#main)
+
+Using WinGet with Intune
+
+Tweet
+
+- [Share](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpractical365.com%2Fusing-winget-with-intune%2F)
+- [Share](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fpractical365.com%2Fusing-winget-with-intune%2F)
+
+[Toggle](#)
+
+System administrators familiar with the Linux platform understand different package managers like APT (Advanced Packaging Tool) and RPM (Red Hat Package Manager). These package managers are convenient for administrators. They maintain a list of trusted repositories, and administrators use the tool to compare installed apps against the published version. If they find any version update, they install it with the command-line tool included in the package. Microsoft created WinGet (Windows Package Manager) as the Windows version of the package manager. This article will focus on how to leverage WinGet in Intune and how to control WinGet.
+
+### Quick Overview of WinGet
+
+WinGet works similarly to its Linux counterparts, which help deploy and maintain applications installed on devices against a trusted repository of app metadata. Microsoft maintains the community repository that WinGet leverages. Application developers, like Adobe, for example, still need to submit the package information there. If you are a developer, you can go to<https://github.com/microsoft/winget-pkgs> to learn more about the submission process or maintain packages.
+
+Once a package’s metadata is published on the repository, the WinGet client, usually using the `winget` command, can then extract the installed app information from your device to compare against the metadata on the repository. The WinGet client then compiles a list of apps that need updating. You can also use WinGet to deploy applications with a single command. If you want to know more about how WinGet works, you can visit this[page](https://learn.microsoft.com/en-us/windows/package-manager/winget/) or their official [GitHub repo](https://github.com/microsoft/winget-cli).
+
+### Deploying WinGet with Intune
+
+WinGet is available as a command-line tool, which you might think we can simply get Intune to execute it directly. However, Microsoft has not yet integrated WinGet into the Intune console for direct deployment. Instead, administrators can use third-party tools like WinTuner to package apps from Winget and deploy them through Intune.
+
 ## Related Topics
 - WinGet
 - Microsoft Store
@@ -81,5 +117,9 @@ The article does not provide any specific queries or scripts related to KQL or P
 ## Additional Information from New Sources
 The new sources provide more detailed information about the integration between Microsoft Store, Intune, and winget, as well as a practical workaround for addressing issues with missing latest package versions in the Microsoft Store using WinTuner.
 
-New source article: "Simon does WinTuner: The Ultimate Fix For Microsoft Store App Problem!"
-Author: Simon Skotheimsvik
+New sourc
+
+New source article: "Using WinGet with Intune"
+Author: James Yip
+New source content:
+[...] (Existing entry unchanged, additional information added under "Deploying WinGet with Intune")

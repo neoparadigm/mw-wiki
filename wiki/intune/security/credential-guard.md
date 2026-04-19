@@ -5,7 +5,7 @@ conflict_topics:
 conflicts:
 - '[CONFLICT: Anoop C Nair provides additional details on the OMA-URI values, but
   the existing entry does not conflict with this information.]'
-context_note: Credential Guard is part of the intune domain. Synthesised from 4 community
+context_note: Credential Guard is part of the intune domain. Synthesised from 5 community
   sources.
 domain: intune
 gaps: []

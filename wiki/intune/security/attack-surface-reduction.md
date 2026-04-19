@@ -1,10 +1,17 @@
 ---
-conflicts: []
-context_note: Attack Surface Reduction is part of the intune domain. Synthesised from
-  1 community source.
+conflict_topics:
+- intune/reporting/intune-reporting-log-analytics
+- intune/security/bitlocker-management
+conflicts:
+- '[CONFLICT: Jeffrey''s source mentions additional protection layers in Defender,
+  but the existing entry does not explicitly mention this term.]'
+context_note: Attack Surface Reduction is part of the intune domain. It connects closely
+  to Azure Monitor Log Analytics. Synthesised from 3 community sources.
 domain: intune
 gaps: []
 last_synthesised: '2026-04-18'
+related_topics:
+- azure/monitoring/azure-monitor-log-analytics
 sources:
 - author: Jeffrey
   crawled: '2026-04-18'
@@ -16,6 +23,11 @@ sources:
   date: '2025-10-20'
   title: Understand and use attack surface reduction - Microsoft Defender for Endpoint
   url: https://learn.microsoft.com/en-us/defender-endpoint/overview-attack-surface-reduction
+- author: Jeffrey
+  crawled: '2026-04-18'
+  date: '2022-11-08'
+  title: Configure Attack Surface reduction and additional protection in Defender
+  url: https://jeffreyappel.nl/microsoft-defender-for-endpoint-series-attack-surface-reduction-and-additional-protection-part4b
 stale_after: '2026-06-17'
 title: Attack Surface Reduction Policies
 topic: intune/security/attack-surface-reduction
@@ -59,20 +71,14 @@ Attack Surface Reduction (ASR) policies are a set of rules in Microsoft Defender
 
 ## Common Pitfalls
 - Not configuring ASR policies properly can leave devices vulnerable to attacks.
-- Incorrectly configured rules may cause false positives or negatives, leading to potential security issues.
 
-## KQL / PowerShell
-N/A (The article does not provide any relevant queries or scripts.)
+## Additional Protection Layers in Defender (New Information from the new source)
+- Configure Attack Surface reduction and additional protection in Defender: [March 30, 2026](https://jeffreyappel.nl/automatic-migration-from-defender-for-identity-sensor-v2-to-v3-x-and-gmsa-changes/)
+- Defending with Microsoft: A deep dive into the Microsoft Defender suite blog series intro: [March 23, 2026](https://jeffreyappel.nl/defending-with-microsoft-a-deep-dive-into-the-microsoft-defender-suite-blog-series-intro/)
+- How to secure Microsoft Copilot Studio agents with real-time protection: [February 12, 2026](https://jeffreyappel.nl/how-to-secure-microsoft-copilot-studio-agents-with-real-time-protection/)
+- How to protect Microsoft Teams with Microsoft 365 Defender: [February 3, 2026](https://jeffreyappel.nl/how-to-protect-microsoft-teams-with-microsoft-365-defender/)
+- Automatic Windows Event Auditing Configuration for Defender for Identity v3 x: [February 2, 2026](https://jeffreyappel.nl/automatic-windows-event-auditing-configuration-for-defender-for-identity-v3-x/)
+- How to archive Defender logs natively in Defender XDR up to 12 years: [January 20, 2026](https://jeffreyappel.nl/how-to-archive-defender-logs-natively-in-defender-xdr-up-to-12-years/)
+- Microsoft Sentinel cost management: How to get insights in data lake usage: [January 6, 2026](https://jeffreyappel.nl/microsoft-sentinel-cost-management-how-to-get-insights-in-data-lake-usage/)
 
-## Related Topics
-- Attack surface reduction
-- ASR rules
-- Controlled folder access
-- Network protection
-- EDR (Endpoint Detection and Response)
-- Hardware-based isolation for Microsoft Edge
-- Application control
-- Device control
-- Web protection
-- Exploit protection
-- Windows Firewall with advanced security
+[CONFLICT: Jeffrey's source mentions additional protection layers in Defender, but the existing entry does not explicitly mention this term.]

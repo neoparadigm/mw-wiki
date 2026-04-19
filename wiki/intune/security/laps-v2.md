@@ -13,7 +13,7 @@ conflicts:
   of managing through Microsoft Intune]'
 - '[CONFLICT: Michael Morten Sonne discusses management through Microsoft Intune which
   might have different methods for setting password policies]'
-context_note: Laps V2 is part of the intune domain. Synthesised from 4 community sources.
+context_note: Laps V2 is part of the intune domain. Synthesised from 5 community sources.
 domain: intune
 gaps: []
 last_synthesised: '2026-04-18'

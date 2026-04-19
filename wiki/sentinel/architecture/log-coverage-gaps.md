@@ -1,5 +1,7 @@
 ---
 conflicts: []
+context_note: Log Coverage Gaps is part of the sentinel domain. Synthesised from 1
+  community source.
 domain: sentinel
 gaps: []
 last_synthesised: '2026-04-18'

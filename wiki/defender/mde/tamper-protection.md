@@ -8,7 +8,7 @@ conflicts:
   existing entry does not mention this specific functionality.]'
 - '[CONFLICT: Jeffrey states, while the existing entry does not mention this specific
   functionality]'
-context_note: Tamper Protection is part of the defender domain. Synthesised from 2
+context_note: Tamper Protection is part of the defender domain. Synthesised from 3
   community sources.
 domain: defender
 gaps: []

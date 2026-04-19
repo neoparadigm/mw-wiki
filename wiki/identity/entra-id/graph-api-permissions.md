@@ -1,7 +1,7 @@
 ---
 conflict_topics:
 - identity/entra-id/external-identities
-- identity/entra-id/passwordless-authentication
+- identity/entra-id/identity-governance
 conflicts:
 - '[CONFLICT: Michael Morten Sonne mentions coverage gaps and permission challenges]'
 - '[CONFLICT: Michael Morten Sonne mentions inconsistencies across tools]'
@@ -30,7 +30,7 @@ conflicts:
 - '[CONFLICT: Michael Morten Sonne mentions inconsistencies across tools; Jan Bakker
   does not specifically mention this]'
 context_note: Graph Api Permissions is part of the identity domain. Synthesised from
-  5 community sources.
+  6 community sources.
 domain: identity
 gaps: []
 last_synthesised: '2026-04-18'

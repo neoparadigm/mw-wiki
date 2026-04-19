@@ -1,6 +1,6 @@
 # MW-Wiki — Stale Topics
 
-Generated: 2026-04-18 17:17
+Generated: 2026-04-18 21:25
 
 Topics that have not been refreshed within their stale window.
 Microsoft ships changes frequently. Verify against current docs before implementing.

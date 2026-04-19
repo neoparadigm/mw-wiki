@@ -1,6 +1,6 @@
 ---
 conflict_topics:
-- intune/security/bitlocker-management
+- intune/security/attack-surface-reduction
 - intune/deployment/windows-autopatch
 conflicts:
 - '[CONFLICT: Anoop C Nair says this is a new feature, existing entry does not mention

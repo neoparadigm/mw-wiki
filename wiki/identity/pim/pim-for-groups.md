@@ -1,12 +1,14 @@
 ---
 conflicts: []
 context_note: Pim For Groups is part of the identity domain. It connects closely to
-  App Permission Policies. Synthesised from 1 community source.
+  Avd Security Baseline and Mfa Registration Policy. Synthesised from 2 community
+  sources.
 domain: identity
 gaps: []
 last_synthesised: '2026-04-18'
 related_topics:
-- teams/governance/app-permission-policies
+- azure/avd/avd-security-baseline
+- identity/entra-id/mfa-registration-policy
 sources:
 - author: kenwith
   crawled: '2026-04-18'

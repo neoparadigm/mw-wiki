@@ -1,6 +1,6 @@
 ---
 conflict_topics:
-- sentinel/kql/identity-detection-queries
+- teams/governance/app-permission-policies
 conflicts:
 - '[CONFLICT: Oliver Kieselbach mentions the importance of Delivery Optimization in
   the context of WUfB, while the existing entry does not explicitly state this.]'

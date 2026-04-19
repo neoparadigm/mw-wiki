@@ -1,5 +1,7 @@
 ---
 conflicts: []
+context_note: Sensitivity Labels is part of the sharepoint domain. Synthesised from
+  1 community source.
 domain: sharepoint
 gaps: []
 last_synthesised: '2026-04-18'

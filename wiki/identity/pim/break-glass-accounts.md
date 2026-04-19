@@ -7,7 +7,7 @@ conflicts:
   not configured for Break Glass accounts according to the existing entry]'
 - '[CONFLICT: The existing entry does not configure MFA for Break Glass accounts]'
 context_note: Break Glass Accounts is part of the identity domain. Synthesised from
-  5 community sources.
+  6 community sources.
 domain: identity
 gaps: []
 last_synthesised: '2026-04-18'

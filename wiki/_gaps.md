@@ -1,6 +1,6 @@
 # MW-Wiki — Known Gaps
-Generated: 2026-04-18 20:18
-Topics with no sources yet: 37
+Generated: 2026-04-18 21:25
+Topics with no sources yet: 35
 
 These are topics the wiki knows should exist but has no articles for yet.
 Submit a PR to `config/seed_list.yaml` with a source URL to fill a gap.
@@ -24,7 +24,6 @@ Submit a PR to `config/seed_list.yaml` with a source URL to fill a gap.
 | `identity/conditional-access/named-locations` | Named Locations and IP-Based Conditions |
 | `identity/entra-id/authentication-methods-policy` | Authentication Methods Policy Management |
 | `identity/entra-id/conditional-access-workload-identities` | Conditional Access for Workload Identities |
-| `identity/entra-id/identity-governance` | Identity Governance and Access Reviews |
 | `identity/entra-id/privileged-access-groups` | Privileged Access Groups and Role Management |
 | `identity/hybrid/golden-saml` | Golden SAML Attack and ADFS Hardening |
 | `identity/hybrid/seamless-sso` | Seamless SSO and Hybrid Authentication |
@@ -34,7 +33,6 @@ Submit a PR to `config/seed_list.yaml` with a source URL to fill a gap.
 | `intune/deployment/autopilot-hybrid-join` | Autopilot Hybrid Entra Join |
 | `intune/deployment/autopilot-self-deploying` | Autopilot Self-Deploying Mode |
 | `intune/deployment/autopilot-troubleshooting` | Autopilot Troubleshooting |
-| `sentinel/architecture/data-connectors` | Sentinel Data Connectors Configuration |
 | `sentinel/architecture/workspace-design` | Sentinel Workspace Architecture |
 | `sentinel/hunting/threat-hunting-queries` | Threat Hunting with KQL in Sentinel |
 | `sentinel/kql/lateral-movement-queries` | KQL — Lateral Movement Detection |

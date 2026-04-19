@@ -1,7 +1,7 @@
 ---
 conflict_topics:
-- intune/reporting/intune-reporting-log-analytics
 - intune/security/credential-guard
+- intune/security/attack-surface-reduction
 conflicts:
 - '[CONFLICT: Oliver Kieselbach emphasizes this point more strongly]'
 - '[CONFLICT: The existing entry does not provide this level of detail]'

@@ -1,9 +1,13 @@
 # MW-Wiki — Source Attribution
 
-Generated: 2026-04-18 20:18
-Total unique sources indexed: 212
+Generated: 2026-04-18 21:25
+Total unique sources indexed: 226
 
 Every source that has contributed knowledge to this wiki.
+
+## Adam Deltinger (1 articles)
+
+- [Practical Teams: App Management In Microsoft 365](https://practical365.com/practical-teams-app-management-in-microsoft-365) → `teams/governance/app-permission-policies` _(crawled 2026-04-18)_
 
 ## Anoop C Nair (25 articles)
 
@@ -46,6 +50,10 @@ Every source that has contributed knowledge to this wiki.
 - [KQL Cafe October 2023](https://kqlcafe.com/shownotes/2023/KQL%20Cafe%20-%20October%202023) → `sentinel/kql/identity-detection-queries` _(crawled 2026-04-18)_
 - [KQL Cafe September 2023](https://kqlcafe.com/shownotes/2023/KQL%20Cafe%20-%20September%202023) → `sentinel/kql/identity-detection-queries` _(crawled 2026-04-18)_
 
+## Brandon Colley (1 articles)
+
+- [Lifeline or Liability: Managing Emergency Accounts in Hybrid Environments](https://practical365.com/lifeline-or-liability-managing-emergency-accounts-in-hybrid-environments) → `identity/hybrid/entra-connect-hardening` _(crawled 2026-04-18)_
+
 ## Daniel Chronlund (17 articles)
 
 - [Azure AD Conditional Access Policy Design Baseline](https://danielchronlund.com/2018/11/21/azure-ad-conditional-access-policy-design-baseline) → `identity/conditional-access/authentication-flows` _(crawled 2026-04-18)_
@@ -71,8 +79,9 @@ Every source that has contributed knowledge to this wiki.
 - [Enable vulnerability scanning with Microsoft Defender Vulnerability Management - Microsoft Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/deploy-vulnerability-assessment-defender-vulnerability-management) → `defender/mde/vulnerability-management` _(crawled 2026-04-18)_
 - [Defender for Endpoint integration in Defender for Cloud - Microsoft Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/integration-defender-for-endpoint) → `defender/mde/vulnerability-management` _(crawled 2026-04-18)_
 
-## James Yip (1 articles)
+## James Yip (2 articles)
 
+- [Using WinGet with Intune](https://practical365.com/using-winget-with-intune) → `intune/apps/winget-intune` _(crawled 2026-04-18)_
 - [Practical Endpoint: Deploy Cloud-Based Windows LAPS to Windows Endpoints](https://practical365.com/deploy-cloud-based-windows-laps-to-windows-endpoints) → `intune/security/laps-v2` _(crawled 2026-04-18)_
 
 ## Jan Bakker (7 articles)
@@ -103,7 +112,7 @@ Every source that has contributed knowledge to this wiki.
 - [Activate Mac FileVault using Intune](https://jannikreinhard.com/2022/08/17/activate-mac-filevault-using-intune) → `intune/security/macos-security` _(crawled 2026-04-18)_
 - [Get started with Intune driver update management](https://jannikreinhard.com/2023/07/23/get-started-with-intune-driver-update-management) → `windows/updates/windows-update-for-business` _(crawled 2026-04-18)_
 
-## Jeffrey (38 articles)
+## Jeffrey (40 articles)
 
 - [How to store Defender XDR data for years in Sentinel data lake without expensive ingestion cost](https://jeffreyappel.nl/how-to-store-defender-xdr-data-for-years-in-sentinel-data-lake-without-expensive-ingestion-cost) → `azure/monitoring/azure-monitor-log-analytics` _(crawled 2026-04-18)_
 - [Stream Azure AD Identity Protection events to Microsoft Sentinel/ Log Analytics](https://jeffreyappel.nl/stream-azure-ad-identity-protection-events-to-azure-sentinel-log-analytics) → `azure/monitoring/azure-monitor-log-analytics` _(crawled 2026-04-18)_
@@ -137,9 +146,11 @@ Every source that has contributed knowledge to this wiki.
 - [Monitor Azure AD break-glass accounts with Microsoft Sentinel](https://jeffreyappel.nl/monitor-azure-ad-break-glass-accounts-with-azure-sentinel) → `identity/pim/break-glass-accounts` _(crawled 2026-04-18)_
 - [Windows 10 co-management: Flexibel naar de cloud](https://jeffreyappel.nl/windows-10-co-management-flexibel-naar-de-cloud) → `intune/deployment/co-management` _(crawled 2026-04-18)_
 - [Manage Device control with Microsoft Defender for Endpoint and Endpoint Manager](https://jeffreyappel.nl/manage-device-control-with-microsoft-defender-for-endpoint-and-endpoint-manager-part-1) → `intune/security/attack-surface-reduction` _(crawled 2026-04-18)_
+- [Configure Attack Surface reduction and additional protection in Defender](https://jeffreyappel.nl/microsoft-defender-for-endpoint-series-attack-surface-reduction-and-additional-protection-part4b) → `intune/security/attack-surface-reduction` _(crawled 2026-04-18)_
 - [Downloads blokkeren via Conditional Access App Control vanuit Microsoft Endpoint Manager](https://jeffreyappel.nl/downloads-blokkeren-via-conditional-access-app-control) → `intune/security/wdac-app-control` _(crawled 2026-04-18)_
 - [Downloads blokkeren via Conditional Access App Control vanuit Microsoft Endpoint Manager](https://jeffreyappel.nl/downloads-blokkeren-via-conditional-access-app-control/amp) → `intune/security/wdac-app-control` _(crawled 2026-04-18)_
 - [Microsoft Sentinel Cost Management: How to get insights in data lake usage](https://jeffreyappel.nl/microsoft-sentinel-cost-management-how-to-get-insights-in-data-lake-usage) → `sentinel/architecture/cost-optimization` _(crawled 2026-04-18)_
+- [Monitor Microsoft Sentinel Data Connectors using Health Monitoring and Logic App](https://jeffreyappel.nl/monitor-microsoft-sentinel-data-connectors-using-health-monitoring-and-logic-app) → `sentinel/architecture/data-connectors` _(crawled 2026-04-18)_
 - [Automated incident triage with Security Copilot and Microsoft Sentinel/ Defender XDR](https://jeffreyappel.nl/automated-incident-triage-with-security-copilot-and-microsoft-sentinel-defender-xdr) → `sentinel/automation/playbooks-logic-apps` _(crawled 2026-04-18)_
 - [Microsoft Defender for Endpoint Automation via Logic Apps and Sentinel](https://jeffreyappel.nl/microsoft-defender-for-endpoint-series-automation-via-logic-apps-and-sentinel-part9) → `sentinel/automation/playbooks-logic-apps` _(crawled 2026-04-18)_
 - [Use automation/playbooks in Microsoft Sentinel during incident update activity using update triggers](https://jeffreyappel.nl/use-automation-playbooks-in-microsoft-sentinel-during-incident-update-activity-using-update-triggers) → `sentinel/automation/playbooks-logic-apps` _(crawled 2026-04-18)_
@@ -147,6 +158,10 @@ Every source that has contributed knowledge to this wiki.
 ## Julian Stephan (1 articles)
 
 - [Heard at TEC: The Current State of Microsoft Identity Security: Common Security Issues and Misconfigurations](https://practical365.com/heard-at-tec-the-current-state-of-microsoft-identity-security-common-security-issues-and-misconfigurations) → `identity/pim/break-glass-accounts` _(crawled 2026-04-18)_
+
+## Mezba Uddin (1 articles)
+
+- [Investigating OAuth App Abuse with the Graph Activity Log](https://practical365.com/investigating-oauth-app-abuse-with-the-graph-activity-log) → `identity/entra-id/admin-consent-workflow` _(crawled 2026-04-18)_
 
 ## Michael Morten Sonne (23 articles)
 
@@ -233,16 +248,24 @@ Every source that has contributed knowledge to this wiki.
 - [Simon does Migrating Cloud LAPS to the New Windows LAPS](https://skotheimsvik.no/migrating-cloud-laps-to-the-new-windows-laps) → `intune/security/laps-v2` _(crawled 2026-04-18)_
 - [Simon does Migrating To The New 24H2 LAPS Settings](https://skotheimsvik.no/migrating-to-the-new-24h2-laps-settings) → `intune/security/laps-v2` _(crawled 2026-04-18)_
 
-## Thijs Lecomte (1 articles)
+## Thijs Lecomte (5 articles)
 
+- [Using Advanced KQL to Audit Attack Surface Reduction Rules](https://practical365.com/using-advanced-kql-to-audit-attack-surface-reduction-rules) → `intune/security/asr-rules` _(crawled 2026-04-18)_
+- [Practical Sentinel: Reviewing and Optimizing costs](https://practical365.com/practical-sentinel-reviewing-and-optimizing-costs) → `sentinel/architecture/cost-optimization` _(crawled 2026-04-18)_
 - [Practical Sentinel: Adding Networking Data to Microsoft Sentinel](https://practical365.com/adding-networking-data-to-microsoft-sentinel) → `sentinel/architecture/log-coverage-gaps` _(crawled 2026-04-18)_
+- [Practical Sentinel: Adding Automation for Networking Data](https://practical365.com/practical-sentinel-adding-automation-on-networking-data) → `sentinel/automation/playbooks-logic-apps` _(crawled 2026-04-18)_
+- [Practical Sentinel: Setting the Scene](https://practical365.com/practical-sentinel-setting-the-scene) → `sentinel/automation/playbooks-logic-apps` _(crawled 2026-04-18)_
 
-## Thomas Naunheim (5 articles)
+## Thomas Naunheim (9 articles)
 
+- [Analyzing Workload Identity Activity Through Token-Based Hunting](https://www.cloud-architekt.net/token-hunting-workload-identity-activity) → `identity/conditional-access/token-protection` _(crawled 2026-04-18)_
 - [Detection and Mitigation of Illicit Consent Grant Attacks in Azure AD](https://www.cloud-architekt.net/detection-and-mitigation-consent-grant-attacks-azuread) → `identity/entra-id/admin-consent-workflow` _(crawled 2026-04-18)_
 - [Azure AD B2B: Security considerations to protect external (privileged) identities](https://www.cloud-architekt.net/azuread-b2b-security-considerations) → `identity/entra-id/external-identities` _(crawled 2026-04-18)_
 - [Microsoft Entra Workload ID - Introduction and Delegated Permissions](https://www.cloud-architekt.net/entra-workload-id-introduction-and-delegation) → `identity/entra-id/graph-api-permissions` _(crawled 2026-04-18)_
+- [Automated Lifecycle Workflows for Privileged Identities with Azure AD Identity Governance](https://www.cloud-architekt.net/manage-privileged-identities-with-azuread-identity-governance) → `identity/entra-id/identity-governance` _(crawled 2026-04-18)_
+- [Securing privileged user access with Azure AD Conditional Access and Identity Governance](https://www.cloud-architekt.net/securing-privileged-access-conditionalaccess-governance) → `identity/entra-id/identity-governance` _(crawled 2026-04-18)_
 - [Privileged Access Groups: Manage privileged access outside of Azure AD admin roles with Azure PIM](https://www.cloud-architekt.net/azurepim-pag-rbac) → `identity/pim/pim-for-groups` _(crawled 2026-04-18)_
+- [Improve security and usability of privileged access in Microsoft Azure](https://www.cloud-architekt.net/improve-security-and-usability-privileged-access-azure) → `identity/pim/tiered-administration` _(crawled 2026-04-18)_
 - [Microsoft Entra Workload ID - Incident Response with Microsoft Sentinel Playbooks and Conditional Access](https://www.cloud-architekt.net/entra-workload-id-incident-response) → `sentinel/incidents/incident-management` _(crawled 2026-04-18)_
 
 ## Tony Redmond (1 articles)

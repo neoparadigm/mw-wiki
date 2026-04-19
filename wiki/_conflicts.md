@@ -1,6 +1,6 @@
 # MW-Wiki — Source Conflicts
 
-Generated: 2026-04-18 17:17
+Generated: 2026-04-18 21:25
 
 Topics where indexed sources disagree. Review the topic file and the original sources before relying on this guidance.
 
@@ -29,7 +29,8 @@ Topic: `azure/network/global-secure-access`
 Topic: `defender/mde/tamper-protection`
 
 - [CONFLICT: Jeffrey states that the troubleshooting mode allows disabling tamper protection and changing Defender Antivirus settings locally for testing, while the existing entry does not mention this specific functionality.]
-- [CONFLICT: Jeffrey states that the troubleshooting mode allows disabling tamper protection and changing Defender Antivirus settings locally for testing, while the existing entry does not mention this specific functionality.]
+- [CONFLICT: Jeffrey states, while the existing entry does not mention this specific functionality]
+- [CONFLICT: Jeffrey states, while the existing entry does not mention this specific functionality]
 
 ## Defender Vulnerability Management
 Topic: `defender/mde/vulnerability-management`
@@ -37,7 +38,11 @@ Topic: `defender/mde/vulnerability-management`
 - [CONFLICT: Jeffrey's blog post provides additional information on XSPM not present in the existing entry]
 - [CONFLICT: Jeffrey's blog post provides additional insights into MDVM usage]
 - [CONFLICT: Jeffrey's blog post provides additional insights into MDVM usage; New source highlights the integration with XSPM]
-- [CONFLICT: Jeffrey's blog post provides additional insights into MDVM usage; New source highlights the integration with XSPM]
+- [CONFLICT: Jeffrey's blog post provides additional insights into MDVM usage; New source highlights enable vulnerability scanning on a subscription]
+- [CONFLICT: ElazarK provides additional information about Defender for Endpoint integration in Defender for Cloud, but it is not directly related to MDVM configuration]
+- [CONFLICT: The new source provides additional details about the integration of Defender for Endpoint and Defender for Cloud, but it is not directly related to MDVM configuration]
+- [CONFLICT: ElazarK provides additional information about Defender for Endpoint integration in Defender for Cloud, but it is not directly related to MDVM configuration]
+- [CONFLICT: The new source provides additional details about the integration of Defender for Endpoint and Defender for Cloud, but it is not directly related to MDVM configuration]
 
 ## AiTM Proxy Attacks and Defence
 Topic: `identity/conditional-access/aitm-defence`
@@ -69,16 +74,24 @@ Topic: `identity/conditional-access/legacy-auth-blocking`
 - [CONFLICT: Jeffrey mentions POP3/IMAP, but they are not explicitly mentioned in the existing entry]
 - [CONFLICT: Jeffrey mentions POP3/IMAP, but they are not explicitly mentioned in the existing entry]
 
+## Token Protection and CAE
+Topic: `identity/conditional-access/token-protection`
+
+- [CONFLICT: kenwith says PRT, existing entry does not mention it]
+- [CONFLICT: kenwith says PRT, new source does not mention it]
+- [CONFLICT: kenwith says PRT, new source does not mention it]
+
 ## Admin Consent Workflow and OAuth App Control
 Topic: `identity/entra-id/admin-consent-workflow`
 
 - [CONFLICT: Jeffrey mentions consent phishing attacks specifically]
 - [CONFLICT: Jeffrey mentions the need for regular audits and reviews]
 - [CONFLICT: Jeffrey says X, existing entry says Y]
-- [CONFLICT: Jeffrey mentions consent phishing attacks specifically]
+- [CONFLICT: Jeffrey mentions consent phishing attacks specifically, Thomas Naunheim mentions illicit consent attacks]
+- [CONFLICT: Jeffrey mentions the need for regular audits and reviews, Thomas Naunheim provides a PowerShell cmdlet for monitoring the desired state of the “UsersPermissionToUserConsentToAppEnabled” setting]
+- [CONFLICT: Jeffrey mentions consent phishing attacks specifically, Thomas Naunheim mentions illicit consent attacks]
+- [CONFLICT: Jeffrey mentions the need for regular audits and reviews, Thomas Naunheim provides a PowerShell cmdlet for monitoring the desired state of the “UsersPermissionToUserConsentToAppEnabled” setting]
 - [CONFLICT: Jeffrey mentions the need for regular audits and reviews]
-- [CONFLICT: Jeffrey mentions the need for regular audits and reviews]
-- [CONFLICT: Jeffrey says X, existing entry says Y]
 
 ## Entra ID Protection Risk Policies
 Topic: `identity/entra-id/entra-id-protection`
@@ -95,8 +108,9 @@ Topic: `identity/entra-id/external-identities`
 - [CONFLICT: Jeffrey suggests automatic Access Reviews as a solution to this issue, while the existing entry does not mention it.]
 - [CONFLICT: Michael Morten Sonne says X, existing entry says Y]
 - [CONFLICT: Jeffrey suggests automatic Access Reviews as a solution to this issue, while the existing entry does not mention it. Michael Morten Sonne's blog post confirms this feature.]
-- [CONFLICT: Jeffrey suggests automatic Access Reviews as a solution to this issue, while the existing entry does not mention it. Michael Morten Sonne's blog post confirms this feature.]
-- [CONFLICT: Jeffrey suggests automatic Access Reviews as a solution to this issue, while the existing entry does not mention it.]
+- [CONFLICT: Thomas Naunheim suggests the need for investigation into missing sign-in (failure) events and enforcement of Conditional Access and risk-based policies for invited users, while the existing entry mentions it as a solution.]
+- [CONFLICT: Thomas Naunheim suggests the need for investigation into missing sign-in (failure) events and enforcement of Conditional Access and risk-based policies for invited users, while the existing entry mentions it as a solution.]
+- [CONFLICT: Thomas Naunheim suggests the need for investigation into missing sign-in (failure) events and enforcement of Conditional Access and risk-based policies for invited users, while the existing entry mentions it as a solution.]
 
 ## Microsoft Graph API Permissions and Governance
 Topic: `identity/entra-id/graph-api-permissions`
@@ -122,7 +136,16 @@ Topic: `identity/entra-id/graph-api-permissions`
 - [CONFLICT: This point is shared by all sources]
 - [CONFLICT: Michael Morten Sonne mentions the need for regular reviews; Jan Bakker emphasizes the importance of regularly reviewing API calls from the Entra admin center or Microsoft Admin portal]
 - [CONFLICT: This point is shared by all sources]
-- [CONFLICT: Michael Morten Sonne mentions inconsistencies across tools; Jan Bakker does not specifically mention this]
+
+## Identity Governance and Access Reviews
+Topic: `identity/entra-id/identity-governance`
+
+- [CONFLICT: Thomas Naunheim suggests that Conditional Access and Entitlement Management are essential for applying Zero Trust principles to Privileged Identity and Access. The existing entry does not mention this.]
+- [CONFLICT: Thomas Naunheim also mentions the importance of Conditional Access Policies for securing access to privileged interfaces.]
+- [CONFLICT: Thomas Naunheim also suggests implementing Conditional Access Policies to secure access to privileged interfaces.]
+- [CONFLICT: Thomas Naunheim suggests that Conditional Access and Entitlement Management are essential for applying Zero Trust principles to Privileged Identity and Access. The existing entry does not mention this.]
+- [CONFLICT: Thomas Naunheim also mentions the importance of Conditional Access Policies for securing access to privileged interfaces.]
+- [CONFLICT: Thomas Naunheim also suggests implementing Conditional Access Policies to secure access to privileged interfaces.]
 
 ## Passwordless Authentication Methods
 Topic: `identity/entra-id/passwordless-authentication`
@@ -154,14 +177,12 @@ Topic: `identity/hybrid/entra-connect-hardening`
 
 - [CONFLICT: Michael Morten Sonne's new source provides additional details on Microsoft Defender for Identity expanding support to servers with Microsoft Entra Connect and new posture recommendations focusing on Active Directory, but the existing entry does not include this information.]
 - [CONFLICT: Michael Morten Sonne says X, existing entry says Y]
-- [CONFLICT: Michael Morten Sonne says X, existing entry says Y]
 
 ## Break Glass Emergency Access Accounts
 Topic: `identity/pim/break-glass-accounts`
 
 - [CONFLICT: Daniel Chronlund suggests that MFA should be implemented, but it is not configured for Break Glass accounts according to the existing entry]
 - [CONFLICT: The existing entry does not configure MFA for Break Glass accounts]
-- [CONFLICT: Daniel Chronlund suggests that MFA should be implemented, but it is not configured for Break Glass accounts according to the existing entry]
 - [CONFLICT: Daniel Chronlund suggests that MFA should be implemented, but it is not configured for Break Glass accounts according to the existing entry]
 - [CONFLICT: The existing entry does not configure MFA for Break Glass accounts]
 - [CONFLICT: Daniel Chronlund suggests that MFA should be implemented, but it is not configured for Break Glass accounts according to the existing entry]
@@ -260,9 +281,8 @@ Topic: `intune/deployment/windows-autopatch`
 - [CONFLICT: Simon Skotheimsvik says this is a common silent setting blocking communication with Windows update services, existing entry does not mention this]
 - [CONFLICT: Simon Skotheimsvik mentions a specific issue called "Silent Windows Autopatch Killer" that may cause this]
 - [CONFLICT: The existing entry mentions "Expedite polices" but does not provide further details. The new source explains that it refers to a feature allowing administrators to prioritize the installation of specific quality updates on devices.]
-- [CONFLICT: Simon Skotheimsvik says this is a common silent setting blocking communication with Windows update services, existing entry does not mention this]
 - [CONFLICT: Simon Skotheimsvik mentions a specific issue called "Silent Windows Autopatch Killer" that may cause this]
-- [CONFLICT: The existing entry mentions "Expedite polices" but does not provide further details. The new source explains that it refers to a feature allowing administrators to prioritize the installation of specific quality updates on devices.]
+- [CONFLICT: Simon Skotheimsvik mentions a specific issue called "Silent Windows Autopatch Killer" that may cause this]
 
 ## Intune Reporting with Log Analytics
 Topic: `intune/reporting/intune-reporting-log-analytics`
@@ -270,6 +290,12 @@ Topic: `intune/reporting/intune-reporting-log-analytics`
 - [CONFLICT: Anoop C Nair says this is a new feature, existing entry does not mention it]
 - [CONFLICT: Anoop C Nair says this is a new feature, existing entry does not mention it]
 - [CONFLICT: Anoop C Nair says this is a new feature, existing entry does not mention it]
+
+## Attack Surface Reduction Policies
+Topic: `intune/security/attack-surface-reduction`
+
+- [CONFLICT: Jeffrey's source mentions additional protection layers in Defender, but the existing entry does not explicitly mention this term.]
+- [CONFLICT: Jeffrey's source mentions additional protection layers in Defender, but the existing entry does not explicitly mention this term.]
 
 ## BitLocker Management via Intune
 Topic: `intune/security/bitlocker-management`
@@ -315,10 +341,18 @@ Topic: `intune/security/wdac-app-control`
 
 - [CONFLICT: Anoop C Nair does not mention WDAC in this article, but it is a key concept in the existing entry]
 - [CONFLICT: Anoop C Nair does not provide specific configuration steps in this article]
+- [CONFLICT: jsuther1974 says X, existing entry says Y]
+- [CONFLICT: The existing entry does not mention Smart App Control]
+- [CONFLICT: The existing entry does not provide details about trust levels or how Smart App Control determines whether an app is trusted]
+- [CONFLICT: The existing entry does not mention this feature]
+- [CONFLICT: The new source does not provide additional information about this concept]
 - [CONFLICT: Anoop C Nair does not mention WDAC in this article, but it is a key concept in the existing entry]
+- [CONFLICT: The existing entry does not mention Smart App Control]
+- [CONFLICT: The existing entry does not provide details about trust levels or how Smart App Control determines whether an app is trusted]
+- [CONFLICT: The existing entry does not mention this feature]
 - [CONFLICT: Anoop C Nair does not provide specific configuration steps in this article]
-- [CONFLICT: Anoop C Nair does not mention WDAC in this article, but it is a key concept in the existing entry]
-- [CONFLICT: Anoop C Nair does not provide specific configuration steps in this article]
+- [CONFLICT: The new source does not provide additional information about this concept]
+- [CONFLICT: jsuther1974 says X, existing entry says Y]
 
 ## Windows Security Baseline in Intune
 Topic: `intune/security/windows-security-baseline`
@@ -332,11 +366,49 @@ Topic: `intune/security/windows-security-baseline`
 - [CONFLICT: Anoop C Nair does not mention deploying the created security baseline, but it is an essential step.]
 - [CONFLICT: Anoop C Nair does not mention incorrect configuration of settings, but it is an important point to consider.]
 
+## Microsoft Sentinel Cost Optimization
+Topic: `sentinel/architecture/cost-optimization`
+
+- [CONFLICT: Thijs Lecomte does not mention this concept, but it is already present in the existing entry]
+- [CONFLICT: Thijs Lecomte does not mention permissions, but they are already present in the existing entry]
+- [CONFLICT: Thijs Lecomte does not provide configuration details, but they are already present in the existing entry]
+- [CONFLICT: Thijs Lecomte does not mention this pitfall, but it is already present in the existing entry]
+- [CONFLICT: Thijs Lecomte does not mention this concept, but it is already present in the existing entry]
+- [CONFLICT: Thijs Lecomte does not mention this concept, but it is already present in the existing entry]
+- [CONFLICT: Thijs Lecomte does not mention this concept, but it is already present in the existing entry]
+- [CONFLICT: Thijs Lecomte does not mention permissions, but they are already present in the existing entry]
+- [CONFLICT: Thijs Lecomte does not provide configuration details, but they are already present in the existing entry]
+- [CONFLICT: Thijs Lecomte does not mention this pitfall, but it is already present in the existing entry]
+
+## Sentinel Playbooks and Logic Apps Automation
+Topic: `sentinel/automation/playbooks-logic-apps`
+
+- [CONFLICT: Thijs Lecomte says "Modern firewalls like Meraki, Palo Alto, and FortiGate support API integrations, enabling effective interaction with playbooks." Existing entry does not mention specific firewall brands.]
+- [CONFLICT: Thijs Lecomte does not mention GenAI analysis]
+- [CONFLICT: Thijs Lecomte does not mention incident update triggers]
+- [CONFLICT: Thijs Lecomte does not mention creating a new playbook or configuring it with Security Copilot]
+- [CONFLICT: Thijs Lecomte does not mention using Logic Apps and Defender APIs]
+- [CONFLICT: Thijs Lecomte does not mention incorrect setup of Security Copilot]
+- [CONFLICT: Thijs Lecomte does not mention misconfigurations or errors in Logic Apps and Defender APIs]
+- [CONFLICT: Thijs Lecomte does not mention GenAI analysis]
+- [CONFLICT: Thijs Lecomte does not mention incident update triggers]
+- [CONFLICT: Thijs Lecomte does not mention creating a new playbook or configuring it with Security Copilot]
+- [CONFLICT: Thijs Lecomte does not mention using Logic Apps and Defender APIs]
+- [CONFLICT: Thijs Lecomte does not mention incident update triggers]
+- [CONFLICT: Thijs Lecomte does not mention incorrect setup of Security Copilot]
+- [CONFLICT: Thijs Lecomte does not mention misconfigurations or errors in Logic Apps and Defender APIs]
+
 ## KQL — Identity and Sign-in Detection
 Topic: `sentinel/kql/identity-detection-queries`
 
 - [CONFLICT: Bert-Jan Pals says the new content adds Zeek and Azure Resource Graph, existing entry does not mention these topics.]
 - [CONFLICT: Bert-Jan Pals says the new content adds Zeek and Azure Resource Graph, existing entry does not mention these topics.]
+
+## Teams App Permission Policies
+Topic: `teams/governance/app-permission-policies`
+
+- [CONFLICT: Adam Deltinger's article suggests that App Permission Policies are being replaced by App-Centric Management, while the existing entry does not mention this change.]
+- [CONFLICT: Adam Deltinger's article suggests that App Permission Policies are being replaced by App-Centric Management, while the existing entry does not mention this change.]
 
 ## Windows Update for Business Policies
 Topic: `windows/updates/windows-update-for-business`

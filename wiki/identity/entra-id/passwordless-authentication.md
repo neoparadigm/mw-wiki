@@ -1,7 +1,7 @@
 ---
 conflict_topics:
 - identity/entra-id/service-principal-governance
-- identity/entra-id/graph-api-permissions
+- identity/entra-id/identity-governance
 conflicts:
 - '[CONFLICT: Simon Skotheimsvik mentions no pitfalls specific to Offpad, existing
   entry includes general pitfalls]'

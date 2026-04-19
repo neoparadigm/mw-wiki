@@ -1,7 +1,7 @@
 ---
 conflict_topics:
-- intune/security/windows-security-baseline
-- windows/updates/windows-update-for-business
+- sentinel/automation/playbooks-logic-apps
+- teams/governance/app-permission-policies
 conflicts:
 - '[CONFLICT: Bert-Jan Pals says the new content adds Zeek and Azure Resource Graph,
   existing entry does not mention these topics.]'

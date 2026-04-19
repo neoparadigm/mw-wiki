@@ -8,9 +8,8 @@ conflicts:
   and new posture recommendations focusing on Active Directory, but the existing entry
   does not include this information.]'
 - '[CONFLICT: Michael Morten Sonne says X, existing entry says Y]'
-context_note: Entra Connect Hardening is part of the identity domain. It connects
-  closely to External Identities and Admin Consent Workflow. Synthesised from 4 community
-  sources.
+context_note: Entra Connect Hardening is part of the identity domain. Synthesised
+  from 5 community sources.
 domain: identity
 gaps: []
 last_synthesised: '2026-04-18'
@@ -43,6 +42,11 @@ sources:
   date: ''
   title: Entra ID Connect
   url: https://blog.sonnes.cloud/topics/entra-id-connect
+- author: Brandon Colley
+  crawled: '2026-04-18'
+  date: '2025-12-03'
+  title: 'Lifeline or Liability: Managing Emergency Accounts in Hybrid Environments'
+  url: https://practical365.com/lifeline-or-liability-managing-emergency-accounts-in-hybrid-environments
 stale_after: '2026-06-17'
 title: Entra Connect Server Hardening
 topic: identity/hybrid/entra-connect-hardening
@@ -63,6 +67,7 @@ This topic discusses the hardening of the Entra Connect server to improve securi
 - PowerShell scripts
 - [Microsoft Defender for Identity](#microsoft-defender-for-identity) (New)
 - [Entra ID Connect](#entra-id-connect) (New)
+- [Lifeline or Liability: Managing Emergency Accounts in Hybrid Environments](#lifeline-or-liability-managing-emergency-accounts-in-hybrid-environments) (New Source)
 
 ### Configuration
 1. Update Entra Connect Sync to version 2.4.129.0 or later, which includes the new auditing capabilities for administrator events. (New source does not specify an update related to this step.)
@@ -109,75 +114,32 @@ Last Updated on June 2, 2025 by [Michael Morten Sonne](https://sonnes.cloud)
 
 1. [Intoduction](#intoduction)
    1. [What is Microsoft Defender for Identity](#what-is-microsoft-defender-for-identity)
-   2. [What is Entra ID Connect?](#what-is-entra-id-connect)
+   2. [What is Entra ID Connect?](#what-is-entra-id-connect) (New Concept from new source)
    3. [Prerequisites](#prerequisites)
    4. [What is added](#what-is-added)
       1. [New detections](#new-detections)
       2. [Additional Improvements and Capabilities](#additional-improvements-and-capabilities)
       3. [New Posture Recommendations](#new-posture-recommendations)
-2. [How to install the new sensor](#how-to-install-the-new-sensor)
-   1. [Get the in
+2. [How to install the new sensor](#how-to-install-the-new-sensor
 
-### Entra ID Connect (New)
-- [Active Directory](https://blog.sonnes.cloud/topics/active-directory/)
-- [Azure AD/Entra ID](https://blog.sonnes.cloud/topics/azure-ad-entra-id/)
-- [Entra ID Connect](https://blog.sonnes.cloud/topics/entra-id-connect/)
-- [GitHub](https://blog.sonnes.cloud/topics/github/)
-- [Identity](https://blog.sonnes.cloud/topics/identity/)
-- [Microsoft](https://blog.sonnes.cloud/topics/microsoft/)
-- [Microsoft 365](https://blog.sonnes.cloud/topics/microsoft-365-cloud/)
-- [Passwordless](https://blog.sonnes.cloud/topics/passwordless-microsoft/)
-- [PowerShell](https://blog.sonnes.cloud/topics/general/software/powershell/)
-- [Security](https://blog.sonnes.cloud/topics/security/)
-- [Windows](https://blog.sonnes.cloud/topics/windows/)
+## Lifeline or Liability: Managing Emergency Accounts in Hybrid Environments (New Source)
 
-## [Entra ID – Entra Connect – Secure App & Certificate-Based Authentication is here! Plus: I built you a better way to manage it](https://blog.sonnes.cloud/entra-id-entra-connect-secure-app-certificate-based-authentication-is-here-plus-i-built-you-a-better-way-to-manage-it/)
+Lifeline or Liability: Managing Emergency Accounts in Hybrid Environments | Practical365
 
-Introduction Yes finally, it’s here! No more need for an old-school, classic service account in your Entra ID…
+If you manage Active Directory (AD) or Entra ID, you’ve probably encountered break-glass or emergency access accounts—special accounts held in reserve for worst-case scenarios. These accounts serve as your administrative lifeline when your normal identity systems fail. But, just like a fire extinguisher, an emergency account is only valuable if it’s charged, reachable, and tested.
 
-[byMichael Morten Sonne](https://blog.sonnes.cloud/author/michael-morten-sonne/ "View all posts by Michael Morten Sonne")
+### The Purpose of Emergency Accounts
 
-May 29, 2025
+Emergency accounts exist for one simple goal: to ensure administrative access to critical systems in the event of catastrophic failure. Commonly referred to as “break-glass” accounts, these emergency accounts must be outage resistant, fully isolated, and disaster ready.
 
-Read More
+An emergency account must be able to authenticate without dependency on external identity providers. This means the accounts must originate from the system they protect. In the case of AD, an emergency account must reside locally to the domain. For Entra ID, emergency accounts must be cloud-only and not federated or synchronized with another identity provider.
 
-9 minute read
+Administrators should carefully evaluate any reliance on external sources or security protections that could also fail during an outage. This includes Conditional Access policies, MFA providers, and network connectivity. Successful implementation of an emergency account maximizes outage resilience by ensuring usability under degraded conditions.
 
-- [Active Directory](https://blog.sonnes.cloud/topics/active-directory/)
-- [Attacks/compromise](https://blog.sonnes.cloud/topics/attacks/)
-- [Azure AD/Entra ID](https://blog.sonnes.cloud/topics/azure-ad-entra-id/)
-- [Entra ID Connect](#entra-id-connect) (New)
-- [Identity](https://blog.sonnes.cloud/topics/identity/)
-- [Microsoft Defender for Identity](https://blog.sonnes.cloud/topics/microsoft-defender-for-identity/)
-- [Security](https://blog.sonnes.cloud/topics/security/)
+Emergency accounts have a long history in the hybrid identity space. As the threat landscape has changed over the years, so have the best practices that surround the proper implementation of emergency accounts. Migrating from a legacy practice to a more modern approach is not only an important security control; it improves the resiliency of an organization during an emergency.
 
-## [Microsoft Defender for Identity – Expands support to servers with Microsoft Entra Connect](https://blog.sonnes.cloud/microsoft-defender-for-identity-expands-support-to-servers-with-microsoft-entra-connect/)
+### From Legacy AD Habits to Modern Hygiene (New Source)
 
-Intoduction What is Microsoft Defender for Identity Microsoft Defender for Identity is a comprehensive security solution provided by…
+Historically, protecting the built-in AD Administrator account was about obscurity and rotation — renaming the account and resetting the password. More security-minded organizations might even disable the Administrator account, but others may still allow this account to log in anywhere in the domain.
 
-[byMichael Morten Sonne](https://blog.sonnes.cloud/author/michael-morten-sonne/ "View all posts by Michael Morten Sonne")
-
-August 28, 2024
-
-Read More
-
-14 minute read
-
-- [Active Directory](https://blog.sonnes.cloud/topics/active-directory/)
-- [Attacks/compromise](https://blog.sonnes.cloud/topics/attacks/)
-- [Azure AD/Entra ID](https://blog.sonnes.cloud/topics/azure-ad-entra-id/)
-- [Entra ID Connect](#entra-id-connect) (New)
-- [Identity](https://blog.sonnes.cloud/topics/identity/)
-- [Security](https://blog.sonnes.cloud/topics/security/)
-
-## [Azure AD – Why use Cloud-Only Administrative/normal accounts and how to protect them in Azure AD from on-premises attacks](https://blog.sonnes.cloud/why-use-cloud-only-account)
-
-Task: Update the wiki entry by:
-1. Adding any NEW information from the new source not already present
-2. Marking any CONFLICTS between sources with [CONFLICT: Michael Morten Sonne says X, existing entry says Y]
-3. Improving or expanding existing sections if the new source adds depth
-4. NOT duplicating content already present
-5. NOT removing existing content
-
-Return the complete updated wiki entry body (without frontmatter).
-If the new source adds nothing new, return the existing entry unchanged.
+New [Microsoft guidance](https://learn.microsoft.com/en-us/windows) (New Source Content)

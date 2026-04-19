@@ -1,6 +1,6 @@
 ---
 conflict_topics:
-- sentinel/kql/identity-detection-queries
+- sentinel/architecture/cost-optimization
 - intune/security/wdac-app-control
 conflicts:
 - '[CONFLICT: Anoop C Nair does not mention Policy and Profile Manager, but it is

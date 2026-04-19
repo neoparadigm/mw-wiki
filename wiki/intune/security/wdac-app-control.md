@@ -12,7 +12,7 @@ conflicts:
   Smart App Control determines whether an app is trusted]'
 - '[CONFLICT: The existing entry does not mention this feature]'
 - '[CONFLICT: The new source does not provide additional information about this concept]'
-context_note: Wdac App Control is part of the intune domain. Synthesised from 3 community
+context_note: Wdac App Control is part of the intune domain. Synthesised from 5 community
   sources.
 domain: intune
 gaps: []

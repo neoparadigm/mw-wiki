@@ -1,4 +1,4 @@
-generated: 2026-04-18 20:18
+generated: 2026-04-18 21:25
 topics:
 - domain: azure
   has_conflicts: true
@@ -258,7 +258,7 @@ topics:
   - AiTM
   last_updated: '2026-04-18'
   related: []
-  sources: 2
+  sources: 3
   stale_after: '2026-06-17'
   subdomain: conditional-access
   title: Token Protection and CAE
@@ -274,7 +274,7 @@ topics:
   - consent workflow
   last_updated: '2026-04-18'
   related: []
-  sources: 3
+  sources: 4
   stale_after: '2026-06-17'
   subdomain: entra-id
   title: Admin Consent Workflow and OAuth App Control
@@ -330,6 +330,22 @@ topics:
   stale_after: '2026-06-17'
   subdomain: entra-id
   title: Microsoft Graph API Permissions and Governance
+- domain: identity
+  has_conflicts: true
+  id: identity/entra-id/identity-governance
+  keywords:
+  - identity governance
+  - access review
+  - entitlement management
+  - access package
+  - lifecycle workflow
+  - joiner mover leaver
+  last_updated: '2026-04-18'
+  related: []
+  sources: 2
+  stale_after: '2026-06-17'
+  subdomain: entra-id
+  title: Identity Governance and Access Reviews
 - domain: identity
   has_conflicts: false
   id: identity/entra-id/mfa-registration-policy
@@ -395,7 +411,7 @@ topics:
   - federation
   last_updated: '2026-04-18'
   related: []
-  sources: 4
+  sources: 5
   stale_after: '2026-06-17'
   subdomain: hybrid
   title: Entra Connect Server Hardening
@@ -465,7 +481,7 @@ topics:
   - ESAE
   last_updated: '2026-04-18'
   related: []
-  sources: 1
+  sources: 2
   stale_after: '2026-07-17'
   subdomain: pim
   title: Tiered Administration Model T0 T1 T2
@@ -549,7 +565,7 @@ topics:
   - package manager
   last_updated: '2026-04-18'
   related: []
-  sources: 5
+  sources: 6
   stale_after: '2026-06-02'
   subdomain: apps
   title: WinGet and Microsoft Store Integration
@@ -750,12 +766,12 @@ topics:
   - LSASS
   last_updated: '2026-04-18'
   related: []
-  sources: 1
+  sources: 2
   stale_after: '2026-06-17'
   subdomain: security
   title: Attack Surface Reduction Rules
 - domain: intune
-  has_conflicts: false
+  has_conflicts: true
   id: intune/security/attack-surface-reduction
   keywords:
   - attack surface reduction
@@ -766,7 +782,7 @@ topics:
   - exploit protection
   last_updated: '2026-04-18'
   related: []
-  sources: 2
+  sources: 3
   stale_after: '2026-06-17'
   subdomain: security
   title: Attack Surface Reduction Policies
@@ -902,7 +918,7 @@ topics:
   subdomain: alerts
   title: Analytics Rule Tuning and False Positive Reduction
 - domain: sentinel
-  has_conflicts: false
+  has_conflicts: true
   id: sentinel/architecture/cost-optimization
   keywords:
   - Sentinel cost
@@ -914,10 +930,27 @@ topics:
   - cost management
   last_updated: '2026-04-18'
   related: []
-  sources: 1
+  sources: 2
   stale_after: '2026-06-02'
   subdomain: architecture
   title: Microsoft Sentinel Cost Optimization
+- domain: sentinel
+  has_conflicts: false
+  id: sentinel/architecture/data-connectors
+  keywords:
+  - data connector
+  - Sentinel connector
+  - MDE connector
+  - M365 connector
+  - CEF connector
+  - Syslog connector
+  - DCR connector
+  last_updated: '2026-04-18'
+  related: []
+  sources: 1
+  stale_after: '2026-06-02'
+  subdomain: architecture
+  title: Sentinel Data Connectors Configuration
 - domain: sentinel
   has_conflicts: false
   id: sentinel/architecture/log-coverage-gaps
@@ -935,7 +968,7 @@ topics:
   subdomain: architecture
   title: Sentinel Log Coverage and Ingestion Gaps
 - domain: sentinel
-  has_conflicts: false
+  has_conflicts: true
   id: sentinel/automation/playbooks-logic-apps
   keywords:
   - playbook
@@ -947,7 +980,7 @@ topics:
   - Sentinel automation
   last_updated: '2026-04-18'
   related: []
-  sources: 3
+  sources: 5
   stale_after: '2026-06-17'
   subdomain: automation
   title: Sentinel Playbooks and Logic Apps Automation
@@ -1007,7 +1040,7 @@ topics:
   subdomain: security
   title: Sensitivity Labels for SharePoint and OneDrive
 - domain: teams
-  has_conflicts: false
+  has_conflicts: true
   id: teams/governance/app-permission-policies
   keywords:
   - Teams app
@@ -1018,7 +1051,7 @@ topics:
   - Teams store
   last_updated: '2026-04-18'
   related: []
-  sources: 1
+  sources: 2
   stale_after: '2026-06-17'
   subdomain: governance
   title: Teams App Permission Policies

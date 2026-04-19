@@ -12,8 +12,8 @@ conflicts:
 - '[CONFLICT: Thomas Naunheim suggests the need for investigation into missing sign-in
   (failure) events and enforcement of Conditional Access and risk-based policies for
   invited users, while the existing entry mentions it as a solution.]'
-context_note: External Identities is part of the identity domain. It connects closely
-  to Entra Connect Hardening. Synthesised from 5 community sources.
+context_note: External Identities is part of the identity domain. Synthesised from
+  6 community sources.
 domain: identity
 gaps: []
 last_synthesised: '2026-04-18'

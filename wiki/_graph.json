@@ -6,13 +6,14 @@
       "type": "topic",
       "label": "Tamper Protection",
       "color": "#f97316",
-      "size": 16,
+      "size": 20,
       "domain": "defender",
       "authors": [
-        "Jeffrey"
+        "Jeffrey",
+        "paulinbar"
       ],
-      "src_count": 2,
-      "latest": "2023-01-03",
+      "src_count": 3,
+      "latest": "2026-01-15",
       "pulsing": false
     },
     {
@@ -36,14 +37,15 @@
       "type": "topic",
       "label": "Vulnerability Management",
       "color": "#f97316",
-      "size": 24,
+      "size": 30,
       "domain": "defender",
       "authors": [
+        "limwainstein",
         "Jeffrey",
-        "limwainstein"
+        "ElazarK"
       ],
-      "src_count": 4,
-      "latest": "2025-12-01",
+      "src_count": 6,
+      "latest": "2026-01-05",
       "pulsing": false
     },
     {
@@ -85,9 +87,9 @@
       "size": 30,
       "domain": "windows",
       "authors": [
-        "Jannik Reinhard",
         "Anoop C Nair",
-        "Oliver Kieselbach"
+        "Oliver Kieselbach",
+        "Jannik Reinhard"
       ],
       "src_count": 6,
       "latest": "2024-10-29",
@@ -102,8 +104,8 @@
       "size": 16,
       "domain": "intune",
       "authors": [
-        "Jannik Reinhard",
-        "Anoop C Nair"
+        "Anoop C Nair",
+        "Jannik Reinhard"
       ],
       "src_count": 2,
       "latest": "2026-04-08",
@@ -118,9 +120,9 @@
       "size": 30,
       "domain": "intune",
       "authors": [
-        "Jannik Reinhard",
+        "Oliver Kieselbach",
         "Michael Niehaus",
-        "Oliver Kieselbach"
+        "Jannik Reinhard"
       ],
       "src_count": 6,
       "latest": "2024-10-31",
@@ -135,9 +137,9 @@
       "size": 30,
       "domain": "intune",
       "authors": [
-        "Jannik Reinhard",
         "Anoop C Nair",
-        "Oliver Kieselbach"
+        "Oliver Kieselbach",
+        "Jannik Reinhard"
       ],
       "src_count": 6,
       "latest": "2026-03-28",
@@ -149,13 +151,14 @@
       "type": "topic",
       "label": "Asr Rules",
       "color": "#22c55e",
-      "size": 12,
+      "size": 16,
       "domain": "intune",
       "authors": [
-        "Daniel Chronlund"
+        "Daniel Chronlund",
+        "Thijs Lecomte"
       ],
-      "src_count": 1,
-      "latest": "2022-06-15",
+      "src_count": 2,
+      "latest": "2025-09-16",
       "pulsing": false
     },
     {
@@ -180,13 +183,14 @@
       "type": "topic",
       "label": "Attack Surface Reduction",
       "color": "#22c55e",
-      "size": 12,
+      "size": 20,
       "domain": "intune",
       "authors": [
+        "limwainstein",
         "Jeffrey"
       ],
-      "src_count": 1,
-      "latest": "2021-11-10",
+      "src_count": 3,
+      "latest": "2025-10-20",
       "pulsing": false
     },
     {
@@ -210,13 +214,14 @@
       "type": "topic",
       "label": "Laps V2",
       "color": "#22c55e",
-      "size": 24,
+      "size": 28,
       "domain": "intune",
       "authors": [
+        "James Yip",
         "Michael Morten Sonne",
         "Simon Skotheimsvik"
       ],
-      "src_count": 4,
+      "src_count": 5,
       "latest": "2025-05-20",
       "pulsing": false
     },
@@ -256,13 +261,14 @@
       "type": "topic",
       "label": "Wdac App Control",
       "color": "#22c55e",
-      "size": 20,
+      "size": 28,
       "domain": "intune",
       "authors": [
         "Anoop C Nair",
-        "Jeffrey"
+        "Jeffrey",
+        "jsuther1974"
       ],
-      "src_count": 3,
+      "src_count": 5,
       "latest": "2026-04-06",
       "pulsing": false
     },
@@ -272,14 +278,15 @@
       "type": "topic",
       "label": "Credential Guard",
       "color": "#22c55e",
-      "size": 24,
+      "size": 28,
       "domain": "intune",
       "authors": [
         "Anoop C Nair",
-        "Oliver Kieselbach"
+        "Oliver Kieselbach",
+        "officedocspr5"
       ],
-      "src_count": 4,
-      "latest": "2025-01-16",
+      "src_count": 5,
+      "latest": "2026-03-29",
       "pulsing": false
     },
     {
@@ -291,8 +298,8 @@
       "size": 20,
       "domain": "intune",
       "authors": [
-        "Anoop C Nair",
         "lenewsad",
+        "Anoop C Nair",
         "Simon Skotheimsvik"
       ],
       "src_count": 3,
@@ -308,8 +315,8 @@
       "size": 20,
       "domain": "intune",
       "authors": [
-        "Jannik Reinhard",
-        "Oliver Kieselbach"
+        "Oliver Kieselbach",
+        "Jannik Reinhard"
       ],
       "src_count": 3,
       "latest": "2023-02-26",
@@ -339,9 +346,9 @@
       "size": 30,
       "domain": "intune",
       "authors": [
-        "Jannik Reinhard",
         "Anoop C Nair",
-        "Jeffrey"
+        "Jeffrey",
+        "Jannik Reinhard"
       ],
       "src_count": 6,
       "latest": "2025-11-14",
@@ -353,14 +360,15 @@
       "type": "topic",
       "label": "Windows Autopatch",
       "color": "#22c55e",
-      "size": 24,
+      "size": 28,
       "domain": "intune",
       "authors": [
         "Michael Morten Sonne",
         "paolomatarazzo",
+        "tiaraquan",
         "Simon Skotheimsvik"
       ],
-      "src_count": 4,
+      "src_count": 5,
       "latest": "2026-04-01",
       "pulsing": false
     },
@@ -388,8 +396,8 @@
       "size": 30,
       "domain": "intune",
       "authors": [
-        "Jannik Reinhard",
-        "Oliver Kieselbach"
+        "Oliver Kieselbach",
+        "Jannik Reinhard"
       ],
       "src_count": 6,
       "latest": "2022-10-14",
@@ -431,16 +439,17 @@
       "type": "topic",
       "label": "Winget Intune",
       "color": "#22c55e",
-      "size": 28,
+      "size": 30,
       "domain": "intune",
       "authors": [
-        "Jannik Reinhard",
         "Anoop C Nair",
-        "Simon Skotheimsvik",
-        "Oliver Kieselbach"
+        "Oliver Kieselbach",
+        "Jannik Reinhard",
+        "James Yip",
+        "Simon Skotheimsvik"
       ],
-      "src_count": 5,
-      "latest": "2024-09-16",
+      "src_count": 6,
+      "latest": "2025-08-12",
       "pulsing": false
     },
     {
@@ -497,8 +506,8 @@
       "size": 16,
       "domain": "teams",
       "authors": [
-        "officedocspr5",
-        "Daniel Chronlund"
+        "Daniel Chronlund",
+        "officedocspr5"
       ],
       "src_count": 2,
       "latest": "2025-11-19",
@@ -510,18 +519,34 @@
       "type": "topic",
       "label": "App Permission Policies",
       "color": "#06b6d4",
-      "size": 12,
+      "size": 16,
       "domain": "teams",
       "authors": [
+        "Adam Deltinger",
         "surbhigupta12"
       ],
+      "src_count": 2,
+      "latest": "2025-07-16",
+      "pulsing": false
+    },
+    {
+      "id": "sharepoint/security/sensitivity-labels",
+      "index": 33,
+      "type": "topic",
+      "label": "Sensitivity Labels",
+      "color": "#64748b",
+      "size": 12,
+      "domain": "sharepoint",
+      "authors": [
+        "Tony Redmond"
+      ],
       "src_count": 1,
-      "latest": "2024-09-04",
+      "latest": "2025-06-30",
       "pulsing": false
     },
     {
       "id": "sentinel/alerts/analytics-rule-tuning",
-      "index": 33,
+      "index": 34,
       "type": "topic",
       "label": "Analytics Rule Tuning",
       "color": "#ef4444",
@@ -536,9 +561,40 @@
     },
     {
       "id": "sentinel/architecture/cost-optimization",
-      "index": 34,
+      "index": 35,
       "type": "topic",
       "label": "Cost Optimization",
+      "color": "#ef4444",
+      "size": 16,
+      "domain": "sentinel",
+      "authors": [
+        "Jeffrey",
+        "Thijs Lecomte"
+      ],
+      "src_count": 2,
+      "latest": "2026-01-06",
+      "pulsing": false
+    },
+    {
+      "id": "sentinel/architecture/log-coverage-gaps",
+      "index": 36,
+      "type": "topic",
+      "label": "Log Coverage Gaps",
+      "color": "#ef4444",
+      "size": 12,
+      "domain": "sentinel",
+      "authors": [
+        "Thijs Lecomte"
+      ],
+      "src_count": 1,
+      "latest": "2024-07-15",
+      "pulsing": false
+    },
+    {
+      "id": "sentinel/architecture/data-connectors",
+      "index": 37,
+      "type": "topic",
+      "label": "Data Connectors",
       "color": "#ef4444",
       "size": 12,
       "domain": "sentinel",
@@ -546,43 +602,59 @@
         "Jeffrey"
       ],
       "src_count": 1,
-      "latest": "2026-01-06",
+      "latest": "2022-01-27",
       "pulsing": false
     },
     {
       "id": "sentinel/automation/playbooks-logic-apps",
-      "index": 35,
+      "index": 38,
       "type": "topic",
       "label": "Playbooks Logic Apps",
       "color": "#ef4444",
-      "size": 20,
+      "size": 28,
       "domain": "sentinel",
       "authors": [
-        "Jeffrey"
+        "Jeffrey",
+        "Thijs Lecomte"
       ],
-      "src_count": 3,
+      "src_count": 5,
       "latest": "2025-03-26",
       "pulsing": false
     },
     {
       "id": "sentinel/kql/identity-detection-queries",
-      "index": 36,
+      "index": 39,
       "type": "topic",
       "label": "Identity Detection Queries",
       "color": "#ef4444",
       "size": 30,
       "domain": "sentinel",
       "authors": [
-        "Bert-Jan Pals",
-        "Daniel Chronlund"
+        "Daniel Chronlund",
+        "Bert-Jan Pals"
       ],
       "src_count": 6,
       "latest": "2022-10-03",
       "pulsing": false
     },
     {
+      "id": "sentinel/incidents/incident-management",
+      "index": 40,
+      "type": "topic",
+      "label": "Incident Management",
+      "color": "#ef4444",
+      "size": 12,
+      "domain": "sentinel",
+      "authors": [
+        "Thomas Naunheim"
+      ],
+      "src_count": 1,
+      "latest": "2024-01-12",
+      "pulsing": false
+    },
+    {
       "id": "azure/network/global-secure-access",
-      "index": 37,
+      "index": 41,
       "type": "topic",
       "label": "Global Secure Access",
       "color": "#eab308",
@@ -597,7 +669,7 @@
     },
     {
       "id": "azure/app-proxy/app-proxy-configuration",
-      "index": 38,
+      "index": 42,
       "type": "topic",
       "label": "App Proxy Configuration",
       "color": "#eab308",
@@ -611,26 +683,42 @@
       "pulsing": false
     },
     {
+      "id": "azure/avd/avd-security-baseline",
+      "index": 43,
+      "type": "topic",
+      "label": "Avd Security Baseline",
+      "color": "#eab308",
+      "size": 16,
+      "domain": "azure",
+      "authors": [
+        "cawerner",
+        "kenwith"
+      ],
+      "src_count": 2,
+      "latest": "2025-06-20",
+      "pulsing": false
+    },
+    {
       "id": "azure/monitoring/azure-monitor-log-analytics",
-      "index": 39,
+      "index": 44,
       "type": "topic",
       "label": "Azure Monitor Log Analytics",
       "color": "#eab308",
-      "size": 28,
+      "size": 30,
       "domain": "azure",
       "authors": [
-        "Jannik Reinhard",
-        "Bert-Jan Pals",
         "Jeffrey",
-        "Oliver Kieselbach"
+        "Oliver Kieselbach",
+        "Jannik Reinhard",
+        "Bert-Jan Pals"
       ],
-      "src_count": 5,
+      "src_count": 6,
       "latest": "2025-08-04",
       "pulsing": false
     },
     {
       "id": "identity/conditional-access/legacy-auth-blocking",
-      "index": 40,
+      "index": 45,
       "type": "topic",
       "label": "Legacy Auth Blocking",
       "color": "#3b82f6",
@@ -645,7 +733,7 @@
     },
     {
       "id": "identity/conditional-access/authentication-flows",
-      "index": 41,
+      "index": 46,
       "type": "topic",
       "label": "Authentication Flows",
       "color": "#3b82f6",
@@ -660,7 +748,7 @@
     },
     {
       "id": "identity/conditional-access/aitm-defence",
-      "index": 42,
+      "index": 47,
       "type": "topic",
       "label": "Aitm Defence",
       "color": "#3b82f6",
@@ -675,22 +763,24 @@
     },
     {
       "id": "identity/conditional-access/token-protection",
-      "index": 43,
+      "index": 48,
       "type": "topic",
       "label": "Token Protection",
       "color": "#3b82f6",
-      "size": 12,
+      "size": 20,
       "domain": "identity",
       "authors": [
-        "Jeffrey"
+        "Jeffrey",
+        "kenwith",
+        "Thomas Naunheim"
       ],
-      "src_count": 1,
-      "latest": "2020-10-22",
+      "src_count": 3,
+      "latest": "2026-03-24",
       "pulsing": false
     },
     {
       "id": "identity/conditional-access/device-code-flow-blocking",
-      "index": 44,
+      "index": 49,
       "type": "topic",
       "label": "Device Code Flow Blocking",
       "color": "#3b82f6",
@@ -706,7 +796,7 @@
     },
     {
       "id": "identity/conditional-access/compliant-device-requirement",
-      "index": 45,
+      "index": 50,
       "type": "topic",
       "label": "Compliant Device Requirement",
       "color": "#3b82f6",
@@ -721,18 +811,18 @@
     },
     {
       "id": "identity/entra-id/passwordless-authentication",
-      "index": 46,
+      "index": 51,
       "type": "topic",
       "label": "Passwordless Authentication",
       "color": "#3b82f6",
       "size": 30,
       "domain": "identity",
       "authors": [
+        "Jeffrey",
         "Jannik Reinhard",
-        "Simon Skotheimsvik",
-        "Daniel Chronlund",
         "Jan Bakker",
-        "Jeffrey"
+        "Daniel Chronlund",
+        "Simon Skotheimsvik"
       ],
       "src_count": 6,
       "latest": "2025-12-19",
@@ -740,39 +830,42 @@
     },
     {
       "id": "identity/entra-id/external-identities",
-      "index": 47,
+      "index": 52,
       "type": "topic",
       "label": "External Identities",
       "color": "#3b82f6",
-      "size": 28,
+      "size": 30,
       "domain": "identity",
       "authors": [
+        "Michael Morten Sonne",
         "Jeffrey",
         "Daniel Chronlund",
-        "Michael Morten Sonne"
+        "Thomas Naunheim"
       ],
-      "src_count": 5,
+      "src_count": 6,
       "latest": "2025-12-06",
       "pulsing": false
     },
     {
       "id": "identity/entra-id/admin-consent-workflow",
-      "index": 48,
+      "index": 53,
       "type": "topic",
       "label": "Admin Consent Workflow",
       "color": "#3b82f6",
-      "size": 16,
+      "size": 24,
       "domain": "identity",
       "authors": [
-        "Jeffrey"
+        "Mezba Uddin",
+        "Jeffrey",
+        "Thomas Naunheim"
       ],
-      "src_count": 2,
-      "latest": "2022-02-02",
+      "src_count": 4,
+      "latest": "2025-08-26",
       "pulsing": false
     },
     {
       "id": "identity/entra-id/mfa-registration-policy",
-      "index": 49,
+      "index": 54,
       "type": "topic",
       "label": "Mfa Registration Policy",
       "color": "#3b82f6",
@@ -786,24 +879,40 @@
       "pulsing": false
     },
     {
+      "id": "identity/entra-id/identity-governance",
+      "index": 55,
+      "type": "topic",
+      "label": "Identity Governance",
+      "color": "#3b82f6",
+      "size": 16,
+      "domain": "identity",
+      "authors": [
+        "Thomas Naunheim"
+      ],
+      "src_count": 2,
+      "latest": "2022-12-20",
+      "pulsing": false
+    },
+    {
       "id": "identity/entra-id/entra-id-protection",
-      "index": 50,
+      "index": 56,
       "type": "topic",
       "label": "Entra Id Protection",
       "color": "#3b82f6",
-      "size": 24,
+      "size": 28,
       "domain": "identity",
       "authors": [
         "Michael Morten Sonne",
-        "Jeffrey"
+        "Jeffrey",
+        "shlipsey3"
       ],
-      "src_count": 4,
+      "src_count": 5,
       "latest": "2026-03-24",
       "pulsing": false
     },
     {
       "id": "identity/entra-id/service-principal-governance",
-      "index": 51,
+      "index": 57,
       "type": "topic",
       "label": "Service Principal Governance",
       "color": "#3b82f6",
@@ -819,71 +928,75 @@
     },
     {
       "id": "identity/entra-id/graph-api-permissions",
-      "index": 52,
+      "index": 58,
       "type": "topic",
       "label": "Graph Api Permissions",
       "color": "#3b82f6",
-      "size": 28,
+      "size": 30,
       "domain": "identity",
       "authors": [
         "Michael Morten Sonne",
+        "Thomas Naunheim",
         "Jeffrey",
-        "Daniel Chronlund",
-        "Jan Bakker"
+        "Jan Bakker",
+        "Daniel Chronlund"
       ],
-      "src_count": 5,
+      "src_count": 6,
       "latest": "2026-03-06",
       "pulsing": false
     },
     {
       "id": "identity/pim/tiered-administration",
-      "index": 53,
+      "index": 59,
       "type": "topic",
       "label": "Tiered Administration",
       "color": "#3b82f6",
-      "size": 12,
+      "size": 16,
       "domain": "identity",
       "authors": [
-        "Daniel Chronlund"
+        "Daniel Chronlund",
+        "Thomas Naunheim"
       ],
-      "src_count": 1,
+      "src_count": 2,
       "latest": "2022-01-13",
       "pulsing": false
     },
     {
       "id": "identity/pim/pim-for-groups",
-      "index": 54,
+      "index": 60,
       "type": "topic",
       "label": "Pim For Groups",
       "color": "#3b82f6",
-      "size": 12,
+      "size": 16,
       "domain": "identity",
       "authors": [
-        "kenwith"
+        "kenwith",
+        "Thomas Naunheim"
       ],
-      "src_count": 1,
+      "src_count": 2,
       "latest": "2026-03-23",
       "pulsing": false
     },
     {
       "id": "identity/pim/break-glass-accounts",
-      "index": 55,
+      "index": 61,
       "type": "topic",
       "label": "Break Glass Accounts",
       "color": "#3b82f6",
-      "size": 28,
+      "size": 30,
       "domain": "identity",
       "authors": [
+        "Julian Stephan",
         "Jeffrey",
         "Daniel Chronlund"
       ],
-      "src_count": 5,
-      "latest": "2023-01-25",
+      "src_count": 6,
+      "latest": "2023-09-28",
       "pulsing": false
     },
     {
       "id": "identity/hybrid/password-hash-sync",
-      "index": 56,
+      "index": 62,
       "type": "topic",
       "label": "Password Hash Sync",
       "color": "#3b82f6",
@@ -898,22 +1011,23 @@
     },
     {
       "id": "identity/hybrid/entra-connect-hardening",
-      "index": 57,
+      "index": 63,
       "type": "topic",
       "label": "Entra Connect Hardening",
       "color": "#3b82f6",
-      "size": 24,
+      "size": 28,
       "domain": "identity",
       "authors": [
-        "Michael Morten Sonne"
+        "Michael Morten Sonne",
+        "Brandon Colley"
       ],
-      "src_count": 4,
-      "latest": "2025-01-28",
+      "src_count": 5,
+      "latest": "2025-12-03",
       "pulsing": false
     },
     {
       "id": "exchange/security/smtp-auth-disable",
-      "index": 58,
+      "index": 64,
       "type": "topic",
       "label": "Smtp Auth Disable",
       "color": "#a855f7",
@@ -928,7 +1042,7 @@
     },
     {
       "id": "author::jeffrey",
-      "index": 59,
+      "index": 65,
       "type": "author",
       "label": "Jeffrey",
       "color": "#f1f5f9",
@@ -940,12 +1054,38 @@
       "pulsing": false
     },
     {
+      "id": "author::paulinbar",
+      "index": 66,
+      "type": "author",
+      "label": "paulinbar",
+      "color": "#f1f5f9",
+      "size": 13,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
       "id": "author::limwainstein",
-      "index": 60,
+      "index": 67,
       "type": "author",
       "label": "limwainstein",
       "color": "#f1f5f9",
-      "size": 16,
+      "size": 19,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
+      "id": "author::elazark",
+      "index": 68,
+      "type": "author",
+      "label": "ElazarK",
+      "color": "#f1f5f9",
+      "size": 13,
       "domain": "",
       "authors": [],
       "src_count": 0,
@@ -954,7 +1094,7 @@
     },
     {
       "id": "author::anoop_c_nair",
-      "index": 61,
+      "index": 69,
       "type": "author",
       "label": "Anoop C Nair",
       "color": "#f1f5f9",
@@ -966,21 +1106,8 @@
       "pulsing": false
     },
     {
-      "id": "author::jannik_reinhard",
-      "index": 62,
-      "type": "author",
-      "label": "Jannik Reinhard",
-      "color": "#f1f5f9",
-      "size": 35,
-      "domain": "",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": false
-    },
-    {
       "id": "author::oliver_kieselbach",
-      "index": 63,
+      "index": 70,
       "type": "author",
       "label": "Oliver Kieselbach",
       "color": "#f1f5f9",
@@ -992,8 +1119,21 @@
       "pulsing": false
     },
     {
+      "id": "author::jannik_reinhard",
+      "index": 71,
+      "type": "author",
+      "label": "Jannik Reinhard",
+      "color": "#f1f5f9",
+      "size": 35,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
       "id": "author::michael_niehaus",
-      "index": 64,
+      "index": 72,
       "type": "author",
       "label": "Michael Niehaus",
       "color": "#f1f5f9",
@@ -1006,7 +1146,7 @@
     },
     {
       "id": "author::daniel_chronlund",
-      "index": 65,
+      "index": 73,
       "type": "author",
       "label": "Daniel Chronlund",
       "color": "#f1f5f9",
@@ -1018,8 +1158,34 @@
       "pulsing": false
     },
     {
+      "id": "author::thijs_lecomte",
+      "index": 74,
+      "type": "author",
+      "label": "Thijs Lecomte",
+      "color": "#f1f5f9",
+      "size": 22,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
+      "id": "author::james_yip",
+      "index": 75,
+      "type": "author",
+      "label": "James Yip",
+      "color": "#f1f5f9",
+      "size": 16,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
       "id": "author::michael_morten_sonne",
-      "index": 66,
+      "index": 76,
       "type": "author",
       "label": "Michael Morten Sonne",
       "color": "#f1f5f9",
@@ -1032,7 +1198,7 @@
     },
     {
       "id": "author::simon_skotheimsvik",
-      "index": 67,
+      "index": 77,
       "type": "author",
       "label": "Simon Skotheimsvik",
       "color": "#f1f5f9",
@@ -1044,8 +1210,34 @@
       "pulsing": false
     },
     {
+      "id": "author::jsuther1974",
+      "index": 78,
+      "type": "author",
+      "label": "jsuther1974",
+      "color": "#f1f5f9",
+      "size": 13,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
+      "id": "author::officedocspr5",
+      "index": 79,
+      "type": "author",
+      "label": "officedocspr5",
+      "color": "#f1f5f9",
+      "size": 16,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
       "id": "author::lenewsad",
-      "index": 68,
+      "index": 80,
       "type": "author",
       "label": "lenewsad",
       "color": "#f1f5f9",
@@ -1058,7 +1250,7 @@
     },
     {
       "id": "author::paolomatarazzo",
-      "index": 69,
+      "index": 81,
       "type": "author",
       "label": "paolomatarazzo",
       "color": "#f1f5f9",
@@ -1070,10 +1262,23 @@
       "pulsing": false
     },
     {
-      "id": "author::officedocspr5",
-      "index": 70,
+      "id": "author::tiaraquan",
+      "index": 82,
       "type": "author",
-      "label": "officedocspr5",
+      "label": "tiaraquan",
+      "color": "#f1f5f9",
+      "size": 13,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
+      "id": "author::adam_deltinger",
+      "index": 83,
+      "type": "author",
+      "label": "Adam Deltinger",
       "color": "#f1f5f9",
       "size": 13,
       "domain": "",
@@ -1084,7 +1289,7 @@
     },
     {
       "id": "author::surbhigupta12",
-      "index": 71,
+      "index": 84,
       "type": "author",
       "label": "surbhigupta12",
       "color": "#f1f5f9",
@@ -1096,8 +1301,21 @@
       "pulsing": false
     },
     {
+      "id": "author::tony_redmond",
+      "index": 85,
+      "type": "author",
+      "label": "Tony Redmond",
+      "color": "#f1f5f9",
+      "size": 13,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
       "id": "author::guywi-ms",
-      "index": 72,
+      "index": 86,
       "type": "author",
       "label": "guywi-ms",
       "color": "#f1f5f9",
@@ -1110,7 +1328,7 @@
     },
     {
       "id": "author::bert-jan_pals",
-      "index": 73,
+      "index": 87,
       "type": "author",
       "label": "Bert-Jan Pals",
       "color": "#f1f5f9",
@@ -1122,8 +1340,47 @@
       "pulsing": false
     },
     {
+      "id": "author::thomas_naunheim",
+      "index": 88,
+      "type": "author",
+      "label": "Thomas Naunheim",
+      "color": "#f1f5f9",
+      "size": 34,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
+      "id": "author::cawerner",
+      "index": 89,
+      "type": "author",
+      "label": "cawerner",
+      "color": "#f1f5f9",
+      "size": 13,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
+      "id": "author::kenwith",
+      "index": 90,
+      "type": "author",
+      "label": "kenwith",
+      "color": "#f1f5f9",
+      "size": 19,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
       "id": "author::jan_bakker",
-      "index": 74,
+      "index": 91,
       "type": "author",
       "label": "Jan Bakker",
       "color": "#f1f5f9",
@@ -1135,10 +1392,36 @@
       "pulsing": false
     },
     {
-      "id": "author::kenwith",
-      "index": 75,
+      "id": "author::mezba_uddin",
+      "index": 92,
       "type": "author",
-      "label": "kenwith",
+      "label": "Mezba Uddin",
+      "color": "#f1f5f9",
+      "size": 13,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
+      "id": "author::shlipsey3",
+      "index": 93,
+      "type": "author",
+      "label": "shlipsey3",
+      "color": "#f1f5f9",
+      "size": 13,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
+      "id": "author::julian_stephan",
+      "index": 94,
+      "type": "author",
+      "label": "Julian Stephan",
       "color": "#f1f5f9",
       "size": 13,
       "domain": "",
@@ -1149,7 +1432,7 @@
     },
     {
       "id": "author::omondiatieno",
-      "index": 76,
+      "index": 95,
       "type": "author",
       "label": "omondiatieno",
       "color": "#f1f5f9",
@@ -1161,8 +1444,21 @@
       "pulsing": false
     },
     {
+      "id": "author::brandon_colley",
+      "index": 96,
+      "type": "author",
+      "label": "Brandon Colley",
+      "color": "#f1f5f9",
+      "size": 13,
+      "domain": "",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": false
+    },
+    {
       "id": "author::ashaiyengar21",
-      "index": 77,
+      "index": 97,
       "type": "author",
       "label": "AshaIyengar21",
       "color": "#f1f5f9",
@@ -1174,21 +1470,8 @@
       "pulsing": false
     },
     {
-      "id": "identity/entra-id/authentication-methods-policy",
-      "index": 78,
-      "type": "gap",
-      "label": "Authentication Methods Policy",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "identity",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
       "id": "defender/mde/attack-surface-reduction-mde",
-      "index": 79,
+      "index": 98,
       "type": "gap",
       "label": "Attack Surface Reduction Mde",
       "color": "#ef4444",
@@ -1200,385 +1483,8 @@
       "pulsing": true
     },
     {
-      "id": "identity/conditional-access/named-locations",
-      "index": 80,
-      "type": "gap",
-      "label": "Named Locations",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "identity",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "identity/hybrid/seamless-sso",
-      "index": 81,
-      "type": "gap",
-      "label": "Seamless Sso",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "identity",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "azure/identity/managed-identities",
-      "index": 82,
-      "type": "gap",
-      "label": "Managed Identities",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "azure",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "exchange/migration/ews-to-graph-migration",
-      "index": 83,
-      "type": "gap",
-      "label": "Ews To Graph Migration",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "exchange",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "exchange/security/external-email-warning",
-      "index": 84,
-      "type": "gap",
-      "label": "External Email Warning",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "exchange",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "identity/entra-id/privileged-access-groups",
-      "index": 85,
-      "type": "gap",
-      "label": "Privileged Access Groups",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "identity",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "defender/mdo/threat-explorer",
-      "index": 86,
-      "type": "gap",
-      "label": "Threat Explorer",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "defender",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "exchange/mail-flow/inbox-rules-exfiltration",
-      "index": 87,
-      "type": "gap",
-      "label": "Inbox Rules Exfiltration",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "exchange",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "sentinel/hunting/threat-hunting-queries",
-      "index": 88,
-      "type": "gap",
-      "label": "Threat Hunting Queries",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "sentinel",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "sharepoint/security/sharing-policies",
-      "index": 89,
-      "type": "gap",
-      "label": "Sharing Policies",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "sharepoint",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "sentinel/architecture/log-coverage-gaps",
-      "index": 90,
-      "type": "gap",
-      "label": "Log Coverage Gaps",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "sentinel",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "identity/hybrid/golden-saml",
-      "index": 91,
-      "type": "gap",
-      "label": "Golden Saml",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "identity",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "intune/deployment/autopilot-troubleshooting",
-      "index": 92,
-      "type": "gap",
-      "label": "Autopilot Troubleshooting",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "intune",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "sentinel/architecture/workspace-design",
-      "index": 93,
-      "type": "gap",
-      "label": "Workspace Design",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "sentinel",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "exchange/security/mail-transport-rules",
-      "index": 94,
-      "type": "gap",
-      "label": "Mail Transport Rules",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "exchange",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "identity/conditional-access/ca-gap-analysis",
-      "index": 95,
-      "type": "gap",
-      "label": "Ca Gap Analysis",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "identity",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "intune/configuration/kiosk-mode",
-      "index": 96,
-      "type": "gap",
-      "label": "Kiosk Mode",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "intune",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "windows/security/windows-hello-for-business",
-      "index": 97,
-      "type": "gap",
-      "label": "Windows Hello For Business",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "windows",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "teams/governance/teams-lifecycle",
-      "index": 98,
-      "type": "gap",
-      "label": "Teams Lifecycle",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "teams",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "sentinel/kql/lateral-movement-queries",
-      "index": 99,
-      "type": "gap",
-      "label": "Lateral Movement Queries",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "sentinel",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "azure/key-vault/key-vault-rbac",
-      "index": 100,
-      "type": "gap",
-      "label": "Key Vault Rbac",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "azure",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "azure/avd/avd-security-baseline",
-      "index": 101,
-      "type": "gap",
-      "label": "Avd Security Baseline",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "azure",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "sentinel/kql/privilege-escalation-queries",
-      "index": 102,
-      "type": "gap",
-      "label": "Privilege Escalation Queries",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "sentinel",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "identity/entra-id/conditional-access-workload-identities",
-      "index": 103,
-      "type": "gap",
-      "label": "Conditional Access Workload Identities",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "identity",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "sharepoint/security/sensitivity-labels",
-      "index": 104,
-      "type": "gap",
-      "label": "Sensitivity Labels",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "sharepoint",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "defender/mde/mde-onboarding",
-      "index": 105,
-      "type": "gap",
-      "label": "Mde Onboarding",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "defender",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "sentinel/incidents/incident-management",
-      "index": 106,
-      "type": "gap",
-      "label": "Incident Management",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "sentinel",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "exchange/hybrid/hybrid-configuration",
-      "index": 107,
-      "type": "gap",
-      "label": "Hybrid Configuration",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "exchange",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
-      "id": "identity/entra-id/identity-governance",
-      "index": 108,
-      "type": "gap",
-      "label": "Identity Governance",
-      "color": "#ef4444",
-      "size": 8,
-      "domain": "identity",
-      "authors": [],
-      "src_count": 0,
-      "latest": "",
-      "pulsing": true
-    },
-    {
       "id": "intune/automation/graph-api-intune",
-      "index": 109,
+      "index": 99,
       "type": "gap",
       "label": "Graph Api Intune",
       "color": "#ef4444",
@@ -1590,8 +1496,34 @@
       "pulsing": true
     },
     {
+      "id": "sentinel/kql/privilege-escalation-queries",
+      "index": 100,
+      "type": "gap",
+      "label": "Privilege Escalation Queries",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "sentinel",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "intune/configuration/kiosk-mode",
+      "index": 101,
+      "type": "gap",
+      "label": "Kiosk Mode",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "intune",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
       "id": "azure/network/private-endpoints",
-      "index": 110,
+      "index": 102,
       "type": "gap",
       "label": "Private Endpoints",
       "color": "#ef4444",
@@ -1603,23 +1535,49 @@
       "pulsing": true
     },
     {
-      "id": "defender/mdo/anti-phishing-policies",
-      "index": 111,
+      "id": "exchange/security/mail-transport-rules",
+      "index": 103,
       "type": "gap",
-      "label": "Anti Phishing Policies",
+      "label": "Mail Transport Rules",
       "color": "#ef4444",
       "size": 8,
-      "domain": "defender",
+      "domain": "exchange",
       "authors": [],
       "src_count": 0,
       "latest": "",
       "pulsing": true
     },
     {
-      "id": "sentinel/architecture/data-connectors",
-      "index": 112,
+      "id": "identity/hybrid/seamless-sso",
+      "index": 104,
       "type": "gap",
-      "label": "Data Connectors",
+      "label": "Seamless Sso",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "identity",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "identity/entra-id/privileged-access-groups",
+      "index": 105,
+      "type": "gap",
+      "label": "Privileged Access Groups",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "identity",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "sentinel/hunting/threat-hunting-queries",
+      "index": 106,
+      "type": "gap",
+      "label": "Threat Hunting Queries",
       "color": "#ef4444",
       "size": 8,
       "domain": "sentinel",
@@ -1629,10 +1587,10 @@
       "pulsing": true
     },
     {
-      "id": "intune/deployment/autopilot-hybrid-join",
-      "index": 113,
+      "id": "intune/deployment/autopilot-troubleshooting",
+      "index": 107,
       "type": "gap",
-      "label": "Autopilot Hybrid Join",
+      "label": "Autopilot Troubleshooting",
       "color": "#ef4444",
       "size": 8,
       "domain": "intune",
@@ -1642,13 +1600,13 @@
       "pulsing": true
     },
     {
-      "id": "intune/deployment/autopilot-self-deploying",
-      "index": 114,
+      "id": "teams/governance/teams-lifecycle",
+      "index": 108,
       "type": "gap",
-      "label": "Autopilot Self Deploying",
+      "label": "Teams Lifecycle",
       "color": "#ef4444",
       "size": 8,
-      "domain": "intune",
+      "domain": "teams",
       "authors": [],
       "src_count": 0,
       "latest": "",
@@ -1656,7 +1614,7 @@
     },
     {
       "id": "teams/security/teams-security-baseline",
-      "index": 115,
+      "index": 109,
       "type": "gap",
       "label": "Teams Security Baseline",
       "color": "#ef4444",
@@ -1668,8 +1626,268 @@
       "pulsing": true
     },
     {
-      "id": "identity/conditional-access/ca-as-code",
+      "id": "identity/conditional-access/ca-gap-analysis",
+      "index": 110,
+      "type": "gap",
+      "label": "Ca Gap Analysis",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "identity",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "exchange/hybrid/hybrid-configuration",
+      "index": 111,
+      "type": "gap",
+      "label": "Hybrid Configuration",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "exchange",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "exchange/mail-flow/inbox-rules-exfiltration",
+      "index": 112,
+      "type": "gap",
+      "label": "Inbox Rules Exfiltration",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "exchange",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "azure/key-vault/key-vault-rbac",
+      "index": 113,
+      "type": "gap",
+      "label": "Key Vault Rbac",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "azure",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "defender/mdo/anti-phishing-policies",
+      "index": 114,
+      "type": "gap",
+      "label": "Anti Phishing Policies",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "defender",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "windows/security/windows-hello-for-business",
+      "index": 115,
+      "type": "gap",
+      "label": "Windows Hello For Business",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "windows",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "azure/identity/managed-identities",
       "index": 116,
+      "type": "gap",
+      "label": "Managed Identities",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "azure",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "identity/entra-id/conditional-access-workload-identities",
+      "index": 117,
+      "type": "gap",
+      "label": "Conditional Access Workload Identities",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "identity",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "intune/deployment/autopilot-hybrid-join",
+      "index": 118,
+      "type": "gap",
+      "label": "Autopilot Hybrid Join",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "intune",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "exchange/migration/ews-to-graph-migration",
+      "index": 119,
+      "type": "gap",
+      "label": "Ews To Graph Migration",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "exchange",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "sentinel/kql/lateral-movement-queries",
+      "index": 120,
+      "type": "gap",
+      "label": "Lateral Movement Queries",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "sentinel",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "sharepoint/security/sharing-policies",
+      "index": 121,
+      "type": "gap",
+      "label": "Sharing Policies",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "sharepoint",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "sentinel/architecture/workspace-design",
+      "index": 122,
+      "type": "gap",
+      "label": "Workspace Design",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "sentinel",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "identity/hybrid/golden-saml",
+      "index": 123,
+      "type": "gap",
+      "label": "Golden Saml",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "identity",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "identity/conditional-access/named-locations",
+      "index": 124,
+      "type": "gap",
+      "label": "Named Locations",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "identity",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "defender/mde/mde-onboarding",
+      "index": 125,
+      "type": "gap",
+      "label": "Mde Onboarding",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "defender",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "exchange/security/external-email-warning",
+      "index": 126,
+      "type": "gap",
+      "label": "External Email Warning",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "exchange",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "identity/entra-id/authentication-methods-policy",
+      "index": 127,
+      "type": "gap",
+      "label": "Authentication Methods Policy",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "identity",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "defender/mdo/threat-explorer",
+      "index": 128,
+      "type": "gap",
+      "label": "Threat Explorer",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "defender",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "identity/pim/no-permanent-global-admin",
+      "index": 129,
+      "type": "gap",
+      "label": "No Permanent Global Admin",
+      "color": "#ef4444",
+      "size": 8,
+      "domain": "identity",
+      "authors": [],
+      "src_count": 0,
+      "latest": "",
+      "pulsing": true
+    },
+    {
+      "id": "identity/conditional-access/ca-as-code",
+      "index": 130,
       "type": "gap",
       "label": "Ca As Code",
       "color": "#ef4444",
@@ -1681,13 +1899,13 @@
       "pulsing": true
     },
     {
-      "id": "identity/pim/no-permanent-global-admin",
-      "index": 117,
+      "id": "intune/deployment/autopilot-self-deploying",
+      "index": 131,
       "type": "gap",
-      "label": "No Permanent Global Admin",
+      "label": "Autopilot Self Deploying",
       "color": "#ef4444",
       "size": 8,
-      "domain": "identity",
+      "domain": "intune",
       "authors": [],
       "src_count": 0,
       "latest": "",
@@ -1704,7 +1922,7 @@
     },
     {
       "source": 2,
-      "target": 42,
+      "target": 47,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
@@ -1718,7 +1936,7 @@
     },
     {
       "source": 6,
-      "target": 10,
+      "target": 11,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
@@ -1745,6 +1963,20 @@
       "weight": 1
     },
     {
+      "source": 11,
+      "target": 44,
+      "type": "REQUIRES",
+      "color": "#22c55e",
+      "weight": 0.4
+    },
+    {
+      "source": 11,
+      "target": 10,
+      "type": "CONTRADICTS",
+      "color": "#ef4444",
+      "weight": 1
+    },
+    {
       "source": 12,
       "target": 15,
       "type": "REQUIRES",
@@ -1753,7 +1985,7 @@
     },
     {
       "source": 12,
-      "target": 45,
+      "target": 50,
       "type": "REQUIRES",
       "color": "#22c55e",
       "weight": 0.41
@@ -1767,7 +1999,7 @@
     },
     {
       "source": 15,
-      "target": 36,
+      "target": 35,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
@@ -1844,21 +2076,14 @@
     },
     {
       "source": 32,
-      "target": 54,
-      "type": "REQUIRES",
-      "color": "#22c55e",
-      "weight": 0.36
-    },
-    {
-      "source": 36,
       "target": 5,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
     },
     {
-      "source": 37,
-      "target": 0,
+      "source": 35,
+      "target": 38,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
@@ -1872,94 +2097,87 @@
     },
     {
       "source": 39,
-      "target": 37,
-      "type": "CONTRADICTS",
-      "color": "#ef4444",
-      "weight": 1
-    },
-    {
-      "source": 40,
-      "target": 58,
-      "type": "REQUIRES",
-      "color": "#22c55e",
-      "weight": 0.42
-    },
-    {
-      "source": 40,
-      "target": 48,
+      "target": 32,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
     },
     {
       "source": 41,
-      "target": 44,
+      "target": 0,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
     },
     {
       "source": 42,
+      "target": 44,
+      "type": "CONTRADICTS",
+      "color": "#ef4444",
+      "weight": 1
+    },
+    {
+      "source": 43,
+      "target": 60,
+      "type": "REQUIRES",
+      "color": "#22c55e",
+      "weight": 0.36
+    },
+    {
+      "source": 44,
       "target": 41,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
     },
     {
-      "source": 44,
-      "target": 40,
-      "type": "CONTRADICTS",
-      "color": "#ef4444",
-      "weight": 1
+      "source": 45,
+      "target": 64,
+      "type": "REQUIRES",
+      "color": "#22c55e",
+      "weight": 0.42
     },
     {
       "source": 45,
-      "target": 49,
-      "type": "REQUIRES",
-      "color": "#22c55e",
-      "weight": 0.39
+      "target": 48,
+      "type": "CONTRADICTS",
+      "color": "#ef4444",
+      "weight": 1
     },
     {
       "source": 46,
-      "target": 51,
+      "target": 49,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
     },
     {
       "source": 47,
-      "target": 57,
-      "type": "REQUIRES",
-      "color": "#22c55e",
-      "weight": 0.39
-    },
-    {
-      "source": 47,
-      "target": 52,
+      "target": 46,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
     },
     {
       "source": 48,
-      "target": 57,
-      "type": "REQUIRES",
-      "color": "#22c55e",
-      "weight": 0.36
+      "target": 53,
+      "type": "CONTRADICTS",
+      "color": "#ef4444",
+      "weight": 1
     },
     {
-      "source": 48,
-      "target": 50,
+      "source": 49,
+      "target": 45,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
     },
     {
       "source": 50,
-      "target": 47,
-      "type": "CONTRADICTS",
-      "color": "#ef4444",
-      "weight": 1
+      "target": 54,
+      "type": "REQUIRES",
+      "color": "#22c55e",
+      "weight": 0.39
     },
     {
       "source": 51,
@@ -1970,490 +2188,140 @@
     },
     {
       "source": 52,
-      "target": 46,
+      "target": 58,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
     },
     {
+      "source": 53,
+      "target": 56,
+      "type": "CONTRADICTS",
+      "color": "#ef4444",
+      "weight": 1
+    },
+    {
+      "source": 54,
+      "target": 60,
+      "type": "REQUIRES",
+      "color": "#22c55e",
+      "weight": 0.38
+    },
+    {
       "source": 55,
-      "target": 29,
+      "target": 51,
+      "type": "CONTRADICTS",
+      "color": "#ef4444",
+      "weight": 1
+    },
+    {
+      "source": 56,
+      "target": 52,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
     },
     {
       "source": 57,
+      "target": 63,
+      "type": "CONTRADICTS",
+      "color": "#ef4444",
+      "weight": 1
+    },
+    {
+      "source": 58,
       "target": 55,
       "type": "CONTRADICTS",
       "color": "#ef4444",
       "weight": 1
     },
     {
-      "source": 59,
+      "source": 61,
+      "target": 29,
+      "type": "CONTRADICTS",
+      "color": "#ef4444",
+      "weight": 1
+    },
+    {
+      "source": 63,
+      "target": 61,
+      "type": "CONTRADICTS",
+      "color": "#ef4444",
+      "weight": 1
+    },
+    {
+      "source": 65,
       "target": 0,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
-      "source": 59,
+      "source": 65,
       "target": 2,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
-      "source": 59,
+      "source": 65,
       "target": 3,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
-      "source": 59,
+      "source": 65,
       "target": 11,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
-      "source": 59,
+      "source": 65,
       "target": 16,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
-      "source": 59,
+      "source": 65,
       "target": 21,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
-      "source": 59,
-      "target": 34,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 59,
+      "source": 65,
       "target": 35,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
-      "source": 59,
-      "target": 39,
+      "source": 65,
+      "target": 37,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
-      "source": 59,
-      "target": 40,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 59,
-      "target": 42,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 59,
-      "target": 43,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 59,
-      "target": 44,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 59,
-      "target": 46,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 59,
-      "target": 47,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 59,
-      "target": 48,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 59,
-      "target": 50,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 59,
-      "target": 52,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 59,
-      "target": 55,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 60,
-      "target": 1,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 60,
-      "target": 2,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 4,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 5,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 6,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 8,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 10,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 12,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 15,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 16,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 17,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 18,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 20,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 21,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 27,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 61,
-      "target": 29,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 5,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 6,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 7,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 8,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 14,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 19,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 21,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 23,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 24,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 25,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 27,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 28,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 39,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 62,
-      "target": 46,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 63,
-      "target": 5,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 63,
-      "target": 7,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 63,
-      "target": 8,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 63,
-      "target": 10,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 63,
-      "target": 17,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 63,
-      "target": 19,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 63,
-      "target": 24,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 63,
-      "target": 26,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 63,
-      "target": 27,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 63,
-      "target": 30,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 63,
+      "source": 65,
       "target": 38,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
-      "source": 63,
-      "target": 39,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 64,
-      "target": 7,
+      "source": 65,
+      "target": 44,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
       "source": 65,
-      "target": 9,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 65,
-      "target": 31,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 65,
-      "target": 36,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 65,
-      "target": 41,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 65,
-      "target": 46,
+      "target": 45,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
@@ -2461,6 +2329,27 @@
     {
       "source": 65,
       "target": 47,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 65,
+      "target": 48,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 65,
+      "target": 49,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 65,
+      "target": 51,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
@@ -2481,104 +2370,125 @@
     },
     {
       "source": 65,
-      "target": 55,
+      "target": 56,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 65,
+      "target": 58,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 65,
+      "target": 61,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
       "source": 66,
-      "target": 13,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 66,
-      "target": 22,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 66,
-      "target": 37,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 66,
-      "target": 47,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 66,
-      "target": 50,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 66,
-      "target": 51,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 66,
-      "target": 52,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 66,
-      "target": 57,
+      "target": 0,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
       "source": 67,
-      "target": 13,
+      "target": 1,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
       "source": 67,
-      "target": 18,
+      "target": 2,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
       "source": 67,
-      "target": 22,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 67,
-      "target": 27,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 67,
-      "target": 46,
+      "target": 11,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
       "source": 68,
+      "target": 2,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
+      "target": 4,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
+      "target": 5,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
+      "target": 6,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
+      "target": 8,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
+      "target": 10,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
+      "target": 12,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
+      "target": 15,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
+      "target": 16,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
+      "target": 17,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
       "target": 18,
       "type": "CITED_BY",
       "color": "#a855f7",
@@ -2586,35 +2496,231 @@
     },
     {
       "source": 69,
-      "target": 22,
+      "target": 20,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
+      "target": 21,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
+      "target": 27,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 69,
+      "target": 29,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
       "source": 70,
-      "target": 31,
+      "target": 5,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 70,
+      "target": 7,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 70,
+      "target": 8,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 70,
+      "target": 10,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 70,
+      "target": 17,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 70,
+      "target": 19,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 70,
+      "target": 24,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 70,
+      "target": 26,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 70,
+      "target": 27,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 70,
+      "target": 30,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 70,
+      "target": 42,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 70,
+      "target": 44,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
       "source": 71,
-      "target": 32,
+      "target": 5,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 6,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 7,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 8,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 14,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 19,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 21,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 23,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 24,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 25,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 27,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 28,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 44,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 71,
+      "target": 51,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
       "source": 72,
-      "target": 33,
+      "target": 7,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
       "source": 73,
-      "target": 36,
+      "target": 9,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 73,
+      "target": 31,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
@@ -2627,50 +2733,113 @@
       "weight": 1
     },
     {
-      "source": 74,
-      "target": 44,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 74,
-      "target": 45,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 74,
+      "source": 73,
       "target": 46,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
-      "source": 74,
-      "target": 49,
-      "type": "CITED_BY",
-      "color": "#a855f7",
-      "weight": 1
-    },
-    {
-      "source": 74,
+      "source": 73,
       "target": 51,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
-      "source": 74,
+      "source": 73,
       "target": 52,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     },
     {
+      "source": 73,
+      "target": 58,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 73,
+      "target": 59,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 73,
+      "target": 61,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 74,
+      "target": 9,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 74,
+      "target": 35,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 74,
+      "target": 36,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 74,
+      "target": 38,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
       "source": 75,
-      "target": 54,
+      "target": 13,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 75,
+      "target": 27,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 76,
+      "target": 13,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 76,
+      "target": 22,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 76,
+      "target": 41,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 76,
+      "target": 52,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
@@ -2683,18 +2852,319 @@
       "weight": 1
     },
     {
-      "source": 77,
+      "source": 76,
+      "target": 57,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 76,
       "target": 58,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 76,
+      "target": 63,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 77,
+      "target": 13,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 77,
+      "target": 18,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 77,
+      "target": 22,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 77,
+      "target": 27,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 77,
+      "target": 51,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 78,
+      "target": 16,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 79,
+      "target": 17,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 79,
+      "target": 31,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 80,
+      "target": 18,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 81,
+      "target": 22,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 82,
+      "target": 22,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 83,
+      "target": 32,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 84,
+      "target": 32,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 85,
+      "target": 33,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 86,
+      "target": 34,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 87,
+      "target": 39,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 87,
+      "target": 44,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 88,
+      "target": 40,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 88,
+      "target": 48,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 88,
+      "target": 52,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 88,
+      "target": 53,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 88,
+      "target": 55,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 88,
+      "target": 58,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 88,
+      "target": 59,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 88,
+      "target": 60,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 89,
+      "target": 43,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 90,
+      "target": 43,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 90,
+      "target": 48,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 90,
+      "target": 60,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 91,
+      "target": 49,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 91,
+      "target": 50,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 91,
+      "target": 51,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 91,
+      "target": 54,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 91,
+      "target": 57,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 91,
+      "target": 58,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 92,
+      "target": 53,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 93,
+      "target": 56,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 94,
+      "target": 61,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 95,
+      "target": 62,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 96,
+      "target": 63,
+      "type": "CITED_BY",
+      "color": "#a855f7",
+      "weight": 1
+    },
+    {
+      "source": 97,
+      "target": 64,
       "type": "CITED_BY",
       "color": "#a855f7",
       "weight": 1
     }
   ],
   "meta": {
-    "topic_count": 59,
-    "author_count": 19,
-    "gap_count": 40,
-    "edge_count": 142,
+    "topic_count": 65,
+    "author_count": 33,
+    "gap_count": 34,
+    "edge_count": 178,
     "domains": [
       "identity",
       "intune",

@@ -10,7 +10,7 @@ conflicts:
 - '[CONFLICT: The existing entry mentions "Expedite polices" but does not provide
   further details. The new source explains that it refers to a feature allowing administrators
   to prioritize the installation of specific quality updates on devices.]'
-context_note: Windows Autopatch is part of the intune domain. Synthesised from 4 community
+context_note: Windows Autopatch is part of the intune domain. Synthesised from 5 community
   sources.
 domain: intune
 gaps: []
