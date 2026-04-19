@@ -35,8 +35,21 @@ async def get_index():
 
 @app.get("/api/health")
 async def health():
+    import yaml
     index = load_index()
-    return {"status": "ok", "topics": len(index)}
+    raw_dir = BASE_DIR / "raw"
+    processed = BASE_DIR / "raw" / ".processed.txt"
+    articles_crawled = len(list(raw_dir.glob("*.md"))) if raw_dir.exists() else 0
+    articles_processed = len(processed.read_text().splitlines()) if processed.exists() else 0
+    gaps_file = BASE_DIR / "wiki" / "_gaps.md"
+    gaps = gaps_file.read_text().count("| `") if gaps_file.exists() else 0
+    return {
+        "status": "ok",
+        "topics": len(index),
+        "articles_crawled": articles_crawled,
+        "articles_processed": articles_processed,
+        "gaps": gaps,
+    }
 
 
 @app.get("/api/graph")
