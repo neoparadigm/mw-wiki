@@ -98,14 +98,14 @@ MW·Wiki returns:
 
 Every question goes through 6 stages:
 
-1. **Route** — keyword match to topic slugs, no API cost
-2. **Retrieve** — load topic files, check staleness
-3. **Raw fallback** — search unindexed `/raw/` articles for additional context
-4. **Context engineering** — pull related topics (200 word summaries) and prerequisite topics (150 word summaries) from the knowledge graph
-5. **Synthesise** — single Claude Sonnet API call with full cited context
-6. **Validate** — citation check, hallucination guard
+1. **Route** - keyword match to topic slugs, no API cost
+2. **Retrieve** - load topic files, check staleness
+3. **Raw fallback** - search unindexed `/raw/` articles for additional context
+4. **Context engineering** - pull related topics (200 word summaries) and prerequisite topics (150 word summaries) from the knowledge graph
+5. **Synthesise** - single Claude Sonnet API call with full cited context
+6. **Validate** - citation check, hallucination guard
 
-If the wiki has partial coverage — it answers what it knows and extends with Microsoft documentation knowledge, clearly labelled. If it has no coverage — it answers fully from Microsoft documentation knowledge and logs the question as a gap.
+If the wiki has partial coverage - it answers what it knows and extends with Microsoft documentation knowledge, clearly labelled. If it has no coverage - it answers fully from Microsoft documentation knowledge and logs the question as a gap.
 
 ---
 
