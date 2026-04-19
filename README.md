@@ -73,7 +73,7 @@ It crawls a curated set of community blogs, distils each article into structured
 
 > *"Most AI tools retrieve context on demand by searching documents. MW·Wiki maintains long-lived knowledge instead - relationships are explicit, topics accumulate over time, and the graph compounds rather than starting cold every session."*
 
-**This is not RAG.** Articles are not chunked into fragments and retrieved by similarity. They are distilled into owned, structured topic nodes — plain Markdown files you can read, edit, and contribute to directly. The knowledge graph is the product.
+**This is not RAG.** Articles are not chunked into fragments and retrieved by similarity. They are distilled into owned, structured topic nodes - plain Markdown files you can read, edit, and contribute to directly. The knowledge graph is the product.
 
 
 ## What It Does
