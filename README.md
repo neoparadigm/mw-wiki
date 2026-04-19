@@ -32,8 +32,10 @@ MW·Wiki is the answer to both problems.
 
 ## Get Started in 5 Minutes
 
+
 ```bash
-# 1. Clone — the knowledge base comes pre-built
+
+# 1. Clone - the knowledge base comes pre-built
 git clone https://github.com/neoparadigm/mw-wiki.git
 cd mw-wiki
 
@@ -42,11 +44,19 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-# 3. Set your Anthropic API key
+# 3. Set your Anthropic API key (or use --local for Ollama, free)
 export ANTHROPIC_API_KEY=sk-ant-...
 
 # 4. Serve
 python3 wiki.py serve
+# Open http://localhost:8000
+
+# Ask from CLI
+python3 wiki.py ask "How do I block device code flow in Conditional Access?"
+
+# Local mode - no API key needed, requires Ollama running
+python3 wiki.py serve --local
+
 ```
 
 Open **http://localhost:8000** — ask your first question.
