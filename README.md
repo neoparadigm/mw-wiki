@@ -2,7 +2,7 @@
 
 <img src="https://img.shields.io/badge/Modern%20Workplace-Knowledge%20Base-c0392b?style=for-the-badge&labelColor=1a1612" alt="MW·Wiki"/>
 
-# MW·Wiki
+# MW·Wiki - The Modern Workplace Community Second Brain
 
 **The answer LLMs can't give you - current, cited, and community-verified.**
 
@@ -70,6 +70,13 @@ It crawls a curated set of community blogs, distils each article into structured
 
 You ask a question about Modern Workplace. MW·Wiki finds the most relevant topic files from the corpus, makes a single API call to Claude, and returns a cited answer - every claim attributed to the specific blog post and author that covers it.
 
+- **Classifies** every article with a two-stage pipeline: keyword scoring → LLM verification (Ollama, local, zero cost)
+- **Synthesises** articles into structured topic files — one file per topic, merging knowledge from multiple authors, max 6 sources per topic
+- **Detects conflicts** — surfaces where the community disagrees, never silently blends
+- **Builds a knowledge graph** — topics, authors, and concepts connected by typed edges (REQUIRES, CONTRADICTS, CITED_BY)
+- **Enriches** every topic with related topics, prerequisites, and context notes
+- **Gracefully degrades** — if the wiki doesn't have coverage, it tells you and fills the gap from Microsoft documentation knowledge, clearly labelled
+
 ```
 You ask: "How do I block device code flow in Conditional Access?"
 
@@ -87,6 +94,19 @@ MW·Wiki returns:
   ★★  Jeffrey Appel — Storm-2372 Attack Defence (2025)
 ```
 
+## Query pipeline
+
+Every question goes through 6 stages:
+
+1. **Route** — keyword match to topic slugs, no API cost
+2. **Retrieve** — load topic files, check staleness
+3. **Raw fallback** — search unindexed `/raw/` articles for additional context
+4. **Context engineering** — pull related topics (200 word summaries) and prerequisite topics (150 word summaries) from the knowledge graph
+5. **Synthesise** — single Claude Sonnet API call with full cited context
+6. **Validate** — citation check, hallucination guard
+
+If the wiki has partial coverage — it answers what it knows and extends with Microsoft documentation knowledge, clearly labelled. If it has no coverage — it answers fully from Microsoft documentation knowledge and logs the question as a gap.
+
 ---
 
 ## How It Works
@@ -101,7 +121,12 @@ Inspired by [Andrej Karpathy's LLM Wiki](https://github.com/karpathy) concept-st
 
 The end result
 
-<img width="1866" height="642" alt="image" src="https://github.com/user-attachments/assets/e95b0408-cdd1-43a5-a746-3fd03c53b5d3" />
+<img width="1450" height="675" alt="image" src="https://github.com/user-attachments/assets/6a4fe918-00b4-40fa-bede-b660242e0c03" />
+
+<img width="1902" height="968" alt="image" src="https://github.com/user-attachments/assets/deb5dc10-e5c7-4883-b7cd-69fec2ab3810" />
+
+
+
 
 
 
