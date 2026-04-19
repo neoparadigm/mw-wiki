@@ -72,7 +72,7 @@ You ask a question about Modern Workplace. MW·Wiki finds the most relevant topi
 
 - **Classifies** every article with a two-stage pipeline: keyword scoring → LLM verification (Ollama, local, zero cost)
 - **Synthesises** articles into structured topic files — one file per topic, merging knowledge from multiple authors, max 6 sources per topic
-- **Detects conflicts** — surfaces where the community disagrees, never silently blends
+- **Detects conflicts** - surfaces where the community disagrees, never silently blends
 - **Builds a knowledge graph** — topics, authors, and concepts connected by typed edges (REQUIRES, CONTRADICTS, CITED_BY)
 - **Enriches** every topic with related topics, prerequisites, and context notes
 - **Gracefully degrades** — if the wiki doesn't have coverage, it tells you and fills the gap from Microsoft documentation knowledge, clearly labelled
@@ -89,9 +89,9 @@ MW·Wiki returns:
   Code Flow Restriction, 2025].
 
   SOURCES
-  ★★★ Daniel Chronlund — CA Policy Design Baseline (2024)
-  ★★  Jan Bakker — How to restrict Device Code Flow (2025)
-  ★★  Jeffrey Appel — Storm-2372 Attack Defence (2025)
+  ★★★ Daniel Chronlund - CA Policy Design Baseline (2024)
+  ★★  Jan Bakker - How to restrict Device Code Flow (2025)
+  ★★  Jeffrey Appel - Storm-2372 Attack Defence (2025)
 ```
 
 ## Query pipeline
