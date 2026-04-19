@@ -91,7 +91,7 @@ MW·Wiki returns:
 
 ## How It Works
 
-Inspired by [Andrej Karpathy's LLM Wiki](https://github.com/karpathy) concept — structured knowledge maintained by an LLM librarian, not chunks retrieved from a vector database.
+Inspired by [Andrej Karpathy's LLM Wiki](https://github.com/karpathy) concept-structured knowledge maintained by an LLM librarian, not chunks retrieved from a vector database.
 
 <img width="1440" height="1736" alt="image" src="https://github.com/user-attachments/assets/7c1af603-0d9d-4710-bfa4-91c61299a168" />
 
